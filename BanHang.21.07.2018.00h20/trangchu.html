@@ -25,12 +25,72 @@
     <link rel="stylesheet" href="css/sanpham.css">
     <!-- font cho tin tức -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:300:400' rel='stylesheet' type='text/css'>
+    <!-- animation -->
+    <link rel="stylesheet" href="css/animate.css">
 
 </head>
 
 <body>
     <!-- Phần ảnh hiển thị  -->
-    <img id="phanhienthi" src="http://kiotso1.com/storage_images//laydygaga/Sanpham/BannerSlideShow.jpg" alt="">
+    <!-- <img id="phanhienthi" src="http://kiotso1.com/storage_images//laydygaga/Sanpham/BannerSlideShow.jpg" alt=""> -->
+    <header id="header">
+        <div id="sub_header">
+            <div class="container" style="">
+                <div class="col-sm-12">
+                    <div class="beta-products-list">
+                        <div id="sandbox">
+                            <ul id="moodular">
+                                <li>
+                                    <a href="#">
+                                        <p style="background-image: url('images/tintuc/tintuc1.jpg'); background-size: 100% 100%;"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et quam ultricies arcu eleifend lacinia. Duis risus nulla, bibendum a euismod at, malesuada at justo. Nullam suscipit commodo pellentesque. Integer </span></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p style="background-image: url('images/tintuc/tintuc2.jpg');"><span>Quisque quis ante in quam malesuada gravida vel bibendum lorem. Praesent pellentesque blandit dui, eget rutrum odio molestie non. Mauris dictum diam congue nisi tincidunt vestibulum.</span></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p style="background-image: url('images/tintuc/tintuc3.jpg');"><span>Proin rhoncus lectus quis odio ornare id tempus lectus bibendum. Vivamus luctus orci vel diam feugiat non tincidunt eros varius. Pellentesque viverra, tortor ut varius ultricies, felis leo laoreet dolor,.</span></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p style="background-image: url('images/tintuc/tintuc4.jpg');"><span>Phasellus pretium magna at neque molestie adipiscing. Fusce felis turpis, porttitor ac pellentesque ut, vulputate at nisi. Etiam pharetra rhoncus aliquam. Duis libero arcu, tempus eget adipiscing quis, tempor vitae turpis. Quisque volutpat, diam sed consequat vehicula.</span></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p style="background-image: url('images/tintuc/tintuc5.jpg');"><span>Phasellus ante urna, pharetra consectetur hendrerit eget, rutrum cursus urna. Sed convallis, nisi sit amet feugiat rhoncus, nulla diam consequat arcu, et fringilla elit augue nec enim. Maecenas ac nibh neque, ut malesuada leo. In interdum quam hendrerit orci euismod euismod.</span></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <p style="background-image: url('images/tintuc/tintuc6.jpg');"><span>Vestibulum consectetur, urna vel laoreet auctor, turpis erat congue eros, vitae mollis enim dui ut lectus. Praesent semper sagittis tellus, at facilisis risus ornare ut. Mauris venenatis fermentum tempus. </span></p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p class="row">
+                                <ul id="pagination" class="pagination">
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var sandbox = document.getElementById('sandbox');
+            console.log(sandbox);
+
+            sandbox.classList.add('animated');
+            sandbox.classList.add('zoomIn');
+            sandbox.style.animationDuration = "3s";
+        }, false);
+    </script>
     <!-- xong phần ảnh hiển thị -->
     <!-- phần menu chính -->
     <nav id="annavbar" class="navbar navbar-inverse navbar-md navbar-fixed-top">
@@ -206,9 +266,36 @@
     <div id="nhomTimKiemHang" class="row">
         <div class="container-fluid">
             <div class="col-xs-12 col-md-3">
-                <p class="textLogo">Thế giới mua sắm</p>
+                <p class="textLogo" id="thegioimuasam">Thế giới mua sắm</p>
             </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var thegioimuasam = document.getElementById('thegioimuasam');
+                    console.log(thegioimuasam);
+                    var trangthai = true;
+                    //bắt sự kiện khi người dùng cuộn chuột
+                    window.addEventListener('scroll', function() {
+                        if (window.pageYOffset > 200) {
+                            if (trangthai == true) {
+                                // trangthai = false;
+                                thegioimuasam.classList.add('animated');
+                                thegioimuasam.classList.add('slideInLeft');
+                                thegioimuasam.style.animationDuration = "3s";
+                                // setInterval(function() {
+                                //     thegioimuasam.classList.remove('animated');
+                                //     thegioimuasam.classList.remove('slideInLeft');
+                                //     thegioimuasam.classList.remove('infinite');
+                                //     thegioimuasam.classList.add('animated');
+                                //     thegioimuasam.classList.add('flash');
+                                //     thegioimuasam.classList.add('infinite');
+                                // }, 3000);
 
+                            }
+                        }
+                    })
+
+                }, false);
+            </script>
             <form method="get" action="#" name="timkiem">
                 <!-- <div class="col-xs-6 col-xs-offset-3"> -->
                 <div id="seachbox" class="col-xs-12 col-md-5">
@@ -248,7 +335,7 @@
                 </div>
             </form>
             <!-- Giỏ hàng -->
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-12 col-md-4" id="hieuunggiohang">
                 <div class="nhomGiohang">
 
                     <span id="iconLienHe" class="glyphicon glyphicon-phone-alt"> 0977-583-016 </span>
@@ -353,6 +440,24 @@
                 </div>
             </div>
             <!-- Xong giỏ hàng -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var hieuunggiohang = document.getElementById('hieuunggiohang');
+                    var trangthai = true;
+                    //bắt sự kiện khi người dùng cuộn chuột
+                    window.addEventListener('scroll', function() {
+                        if (window.pageYOffset > 200) {
+                            if (trangthai == true) {
+                                // trangthai = false;
+                                hieuunggiohang.classList.add('animated');
+                                hieuunggiohang.classList.add('slideInRight');
+                                hieuunggiohang.style.animationDuration = "3s";
+                            }
+                        }
+                    })
+
+                }, false);
+            </script>
         </div>
     </div>
     <!-- Xong nút tìm kiếm -->
@@ -820,26 +925,39 @@
 
                         </div>
                         <!-- tin tức -->
-                        <div class="col-sm-12">
+                        <!-- <div class="col-sm-12">
                             <div class="beta-products-list">
                                 <div id="sandbox">
                                     <ul id="moodular">
                                         <li>
-                                            <p style="background-image: url(images/tintuc/photo01.jpg);"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et quam ultricies arcu eleifend lacinia. Duis risus nulla, bibendum a euismod at, malesuada at justo. Nullam suscipit commodo pellentesque. Integer feugiat, orci sed tempor volutpat, ante ligula dignissim neque, sagittis egestas leo eros congue libero. Ut vulputate magna quis neque vehicula faucibus. Praesent a mauris felis, vitae pretium mauris. Vivamus iaculis dapibus est, ac convallis nisi facilisis at. Sed volutpat rutrum malesuada.</span></p>
+                                            <a href="#">
+                                                <p style="background-image: url(images/tintuc/photo01.jpg);"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et quam ultricies arcu eleifend lacinia. Duis risus nulla, bibendum a euismod at, malesuada at justo. Nullam suscipit commodo pellentesque. Integer feugiat, orci sed tempor volutpat, ante ligula dignissim neque, sagittis egestas leo eros congue libero. Ut vulputate magna quis neque vehicula faucibus. Praesent a mauris felis, vitae pretium mauris. Vivamus iaculis dapibus est, ac convallis nisi facilisis at. Sed volutpat rutrum malesuada.</span></p>
+                                            </a>
                                         </li>
                                         <li>
-                                            <p style="background-image: url(images/tintuc/photo02.jpg);"><span>Quisque quis ante in quam malesuada gravida vel bibendum lorem. Praesent pellentesque blandit dui, eget rutrum odio molestie non. Mauris dictum diam congue nisi tincidunt vestibulum. Etiam egestas leo nec diam iaculis suscipit. Nullam semper sagittis lorem et convallis. Fusce massa tellus, rutrum et hendrerit eget, varius ac tellus. Maecenas semper urna vel nunc interdum vitae dictum justo ullamcorper. Ut vel magna scelerisque massa ullamcorper posuere. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span></p>
+                                            <a href="#">
+                                                <p style="background-image: url(images/tintuc/photo02.jpg);"><span>Quisque quis ante in quam malesuada gravida vel bibendum lorem. Praesent pellentesque blandit dui, eget rutrum odio molestie non. Mauris dictum diam congue nisi tincidunt vestibulum. Etiam egestas leo nec diam iaculis suscipit. Nullam semper sagittis lorem et convallis. Fusce massa tellus, rutrum et hendrerit eget, varius ac tellus. Maecenas semper urna vel nunc interdum vitae dictum justo ullamcorper. Ut vel magna scelerisque massa ullamcorper posuere. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span></p>
+                                            </a>
                                         </li>
                                         <li>
-                                            <p style="background-image: url(images/tintuc/photo03.jpg);"><span>Proin rhoncus lectus quis odio ornare id tempus lectus bibendum. Vivamus luctus orci vel diam feugiat non tincidunt eros varius. Pellentesque viverra, tortor ut varius ultricies, felis leo laoreet dolor, et fermentum diam orci vitae libero. Nunc arcu metus, tempus id varius sed, suscipit ultrices turpis. Nullam ac pellentesque risus. Sed vehicula magna at velit varius a congue orci feugiat. Proin non venenatis nunc. Phasellus blandit vehicula dolor vitae euismod. Maecenas vitae lectus felis. Aliquam faucibus fringilla tincidunt. Suspendisse enim nisi, suscipit iaculis dignissim nec, ultrices ac augue.</span></li>
-                                        <li>
-                                            <p style="background-image: url(images/tintuc/photo04.jpg);"><span>Phasellus pretium magna at neque molestie adipiscing. Fusce felis turpis, porttitor ac pellentesque ut, vulputate at nisi. Etiam pharetra rhoncus aliquam. Duis libero arcu, tempus eget adipiscing quis, tempor vitae turpis. Quisque volutpat, diam sed consequat vehicula, lorem nisl consectetur dui, ut lacinia orci ipsum id arcu. Donec augue dui, dapibus non imperdiet eu, dictum in nulla. Integer in vehicula odio. Maecenas quis enim vitae augue lacinia scelerisque. Vivamus ullamcorper aliquet est aliquet faucibus. Aliquam fringilla, erat vitae faucibus viverra, odio sem blandit lectus, ac fringilla eros velit nec risus. Donec eu mi sed neque mattis suscipit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span></p>
+                                            <a href="#">
+                                                <p style="background-image: url(images/tintuc/photo03.jpg);"><span>Proin rhoncus lectus quis odio ornare id tempus lectus bibendum. Vivamus luctus orci vel diam feugiat non tincidunt eros varius. Pellentesque viverra, tortor ut varius ultricies, felis leo laoreet dolor, et fermentum diam orci vitae libero. Nunc arcu metus, tempus id varius sed, suscipit ultrices turpis. Nullam ac pellentesque risus. Sed vehicula magna at velit varius a congue orci feugiat. Proin non venenatis nunc. Phasellus blandit vehicula dolor vitae euismod. Maecenas vitae lectus felis. Aliquam faucibus fringilla tincidunt. Suspendisse enim nisi, suscipit iaculis dignissim nec, ultrices ac augue.</span></p>
+                                            </a>
                                         </li>
                                         <li>
-                                            <p style="background-image: url(images/tintuc/photo05.jpg);"><span>Phasellus ante urna, pharetra consectetur hendrerit eget, rutrum cursus urna. Sed convallis, nisi sit amet feugiat rhoncus, nulla diam consequat arcu, et fringilla elit augue nec enim. Maecenas ac nibh neque, ut malesuada leo. In interdum quam hendrerit orci euismod euismod. Nunc vitae lacinia ipsum. Nullam justo urna, ultrices id placerat quis, feugiat in tortor. Ut tincidunt viverra nisl, eu aliquet eros suscipit fringilla. Phasellus vitae elementum odio. Fusce magna tellus, luctus faucibus auctor ut, dapibus vel eros. Fusce malesuada lorem eu massa lobortis non auctor ligula mollis. Donec vitae pretium nisi. Ut vehicula dolor eget arcu laoreet ultricies congue dui porttitor. Vivamus a nibh odio, sit amet pharetra leo. Donec eget tellus vitae nisl dapibus interdum.</span></p>
+                                            <a href="#">
+                                                <p style="background-image: url(images/tintuc/photo04.jpg);"><span>Phasellus pretium magna at neque molestie adipiscing. Fusce felis turpis, porttitor ac pellentesque ut, vulputate at nisi. Etiam pharetra rhoncus aliquam. Duis libero arcu, tempus eget adipiscing quis, tempor vitae turpis. Quisque volutpat, diam sed consequat vehicula, lorem nisl consectetur dui, ut lacinia orci ipsum id arcu. Donec augue dui, dapibus non imperdiet eu, dictum in nulla. Integer in vehicula odio. Maecenas quis enim vitae augue lacinia scelerisque. Vivamus ullamcorper aliquet est aliquet faucibus. Aliquam fringilla, erat vitae faucibus viverra, odio sem blandit lectus, ac fringilla eros velit nec risus. Donec eu mi sed neque mattis suscipit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span></p>
+                                            </a>
                                         </li>
                                         <li>
-                                            <p style="background-image: url(images/tintuc/photo06.jpg);"><span>Vestibulum consectetur, urna vel laoreet auctor, turpis erat congue eros, vitae mollis enim dui ut lectus. Praesent semper sagittis tellus, at facilisis risus ornare ut. Mauris venenatis fermentum tempus. Proin malesuada laoreet odio, ac vulputate mi faucibus sed. Quisque rutrum accumsan mi, non pretium est lacinia dapibus. Etiam leo dui, pharetra in porta sit amet, ullamcorper a augue. Quisque vehicula quam quis arcu blandit et ullamcorper diam imperdiet. Duis venenatis pretium mi, ut ornare diam luctus a. In vel purus et risus venenatis facilisis vel eget nunc. Sed ac erat ante. Ut ullamcorper sodales turpis. Morbi sagittis ornare velit eu bibendum. Nulla facilisi. Cras odio nibh, tincidunt ac feugiat quis, laoreet sed diam. Curabitur ullamcorper eleifend tellus.</span></p>
+                                            <a href="#">
+                                                <p style="background-image: url(images/tintuc/photo05.jpg);"><span>Phasellus ante urna, pharetra consectetur hendrerit eget, rutrum cursus urna. Sed convallis, nisi sit amet feugiat rhoncus, nulla diam consequat arcu, et fringilla elit augue nec enim. Maecenas ac nibh neque, ut malesuada leo. In interdum quam hendrerit orci euismod euismod. Nunc vitae lacinia ipsum. Nullam justo urna, ultrices id placerat quis, feugiat in tortor. Ut tincidunt viverra nisl, eu aliquet eros suscipit fringilla. Phasellus vitae elementum odio. Fusce magna tellus, luctus faucibus auctor ut, dapibus vel eros. Fusce malesuada lorem eu massa lobortis non auctor ligula mollis. Donec vitae pretium nisi. Ut vehicula dolor eget arcu laoreet ultricies congue dui porttitor. Vivamus a nibh odio, sit amet pharetra leo. Donec eget tellus vitae nisl dapibus interdum.</span></p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <p style="background-image: url(images/tintuc/photo06.jpg);"><span>Vestibulum consectetur, urna vel laoreet auctor, turpis erat congue eros, vitae mollis enim dui ut lectus. Praesent semper sagittis tellus, at facilisis risus ornare ut. Mauris venenatis fermentum tempus. Proin malesuada laoreet odio, ac vulputate mi faucibus sed. Quisque rutrum accumsan mi, non pretium est lacinia dapibus. Etiam leo dui, pharetra in porta sit amet, ullamcorper a augue. Quisque vehicula quam quis arcu blandit et ullamcorper diam imperdiet. Duis venenatis pretium mi, ut ornare diam luctus a. In vel purus et risus venenatis facilisis vel eget nunc. Sed ac erat ante. Ut ullamcorper sodales turpis. Morbi sagittis ornare velit eu bibendum. Nulla facilisi. Cras odio nibh, tincidunt ac feugiat quis, laoreet sed diam. Curabitur ullamcorper eleifend tellus.</span></p>
+                                            </a>
                                         </li>
                                     </ul>
                                     <p class="row">
@@ -848,7 +966,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- end tin tức -->
                     </div>
                     <!-- end section with sidebar and main content -->
