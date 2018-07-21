@@ -9,7 +9,7 @@
     }
 }
 
-#annavbar{
+#annavbar {
     background-color: #e2ece580;
 }
 
@@ -22,7 +22,6 @@
 .navbar-inverse .navbar-brand {
     color: green;
 }
-
 
 .navbar .collapse ul li ul li a {
     /* text-transform: uppercase; */
@@ -100,6 +99,8 @@
 
 
 /* ###### Css tìm kiếm ###### */
+
+
 /* ########################## */
 
 #nhomTimKiemHang {
@@ -130,12 +131,14 @@
 #gioHang {
     padding-right: 5%;
     font-size: 6em;
-    color: #0b9640; 
+    color: #0b9640;
     margin-top: 5%;
 }
 
 
 /* ########## Giỏ hàng ########### */
+
+
 /* ############################### */
 
 .cart {
@@ -201,8 +204,11 @@
     text-align: center;
     line-height: 15px
 }
+
+
 /* nút đặt hàng */
-.btn btn-default:hover{
+
+.btn btn-default:hover {
     background-color: #192b5e;
 }
 
@@ -212,7 +218,9 @@
     padding-right: 70px
 }
 
+
 /* giá tiền  */
+
 .cart-item .media-body>span {
     display: block;
     margin-bottom: 5px
@@ -221,7 +229,6 @@
 .cart-item-amount span {
     color: #f90
 }
- 
 
 .cart-total-value {
     color: #f90
@@ -244,9 +251,14 @@
     color: #fff
 }
 
-
+/* ########### phần đường dẫn trang ############# */
+#bc1{
+    margin: auto;
+}
 
 /* Nội dung 1 phần slide */
+
+
 /* ###################### */
 
 #khauHieuDau {
@@ -524,11 +536,215 @@ a.carousel-control.right {
     padding-right: 0;
 }
 
+/* ##################### Nội dung 2 phân thông tin thương hiệu ########################### */
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.serviceBox {
+    clear: both;
+    height: 300px;
+    padding: 15px 15px 25px;
+    margin: 40px auto 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #90a3a3;
+    border-bottom-width: 3px;
+    position: relative;
+}
+
+.serviceBox ul {
+    text-align: left;
+}
+
+.serviceBox ul li {
+    text-align: center;
+    font-weight: bold;
+}
+
+.serviceBox .service-icon {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 4px;
+    border: 1px solid #0fc7c7;
+    background: #fff;
+    color: #008b8b;
+    margin: -48px auto 20px;
+}
+
+.serviceBox .service-icon i {
+    display: inline-block;
+    font-size: 3em;
+    line-height: 70px;
+}
+
+.serviceBox:hover .service-icon {
+    background: #008b8b;
+    color: #fff;
+}
+
+.serviceBox h3 {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.7px;
+    position: relative;
+    margin: 20px 0 10px 0;
+    padding: 10px 0;
+    background: none;
+    overflow: hidden;
+    color: #555;
+}
+.serviceBox p{
+    text-align: left;
+    padding-left: 10%;
+}
+
+.serviceBox h3:before {
+    content: "";
+    background: #008b8b;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}
+
+.serviceBox h3:after {
+    content: "";
+    background: #008b8b;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+}
+
+.serviceBox:hover h3:after,
+.serviceBox:hover h3:before {
+    width: 100%;
+}
+
+.serviceBox,
+.service-icon,
+.serviceBox .service-icon i,
+.serviceBox h3:before,
+.serviceBox h3:after,
+.serviceBox .read {
+    transition: all 0.5s ease-in-out;
+}
+
+.serviceBox p {
+    font-size: 14px;
+    margin: 0 0 15px;
+    color: black;
+}
+
+.serviceBox .read {
+    color: #008b8b;
+}
+
+@media screen and (max-width: 990px) {
+    .serviceBox {
+        margin: 60px auto 0;
+    }
+}
+
 /* ################ Nội dung phần 3 hàng khuyến mãi ################ */
-#tieuDeHangKhuyenMai h2{
+
+#tieuDeHangKhuyenMai h2 {
     text-align: center;
     margin-left: 10%;
 }
+
+/* ############# Tìm kiếm hàng hóa theo sản phẩm tương ứng ######## */
+#timKiemHangTheoTen {
+    text-align: center;
+}
+#timKiemHangTheoTen label{
+    font-family: 'Arima Madurai', cursive;
+}
+
+#timKiemHangTheoTen option{
+    font-family: 'Arima Madurai', cursive;
+}
+/* phần nội dung tìm được */
+img {
+            max-width: 100%;
+        }
+        * {
+            transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -webkit-transition: all .5s ease
+        }
+
+        .my-list {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #f5efef;
+            float: left;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 2px 3px 0px #e4d8d8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .my-list h3 {
+            text-align: left;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 21px;
+            margin: 0px;
+            padding: 0px;
+            border-bottom: 1px solid #ccc4c4;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+        }
+
+        .my-list span {
+            float: left;
+            font-weight: bold;
+        }
+
+        .my-list span:last-child {
+            float: right;
+        }
+
+        .my-list .offer {
+            width: 100%;
+            float: left;
+            margin: 5px 0;
+            border-top: 1px solid #ccc4c4;
+            margin-top: 5px;
+            padding-top: 5px;
+            color: #b61f1f;
+        }
+
+        .detail {
+            position: absolute;
+            top: -107%;
+            left: 0;
+            text-align: center;
+            background: #fff;
+            height: 100%;
+            width: 100%;
+
+        }
+
+        .my-list:hover .detail {
+            top: 0;
+        }
 
 /* ######################### Footer ############################### */
 
@@ -695,6 +911,7 @@ a.carousel-control.right {
     font-size: 1.5em;
 }
 
+
 /* ############################### */
 
 
@@ -813,4 +1030,10 @@ a.carousel-control.right {
 #gio .cart-body {
     opacity: 0;
     visibility: hidden;
+}
+
+#phanhienthi {
+    margin-top: 4%;
+    width: 100%;
+    height: 300px;
 }
