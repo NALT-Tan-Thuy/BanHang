@@ -7,10 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trang chủ</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Dùng cho danh mục tìm kiếm -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Chữ cho "Thế giới mua sắm" -->
     <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
     <!-- Font hiển thị "Tên của shop trên Menu chính" -->
@@ -19,24 +15,22 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <!-- font cho thẻ a Menu chính -->
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright|Dancing+Script" rel="stylesheet">
-
-
     <!-- font awesome cho các nút footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Hình như cho slide -->
-    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- css cho tin tức -->
+    <link rel="stylesheet" href="css/tintuc.css">
     <!-- chèn link css trang chủ -->
     <link rel="stylesheet" href="css/trangchu.css">
     <!-- Chèn css cho nội dung show sản phẩm -->
     <link rel="stylesheet" href="css/sanpham.css">
-    <style>
-    </style>
+    <!-- font cho tin tức -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300:400' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
     <!-- Phần ảnh hiển thị  -->
-    <img style="margin-top: 4%; width: 100%; height: 300px;" src="http://kiotso1.com/storage_images//laydygaga/Sanpham/BannerSlideShow.jpg"
-        alt="">
+    <img id="phanhienthi" src="http://kiotso1.com/storage_images//laydygaga/Sanpham/BannerSlideShow.jpg" alt="">
     <!-- xong phần ảnh hiển thị -->
     <!-- phần menu chính -->
     <nav id="annavbar" class="navbar navbar-inverse navbar-md navbar-fixed-top">
@@ -195,8 +189,6 @@
                         <a href="#">
                             <span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a>
                     </li>
-                    
-
                     <!-- <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <span>Xin chào: Tên hiển thị</span> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -250,22 +242,11 @@
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <span class="glyphicon glyphicon-search"></span>
-                            </button>
+                        </button>
                         </span>
                     </div>
                 </div>
             </form>
-            <script>
-                $(document).ready(function (e) {
-                    $('.search-panel .dropdown-menu').find('a').click(function (e) {
-                        e.preventDefault();
-                        var param = $(this).attr("href").replace("#", "");
-                        var concept = $(this).text();
-                        $('.search-panel span#search_concept').text(concept);
-                        $('.input-group #search_param').val(param);
-                    });
-                });
-            </script>
             <!-- Giỏ hàng -->
             <div class="col-xs-12 col-md-4">
                 <div class="nhomGiohang">
@@ -388,28 +369,22 @@
                 <div id="simple-content-carousel" class="carousel flexible default slide" data-ride="carousel" data-interval="5000" data-wrap="true">
                     <div class="items">
                         <div class="flex-item">
-                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item1.jpg"
-                                alt="">
+                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item1.jpg" alt="">
                         </div>
                         <div class="flex-item">
-                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item2.jpg"
-                                alt="">
+                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item2.jpg" alt="">
                         </div>
                         <div class="flex-item">
-                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item3.jpg"
-                                alt="">
+                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item3.jpg" alt="">
                         </div>
                         <div class="flex-item">
-                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg"
-                                alt="">
+                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg" alt="">
                         </div>
                         <div class="flex-item">
-                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg"
-                                alt="">
+                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg" alt="">
                         </div>
                         <div class="flex-item">
-                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg"
-                                alt="">
+                            <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg" alt="">
                         </div>
                     </div>
                     <div class="carousel-inner" role="listbox">
@@ -417,20 +392,17 @@
                             <div class="row">
                                 <div class="col-xs-4 left">
                                     <div class="flex-item">
-                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item1.jpg"
-                                            alt="">
+                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item1.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xs-4 center">
                                     <div class="flex-item">
-                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item2.jpg"
-                                            alt="">
+                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item2.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xs-4 right">
                                     <div class="flex-item">
-                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item3.jpg"
-                                            alt="">
+                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item3.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -439,20 +411,17 @@
                             <div class="row">
                                 <div class="col-xs-4 left">
                                     <div class="flex-item">
-                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg"
-                                            alt="">
+                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xs-4 center">
                                     <div class="flex-item">
-                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg"
-                                            alt="">
+                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xs-4 right">
                                     <div class="flex-item">
-                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg"
-                                            alt="">
+                                        <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -523,8 +492,7 @@
 
                                             <div class="single-item-header">
                                                 <a href="product.html">
-                                                    <img height="250px;" src="https://s3-ap-southeast-1.amazonaws.com/misskick/wp-content/uploads/2017/12/05185930/cach-mac-quan-ao-dep-danh-cho-nang-co-huong.jpg"
-                                                        alt="">
+                                                    <img height="250px;" src="https://s3-ap-southeast-1.amazonaws.com/misskick/wp-content/uploads/2017/12/05185930/cach-mac-quan-ao-dep-danh-cho-nang-co-huong.jpg" alt="">
 
                                                 </a>
                                             </div>
@@ -618,8 +586,7 @@
 
                                             <div class="single-item-header">
                                                 <a href="product.html">
-                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                        alt="">
+                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
@@ -648,8 +615,7 @@
 
                                             <div class="single-item-header">
                                                 <a href="product.html">
-                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                        alt="">
+                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
@@ -678,8 +644,7 @@
 
                                             <div class="single-item-header">
                                                 <a href="product.html">
-                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                        alt="">
+                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
@@ -708,8 +673,7 @@
 
                                             <div class="single-item-header">
                                                 <a href="product.html">
-                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                        alt="">
+                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
@@ -742,8 +706,7 @@
 
                                             <div class="single-item-header">
                                                 <a href="product.html">
-                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                        alt="">
+                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
@@ -772,8 +735,7 @@
 
                                             <div class="single-item-header">
                                                 <a href="product.html">
-                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                        alt="">
+                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
@@ -802,8 +764,7 @@
 
                                             <div class="single-item-header">
                                                 <a href="product.html">
-                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                        alt="">
+                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
@@ -832,8 +793,7 @@
 
                                             <div class="single-item-header">
                                                 <a href="product.html">
-                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                        alt="">
+                                                    <img height="250px" ; src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
@@ -857,7 +817,39 @@
                                 </div>
                             </div>
                             <!-- .beta-products-list -->
+
                         </div>
+                        <!-- tin tức -->
+                        <div class="col-sm-12">
+                            <div class="beta-products-list">
+                                <div id="sandbox">
+                                    <ul id="moodular">
+                                        <li>
+                                            <p style="background-image: url(images/tintuc/photo01.jpg);"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et quam ultricies arcu eleifend lacinia. Duis risus nulla, bibendum a euismod at, malesuada at justo. Nullam suscipit commodo pellentesque. Integer feugiat, orci sed tempor volutpat, ante ligula dignissim neque, sagittis egestas leo eros congue libero. Ut vulputate magna quis neque vehicula faucibus. Praesent a mauris felis, vitae pretium mauris. Vivamus iaculis dapibus est, ac convallis nisi facilisis at. Sed volutpat rutrum malesuada.</span></p>
+                                        </li>
+                                        <li>
+                                            <p style="background-image: url(images/tintuc/photo02.jpg);"><span>Quisque quis ante in quam malesuada gravida vel bibendum lorem. Praesent pellentesque blandit dui, eget rutrum odio molestie non. Mauris dictum diam congue nisi tincidunt vestibulum. Etiam egestas leo nec diam iaculis suscipit. Nullam semper sagittis lorem et convallis. Fusce massa tellus, rutrum et hendrerit eget, varius ac tellus. Maecenas semper urna vel nunc interdum vitae dictum justo ullamcorper. Ut vel magna scelerisque massa ullamcorper posuere. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span></p>
+                                        </li>
+                                        <li>
+                                            <p style="background-image: url(images/tintuc/photo03.jpg);"><span>Proin rhoncus lectus quis odio ornare id tempus lectus bibendum. Vivamus luctus orci vel diam feugiat non tincidunt eros varius. Pellentesque viverra, tortor ut varius ultricies, felis leo laoreet dolor, et fermentum diam orci vitae libero. Nunc arcu metus, tempus id varius sed, suscipit ultrices turpis. Nullam ac pellentesque risus. Sed vehicula magna at velit varius a congue orci feugiat. Proin non venenatis nunc. Phasellus blandit vehicula dolor vitae euismod. Maecenas vitae lectus felis. Aliquam faucibus fringilla tincidunt. Suspendisse enim nisi, suscipit iaculis dignissim nec, ultrices ac augue.</span></li>
+                                        <li>
+                                            <p style="background-image: url(images/tintuc/photo04.jpg);"><span>Phasellus pretium magna at neque molestie adipiscing. Fusce felis turpis, porttitor ac pellentesque ut, vulputate at nisi. Etiam pharetra rhoncus aliquam. Duis libero arcu, tempus eget adipiscing quis, tempor vitae turpis. Quisque volutpat, diam sed consequat vehicula, lorem nisl consectetur dui, ut lacinia orci ipsum id arcu. Donec augue dui, dapibus non imperdiet eu, dictum in nulla. Integer in vehicula odio. Maecenas quis enim vitae augue lacinia scelerisque. Vivamus ullamcorper aliquet est aliquet faucibus. Aliquam fringilla, erat vitae faucibus viverra, odio sem blandit lectus, ac fringilla eros velit nec risus. Donec eu mi sed neque mattis suscipit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span></p>
+                                        </li>
+                                        <li>
+                                            <p style="background-image: url(images/tintuc/photo05.jpg);"><span>Phasellus ante urna, pharetra consectetur hendrerit eget, rutrum cursus urna. Sed convallis, nisi sit amet feugiat rhoncus, nulla diam consequat arcu, et fringilla elit augue nec enim. Maecenas ac nibh neque, ut malesuada leo. In interdum quam hendrerit orci euismod euismod. Nunc vitae lacinia ipsum. Nullam justo urna, ultrices id placerat quis, feugiat in tortor. Ut tincidunt viverra nisl, eu aliquet eros suscipit fringilla. Phasellus vitae elementum odio. Fusce magna tellus, luctus faucibus auctor ut, dapibus vel eros. Fusce malesuada lorem eu massa lobortis non auctor ligula mollis. Donec vitae pretium nisi. Ut vehicula dolor eget arcu laoreet ultricies congue dui porttitor. Vivamus a nibh odio, sit amet pharetra leo. Donec eget tellus vitae nisl dapibus interdum.</span></p>
+                                        </li>
+                                        <li>
+                                            <p style="background-image: url(images/tintuc/photo06.jpg);"><span>Vestibulum consectetur, urna vel laoreet auctor, turpis erat congue eros, vitae mollis enim dui ut lectus. Praesent semper sagittis tellus, at facilisis risus ornare ut. Mauris venenatis fermentum tempus. Proin malesuada laoreet odio, ac vulputate mi faucibus sed. Quisque rutrum accumsan mi, non pretium est lacinia dapibus. Etiam leo dui, pharetra in porta sit amet, ullamcorper a augue. Quisque vehicula quam quis arcu blandit et ullamcorper diam imperdiet. Duis venenatis pretium mi, ut ornare diam luctus a. In vel purus et risus venenatis facilisis vel eget nunc. Sed ac erat ante. Ut ullamcorper sodales turpis. Morbi sagittis ornare velit eu bibendum. Nulla facilisi. Cras odio nibh, tincidunt ac feugiat quis, laoreet sed diam. Curabitur ullamcorper eleifend tellus.</span></p>
+                                        </li>
+                                    </ul>
+                                    <p class="row">
+                                        <ul id="pagination" class="pagination">
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end tin tức -->
                     </div>
                     <!-- end section with sidebar and main content -->
 
@@ -1020,6 +1012,40 @@
             </footer>
         </div>
         <!-- Xong phần cuối -->
+        <!-- Jquery -->
+        <script src="js/jquery-v3.3.1.js"></script>
+        <!-- JS Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(e) {
+                $('.search-panel .dropdown-menu').find('a').click(function(e) {
+                    e.preventDefault();
+                    var param = $(this).attr("href").replace("#", "");
+                    var concept = $(this).text();
+                    $('.search-panel span#search_concept').text(concept);
+                    $('.input-group #search_param').val(param);
+                });
+            });
+        </script>
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/core.js"></script>
+        <script src="js/fade.js"></script>
+        <script src="js/pagination.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#moodular').moodular({
+                    effects: 'fade',
+                    controls: 'pagination',
+                    timer: 500,
+                    step: 1,
+                    speed: 2000,
+                    easing: '',
+                    queue: true,
+                    pagination: $('#pagination')
+                });
+            });
+        </script>
 </body>
 
 </html>
