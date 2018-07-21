@@ -1,0 +1,61 @@
+#header {
+    background-image: url('../images/trangchu/anhshop.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-color: #aa62a9; */
+    /* background: transparent -webkit-linear-gradient(left top, #3f51b5, #ff4081); */
+    /* background: transparent -webkit-linear-gradient(left top, #575a6b, #ff4081); */
+    min-height: 100vmin;
+}
+
+#sub_header {
+    /* background-color: #33228fcc; */
+    background-color: #ff408199;
+    min-height: 100vmin;
+}
+
+#sandbox {
+    margin: 30px auto;
+    margin-top: 4em;
+    margin-bottom: 30px;
+    max-width: 900px;
+    position: relative;
+}
+
+#sandbox p {
+    margin-top: 30px;
+}
+
+#moodular {
+    overflow: hidden;
+}
+
+#moodular,
+#moodular li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+#moodular,
+#moodular li {
+    height: 500px;
+}
+
+#moodular li p {
+    display: block;
+    height: 500px;
+}
+
+#moodular li p span {
+    display: inline-block;
+    padding: 10px 10px;
+    color: #FFF;
+    margin: 10px;
+}
+
+#pagination {
+    position: absolute;
+    top: 480px;
+}
