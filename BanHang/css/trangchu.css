@@ -251,10 +251,13 @@
     color: #fff
 }
 
+
 /* ########### phần đường dẫn trang ############# */
-#bc1{
+
+#bc1 {
     margin: auto;
 }
+
 
 /* Nội dung 1 phần slide */
 
@@ -536,7 +539,9 @@ a.carousel-control.right {
     padding-right: 0;
 }
 
+
 /* ##################### Nội dung 2 phân thông tin thương hiệu ########################### */
+
 a:link {
     text-decoration: none;
 }
@@ -605,7 +610,8 @@ a:hover {
     overflow: hidden;
     color: #555;
 }
-.serviceBox p{
+
+.serviceBox p {
     text-align: left;
     padding-left: 10%;
 }
@@ -660,6 +666,7 @@ a:hover {
     }
 }
 
+
 /* ################ Nội dung phần 3 hàng khuyến mãi ################ */
 
 #tieuDeHangKhuyenMai h2 {
@@ -667,84 +674,91 @@ a:hover {
     margin-left: 10%;
 }
 
+
 /* ############# Tìm kiếm hàng hóa theo sản phẩm tương ứng ######## */
+
 #timKiemHangTheoTen {
     text-align: center;
 }
-#timKiemHangTheoTen label{
+
+#timKiemHangTheoTen label {
     font-family: 'Arima Madurai', cursive;
 }
 
-#timKiemHangTheoTen option{
+#timKiemHangTheoTen option {
     font-family: 'Arima Madurai', cursive;
 }
+
+
 /* phần nội dung tìm được */
+
 img {
-            max-width: 100%;
-        }
-        * {
-            transition: all .5s ease;
-            -moz-transition: all .5s ease;
-            -webkit-transition: all .5s ease
-        }
+    max-width: 100%;
+}
 
-        .my-list {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #f5efef;
-            float: left;
-            margin: 15px 0;
-            border-radius: 5px;
-            box-shadow: 2px 3px 0px #e4d8d8;
-            position: relative;
-            overflow: hidden;
-        }
+* {
+    transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -webkit-transition: all .5s ease
+}
 
-        .my-list h3 {
-            text-align: left;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 21px;
-            margin: 0px;
-            padding: 0px;
-            border-bottom: 1px solid #ccc4c4;
-            margin-bottom: 5px;
-            padding-bottom: 5px;
-        }
+.my-list {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f5efef;
+    float: left;
+    margin: 15px 0;
+    border-radius: 5px;
+    box-shadow: 2px 3px 0px #e4d8d8;
+    position: relative;
+    overflow: hidden;
+}
 
-        .my-list span {
-            float: left;
-            font-weight: bold;
-        }
+.my-list h3 {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 1px solid #ccc4c4;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
 
-        .my-list span:last-child {
-            float: right;
-        }
+.my-list span {
+    float: left;
+    font-weight: bold;
+}
 
-        .my-list .offer {
-            width: 100%;
-            float: left;
-            margin: 5px 0;
-            border-top: 1px solid #ccc4c4;
-            margin-top: 5px;
-            padding-top: 5px;
-            color: #b61f1f;
-        }
+.my-list span:last-child {
+    float: right;
+}
 
-        .detail {
-            position: absolute;
-            top: -107%;
-            left: 0;
-            text-align: center;
-            background: #fff;
-            height: 100%;
-            width: 100%;
+.my-list .offer {
+    width: 100%;
+    float: left;
+    margin: 5px 0;
+    border-top: 1px solid #ccc4c4;
+    margin-top: 5px;
+    padding-top: 5px;
+    color: #b61f1f;
+}
 
-        }
+.detail {
+    position: absolute;
+    top: -107%;
+    left: 0;
+    text-align: center;
+    background: #fff;
+    height: 100%;
+    width: 100%;
+}
 
-        .my-list:hover .detail {
-            top: 0;
-        }
+.my-list:hover .detail {
+    top: 0;
+}
+
 
 /* ######################### Footer ############################### */
 
