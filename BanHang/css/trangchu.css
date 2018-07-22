@@ -139,8 +139,9 @@
     float: left;
 }
 
-#seachbox {
+#searchbox {
     padding-top: 4em;
+    z-index: 3;
 }
 
 #iconLienHe {
@@ -292,6 +293,7 @@
     font-family: 'Pacifico', cursive;
     font-size: 70px;
     text-align: center;
+    z-index: -1;
 }
 
 h2 {
@@ -1268,4 +1270,13 @@ img {
 
 #header {
     min-height: 70vh;
+}
+
+#hieuunggiohang {
+    z-index: 2;
+}
+
+.fa-arrow-circle-up {
+    font-size: 2em;
+    line-height: 60px;
 }
