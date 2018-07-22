@@ -97,6 +97,19 @@
     color: rgb(65, 63, 104);
 }
 
+/* ########## slide hình ảnh hoạt động ############ */
+#myCarousel .nav a small {
+	display:block;
+}
+#myCarousel .nav {
+	background:#eee;
+}
+.nav a {
+	border-radius: 0px;
+}
+#myCarousel h1 {
+	color:#FC0;
+}
 
 /* ###### Css tìm kiếm ###### */
 
@@ -250,7 +263,9 @@
     background: #3a5c83;
     color: #fff
 }
-
+#thegioimuasam{
+    font-size: 3em;
+}
 
 /* ########### phần đường dẫn trang ############# */
 

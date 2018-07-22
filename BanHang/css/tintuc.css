@@ -2,15 +2,12 @@
     background-image: url('../images/trangchu/anhshop.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    /* background-color: #aa62a9; */
-    /* background: transparent -webkit-linear-gradient(left top, #3f51b5, #ff4081); */
-    /* background: transparent -webkit-linear-gradient(left top, #575a6b, #ff4081); */
     min-height: 100vmin;
 }
 
 #sub_header {
     /* background-color: #33228fcc; */
-    background-color: #ff408199;
+    background-color: #ddd9da60;
     min-height: 100vmin;
 }
 
