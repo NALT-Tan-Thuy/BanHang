@@ -1,15 +1,16 @@
-#header {
+/* #header {
     background-image: url('../images/trangchu/anhshop.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     min-height: 100vmin;
-}
+} */
 
-#sub_header {
-    /* background-color: #33228fcc; */
+
+/* #sub_header {
+    background-color: #33228fcc;
     background-color: #ddd9da60;
     min-height: 100vmin;
-}
+} */
 
 #sandbox {
     margin: 30px auto;
