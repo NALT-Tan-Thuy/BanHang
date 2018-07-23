@@ -6,10 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     slideshow.style.animationDuration = "3s";
 
     var hieuunggiohang = document.getElementById('hieuunggiohang');
-    hieuunggiohang.classList.add('animated');
-    hieuunggiohang.classList.add('slideInRight');
-    hieuunggiohang.style.animationDelay = "0.1s";
-    hieuunggiohang.style.animationDuration = "3s";
+    hieuunggiohang.classList.add('dichuyengiohang');
 
     var searchForm = document.getElementById('searchForm');
     searchForm.classList.add('dichuyen');
