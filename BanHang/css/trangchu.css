@@ -141,7 +141,9 @@
 
 #searchbox {
     padding-top: 4em;
-    z-index: 3;
+   z-index: 200;
+   position: relative;
+
 }
 
 #iconLienHe {
@@ -293,7 +295,7 @@
     font-family: 'Pacifico', cursive;
     font-size: 70px;
     text-align: center;
-    z-index: -1;
+    z-index: -3;
 }
 
 h2 {
@@ -1272,9 +1274,6 @@ img {
     min-height: 70vh;
 }
 
-#hieuunggiohang {
-    z-index: 2;
-}
 
 .fa-arrow-circle-up {
     font-size: 2em;

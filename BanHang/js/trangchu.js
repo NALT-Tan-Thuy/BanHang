@@ -12,10 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     hieuunggiohang.style.animationDuration = "3s";
 
     var searchForm = document.getElementById('searchForm');
-    searchForm.classList.add('animated');
-    searchForm.classList.add('zoomIn');
-    searchForm.style.animationDelay = "0.1s";
-    searchForm.style.animationDuration = "3s";
+    searchForm.classList.add('dichuyen');
 
     var thegioimuasam = document.getElementById('thegioimuasam');
     thegioimuasam.classList.add('animated');
