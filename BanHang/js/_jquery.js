@@ -1,7 +1,7 @@
 var $button = $.backToTop({
     // theme: 'fawesome',
     // background color
-    backgroundColor: '#8b22a5cc',
+    backgroundColor: '#73f3a6b3',
 
     // // bottom position
     bottom: 50,
@@ -22,8 +22,8 @@ var $button = $.backToTop({
     enabled: true,
 
     // // width/height of the back to top button
-    height: 60,
-    width: 60,
+    height: 54,
+    width: 54,
 
     // // icon
     icon: 'fa fa-arrow-circle-up',

@@ -1282,7 +1282,10 @@ img {
     min-height: 70vh;
 }
 
+
+/* Nút lên top */
+
 .fa-arrow-circle-up {
     font-size: 2em;
-    line-height: 60px;
+    line-height: 54px;
 }
