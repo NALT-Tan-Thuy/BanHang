@@ -141,9 +141,8 @@
 
 #searchbox {
     padding-top: 4em;
-   z-index: 200;
-   position: relative;
-
+    z-index: 200;
+    position: relative;
 }
 
 #iconLienHe {
@@ -286,6 +285,11 @@
 
 
 /* Nội dung 1 phần slide */
+
+#spNoiBat img {
+    width: 100%;
+    height: 255px;
+}
 
 
 /* ###################### */
@@ -726,7 +730,11 @@ img {
 .my-list img {
     transition: all .5s ease;
     -moz-transition: all .5s ease;
-    -webkit-transition: all .5s ease
+    -webkit-transition: all .5s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
 }
 
 .my-list {
@@ -1273,7 +1281,6 @@ img {
 #header {
     min-height: 70vh;
 }
-
 
 .fa-arrow-circle-up {
     font-size: 2em;
