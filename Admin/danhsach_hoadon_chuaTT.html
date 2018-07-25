@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>TIÊU ĐỀ ADMIN</title>
+    <title>DS HĐ CHUA THANH TOÁN</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -37,7 +37,7 @@
         }
         
         section.content {
-            margin: 100px 15px 0 235px;
+            margin: 100px 0px 0 220px
         }
         
         .navbar-nav .dropdown-menu {
@@ -47,20 +47,12 @@
             width: 220px;
         } */
         
-        .button-top {
-            margin-top: -13px !important;
-        }
-        
-        .button-top {
+        .icon-and-text-button-demo span {
             font-weight: bold;
         }
         
         .mr {
             margin-right: 10px !important;
-        }
-        
-        .row .card .header {
-            min-height: 60px;
         }
     </style>
 
@@ -107,15 +99,7 @@
                 <a class="navbar-brand" href="#">FUCA SHOP</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
-                <!-- <ul class="nav navbar-nav navbar-left">
-                    <li>
-                        <a href="javascript:void(0);"><img src="images/animation-bg.jpg" width="100" height="50" alt=""></a>
-                    </li>
-                </ul> -->
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Call Search -->
-                    <!-- <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li> -->
-                    <!-- #END# Call Search -->
                     <!-- Notifications -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
@@ -430,7 +414,6 @@
         <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <!-- <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li> -->
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
@@ -535,14 +518,22 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <h2>DANH SÁCH</h2>
                             </div>
-                            <div class="col-md-6">
-                                <a href="#"><button class="btn btn-danger btn-lg pull-right button-top" type="button"><i class="material-icons">delete</i><span>XÓA NHIỀU</span></button></a>
-                                <a href="#"><button class="btn btn-primary btn-lg pull-right mr button-top" type="button"><i class="material-icons">add_box</i><span>THÊM</span></button></a>
+                            <div class="icon-and-text-button-demo">
+                                <button class="btn bg-deep-purple btn-lg waves-effect" type="button" onclick="window.location.href = '#ChưaThanhToan'"><i class="material-icons">list</i>
+                                            <span>LƯU LẠI</span>
+                                        </button>
+                                <button class="btn bg-deep-purple btn-lg waves-effect" type="button" onclick="window.location.href = '#ChưaThanhToan'"><i class="material-icons">list</i>
+                                            <span>HỦY BỎ</span>
+                                        </button>
+                                <button class="btn bg-brown btn-lg waves-effect" type="button" onclick="window.location.href = '#XoaNhieu'"><i class="material-icons">delete</i>
+                                            <span>CHỌN TẤT CẢ</span>
+                                        </button>
                             </div>
                         </div>
+
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
@@ -574,22 +565,14 @@
                                             <td>47</td>
                                             <td>12 </td>
                                             <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-success waves-effect">
-                                                        <i class="material-icons">edit</i>
-                                                        <span>SỬA</span>
-                                                    </button> -->
-                                                <button type="button" class="btn btn-success waves-effect mr">
-                                                            <i class="material-icons">edit</i>
-                                                        </button>
-                                                <!-- </a> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                        <i class="material-icons">delete</i>
-                                                        <span>XÓA</span>
-                                                    </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                            <i class="material-icons">delete</i>
-                                                        </button>
+                                                <a href="#Sửa">
+                                                    <button type="button" class="btn btn-success waves-effect mr">
+                                                                        <i class="material-icons">edit</i>
+                                                                    </button>
+                                                </a>
+                                                <button type="button" class="btn bg-brown waves-effect" onclick="Delete(id);">
+                                                                    <i class="material-icons">delete</i>
+                                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -648,10 +631,10 @@
                     buttons: true,
                     dangerMode: true,
                 })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        alert('Sửa script cuối trang để đi đến route xóa. Sau khi xử lý xong trả về thẻ script delete cuối trang');
-                        // window.location.href = "#";
+                .then((isConfirm) => {
+                    if (isConfirm) {
+                        alert('Thay câu alert này bằng câu dưới để đi đến route xóa. Sau khi xử lý xong trả về thẻ script delete cuối trang');
+                        // window.location.href = "/" + id;
                     } else {
                         swal("Dữ liệu của bạn không thay đổi!");
                     }
@@ -661,7 +644,12 @@
 
     <!-- script trả về khi xóa thành công -->
     <!-- <script>
-        swal("Xóa dữ liệu thành công!", "", "success");
+        swal({
+            title: "Xóa dữ liệu thành công!",
+            timer: 3000,
+            showConfirmButton: false,
+            icon: "success",
+        })
     </script> -->
 </body>
 
