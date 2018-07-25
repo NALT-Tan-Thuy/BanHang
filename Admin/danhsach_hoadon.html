@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -47,12 +47,20 @@
             width: 220px;
         } */
         
-        #btnThem {
-            margin-top: -13px;
+        .button-top {
+            margin-top: -13px !important;
         }
         
-        #btnThem span {
+        .button-top {
             font-weight: bold;
+        }
+        
+        .mr {
+            margin-right: 10px !important;
+        }
+        
+        .row .card .header {
+            min-height: 60px;
         }
     </style>
 
@@ -527,13 +535,17 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                DANH SÁCH <span><a href="#"><button class="btn btn-primary btn-lg pull-right" type="button" id="btnThem"><i class="material-icons">add_box</i><span>THÊM</span></button>
-                                </a>
-                                </span>
-                            </h2>
-                        </div>
+                            <div class="col-md-6">
+                                <h2>DANH SÁCH</h2>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#"><button class="btn btn-danger btn-lg pull-right button-top" type="button"><i class="material-icons">delete</i><span>XÓA NHIỀU</span></button></a>
 
+                                <a href="#"><button class="btn btn-primary btn-lg pull-right mr button-top" type="button"><i class="material-icons">add_box</i><span>THÊM</span></button></a>
+
+                                <a href="#"><button class="btn bg-deep-purple btn-lg pull-right mr button-top" type="button"><i class="material-icons">list</i><span>DS CHƯA THANH TOÁN</span></button></a>
+                            </div>
+                        </div>
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
@@ -543,8 +555,8 @@
                                             <th>TenCot2</th>
                                             <th>TenCot3</th>
                                             <th>TenCot4</th>
-                                            <th>Sửa</th>
-                                            <th>Xóa</th>
+                                            <th>TenCot5</th>
+                                            <th>Sửa - Xóa</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -553,8 +565,8 @@
                                             <th>TenCot2</th>
                                             <th>TenCot3</th>
                                             <th>TenCot4</th>
-                                            <th>Sửa</th>
-                                            <th>Xóa</th>
+                                            <th>TenCot5</th>
+                                            <th>Sửa - Xóa</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -563,19 +575,17 @@
                                             <td>Marketing Designer</td>
                                             <td>San Francisco</td>
                                             <td>47</td>
+                                            <td>12 </td>
                                             <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
+                                                <!-- <a href=""> -->
+                                                <!-- <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">edit</i>
                                                         <span>SỬA</span>
                                                     </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
+                                                <button type="button" class="btn btn-success waves-effect mr">
                                                             <i class="material-icons">edit</i>
                                                         </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
+                                                <!-- </a> -->
                                                 <!-- <button type="button" class="btn btn-danger waves-effect">
                                                         <i class="material-icons">delete</i>
                                                         <span>XÓA</span>
@@ -583,326 +593,6 @@
                                                 <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
                                                             <i class="material-icons">delete</i>
                                                         </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                            <i class="material-icons">edit</i>
-                                                            <span>SỬA</span>
-                                                        </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                <i class="material-icons">edit</i>
-                                                            </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                            <i class="material-icons">delete</i>
-                                                            <span>XÓA</span>
-                                                        </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                <i class="material-icons">delete</i>
-                                                            </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                                <i class="material-icons">edit</i>
-                                                                <span>SỬA</span>
-                                                            </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                    <i class="material-icons">edit</i>
-                                                                </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                                <i class="material-icons">delete</i>
-                                                                <span>XÓA</span>
-                                                            </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                    <i class="material-icons">delete</i>
-                                                                </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                                    <i class="material-icons">edit</i>
-                                                                    <span>SỬA</span>
-                                                                </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                                    <i class="material-icons">delete</i>
-                                                                    <span>XÓA</span>
-                                                                </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                                        <i class="material-icons">edit</i>
-                                                                        <span>SỬA</span>
-                                                                    </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                            <i class="material-icons">edit</i>
-                                                                        </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                                        <i class="material-icons">delete</i>
-                                                                        <span>XÓA</span>
-                                                                    </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                            <i class="material-icons">delete</i>
-                                                                        </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                                            <i class="material-icons">edit</i>
-                                                                            <span>SỬA</span>
-                                                                        </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                                <i class="material-icons">edit</i>
-                                                                            </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                                            <i class="material-icons">delete</i>
-                                                                            <span>XÓA</span>
-                                                                        </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                                <i class="material-icons">delete</i>
-                                                                            </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                                                <i class="material-icons">edit</i>
-                                                                                <span>SỬA</span>
-                                                                            </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                                    <i class="material-icons">edit</i>
-                                                                                </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                                                <i class="material-icons">delete</i>
-                                                                                <span>XÓA</span>
-                                                                            </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                                    <i class="material-icons">delete</i>
-                                                                                </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                                                    <i class="material-icons">edit</i>
-                                                                                    <span>SỬA</span>
-                                                                                </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                                        <i class="material-icons">edit</i>
-                                                                                    </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                                                    <i class="material-icons">delete</i>
-                                                                                    <span>XÓA</span>
-                                                                                </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                                        <i class="material-icons">delete</i>
-                                                                                    </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                                                        <i class="material-icons">edit</i>
-                                                                                        <span>SỬA</span>
-                                                                                    </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                                            <i class="material-icons">edit</i>
-                                                                                        </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                                                        <i class="material-icons">delete</i>
-                                                                                        <span>XÓA</span>
-                                                                                    </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                                            <i class="material-icons">delete</i>
-                                                                                        </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                            <i class="material-icons">edit</i>
-                                                            <span>SỬA</span>
-                                                        </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                <i class="material-icons">edit</i>
-                                                            </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                            <i class="material-icons">delete</i>
-                                                            <span>XÓA</span>
-                                                        </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                <i class="material-icons">delete</i>
-                                                            </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                                <i class="material-icons">edit</i>
-                                                                <span>SỬA</span>
-                                                            </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                    <i class="material-icons">edit</i>
-                                                                </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                                <i class="material-icons">delete</i>
-                                                                <span>XÓA</span>
-                                                            </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                    <i class="material-icons">delete</i>
-                                                                </button>
-                                                <!-- </a> -->
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <a href="#">
-                                                    <!-- <button type="button" class="btn btn-success waves-effect">
-                                                                    <i class="material-icons">edit</i>
-                                                                    <span>SỬA</span>
-                                                                </button> -->
-                                                    <button type="button" class="btn btn-success waves-effect">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <!-- <a href=""> -->
-                                                <!-- <button type="button" class="btn btn-danger waves-effect">
-                                                                    <i class="material-icons">delete</i>
-                                                                    <span>XÓA</span>
-                                                                </button> -->
-                                                <button type="button" class="btn bg-red waves-effect" onclick="Delete(1);">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </button>
-                                                <!-- </a> -->
                                             </td>
                                         </tr>
                                     </tbody>
