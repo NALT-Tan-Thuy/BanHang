@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+    <style>
+    @media screen and (max-width: 767px) {
+ .nav-tabs-responsive > li {
+ display: none;
+ width: 23%;
+}
+ .nav-tabs-responsive > li > a {
+ max-width: 100%;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ word-wrap: normal;
+ width: 100%;
+ width: 100%;
+ text-align: center;
+ vertical-align: top;
+}
+ .nav-tabs-responsive > li.active {
+ width: 54%;
+}
+ .nav-tabs-responsive > li.active:first-child {
+ margin-left: 23%;
+}
+ .nav-tabs-responsive > li.active, .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
+ display: block;
+}
+ .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
+ -webkit-transform: scale(0.9);
+ transform: scale(0.9);
+}
+ .nav-tabs-responsive > li.next > a, .nav-tabs-responsive > li.prev > a {
+ -webkit-transition: none;
+ transition: none;
+}
+ .nav-tabs-responsive > li.next > a .text, .nav-tabs-responsive > li.prev > a .text {
+ display: none;
+}
+ .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.prev > a:after, .nav-tabs-responsive > li.prev > a:after {
+ position: relative;
+ top: 1px;
+ display: inline-block;
+ font-family: 'Glyphicons Halflings';
+ font-style: normal;
+ font-weight: 400;
+ line-height: 1;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+ .nav-tabs-responsive > li.prev > a:after {
+ content: "\e079";
+}
+ .nav-tabs-responsive > li.next > a:after {
+ content: "\e080";
+}
+ .nav-tabs-responsive > li.dropdown > a > .caret {
+ display: none;
+}
+ .nav-tabs-responsive > li.dropdown > a:after {
+ content: "\e114";
+}
+ .nav-tabs-responsive > li.dropdown.active > a:after {
+ display: none;
+}
+ .nav-tabs-responsive > li.dropdown.active > a > .caret {
+ display: inline-block;
+}
+ .nav-tabs-responsive > li.dropdown .dropdown-menu.pull-xs-left {
+ left: 0;
+ right: auto;
+}
+ .nav-tabs-responsive > li.dropdown .dropdown-menu.pull-xs-center {
+ right: auto;
+ left: 50%;
+ -webkit-transform: translateX(-50%);
+ -moz-transform: translateX(-50%);
+ -ms-transform: translateX(-50%);
+ -o-transform: translateX(-50%);
+ transform: translateX(-50%);
+}
+ .nav-tabs-responsive > li.dropdown .dropdown-menu.pull-xs-right {
+ left: auto;
+ right: 0;
+}
+}
+.wrapper {
+	padding: 0px 0;
+}
+.bs-example-tabs .nav-tabs {
+	margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+ #narrow-browser-alert {
+ display: none;
+}
+}
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#chitietsanpham" id="chitietsanpham-tab" role="tab" data-toggle="tab" aria-controls="chitietsanpham"
+                            aria-expanded="true">
+                            <span class="text">Chi tiết sản phẩm</span>
+                        </a>
+                    </li>
+                    <!-- <li role="presentation" class="next">
+                        <a href="#thongsokythuat" role="tab" id="thongsokythuat-tab" data-toggle="tab" aria-controls="thongsokythuat">
+                            <span class="text">Thông số kỹ thuật</span>
+                        </a>
+                    </li> -->
+                    <li role="presentation">
+                        <a href="#huongdanthanhtoan" role="tab" id="huongdanthanhtoan-tab" data-toggle="tab" aria-controls="huongdanthanhtoan">
+                            <span class="text">Đánh giá</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#binhluan" role="tab" id="binhluan-tab" data-toggle="tab" aria-controls="binhluan">
+                            <span class="text">Bình luận</span>
+                        </a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="chitietsanpham" aria-labelledby="chitietsanpham-tab">
+                        <p> Mô tả nội dung đánh giá</p>
+                    </div>
+                    <!-- <div role="tabpanel" class="tab-pane fade" id="thongsokythuat" aria-labelledby="thongsokythuat-tab">
+                        <p> Các thông số kỹ thuật của sản phẩm </p>
+                    </div> -->
+                    <div role="tabpanel" class="tab-pane fade" id="huongdanthanhtoan" aria-labelledby="huongdanthanhtoan-tab">
+                        <p> Nội dung hướng dẫn thanh toán </p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="binhluan" aria-labelledby="binhluan-tab">
+                        <p> Nội dung bình luận </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script language="javascript">
+        (function ($) {
+            'use strict';
+            $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function (e) {
+                var $target = $(e.target);
+                var $tabs = $target.closest('.nav-tabs-responsive');
+                var $current = $target.closest('li');
+                var $parent = $current.closest('li.dropdown');
+                $current = $parent.length > 0 ? $parent : $current;
+                var $next = $current.next();
+                var $prev = $current.prev();
+                var updateDropdownMenu = function ($el, position) {
+                    $el
+                        .find('.dropdown-menu')
+                        .removeClass('pull-xs-left pull-xs-center pull-xs-right')
+                        .addClass('pull-xs-' + position);
+                };
+
+                $tabs.find('>li').removeClass('next prev');
+                $prev.addClass('prev');
+                $next.addClass('next');
+
+                updateDropdownMenu($prev, 'left');
+                updateDropdownMenu($current, 'center');
+                updateDropdownMenu($next, 'right');
+            });
+
+        })(jQuery);
+    </script>
+</body>
+
+</html>
