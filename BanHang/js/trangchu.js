@@ -22,12 +22,11 @@ document.addEventListener("DOMContentLoaded", function() {
     //bắt sự kiện khi người dùng cuộn chuột
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 100) {
-            if (trangthai == true) {
+            if (trangthai == true && khauHieuDau != null) {
                 khauHieuDau.classList.add('animated');
                 khauHieuDau.classList.add('zoomIn');
                 khauHieuDau.style.animationDuration = "3s";
             }
         }
     })
-
 }, false);

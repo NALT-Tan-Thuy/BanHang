@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Danh sách hóa đơn</title>
+    <title>danh sách all</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -51,12 +51,12 @@
             margin-right: 10px !important;
         }
         
-        .row .card .header {
-            min-height: 75px;
-        }
-        
         .icon-and-text-button-demo span {
             font-weight: bold;
+        }
+        
+        .row .card .header {
+            min-height: 60px;
         }
     </style>
 
@@ -522,19 +522,16 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <div class="col-md-5">
+                            <div class="col-md-7">
                                 <h2>DANH SÁCH</h2>
                             </div>
                             <div class="icon-and-text-button-demo">
-                                <button class="btn bg-deep-purple btn-lg waves-effect" type="button" onclick="window.location.href = '#ChưaThanhToan'"><i class="material-icons">list</i>
-                                    <span>CHƯA THANH TOÁN</span>
-                                </button>
                                 <button class="btn btn-primary btn-lg waves-effect" type="button" onclick="window.location.href = '#Thêm'"><i class="material-icons">add_box</i>
-                                    <span>THÊM</span>
-                                </button>
+                                        <span>THÊM</span>
+                                    </button>
                                 <button class="btn bg-brown btn-lg waves-effect" type="button" onclick="window.location.href = '#XoaNhieu'"><i class="material-icons">delete</i>
-                                    <span>XÓA NHIỀU</span>
-                                </button>
+                                        <span>XÓA NHIỀU</span>
+                                    </button>
                             </div>
                         </div>
                         <div class="body">
@@ -546,7 +543,7 @@
                                             <th>TenCot2</th>
                                             <th>TenCot3</th>
                                             <th>TenCot4</th>
-                                            <th>Thanh toán</th>
+                                            <th>TenCot5</th>
                                             <th>Sửa - Xóa</th>
                                         </tr>
                                     </thead>
@@ -556,7 +553,7 @@
                                             <th>TenCot2</th>
                                             <th>TenCot3</th>
                                             <th>TenCot4</th>
-                                            <th>Thanh toán</th>
+                                            <th>TenCot5</th>
                                             <th>Sửa - Xóa</th>
                                         </tr>
                                     </tfoot>
@@ -566,62 +563,14 @@
                                             <td>Marketing Designer</td>
                                             <td>San Francisco</td>
                                             <td>47</td>
-                                            <td>
-                                                <button type="button" class="btn btn-danger waves-effect" onclick="thanhToan(1);">
-                                                    Thanh toán
-                                                </button>
-                                            </td>
+                                            <td>12 </td>
                                             <td>
                                                 <a href="#Sửa">
-                                                    <button type="button" class="btn btn-success waves-effect mr">
-                                                                <i class="material-icons">edit</i>
-                                                            </button>
-                                                </a>
-                                                <button type="button" class="btn bg-brown waves-effect" onclick="Delete(id);">
-                                                            <i class="material-icons">delete</i>
-                                                        </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <button type="button" class="btn btn-default waves-effect" onclick="thanhToan(1);">
-                                                    Đã thanh toán
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <a href="#Sửa">
-                                                    <button type="button" class="btn btn-success waves-effect mr">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </button>
-                                                </a>
-                                                <button type="button" class="btn bg-brown waves-effect" onclick="Delete(id);">
-                                                                    <i class="material-icons">delete</i>
-                                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>
-                                                <button type="button" class="btn btn-danger waves-effect" onclick="thanhToan(1);">
-                                                        Thanh toán
+                                                    <button type="button" class="btn btn-success waves-effect mr"><i class="material-icons">edit</i>
                                                     </button>
-                                            </td>
-                                            <td>
-                                                <a href="#Sửa">
-                                                    <button type="button" class="btn btn-success waves-effect mr">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </button>
                                                 </a>
-                                                <button type="button" class="btn bg-brown waves-effect" onclick="Delete(id);">
-                                                                    <i class="material-icons">delete</i>
-                                                                </button>
+                                                <button type="button" class="btn bg-brown waves-effect" onclick="Delete(id);"><i class="material-icons">delete</i>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -646,9 +595,6 @@
 
     <!-- Slimscroll Plugin Js -->
     <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-    <!-- Bootstrap Notify Plugin Js -->
-    <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="plugins/node-waves/waves.js"></script>
@@ -686,21 +632,6 @@
                 .then((isConfirm) => {
                     if (isConfirm) {
                         alert('Thay câu alert này bằng câu dưới để đi đến route xóa. Sau khi xử lý xong trả về thẻ script delete cuối trang');
-                        // window.location.href = "/" + id;
-                    } else {
-                        swal("Dữ liệu của bạn không thay đổi!");
-                    }
-                });
-        }
-
-        function thanhToan(id) {
-            swal({
-                    title: "Bạn có muốn cập nhật thanh toán?",
-                    buttons: true,
-                })
-                .then((isConfirm) => {
-                    if (isConfirm) {
-                        alert('Thay câu alert này bằng câu dưới để đi đến route sửa hóa đơn. Sau khi xử lý xong trả về thẻ script delete cuối trang');
                         // window.location.href = "/" + id;
                     } else {
                         swal("Dữ liệu của bạn không thay đổi!");
