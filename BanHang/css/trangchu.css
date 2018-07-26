@@ -1211,3 +1211,15 @@ img {
     font-size: 2em;
     line-height: 54px;
 }
+
+
+/* Trang cá nhân */
+
+.panel p {
+    font-size: 16px;
+}
+
+.panel .panel-body dl dd,
+.panel .panel-body dl dt {
+    line-height: 2.5;
+}
