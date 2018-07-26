@@ -16,80 +16,57 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
-                    <li role="presentation" class="active">
-                        <a href="#chitietsanpham" id="chitietsanpham-tab" role="tab" data-toggle="tab" aria-controls="chitietsanpham"
-                            aria-expanded="true">
-                            <span class="text">Chi tiết sản phẩm</span>
-                        </a>
-                    </li>
-                    <!-- <li role="presentation" class="next">
-                        <a href="#thongsokythuat" role="tab" id="thongsokythuat-tab" data-toggle="tab" aria-controls="thongsokythuat">
-                            <span class="text">Thông số kỹ thuật</span>
-                        </a>
-                    </li> -->
-                    <li role="presentation">
-                        <a href="#huongdanthanhtoan" role="tab" id="huongdanthanhtoan-tab" data-toggle="tab" aria-controls="huongdanthanhtoan">
-                            <span class="text">Đánh giá</span>
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a href="#binhluan" role="tab" id="binhluan-tab" data-toggle="tab" aria-controls="binhluan">
-                            <span class="text">Bình luận</span>
-                        </a>
-                    </li>
-                </ul>
-                <div id="myTabContent" class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade in active" id="chitietsanpham" aria-labelledby="chitietsanpham-tab">
-                        <p> Mô tả nội dung đánh giá</p>
-                    </div>
-                    <!-- <div role="tabpanel" class="tab-pane fade" id="thongsokythuat" aria-labelledby="thongsokythuat-tab">
-                        <p> Các thông số kỹ thuật của sản phẩm </p>
-                    </div> -->
-                    <div role="tabpanel" class="tab-pane fade" id="huongdanthanhtoan" aria-labelledby="huongdanthanhtoan-tab">
-                        <p> Nội dung hướng dẫn thanh toán </p>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="binhluan" aria-labelledby="binhluan-tab">
-                        <p> Nội dung bình luận </p>
-                    </div>
+        <div class="container"> 
+                <div class="card"> 
+                 <div class="container-fliud"> 
+                  <div class="wrapper row"> 
+                   <div class="preview col-md-6"> 
+                    <div class="preview-pic tab-content"> 
+                     <div class="tab-pane active" id="pic-1"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_1.jpg" alt="">
+                     </div> 
+                     <div class="tab-pane" id="pic-2"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_4.jpg" alt="Học thiết kế web bán hàng Online">
+                     </div> 
+                     <div class="tab-pane" id="pic-3"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_5.jpg" alt="Học thiết kế web bán hàng Online">
+                     </div> 
+                     <div class="tab-pane" id="pic-4"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_6.jpg" alt="Học thiết kế web bán hàng Online">
+                     </div> 
+                     <div class="tab-pane" id="pic-5"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_7.jpg" alt="Học thiết kế web bán hàng Online">
+                     </div> 
+                    </div> 
+                    <ul class="preview-thumbnail nav nav-tabs"><div class="logo_menuchinh" style="float:left; padding-top:5px; padding-left:10px; color:#fff; margin-left:auto; margin-right:auto; text-align=center; line-height:40px; font-size:16px;font-weight:bold;font-family:Arial">HOCWEBGIARE.COM</div><div class="menu-icon"><span>Menu</span></div> 
+                     <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_1.jpg" alt="Học thiết kế web bán hàng Online"></a>
+                     </li> 
+                     <li><a data-target="#pic-2" data-toggle="tab"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_4.jpg" alt="Học thiết kế web bán hàng Online"></a>
+                     </li> 
+                     <li><a data-target="#pic-3" data-toggle="tab"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_5.jpg" alt="Học thiết kế web bán hàng Online"></a>
+                     </li> 
+                     <li><a data-target="#pic-4" data-toggle="tab"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_6.jpg" alt="Học thiết kế web bán hàng Online"></a>
+                     </li> 
+                     <li><a data-target="#pic-5" data-toggle="tab"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_productdetail/images/doboafnuoicon_7.jpg" alt="Học thiết kế web bán hàng Online"></a>
+                     </li> 
+                    </ul> 
+                   </div> 
+                   <div class="details col-md-6"> 
+                    <h3 class="product-title">Thời trang cho bé trai nhiều màu sắc ngộ nghĩnh</h3> 
+                    <div class="rating"> 
+                     <div class="stars"> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> 
+                     </div> <span class="review-no">123 đánh giá</span> 
+                    </div> 
+                    <p class="product-description">Với trang phục này mẹ có thể cùng bé diện đi chơi, đi học đều rất phù hợp. Khi bé mặc vào, chắc chắn mẹ sẽ có cảm nhận hoàn toàn khác biệt vì màu sắc phong phú không chỉ khiến bộ trang phục trở nên bắt mắt mà còn tôn thêm vẻ nhí nhảnh, nghịch ngợm và năng động của các bé trai.            Khi diện những bộ thời trang cho bé trai ngộ nghĩnh này, mẹ đừng quên kèm theo cho bé một số phụ kiện phù hợp như mũ lưỡi trai cá tính, nón kết sành điệu, kính mát “cực ngầu” hay giày bata năng động nhé!            Chúc con yêu của bạn có thêm những bộ đồ thời trang cho bé trai theo phong cách đa màu sắc cực xinh xắn và đáng yêu!</p> 
+                    <h4 class="price">Giá bán: 200.000 đ</h4> 
+                    <p class="vote"><strong>91%</strong> of người mua hài lòng với sản phẩm này <strong>(87 bình chọn)</strong>
+                    </p> 
+                    <h5 class="sizes">Kích cỡ: <span class="size" data-toggle="tooltip" title="small">s</span> <span class="size" data-toggle="tooltip" title="medium">m</span> <span class="size" data-toggle="tooltip" title="large">l</span> <span class="size" data-toggle="tooltip" title="xtra large">xl</span> 
+                    </h5> 
+                    <h5 class="colors">Màu: <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span> <span class="color green"></span> <span class="color blue"></span> 
+                    </h5> 
+                    <div class="action"> <a href="http://hocwebgiare.com/" target="_blank">            <button class="add-to-cart btn btn-default" type="button">MUA NGAY</button>            </a> <a href="http://hocwebgiare.com/" target="_blank">            <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>            </a> 
+                    </div> 
+                   </div> 
+                  </div> 
+                 </div> 
                 </div>
-            </div>
-        </div>
-    </div>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script language="javascript">
-        (function ($) {
-            'use strict';
-            $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function (e) {
-                var $target = $(e.target);
-                var $tabs = $target.closest('.nav-tabs-responsive');
-                var $current = $target.closest('li');
-                var $parent = $current.closest('li.dropdown');
-                $current = $parent.length > 0 ? $parent : $current;
-                var $next = $current.next();
-                var $prev = $current.prev();
-                var updateDropdownMenu = function ($el, position) {
-                    $el
-                        .find('.dropdown-menu')
-                        .removeClass('pull-xs-left pull-xs-center pull-xs-right')
-                        .addClass('pull-xs-' + position);
-                };
-
-                $tabs.find('>li').removeClass('next prev');
-                $prev.addClass('prev');
-                $next.addClass('next');
-
-                updateDropdownMenu($prev, 'left');
-                updateDropdownMenu($current, 'center');
-                updateDropdownMenu($next, 'right');
-            });
-
-        })(jQuery);
-    </script>
+               </div> 
 </body>
 
 </html>
