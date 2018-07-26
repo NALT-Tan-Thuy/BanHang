@@ -57,113 +57,7 @@
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Baloo+Chettan|Cormorant+Infant|Cormorant+Upright|Itim|Patrick+Hand+SC|Playfair+Display|Pridi"
         rel="stylesheet">
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css"> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
-
-    <style>
-        .btn3d {
-            position: relative;
-            top: -6px;
-            border: 0;
-            transition: all 40ms linear;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-left: 2px;
-            margin-right: 2px;
-            color: white;
-            font-size: 2.5em;
-
-
-            font-family: 'Playfair Display', serif;
-
-            font-family: 'Baloo Chettan', cursive;
-
-
-        }
-
-        .btn3d:hover {
-            border: 3px double;
-        }
-
-        .btn3d:active:focus,
-        .btn3d:focus:hover,
-        .btn3d:focus {
-            -moz-outline-style: none;
-            outline: medium none;
-        }
-
-        .btn3d:active,
-        .btn3d.active {
-            top: 2px;
-        }
-
-        .btn3d.btn-primary {
-            box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4D5BBE, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-            background-color: #4274D7;
-        }
-
-        .btn3d.btn-primary:active,
-        .btn3d.btn-primary.active {
-            box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-            background-color: #4274D7;
-        }
-
-        .btn3d.btn-success {
-            box-shadow: 0 0 0 1px #31c300 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #5eb924, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-            background-color: #78d739;
-        }
-
-        .btn3d.btn-success:active,
-        .btn3d.btn-success.active {
-            box-shadow: 0 0 0 1px #30cd00 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-            background-color: #78d739;
-        }
-
-        /* số lượng */
-        #soLuong {
-            font-size: 1.6em;
-
-        }
-        /* nút mua hàng */
-
-        #muaHangChiTiet {
-            text-align: center;
-            margin-top: 30%;
-        }
-
-        #btnChonSize {
-
-            width: 100%
-        }
-
-        #giaBan {
-            color: rgb(255, 0, 0);
-        }
-
-        #giaGoc {
-            text-decoration: line-through;
-        }
-
-        #thongTinChitiet {
-            font-family: 'Playfair Display', serif;
-            font-family: 'Baloo Chettan', cursive;
-            font-family: 'Itim', cursive;
-            font-family: 'Arima Madurai', cursive;
-            font-family: 'Patrick Hand SC', cursive;
-            font-family: 'Cormorant Infant', serif;
-            font-family: 'Cormorant Upright', serif;
-            font-family: 'Pridi', serif;
-        }
-        #thongTinChitiet h3{
-            color: rgb(8, 97, 109);
-        }
-
-        #tieuDeMoTa{
-            color:rgb(41, 150, 105);    
-        }   
-    </style>
+    <link rel="stylesheet" href="css/chitietsp.css">
 
 </head>
 
@@ -539,7 +433,7 @@
                     </li> -->
                     <li role="presentation">
                         <a href="#huongdanthanhtoan" role="tab" id="huongdanthanhtoan-tab" data-toggle="tab" aria-controls="huongdanthanhtoan">
-                            <span class="text">Đánh giá</span>
+                            <span class="text">Thông tin sản phẩm</span>
                         </a>
                     </li>
                     <li role="presentation">
@@ -552,6 +446,7 @@
                     <div role="tabpanel" class="tab-pane fade in active" id="chitietsanpham" aria-labelledby="chitietsanpham-tab">
                         <!-- xử lý chi tiết sản phẩm -->
                         <div class="space60">&nbsp;</div>
+                        <!-- hình sản phẩm -->
                         <div class="col-sm-5">
                             <div class="single-item">
                                 <div class="single-item-header">
@@ -561,10 +456,14 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Xong hình sản phẩm -->
+                        <!-- thông tin chi tiết -->
                         <div id="thongTinChitiet" class="col-xs-12 col-md-7">
                             <h3 class="product-title">Giày adidas trắng sọc thời trang năng động</h3>
-                            <span class="glyphicon glyphicon-thumbs-up"> 123 lượt yêu thích</span>
+                            <div id="luotThich">
+                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                                <span> 123 lượt thích sản phẩm này.</span>
+                            </div>
                             <p id="tieuDeMoTa">Mô tả</p>
                             <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo reiciendis esse fugiat corrupti
                                 molestias soluta facere iste nihil aliquam vel? Quisquam unde vel rem. Veritatis impedit
@@ -572,7 +471,7 @@
                             <h2>GIÁ BÁN:
                                 <span id="giaBan">200.000 đồng</span>
                             </h2>
-                            <p id="giaGoc">Giá gốc: 100.000 đồng</p>
+                            <p id="giaGoc">Giá gốc: 500.00 đồng</p>
 
                             <div style="text-align: center" class="col-xs-12 col-md-6">
                                 <div class="space60">&nbsp;</div>
@@ -599,18 +498,12 @@
                                     Chọn size cho sản phẩm
                                 </button>
 
-
-
-                                <!-- </span> -->
-
                                 <select name="" id="inpu" class="form-control" required="required">
                                     <option value="">L</option>
                                     <option value="">M</option>
                                     <option value="">S</option>
                                     <option value="">XL</option>
-
                                 </select>
-
 
                                 <script>
                                     $(document).ready(function () {
@@ -650,23 +543,94 @@
                                 </button>
                             </div>
 
-
                         </div>
-                        <!-- Xong xử lý chi tiết sản phẩm -->
-
+                        <!-- Xong thông tin chi tiết -->
                     </div>
+                    <!-- Xong xử lý chi tiết sản phẩm -->
+
                     <!-- <div role="tabpanel" class="tab-pane fade" id="thongsokythuat" aria-labelledby="thongsokythuat-tab">
                         <p> Các thông số kỹ thuật của sản phẩm </p>
                     </div> -->
-                    <div role="tabpanel" class="tab-pane fade" id="huongdanthanhtoan" aria-labelledby="huongdanthanhtoan-tab">
-                        <p> Nội dung hướng dẫn thanh toán </p>
+                    <!-- Nội dung thêm chi tiết -->
+                    <div style="text-align: center" role="tabpanel" class="tab-pane fade" id="huongdanthanhtoan" aria-labelledby="huongdanthanhtoan-tab">
+                        <h2>Những mẫu bạn có thể phối cùng cực xinh, cực chất</h2>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <img src="http://www.nawo.com/wp-content/uploads/2015/02/Sports-Hit-Superstar-80s-Vintage-Deluxe-Shoes_1.jpg" alt="">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <img src="http://picture-cdn.wheretoget.it/x6t2hq-l-610x610-shoes-sneaker-adidas-sneakers+white-sweater-casual+winter-casual-winter+sweater-winter+outfits-sporty-sporty+chic-adidas+shoes-black+ripped+jeans-grey+sweater-adidas+superstars.jpg"
+                                alt="">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <img src="http://media.gocom.vn/Systems/2015/06/15/mixdovoigiaythethaotheophongcachthoithuong11.jpg" alt="">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <img src="http://shopquangkhanh.com/wp-content/uploads/2017/12/Ph%E1%BB%91i-%C4%91%E1%BB%93-ch%E1%BA%A5t-nh%C6%B0-sao-v%E1%BB%9Bi-gi%C3%A0y-adidas-1.jpg"
+                                alt="">
+                        </div>
                     </div>
+                    <!-- xong nội dung thêm chi tiết -->
+                    <!-- Nội dung bình luận -->
                     <div role="tabpanel" class="tab-pane fade" id="binhluan" aria-labelledby="binhluan-tab">
-                        <p> Nội dung bình luận </p>
+
+
+                        <div class="col-xs-12 col-md-12">
+                            <!-- text nhập bình luận -->
+                            <div class="well">
+                                <h4>Viết bình luận ...
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </h4>
+                                <form role="form">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Gửi</button>
+                                </form>
+                            </div>
+                            <!-- Xong text nhập bình luận -->
+                            <!-- Comment -->
+                            <div class="col-xs-12 col-md-12">
+                                <div class="noiDungBinhLuan" class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object" src="http://sohanews.sohacdn.com/thumb_w/660/2017/photo1486969199024-1486969199175-0-32-308-529-crop-1486969281069.jpg"
+                                            alt="">
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading tenbinhluan">Huỳnh Văn Thùy
+                                            <small id="ngayBinhLuan">August 25, 2014 at 9:30 PM</small>
+                                        </h4>
+                                    </div>
+                                    <span>Thằng mô làm ra trang web ni ngon quá</span>
+                                </div>
+                            </div>
+                            <!-- Xong comment -->
+                            <div class="space10">&nbsp;</div>
+                            <!-- Comment -->
+                            <div class="col-xs-12 col-md-12">
+
+                                <div class="noiDungBinhLuan" class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object" src="http://dapxexuyenviet.com/files/tin/686/jpg/65-dieu-con-trai-mong-muon-o-con-gai.jpg" alt="">
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading tenbinhluan">Trần Quang Tân
+                                            <small id="ngayBinhLuan">August 25, 2014 at 9:30 PM</small>
+                                        </h4>
+                                    </div>
+                                    <span>Anh Tân làm đó, có vấn đề chi k?</span>
+                                </div>
+
+                            </div>
+                            <!-- Xong comment -->
+
+                        </div>
                     </div>
+
                 </div>
+                <!-- Xong nội dung bình luận -->
             </div>
         </div>
+    </div>
     </div>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

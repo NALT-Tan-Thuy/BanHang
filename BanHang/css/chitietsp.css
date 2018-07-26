@@ -1,95 +1,125 @@
-@media screen and (max-width: 767px) {
-    .nav-tabs-responsive > li {
-    display: none;
-    width: 23%;
-   }
-    .nav-tabs-responsive > li > a {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
-    width: 100%;
-    width: 100%;
-    text-align: center;
-    vertical-align: top;
-   }
-    .nav-tabs-responsive > li.active {
-    width: 54%;
-   }
-    .nav-tabs-responsive > li.active:first-child {
-    margin-left: 23%;
-   }
-    .nav-tabs-responsive > li.active, .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
-    display: block;
-   }
-    .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-   }
-    .nav-tabs-responsive > li.next > a, .nav-tabs-responsive > li.prev > a {
-    -webkit-transition: none;
-    transition: none;
-   }
-    .nav-tabs-responsive > li.next > a .text, .nav-tabs-responsive > li.prev > a .text {
-    display: none;
-   }
-    .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.prev > a:after, .nav-tabs-responsive > li.prev > a:after {
+.btn3d {
     position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-   }
-    .nav-tabs-responsive > li.prev > a:after {
-    content: "\e079";
-   }
-    .nav-tabs-responsive > li.next > a:after {
-    content: "\e080";
-   }
-    .nav-tabs-responsive > li.dropdown > a > .caret {
-    display: none;
-   }
-    .nav-tabs-responsive > li.dropdown > a:after {
-    content: "\e114";
-   }
-    .nav-tabs-responsive > li.dropdown.active > a:after {
-    display: none;
-   }
-    .nav-tabs-responsive > li.dropdown.active > a > .caret {
-    display: inline-block;
-   }
-    .nav-tabs-responsive > li.dropdown .dropdown-menu.pull-xs-left {
-    left: 0;
-    right: auto;
-   }
-    .nav-tabs-responsive > li.dropdown .dropdown-menu.pull-xs-center {
-    right: auto;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-   }
-    .nav-tabs-responsive > li.dropdown .dropdown-menu.pull-xs-right {
-    left: auto;
-    right: 0;
-   }
-   }
-   .wrapper {
-       padding: 0px 0;
-   }
-   .bs-example-tabs .nav-tabs {
-       margin-bottom: 15px;
-   }
-   @media (max-width: 767px) {
-    #narrow-browser-alert {
-    display: none;
-   }
-   }
-   /* xong phần menu chọn */
+    top: -6px;
+    border: 0;
+    transition: all 40ms linear;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: white;
+    font-size: 2.5em;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Baloo Chettan', cursive;
+}
+
+.btn3d:hover {
+    border: 3px double;
+}
+
+.btn3d:active:focus,
+.btn3d:focus:hover,
+.btn3d:focus {
+    outline-style: none;
+    outline: medium none;
+}
+
+.btn3d:active,
+.btn3d.active {
+    top: 2px;
+}
+
+.btn3d.btn-primary {
+    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4D5BBE, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    background-color: #4274D7;
+}
+
+.btn3d.btn-primary:active,
+.btn3d.btn-primary.active {
+    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+    background-color: #4274D7;
+}
+
+.btn3d.btn-success {
+    box-shadow: 0 0 0 1px #31c300 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #5eb924, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    background-color: #78d739;
+}
+
+.btn3d.btn-success:active,
+.btn3d.btn-success.active {
+    box-shadow: 0 0 0 1px #30cd00 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+    background-color: #78d739;
+}
+
+/* số lượng */
+
+#soLuong {
+    font-size: 1.6em;
+
+}
+
+/* nút mua hàng */
+
+#muaHangChiTiet {
+    text-align: center;
+    margin-top: 30%;
+}
+
+#btnChonSize {
+
+    width: 100%
+}
+
+#giaBan {
+    color: rgb(255, 0, 0);
+}
+
+#giaGoc {
+    text-decoration: line-through;
+}
+
+#thongTinChitiet {
+    font-family: 'Playfair Display', serif;
+    font-family: 'Baloo Chettan', cursive;
+    font-family: 'Itim', cursive;
+    font-family: 'Arima Madurai', cursive;
+    font-family: 'Patrick Hand SC', cursive;
+    font-family: 'Cormorant Infant', serif;
+    font-family: 'Cormorant Upright', serif;
+    font-family: 'Pridi', serif;
+}
+
+#thongTinChitiet h3 {
+    color: rgb(8, 97, 109);
+}
+
+#tieuDeMoTa {
+    color: rgb(41, 150, 105);
+}
+
+#luotThich {
+    color: #001FFEE6;
+    font-size: 1.3em;
+}
+
+/* Phần bình luận */
+
+.noiDungBinhLuan img {
+    width: 64px;
+    height: 64px;
+}
+
+.noiDungBinhLuan a {
+    margin-right: 10px;
+}
+
+#ngayBinhLuan {
+    font-style: italic;
+}
+
+.tenbinhluan{
+    font-weight: bolder;
+    color: #0d1f84;
+}
+
+/* Xong phần bình luận */
