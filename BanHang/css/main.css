@@ -266,3 +266,12 @@ iframe {
         padding: 100px 15px 33px 15px;
     }
 }
+
+#login .panel{
+    border-radius: 15px;
+}
+
+#singup label, #forgetpass label{
+    font-size: 16px;
+    padding-left: 23px;
+}
