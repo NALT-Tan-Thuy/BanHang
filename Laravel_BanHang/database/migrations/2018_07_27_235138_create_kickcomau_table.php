@@ -13,7 +13,7 @@ class CreateKickcomauTable extends Migration
      */
     public function up()
     {
-        Schema::create('kickcomau', function (Blueprint $table) {
+        Schema::create('kichcomau', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten');
             $table->timestamps();

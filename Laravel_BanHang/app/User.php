@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'tendangnhap', 'email', 'matkhau', 'gioitinh', 'hoten', 'img', 'ngaysinh', 'sodienthoai', 'tinh', 'huyen', 'diachi', 'nghenghiep', 'sothich', 'gioithieubanthan',
     ];
 
     /**
@@ -24,6 +24,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'matkhau', 'remember_token',
     ];
+
+    public function binhluan(){
+        return $this->hasMany('App\BinhLuan', 'id_users', 'id');
+    }
 }

@@ -17,6 +17,7 @@ class CreateChitiethoadonTable extends Migration
             $table->increments('id');
             $table->integer('soluong');
             $table->string('kichthuoc');
+            $table->integer('thanhtoanhoadonchitiet')->default(0);;
             $table->integer('id_hoadon')->unsigned();
             $table->foreign('id_hoadon')->references('id')->on('hoadon');
             $table->integer('id_chitietsanpham')->unsigned();

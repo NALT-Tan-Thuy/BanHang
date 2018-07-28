@@ -15,6 +15,7 @@ class CreateHoadonTable extends Migration
     {
         Schema::create('hoadon', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('thanhtoanhoadon')->default(0);
             $table->integer('id_khachhang')->unsigned();
             $table->foreign('id_khachhang')->references('id')->on('khachhang');
             $table->timestamps();
