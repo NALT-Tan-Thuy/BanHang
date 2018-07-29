@@ -3,41 +3,7 @@
         7. SEARCH FROM
     ============================================================================= */
     
-    #searchform {
-    position:relative;
-    width:218px;
-    display:inline-block
-    }
-    
-    #searchform #s {
-    padding-right:25px
-    }
-    #searchform2 {
-    position:relative;
-    width:218px;
-    display:inline-block
-    }
-    
-    #searchform2 #s {
-    padding-right:25px
-    }
-    
-    #searchsubmit {
-    position:absolute;
-    right:6px;
-    top:0;
-    bottom:0;
-    border:none;
-    background:none
-    }
-    #searchsubmit2 {
-    position:absolute;
-    right:6px;
-    top:0;
-    bottom:0;
-    border:none;
-    background:none
-    }
+
     
     /* ==========================================================================
         7.1 TWITTER

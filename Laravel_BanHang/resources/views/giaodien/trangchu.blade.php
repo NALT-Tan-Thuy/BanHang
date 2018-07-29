@@ -1,9 +1,30 @@
-@extends('giaodien/main')
-@section('noidung')
+@extends('giaodien/main') @section('noidung')
 <!-- Nội dung chính của trang-->
-@include('giaodien/tieudetren')
-@include('giaodien/tieudeduoi')
+@section('title')
+Trang Chủ
+@endsection
+
+@include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
 <!-- phần đầu nội dung 1 -->
+<!-- Kiểm soát đường dẫn -->
+
+<div class="container">
+    <div class="row">
+        <div id="bc1" class="btn-group btn-breadcrumb">
+            <a href="#" class="btn btn-default">
+                <i class="fa fa-home"></i>
+            </a>
+            <!-- <a href="#" class="btn btn-default">
+                <div>Đường dẫn 1</div>
+            </a>
+            <a href="#" class="btn btn-default">
+                <div>Đường dẫn 2</div>
+            </a> -->
+        </div>
+    </div>
+</div>
+
+<!-- Kiểm soát trang -->
 <section class="examples">
     <div class="container">
         <div class="carousel-example" id="spNoiBat">
@@ -19,12 +40,14 @@
                             </div>
                             <div class="col-xs-4 center">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item2.jpg" alt="">
+                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item2.jpg"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="col-xs-4 right">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item3.jpg" alt="">
+                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item3.jpg"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
@@ -33,17 +56,20 @@
                         <div class="row">
                             <div class="col-xs-4 left">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg" alt="">
+                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="col-xs-4 center">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg" alt="">
+                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="col-xs-4 right">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg" alt="">
+                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
@@ -52,17 +78,20 @@
                         <div class="row">
                             <div class="col-xs-4 left">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg" alt="">
+                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="col-xs-4 center">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg" alt="">
+                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="col-xs-4 right">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg" alt="">
+                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
@@ -183,8 +212,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <!-- <div class="clearfix"></div> -->
                                     </div>
                                 </div>
@@ -197,7 +226,8 @@
 
                                     <div class="single-item-header">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px;" src="https://s3-ap-southeast-1.amazonaws.com/misskick/wp-content/uploads/2017/12/05185930/cach-mac-quan-ao-dep-danh-cho-nang-co-huong.jpg" alt="">
+                                            <img height="250px;" src="https://s3-ap-southeast-1.amazonaws.com/misskick/wp-content/uploads/2017/12/05185930/cach-mac-quan-ao-dep-danh-cho-nang-co-huong.jpg"
+                                                alt="">
 
                                         </a>
                                     </div>
@@ -213,8 +243,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <!-- <div class="clearfix"></div> -->
                                     </div>
                                 </div>
@@ -237,8 +267,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <!-- <div class="clearfix"></div> -->
                                     </div>
                                 </div>
@@ -261,8 +291,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <!-- <div class="clearfix"></div> -->
                                     </div>
                                 </div>
@@ -292,7 +322,8 @@
 
                                     <div class="single-item-header thumbnail">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
+                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
+                                                alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
@@ -307,8 +338,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -321,7 +352,8 @@
 
                                     <div class="single-item-header thumbnail">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
+                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
+                                                alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
@@ -336,8 +368,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -350,7 +382,8 @@
 
                                     <div class="single-item-header thumbnail">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
+                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
+                                                alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
@@ -365,8 +398,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -379,7 +412,8 @@
 
                                     <div class="single-item-header thumbnail">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
+                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
+                                                alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
@@ -394,8 +428,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -412,7 +446,8 @@
 
                                     <div class="single-item-header thumbnail">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
+                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
+                                                alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
@@ -427,8 +462,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -441,7 +476,8 @@
 
                                     <div class="single-item-header thumbnail">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
+                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
+                                                alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
@@ -456,8 +492,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -470,7 +506,8 @@
 
                                     <div class="single-item-header thumbnail">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
+                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
+                                                alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
@@ -485,8 +522,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -499,7 +536,8 @@
 
                                     <div class="single-item-header thumbnail">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg" alt="">
+                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
+                                                alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
@@ -514,8 +552,8 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -550,37 +588,37 @@
                         <div class="form-group">
                             <label class="filter-col" style="margin-right:0;" for="pref-perpage">Những mặt hàng kinh doanh:</label>
                             <select id="pref-perpage" class="form-control">
-                                    <option selected="selected" value="10">Phụ kiện thời trang cao cấp</option>
-                                    <option value="15">Giày - mũ</option>
-                                    <option value="15">Đai nịt cao cấp</option>
-                                    <option value="15">Một số sản phẩm khác</option>
-                                    <option value="15">Quần - áo</option>
+                                <option selected="selected" value="10">Phụ kiện thời trang cao cấp</option>
+                                <option value="15">Giày - mũ</option>
+                                <option value="15">Đai nịt cao cấp</option>
+                                <option value="15">Một số sản phẩm khác</option>
+                                <option value="15">Quần - áo</option>
 
-                                </select>
+                            </select>
                         </div>
                         <!-- form group [rows] -->
                         <div class="form-group">
                             <label class="filter-col" style="margin-right:0;" for="pref-orderby">Sản phẩm tương ứng:</label>
                             <select id="pref-orderby" class="form-control">
-                                    <option>Vòng cổ ngọc bích</option>
-                                    <option>Đồng hồ casio sang trọng</option>
-                                    <option>Nhẫn trang sức thời thượng</option>
+                                <option>Vòng cổ ngọc bích</option>
+                                <option>Đồng hồ casio sang trọng</option>
+                                <option>Nhẫn trang sức thời thượng</option>
 
-                                </select>
+                            </select>
                         </div>
                         <!-- form group [order by] -->
                         <div class="form-group">
                             <button type="submit" class="btn btn-info">
-                                    <span class="glyphicon glyphicon-share-alt"></span> Tìm kiếm sản phẩm
-                                </button>
+                                <span class="glyphicon glyphicon-share-alt"></span> Tìm kiếm sản phẩm
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
-                <span class="glyphicon glyphicon-hand-right"></span> TẠI ĐÂY CÓ MỌI THỨ BẠN CẦN
-            </button>
+            <span class="glyphicon glyphicon-hand-right"></span> TẠI ĐÂY CÓ MỌI THỨ BẠN CẦN
+        </button>
     </div>
 </div>
 <!-- Xong nội dung 4 tìm kiếm sản phẩm tương ứng -->
@@ -604,12 +642,14 @@
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="my-list">
-            <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg" alt="dsadas" />
+            <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
+                alt="dsadas" />
             <h3>Thể loại hàng</h3>
             <span>Giá gốc: 100,000 đ</span>
             <div class="offer">Giá khuyến mãi: 90,000 đ</div>
             <div class="detail">
-                <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg" alt="dsadas" />
+                <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
+                    alt="dsadas" />
                 <a href="#" class="btn btn-info">Mua ngay</a>
                 <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
             </div>
@@ -618,12 +658,14 @@
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="my-list">
-            <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas" />
+            <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
+            />
             <h3>Thể loại hàng</h3>
             <span>Giá gốc: 100,000 đ</span>
             <div class="offer">Giá khuyến mãi: 90,000 đ</div>
             <div class="detail">
-                <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas" />
+                <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
+                />
                 <a href="#" class="btn btn-info">Mua ngay</a>
                 <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
             </div>
@@ -660,12 +702,14 @@
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="my-list">
-            <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg" alt="dsadas" />
+            <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
+                alt="dsadas" />
             <h3>Thể loại hàng</h3>
             <span>Giá gốc: 100,000 đ</span>
             <div class="offer">Giá khuyến mãi: 90,000 đ</div>
             <div class="detail">
-                <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg" alt="dsadas" />
+                <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
+                    alt="dsadas" />
                 <a href="#" class="btn btn-info">Mua ngay</a>
                 <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
             </div>
@@ -674,12 +718,14 @@
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="my-list">
-            <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas" />
+            <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
+            />
             <h3>Thể loại hàng</h3>
             <span>Giá gốc: 100,000 đ</span>
             <div class="offer">Giá khuyến mãi: 90,000 đ</div>
             <div class="detail">
-                <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas" />
+                <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
+                />
                 <a href="#" class="btn btn-info">Mua ngay</a>
                 <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
             </div>
@@ -702,8 +748,8 @@
 
 </div>
 <!-- Xong nội dung 5 chứa sản phẩm phù hợp -->
-@include('giaodien/quytrinh')
-@include('giaodien/loicamon')
+@include('giaodien/quytrinh') @include('giaodien/loicamon')
+@include('giaodien/cuoitrang')
 
 <!-- Xong nội dung -->
 @endsection
