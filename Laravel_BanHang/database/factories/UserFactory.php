@@ -4,20 +4,23 @@ use Faker\Generator as Faker;
 
 
 $factory->define(App\User::class, function (Faker $faker) {
+    $arr = array("Nam", "Nữ");
+    $json = File::get("database/data/dulieumau.json");
+    $data = json_decode($json);
     return [
         'tendangnhap' => $faker->unique()->userName,
         'email' => $faker->unique()->safeEmail,
         'matkhau' => bcrypt('123'),
-        'gioitinh' => 'Nam',
+        'gioitinh' => $arr[array_rand($arr, 1)],
         'hoten' => $faker->name, 
-        'img' => str_random(10).'jpg',
+        'img' => rand(1, 5).'.jpg',
         'ngaysinh'=> $faker->dateTimeThisCentury->format('Y-m-d'),
         'sodienthoai' => $faker->phoneNumber,
-        'tinh' => $faker->city, 
-        'huyen' =>  $faker->text(20), 
-        'diachi' => $faker->streetAddress, 
+        'tinh' => "Tỉnh Thừa Thiên Huế", 
+        'huyen' =>  "Thành phố Huế", 
+        'diachi' => "Phường Phú Thuận",
         'nghenghiep' => $faker->company, 
-        'sothich' => $faker->text(50), 
+        'sothich' => $faker->text(100), 
         'gioithieubanthan' =>$faker->text(50),
         'remember_token' => str_random(10),
     ];
@@ -79,9 +82,9 @@ $factory->define(App\KhachHang::class, function (Faker $faker) {
         'gioitinh' => 'Nữ',
         'email' => $faker->unique()->safeEmail,
         'sodienthoai' => $faker->phoneNumber,        
-        'tinh' => $faker->city, 
-        'huyen' =>  $faker->text(20), 
-        'diachi' => $faker->streetAddress, 
+        'tinh' => "Tỉnh Thừa Thiên Huế", 
+        'huyen' =>  "Thành phố Huế", 
+        'diachi' => "Phường Phú Thuận",
         'ghichu' => $faker->text(100),
         'loaithanhtoan' => 'Thanh toán khi nhận hàng',
     ];
