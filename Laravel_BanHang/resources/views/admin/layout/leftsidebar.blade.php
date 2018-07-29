@@ -224,7 +224,7 @@
                         </a>
                 <ul class="ml-menu">
                     <li>
-                        <a href="#">Danh sách</a>
+                        <a href="admin/user/danhsach">Danh sách</a>
                     </li>
                     <li>
                         <a href="#">Thêm</a>

@@ -53,13 +53,25 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('getQuanHuyen/{str}', function($str){
             $json = File::get("hanhchinhVietNam/quan_huyen.json");
             $quanhuyen = json_decode($json);
-            $s = "<h2 class=\"card-inside-title\">Quận/huyện/thị xã</h2><select class=\"form-control show-tick\" name=\"QuanHuyen\" onchange=\"hienThiXaPhuong(this.value)\"> <option>Chọn quận/huyện/thị xã</option>";
+            $s = "\n <h2 class=\"card-inside-title\">Quận/huyện/thị xã</h2>\n <select class=\"form-control show-tick\" name=\"QuanHuyen\" onchange=\"hienThiXaPhuong(this.value)\"> \n <option value=\"\">Chọn quận/huyện/thị xã</option> \n";
             foreach($quanhuyen as $qh){
                 if($qh->parent_code == $str) {
-                    $s = $s."<option value=\"".$qh->code."\">".$qh->name_with_type."</option>";
+                    $s = $s."<option value=\"".$qh->code."\">".$qh->name_with_type."</option>\n";
                 }
             }
+            // $string = "\n <h2 class=\"card-inside-title \">Quận/huyện/thị xã</h2>\n";
+            // $string = $string." <div class=\"btn-group bootstrap-select form-control show-tick\">";
+            // $string = $string."<button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn quận/huyện/thị xã\"><span class=\"filter-option pull-left\">Chọn quận/huyện/thị xã</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button>";
+            // $string = $string."<div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn quận/huyện/thị xã</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div>";
+            // $string = $string."<select class=\"form-control show-tick\" tabindex=\"-98\">\n <option value=\"\">Chọn xã/phường/thị trấn</option>\n";
             echo "$s.</select>";
+            // foreach($quanhuyen as $qh){
+            //     if($qh->parent_code == $str) {
+            //         $string = $string."<option value=\"".$qh->code."\">".$qh->name_with_type."</option>\n ";
+            //     }
+            // }
+            // $string = $string." </select></div>\n ";
+            // // echo $string;
         });
         Route::get('getXaPhuong/{str}', function($str){
             $json = File::get("hanhchinhVietNam/xa_phuong.json");
@@ -71,6 +83,7 @@ Route::group(['prefix' => 'admin'], function(){
                 }
             }
             echo "$s.</select>";
+            // echo "\n <h2 class=\"card-inside-title \">Xã/phường/thị trấn</h2>\n <div class=\"btn-group bootstrap-select form-control show-tick\"><button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn xã/phường/thị trấn\"><span class=\"filter-option pull-left\">Chọn xã/phường/thị trấn</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button><div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn xã/phường/thị trấn</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div><select class=\"form-control show-tick\" tabindex=\"-98\">\n <option>Chọn xã/phường/thị trấn</option>\n </select></div>\n ";
         });
     });
 });

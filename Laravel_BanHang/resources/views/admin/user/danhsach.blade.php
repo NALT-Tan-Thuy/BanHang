@@ -107,7 +107,7 @@
                                                 </a>
                                             </div>
                                             <div>
-                                                <button type="button" class="btn bg-brown waves-effect" onclick="Delete({{ $user->id }});">
+                                                <button type="button" class="btn bg-brown waves-effect m-t-10" onclick="Delete({{ $user->id }});">
                                                     <i class="material-icons">delete</i>
                                                 </button>
                                             </div>
