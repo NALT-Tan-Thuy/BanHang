@@ -376,5 +376,19 @@ Route::get('demojson', function(){
 
  
 });
-   // Phần Route cho giao diện người dùng
-   Route::get('trangchu','GiaoDienController@getTrangChu');
+// Phần Route cho giao diện người dùng
+Route::get('trangchu','GiaoDienController@getTrangChu');
+Route::get('sanpham','GiaoDienController@getSanPham');
+Route::get('chitietsp','GiaoDienController@getChiTietsp');
+Route::get('dathang','GiaoDienController@getDatHang');
+
+// Quản lý tài khoản, đăng kým, đăng  nhập
+Route::get('dangky','TaiKhoanController@getDangKy');
+Route::get('dangnhap','TaiKhoanController@getDangNhap');
+Route::get('quenmatkhau','TaiKhoanController@getQuenMatKhau');
+
+Route::get('thongtin','TaiKhoanController@getThongTin');
+Route::get('suathongtin','TaiKhoanController@getSuaThongTin');
+
+
+
