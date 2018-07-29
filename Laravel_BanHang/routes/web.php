@@ -91,7 +91,6 @@ Route::get('demojson', function(){
     }
     echo "$s.</select>";
 });
-<<<<<<< HEAD
 // Phần Route cho giao diện người dùng
 Route::get('trangchu','GiaoDienController@getTrangChu');
 Route::get('sanpham','GiaoDienController@getSanPham');
@@ -108,5 +107,3 @@ Route::get('suathongtin','TaiKhoanController@getSuaThongTin');
 
 
 
-=======
->>>>>>> f20817ee6e39a7b86cba8afd75355c3720b1788f
