@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKickcomauTable extends Migration
+class CreateKichcomauTable extends Migration
 {
     /**
      * Run the migrations.
@@ -27,6 +27,6 @@ class CreateKickcomauTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kickcomau');
+        Schema::dropIfExists('kichcomau');
     }
 }

@@ -52,7 +52,7 @@
                     </div>
                     <div class="body">
                         <div class="row clearfix">
-                            <form action="#" method="POST" enctype="multipart/form-data">
+                            <form action="admin/user/sua/{{ $user->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf()
                                 <div class="col-md-6">
                                     <h2 class="card-inside-title">Tên đăng nhập</h2>
@@ -61,7 +61,7 @@
                                             <i class="material-icons">person</i>
                                         </span>
                                         <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập tên đăng nhập" type="text" value="{{ $user->tendangnhap }}" name="TenDangNhap" disabled>
+                                            <input class="form-control" placeholder="Nhập tên đăng nhập" type="text" value="{{ $user->tendangnhap }}" name="TenDangNhap" disabled required>
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                             <i class="material-icons">person</i>
                                         </span>
                                         <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập họ và tên" type="text" value="{{ $user->hoten }}" name="HoTen">
+                                            <input class="form-control" placeholder="Nhập họ và tên" type="text" value="{{ $user->hoten }}" name="HoTen" required>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                             <i class="material-icons">email</i>
                                         </span>
                                         <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập email" type="email" value="{{ $user->email }}" name="Email">
+                                            <input class="form-control" placeholder="Nhập email" type="email" value="{{ $user->email }}" name="Email" required>
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                             <i class="material-icons">format_color_text</i>
                                         </span>
                                         <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập Mật khẩu" type="password" value="{{ $user->matkhau }}" name="MatKhau" disabled id="matkhau">
+                                            <input class="form-control" placeholder="Nhập Mật khẩu" type="password" value="{{ $user->matkhau }}" name="MatKhau" disabled id="matkhau" required>
                                         </div>
                                         <span class="input-group-addon"><button type="button" class="btn btn-primary" onclick="checkDisable();">Sửa</button></span>
                                         
@@ -123,7 +123,7 @@
                                             <i class="material-icons">date_range</i>
                                         </span>
                                         <div class="form-line">
-                                            <input class="form-control" placeholder="" type="date" value="{{ $user->ngaysinh }}" name="NgaySinh">
+                                            <input class="form-control" placeholder="" type="date" value="{{ $user->ngaysinh }}" name="NgaySinh" required name="NgaySinh">
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
 
                                 <div class="col-md-4">
                                     <h2 class="card-inside-title">Tỉnh/thành phố</h2>
-                                    <select class="form-control show-tick" name="tinhtp" onchange="hienThiQuanHuyen(this.value)">
+                                    <select class="form-control show-tick" name="TinhTP" onchange="hienThiQuanHuyen(this.value)">
                                         <option value="">Chọn tỉnh/thành phố</option>
                                         @foreach ($tinhtp as $tinhtp)
                                         @if ($tinhtp->name_with_type == $user->tinh)
@@ -167,12 +167,26 @@
                                     <h2 class="card-inside-title ">Quận/huyện/thị xã</h2>
                                     <select class="form-control show-tick" name="QuanHuyen" onchange="hienThiXaPhuong(this.value)">
                                         <option value="">Chọn quận/huyện/thị xã</option>
+                                        @foreach ($quanhuyen as $quanhuyen)
+                                            @if ($quanhuyen->name_with_type == $user->huyen)
+                                            <option value="{{ $quanhuyen->code }}" selected>{{ $quanhuyen->name_with_type }}</option>
+                                            @else
+                                            <option value="{{ $quanhuyen->code }}">{{ $quanhuyen->name_with_type }}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-4" id="xaphuong">
                                     <h2 class="card-inside-title ">Xã/phường/thị trấn</h2>
-                                    <select class="form-control show-tick">
+                                    <select class="form-control show-tick" name="XaPhuong">
                                         <option value="">Chọn xã/phường/thị trấn</option>
+                                        @foreach ($xaphuong as $xaphuong)
+                                        @if ($xaphuong->name_with_type == $user->diachi)
+                                        <option value="{{ $xaphuong->code }}" selected>{{ $xaphuong->name_with_type }}</option>
+                                        @else
+                                        <option value="{{ $xaphuong->code }}">{{ $xaphuong->name_with_type }}</option>
+                                        @endif
+                                    @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-12">
@@ -197,7 +211,7 @@
                                     <h2 class="card-inside-title">Chọn ảnh</h2>
                                     <div class="form-group">
                                         <input type="file" name="file" id="profile-img">
-                                        <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
+                                        <img src="uploads/users/{{ $user->img }}" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
                                     </div>
                                 </div>
                                 <div class="col-md-3"></div>
@@ -210,7 +224,6 @@
                                 <div class="col-md-2">
                                     <button class="btn bg-brown btn-lg waves-effect" type="reset" onclick="xoaText();">XÓA TEXT</button>
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -226,7 +239,7 @@
         var img = document.getElementById('profile-img-tag');
         if(img.hasAttribute("src")){
             img.setAttribute('src', "");
-        }
+        }        
     }
 </script>
 <script>
