@@ -61,7 +61,8 @@
                                             <i class="material-icons">person</i>
                                         </span>
                                         <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập tên đăng nhập" type="text" value="{{ $user->tendangnhap }}" name="TenDangNhap" disabled required>
+                                            <input class="form-control" placeholder="Nhập tên đăng nhập" type="text" value="{{ $user->tendangnhap }}" name="TenDangNhap"
+                                                disabled required>
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +89,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <h2 class="card-inside-title">Mật khẩu</h2>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -97,25 +98,10 @@
                                         <div class="form-line">
                                             <input class="form-control" placeholder="Nhập Mật khẩu" type="password" value="{{ $user->matkhau }}" name="MatKhau" disabled id="matkhau" required>
                                         </div>
-                                        <span class="input-group-addon"><button type="button" class="btn btn-primary" onclick="checkDisable();">Sửa</button></span>
+                                        <span class="input-group-addon"><button type="button" class="btn btn-primary" onclick="checkDisable();" name="btnSuaMatKhau" value="">Sửa</button></span>
                                         
                                     </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Giới tính</h2>
-                                    <div class="demo-radio-button ">
-                                        <input name="group1" class="with-gap" id="radio_1" type="radio" name="GioiTinh" @if ( $user->gioitinh == "Nam") 
-                                        {{ "checked" }}
-                                        @endif>
-                                        <label for="radio_1">Nam</label>
-                                        <input name="group1" class="with-gap" id="radio_2" type="radio" name="GioiTinh" 
-                                        @if ( $user->gioitinh == "Nữ") 
-                                        {{ "checked" }}
-                                        @endif>
-                                        <label for="radio_2">Nữ</label>
-                                    </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-6">
                                     <h2 class="card-inside-title">Ngày sinh</h2>
                                     <div class="input-group">
@@ -149,17 +135,26 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Giới tính</h2>
+                                        <div class="demo-radio-button ">
+                                            <input class="with-gap" id="radio_1" type="radio" value="Nam" name="GioiTinh" @if ( $user->gioitinh == "Nam") {{ "checked" }} @endif>
+                                            <label for="radio_1">Nam</label>
+                                            <input class="with-gap" id="radio_2" type="radio" value="Nữ" name="GioiTinh" @if ( $user->gioitinh == "Nữ") {{ "checked" }} @endif>
+                                            <label for="radio_2">Nữ</label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <h2 class="card-inside-title">Tỉnh/thành phố</h2>
                                     <select class="form-control show-tick" name="TinhTP" onchange="hienThiQuanHuyen(this.value)">
                                         <option value="">Chọn tỉnh/thành phố</option>
-                                        @foreach ($tinhtp as $tinhtp)
-                                        @if ($tinhtp->name_with_type == $user->tinh)
-                                        <option value="{{ $tinhtp->code }}" selected>{{ $tinhtp->name_with_type }}</option>
-                                        @else <option value="{{ $tinhtp->code }}">{{ $tinhtp->name_with_type }}</option>
-                                        @endif
-                                        @endforeach
+                                        @foreach ($tinhtp as $tinhtp) @if ($tinhtp->name_with_type == $user->tinh)
+                                        <option value="{{ $tinhtp->code }}-{{ $tinhtp->name_with_type }}" selected>{{ $tinhtp->name_with_type }}</option>
+                                        @else
+                                        <option value="{{ $tinhtp->code }}-{{ $tinhtp->name_with_type }}">{{ $tinhtp->name_with_type }}</option>
+                                        @endif @endforeach
                                     </select>
                                 </div>
 
@@ -167,26 +162,22 @@
                                     <h2 class="card-inside-title ">Quận/huyện/thị xã</h2>
                                     <select class="form-control show-tick" name="QuanHuyen" onchange="hienThiXaPhuong(this.value)">
                                         <option value="">Chọn quận/huyện/thị xã</option>
-                                        @foreach ($quanhuyen as $quanhuyen)
-                                            @if ($quanhuyen->name_with_type == $user->huyen)
-                                            <option value="{{ $quanhuyen->code }}" selected>{{ $quanhuyen->name_with_type }}</option>
-                                            @else
-                                            <option value="{{ $quanhuyen->code }}">{{ $quanhuyen->name_with_type }}</option>
-                                            @endif
-                                        @endforeach
+                                        @foreach ($quanhuyen as $quanhuyen) @if ($quanhuyen->name_with_type == $user->huyen)
+                                        <option value="{{ $quanhuyen->code }}-{{ $quanhuyen->name_with_type }}" selected>{{ $quanhuyen->name_with_type }}</option>
+                                        @else
+                                        <option value="{{ $quanhuyen->code }}-{{ $quanhuyen->name_with_type }}">{{ $quanhuyen->name_with_type }}</option>
+                                        @endif @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-4" id="xaphuong">
                                     <h2 class="card-inside-title ">Xã/phường/thị trấn</h2>
                                     <select class="form-control show-tick" name="XaPhuong">
                                         <option value="">Chọn xã/phường/thị trấn</option>
-                                        @foreach ($xaphuong as $xaphuong)
-                                        @if ($xaphuong->name_with_type == $user->diachi)
-                                        <option value="{{ $xaphuong->code }}" selected>{{ $xaphuong->name_with_type }}</option>
+                                        @foreach ($xaphuong as $xaphuong) @if ($xaphuong->name_with_type == $user->diachi)
+                                        <option value="{{ $xaphuong->code }}-{{ $xaphuong->name_with_type }}" selected>{{ $xaphuong->name_with_type }}</option>
                                         @else
-                                        <option value="{{ $xaphuong->code }}">{{ $xaphuong->name_with_type }}</option>
-                                        @endif
-                                    @endforeach
+                                        <option value="{{ $xaphuong->code }}-{{ $xaphuong->name_with_type }}">{{ $xaphuong->name_with_type }}</option>
+                                        @endif @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-12">
@@ -194,24 +185,27 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <textarea rows="3" class="form-control no-resize auto-growth
-                                    " placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;" name="SoThich">{{ $user->sothich }}</textarea>
+                                    " placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;"
+                                                name="SoThich">{{ $user->sothich }}</textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                        <h2 class="card-inside-title">Giới thiệu bản</h2>
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <textarea rows="3" class="form-control no-resize auto-growth
-                                        " placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;" name="GioiThieuBanThan">{{ $user->gioithieubanthan }}</textarea>
-                                            </div>
+                                    <h2 class="card-inside-title">Giới thiệu bản</h2>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <textarea rows="3" class="form-control no-resize auto-growth
+                                        " placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;"
+                                                name="GioiThieuBanThan">{{ $user->gioithieubanthan }}</textarea>
                                         </div>
                                     </div>
+                                </div>
                                 <div class="col-md-12">
                                     <h2 class="card-inside-title">Chọn ảnh</h2>
                                     <div class="form-group">
                                         <input type="file" name="file" id="profile-img">
-                                        <img src="uploads/users/{{ $user->img }}" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
+                                        <img src="uploads/users/{{ $user->img }}" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;"
+                                        />
                                     </div>
                                 </div>
                                 <div class="col-md-3"></div>
@@ -235,26 +229,35 @@
 </section>
 @endsection @section('script')
 <script>
-    function xoaText(){
+    function xoaText() {
         var img = document.getElementById('profile-img-tag');
-        if(img.hasAttribute("src")){
+        if (img.hasAttribute("src")) {
             img.setAttribute('src', "");
-        }        
+        }
     }
 </script>
 <script>
-    function checkDisable() {
-        var matkhau = document.getElementById('matkhau');
-        if(matkhau.hasAttribute('disabled')) matkhau.removeAttribute('disabled');
-    }
+    // function checkDisable() {
+    //     var matkhau = document.getElementById('matkhau');
+    //     if(matkhau.hasAttribute('disabled')) {
+    //         matkhau.removeAttribute('disabled');
+
+    //     }
+    // }
+    // function abc(str) {
+    //     console.log(str);
+    // }
 </script>
 <script>
     function hienThiQuanHuyen(str) {
+        str = str.split('-')[0];
         var xaphuong = document.getElementById("xaphuong");
         // console.log(xaphuong);
-        xaphuong.innerHTML = "\n <h2 class=\"card-inside-title \">Xã/phường/thị trấn</h2>\n <div class=\"btn-group bootstrap-select form-control show-tick\"><button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn xã/phường/thị trấn\"><span class=\"filter-option pull-left\">Chọn xã/phường/thị trấn</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button><div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn xã/phường/thị trấn</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div><select class=\"form-control show-tick\" tabindex=\"-98\">\n <option>Chọn xã/phường/thị trấn</option>\n </select></div>\n ";
+        xaphuong.innerHTML =
+            "\n <h2 class=\"card-inside-title \">Xã/phường/thị trấn</h2>\n <div class=\"btn-group bootstrap-select form-control show-tick\"><button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn xã/phường/thị trấn\"><span class=\"filter-option pull-left\">Chọn xã/phường/thị trấn</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button><div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn xã/phường/thị trấn</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div><select class=\"form-control show-tick\" tabindex=\"-98\">\n <option>Chọn xã/phường/thị trấn</option>\n </select></div>\n ";
         if (str == "") {
-            document.getElementById("quanhuyen").innerHTML = "\n <h2 class=\"card-inside-title \">Quận/huyện/thị xã</h2>\n <div class=\"btn-group bootstrap-select form-control show-tick\"><button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn quận/huyện/thị xã\"><span class=\"filter-option pull-left\">Chọn quận/huyện/thị xã</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button><div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn quận/huyện/thị xã</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div><select class=\"form-control show-tick\" tabindex=\"-98\">\n <option>Chọn quận/huyện/thị xã</option>\n </select></div>\n ";
+            document.getElementById("quanhuyen").innerHTML =
+                "\n <h2 class=\"card-inside-title \">Quận/huyện/thị xã</h2>\n <div class=\"btn-group bootstrap-select form-control show-tick\"><button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn quận/huyện/thị xã\"><span class=\"filter-option pull-left\">Chọn quận/huyện/thị xã</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button><div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn quận/huyện/thị xã</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div><select class=\"form-control show-tick\" tabindex=\"-98\">\n <option>Chọn quận/huyện/thị xã</option>\n </select></div>\n ";
             return;
         }
         if (window.XMLHttpRequest) {
@@ -275,8 +278,11 @@
 
 <script>
     function hienThiXaPhuong(str) {
+        str = str.split('-')[0];
+        console.log(str);
         if (str == "") {
-            document.getElementById("xaphuong").innerHTML = "\n <h2 class=\"card-inside-title \">Xã/phường/thị trấn</h2>\n <div class=\"btn-group bootstrap-select form-control show-tick\"><button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn xã/phường/thị trấn\"><span class=\"filter-option pull-left\">Chọn xã/phường/thị trấn</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button><div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn xã/phường/thị trấn</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div><select class=\"form-control show-tick\" tabindex=\"-98\">\n <option>Chọn xã/phường/thị trấn</option>\n </select></div>\n ";
+            document.getElementById("xaphuong").innerHTML =
+                "\n <h2 class=\"card-inside-title \">Xã/phường/thị trấn</h2>\n <div class=\"btn-group bootstrap-select form-control show-tick\"><button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn xã/phường/thị trấn\"><span class=\"filter-option pull-left\">Chọn xã/phường/thị trấn</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button><div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn xã/phường/thị trấn</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div><select class=\"form-control show-tick\" tabindex=\"-98\">\n <option>Chọn xã/phường/thị trấn</option>\n </select></div>\n ";
             return;
         }
         if (window.XMLHttpRequest) {
