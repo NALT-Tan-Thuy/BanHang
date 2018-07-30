@@ -1,4 +1,4 @@
-@extends('giaodien/main') @section('noidung') @section('title') Đăng ký @endsection
+@extends('giaodien/master') @section('noidung') @section('title') Đăng ký @endsection
 <!-- nội dung -->
 @section('css')
 <link rel="stylesheet" type="text/css" href="giaodien/css/util.css">
@@ -19,7 +19,7 @@
                                 <input class="input100" type="text" name="hoten" placeholder="Họ và tên">
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <i class="fa fa-address-book-o" aria-hidden="true"></i>
                                 </span>
                             </div>
 
@@ -30,14 +30,6 @@
                                 <span class="symbol-input100">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                 </span>
-                            </div>
-
-                            <div style="padding: 7px 0 7px 0;">
-                                <label for="">Giới tính</label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="optradio" checked>Nam</label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="optradio">Nữ</label>
                             </div>
 
                             <label for="">Email</label>
@@ -63,22 +55,29 @@
                                 <input class="input100" type="password" name="passAgain" placeholder="Nhập lại mật khẩu">
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
-                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                    <i class="fa fa-retweet" aria-hidden="true"></i>
                                 </span>
                             </div>
+                            <div style="padding: 7px 0 7px 0;">
+                                <label for="">Giới tính </label>
+                                <div style="float: right; padding-right: 10%;">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" checked>Nam</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio">Nữ</label>
+                                </div>
 
-                            <div class="container-login100-form-btn">
-                                <button class="login100-form-btn"> ĐĂNG KÝ</button>
-                            </div>
-                            <!-- <div class="text-center p-t-20">
-                                <a class="txt2" href="#">Quên mật khẩu</a>
-                            </div> -->
-                            <div class="text-center p-t-30">
-                                <a class="txt2" href="#">
-                                    <b> Đăng nhập
-                                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                                    </b>
-                                </a>
+                                <div class="container-login100-form-btn">
+                                    <button class="login100-form-btn"> ĐĂNG KÝ</button>
+                                </div>
+                                <div class="text-center p-t-30">
+                                    <a class="txt2" href="#">
+                                        <b> Giúp đỡ
+                                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                                            Huỳnh Văn Thùy
+                                        </b>
+                                    </a>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -87,29 +86,6 @@
         </div>
     </div>
 
-    <!--===============================================================================================-->
-    <script src="js/jquery-v3.3.1.js"></script>
-    <!--===============================================================================================-->
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <script src="js/tilt/tilt.jquery.min.js"></script>
-    <script>
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
-    <script>
-        $('ul.nav li.dropdown').hover(function () {
-            $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeIn(500);
-        }, function () {
-            $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeOut(500);
-        });
-
-        $('ul.nav li.dropdown').on('click', function (event) {
-            event.stopPropagation();
-        });
-    </script>
 </body>
 
 <!-- Xong nội dung -->

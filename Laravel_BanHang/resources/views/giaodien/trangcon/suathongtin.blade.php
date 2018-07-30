@@ -1,4 +1,4 @@
-@extends('giaodien/main') @section('noidung') @section('title') Sửa thông tin @endsection
+@extends('giaodien/master') @section('noidung') @section('title') Sửa thông tin @endsection
 <!-- nội dung -->
 @section('css') @endsection
 
