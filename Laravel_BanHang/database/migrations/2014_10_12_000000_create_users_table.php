@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('tendangnhap');
             $table->string('email')->unique();
             $table->string('matkhau');
+            $table->string('phanquyen');
             $table->string('gioitinh', 10);
             $table->string('hoten');
             $table->text('img');

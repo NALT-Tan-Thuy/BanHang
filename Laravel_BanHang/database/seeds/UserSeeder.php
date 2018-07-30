@@ -15,11 +15,13 @@ class UserSeeder extends Seeder
         $limit = 10;
         $arrHoTen = array("Trần Quang Tân", "Huỳnh Văn Thùy", "Nguyễn Văn A", "Trần Thị B");
         $arrGioiTinh = array("Nam", "Nữ");
+        $arrPhanQuyen = array("admin", "user");
         for ($i = 1; $i <= $limit; $i++) {
             DB::table('users')->insert([
                 'tendangnhap' => $faker->unique()->userName,
                 'email' => $faker->unique()->safeEmail,
                 'matkhau' => bcrypt('123'),
+                'phanquyen' => $arrPhanQuyen[array_rand($arrPhanQuyen, 1)],
                 'gioitinh' => $arrGioiTinh[array_rand($arrGioiTinh, 1)],
                 'hoten' => $arrHoTen[rand(0, 3)] . $i,
                 'img' => $i . '.jpg',
