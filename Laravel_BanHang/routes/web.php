@@ -32,16 +32,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'user'], function () {
         Route::get('danhsach', 'UserController@index');
-        Route::get('sua/{id}', function ($id) {
-            $jsontinhtp = File::get("hanhchinhVietNam/tinh_tp.json");
-            $tinhtp = json_decode($jsontinhtp);
-            $jsonquanhuyen = File::get("hanhchinhVietNam/quan_huyen.json");
-            $quanhuyen = json_decode($jsonquanhuyen);
-            $jsonxaphuong = File::get("hanhchinhVietNam/xa_phuong.json");
-            $xaphuong = json_decode($jsonxaphuong);
-            $user = App\User::find($id);
-            return view('admin.user.sua', ['tinhtp' => $tinhtp, 'quanhuyen' => $quanhuyen, 'xaphuong' => $xaphuong, 'user' => $user]);
-        });
+        Route::get('sua/{id}', 'UserController@getSua');
 
         Route::post('sua/{id}', 'UserController@postSua');
         // Route::get('them', 'UserController@getThem');
@@ -51,72 +42,21 @@ Route::group(['prefix' => 'admin'], function () {
     });
 
     Route::group(['prefix' => 'ajax'], function () {
-        Route::get('getQuanHuyen/{str}', function ($str) {
-            $json = File::get("hanhchinhVietNam/quan_huyen.json");
-            $quanhuyen = json_decode($json);
-            $s = "\n <h2 class=\"card-inside-title\">Quận/huyện/thị xã</h2>\n <select class=\"form-control show-tick\" name=\"QuanHuyen\" onchange=\"hienThiXaPhuong(this.value)\"> \n <option value=\"\">Chọn quận/huyện/thị xã</option> \n";
-            foreach ($quanhuyen as $qh) {
-                if ($qh->parent_code == $str) {
-                    $s = $s . "<option value=\"" . $qh->code . "-" . $qh->name_with_type . "\">";
-                    $s = $s . $qh->name_with_type . "</option>\n";
-                }
-            }
-            echo "$s.</select>";
-        });
-        Route::get('getXaPhuong/{str}', function ($str) {
-            $json = File::get("hanhchinhVietNam/xa_phuong.json");
-            $xaphuong = json_decode($json);
-
-            $s = "\n <h2 class=\"card-inside-title\">Xã/Phường/Thị trấn</h2>\n <select class=\"form-control show-tick\" name=\"XaPhuong\"> <option>Chọn Xã/Phường/Thị trấn</option>";
-            foreach ($xaphuong as $xp) {
-                if ($xp->parent_code == $str) {
-                    $s = $s . "<option value=\"" . $xp->code . "-" . $xp->name_with_type . "\">";
-                    $s = $s . $xp->name_with_type . "</option>\n";
-                }
-            }
-            echo "$s.</select>";
-        });
+        Route::get('getQuanHuyen/{str}', 'ajaxController@getQuanHuyenUser');
+        Route::get('getXaPhuong/{str}', 'ajaxController@getXaPhuongUser');
     });
 });
 
 // Phần Route cho giao diện người dùng
 Route::get('trangchu', 'GiaoDienController@getTrangChu');
-
-Route::get('demojson', function () {
-    $str = 1;
-    $json = File::get("hanhchinhVietNam/xa_phuong.json");
-    $xaphuong = json_decode($json);
-    $s = "<h2 class=\"card-inside-title\">Quận/huyện/thị xã</h2><select class=\"form-control show-tick\"> <option>Chọn quận/huyện/thị xã</option>";
-    foreach ($xaphuong as $xp) {
-        if ($xp->parent_code == $str) {
-            $s = $s . "<option>" . $xp->name_with_type . "</option>";
-        }
-    }
-    // echo "$s.</select>";
-    // echo Illuminate\Support\Facades\Crypt::decryptString('$2y$10$BFeLIn3UDumU9XCR4UMaA.MAnKH5OFkw7NRT8KgVPuN3tEfrfEwfa');
-
-//     if (Hash::check('123', '$2y$10$/WVU1KlugBomhkjjqcM3lebEG19BeLPAG6cLjsd2NB4YdatHJr7TG'))
-    // {
-    //     echo "2";
-    // }
-    // else echo 3;
-});
-<<<<<<< HEAD
-// Phần Route cho giao diện người dùng
-Route::get('trangchu','GiaoDienController@getTrangChu');
-Route::get('sanpham','GiaoDienController@getSanPham');
-Route::get('chitietsp','GiaoDienController@getChiTietsp');
-Route::get('dathang','GiaoDienController@getDatHang');
+Route::get('sanpham', 'GiaoDienController@getSanPham');
+Route::get('chitietsp', 'GiaoDienController@getChiTietsp');
+Route::get('dathang', 'GiaoDienController@getDatHang');
 
 // Quản lý tài khoản, đăng kým, đăng  nhập
-Route::get('dangky','TaiKhoanController@getDangKy');
-Route::get('dangnhap','TaiKhoanController@getDangNhap');
-Route::get('quenmatkhau','TaiKhoanController@getQuenMatKhau');
+Route::get('dangky', 'TaiKhoanController@getDangKy');
+Route::get('dangnhap', 'TaiKhoanController@getDangNhap');
+Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
 
-Route::get('thongtin','TaiKhoanController@getThongTin');
-Route::get('suathongtin','TaiKhoanController@getSuaThongTin');
-
-
-
-=======
->>>>>>> f20817ee6e39a7b86cba8afd75355c3720b1788f
+Route::get('thongtin', 'TaiKhoanController@getThongTin');
+Route::get('suathongtin', 'TaiKhoanController@getSuaThongTin');

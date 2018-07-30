@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
@@ -23,9 +23,12 @@ class CreateUsersTable extends Migration
             $table->text('img');
             $table->date('ngaysinh');
             $table->string('sodienthoai');
-            $table->string('tinh');
-            $table->string('huyen');
-            $table->string('diachi');
+            $table->integer('id_tinh_thanhpho')->unsigned();
+            $table->foreign('id_tinh_thanhpho')->references('id')->on('tinh_thanhpho');
+            $table->integer('id_quan_huyen')->unsigned();
+            $table->foreign('id_quan_huyen')->references('id')->on('quan_huyen');
+            $table->integer('id_xa_phuong')->unsigned();
+            $table->foreign('id_xa_phuong')->references('id')->on('xa_phuong');
             $table->string('nghenghiep');
             $table->text('sothich');
             $table->text('gioithieubanthan');

@@ -1,4 +1,5 @@
-@extends('admin.layout.index') @section('linkcssTren')
+@extends('admin.layout.index')
+@section('linkcssTren')
 <!-- Colorpicker Css -->
 <link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
 
@@ -15,7 +16,10 @@
 <link href="admin/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
 <!-- noUISlider Css -->
-<link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" /> @endsection @section('linkcssDuoi')
+<link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+@endsection
+
+@section('linkcssDuoi')
 <style>
     .sidebar {
         width: 220px;
@@ -33,7 +37,9 @@
         width: 220px;
     }
 </style>
-@endsection @section('content')
+@endsection
+
+@section('content')
 <section class="content" id="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -78,6 +84,7 @@
                                     </div>
                                 </div>
 
+                                {{--
                                 <div class="col-md-6">
                                     <h2 class="card-inside-title">Email</h2>
                                     <div class="input-group">
@@ -88,7 +95,7 @@
                                             <input class="form-control" placeholder="Nhập email" type="email" value="{{ $user->email }}" name="Email" required>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <!-- <div class="col-md-6">
                                     <h2 class="card-inside-title">Mật khẩu</h2>
                                     <div class="input-group">
@@ -99,7 +106,7 @@
                                             <input class="form-control" placeholder="Nhập Mật khẩu" type="password" value="{{ $user->matkhau }}" name="MatKhau" disabled id="matkhau" required>
                                         </div>
                                         <span class="input-group-addon"><button type="button" class="btn btn-primary" onclick="checkDisable();" name="btnSuaMatKhau" value="">Sửa</button></span>
-                                        
+
                                     </div>
                                 </div> -->
                                 <div class="col-md-6">
@@ -125,6 +132,17 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                    <h2 class="card-inside-title">Giới tính</h2>
+                                    <div class="demo-radio-button ">
+                                        <input class="with-gap" id="radio_1" type="radio" value="Nam" name="GioiTinh" @if ( $user->gioitinh
+                                        == "Nam") {{ "checked" }} @endif>
+                                        <label for="radio_1">Nam</label>
+                                        <input class="with-gap" id="radio_2" type="radio" value="Nữ" name="GioiTinh" @if ( $user->gioitinh
+                                        == "Nữ") {{ "checked" }} @endif>
+                                        <label for="radio_2">Nữ</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                     <h2 class="card-inside-title">Nghề nghiệp</h2>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -135,26 +153,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="col-md-6">
-                                        <h2 class="card-inside-title">Giới tính</h2>
-                                        <div class="demo-radio-button ">
-                                            <input class="with-gap" id="radio_1" type="radio" value="Nam" name="GioiTinh" @if ( $user->gioitinh == "Nam") {{ "checked" }} @endif>
-                                            <label for="radio_1">Nam</label>
-                                            <input class="with-gap" id="radio_2" type="radio" value="Nữ" name="GioiTinh" @if ( $user->gioitinh == "Nữ") {{ "checked" }} @endif>
-                                            <label for="radio_2">Nữ</label>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="col-md-4">
                                     <h2 class="card-inside-title">Tỉnh/thành phố</h2>
                                     <select class="form-control show-tick" name="TinhTP" onchange="hienThiQuanHuyen(this.value)">
                                         <option value="">Chọn tỉnh/thành phố</option>
-                                        @foreach ($tinhtp as $tinhtp) @if ($tinhtp->name_with_type == $user->tinh)
-                                        <option value="{{ $tinhtp->code }}-{{ $tinhtp->name_with_type }}" selected>{{ $tinhtp->name_with_type }}</option>
+                                        @foreach ($tinhtp as $tinhtp) 
+                                        @if ($tinhtp->id == $user->id_tinh_thanhpho)
+                                        <option value="{{ $tinhtp->id }}-{{ $tinhtp->tendaydu }}" selected>{{ $tinhtp->tendaydu }}</option>
                                         @else
-                                        <option value="{{ $tinhtp->code }}-{{ $tinhtp->name_with_type }}">{{ $tinhtp->name_with_type }}</option>
-                                        @endif @endforeach
+                                        <option value="{{ $tinhtp->id }}-{{ $tinhtp->tendaydu }}">{{ $tinhtp->tendaydu }}</option>
+                                        @endif 
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -162,24 +172,29 @@
                                     <h2 class="card-inside-title ">Quận/huyện/thị xã</h2>
                                     <select class="form-control show-tick" name="QuanHuyen" onchange="hienThiXaPhuong(this.value)">
                                         <option value="">Chọn quận/huyện/thị xã</option>
-                                        @foreach ($quanhuyen as $quanhuyen) @if ($quanhuyen->name_with_type == $user->huyen)
-                                        <option value="{{ $quanhuyen->code }}-{{ $quanhuyen->name_with_type }}" selected>{{ $quanhuyen->name_with_type }}</option>
+                                        @foreach ($quanhuyen as $quanhuyen) 
+                                        @if ($quanhuyen->id == $user->id_quan_huyen)
+                                        <option value="{{ $quanhuyen->id }}-{{ $quanhuyen->tendaydu }}" selected>{{ $quanhuyen->tendaydu }}</option>
                                         @else
-                                        <option value="{{ $quanhuyen->code }}-{{ $quanhuyen->name_with_type }}">{{ $quanhuyen->name_with_type }}</option>
-                                        @endif @endforeach
+                                        <option value="{{ $quanhuyen->id }}-{{ $quanhuyen->tendaydu }}">{{ $quanhuyen->tendaydu }}</option>
+                                        @endif 
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-4" id="xaphuong">
                                     <h2 class="card-inside-title ">Xã/phường/thị trấn</h2>
                                     <select class="form-control show-tick" name="XaPhuong">
                                         <option value="">Chọn xã/phường/thị trấn</option>
-                                        @foreach ($xaphuong as $xaphuong) @if ($xaphuong->name_with_type == $user->diachi)
-                                        <option value="{{ $xaphuong->code }}-{{ $xaphuong->name_with_type }}" selected>{{ $xaphuong->name_with_type }}</option>
+                                        @foreach ($xaphuong as $xaphuong) 
+                                        @if ($xaphuong->id == $user->id_xa_phuong)
+                                        <option value="{{ $xaphuong->id }}-{{ $xaphuong->tendaydu }}" selected>{{ $xaphuong->tendaydu }}</option>
                                         @else
-                                        <option value="{{ $xaphuong->code }}-{{ $xaphuong->name_with_type }}">{{ $xaphuong->name_with_type }}</option>
-                                        @endif @endforeach
+                                        <option value="{{ $xaphuong->id }}-{{ $xaphuong->tendaydu }}">{{ $xaphuong->tendaydu }}</option>
+                                        @endif 
+                                        @endforeach
                                     </select>
                                 </div>
+                                
                                 <div class="col-md-12">
                                     <h2 class="card-inside-title">Sở thích</h2>
                                     <div class="form-group">
@@ -224,10 +239,12 @@
                 </div>
             </div>
         </div>
-        <!-- #END# FORM -->
+        {{--  <!-- #END# FORM -->  --}}
     </div>
 </section>
-@endsection @section('script')
+@endsection
+
+@section('script')
 <script>
     function xoaText() {
         var img = document.getElementById('profile-img-tag');
@@ -235,19 +252,9 @@
             img.setAttribute('src', "");
         }
     }
-</script>
-<script>
-    // function checkDisable() {
-    //     var matkhau = document.getElementById('matkhau');
-    //     if(matkhau.hasAttribute('disabled')) {
-    //         matkhau.removeAttribute('disabled');
 
-    //     }
-    // }
-    // function abc(str) {
-    //     console.log(str);
-    // }
 </script>
+
 <script>
     function hienThiQuanHuyen(str) {
         str = str.split('-')[0];
@@ -274,12 +281,12 @@
         xmlhttp.open("GET", "admin/ajax/getQuanHuyen/" + str, true);
         xmlhttp.send();
     }
+
 </script>
 
 <script>
     function hienThiXaPhuong(str) {
         str = str.split('-')[0];
-        console.log(str);
         if (str == "") {
             document.getElementById("xaphuong").innerHTML =
                 "\n <h2 class=\"card-inside-title \">Xã/phường/thị trấn</h2>\n <div class=\"btn-group bootstrap-select form-control show-tick\"><button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn xã/phường/thị trấn\"><span class=\"filter-option pull-left\">Chọn xã/phường/thị trấn</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button><div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn xã/phường/thị trấn</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div><select class=\"form-control show-tick\" tabindex=\"-98\">\n <option>Chọn xã/phường/thị trấn</option>\n </select></div>\n ";
@@ -299,6 +306,7 @@
         xmlhttp.open("GET", "admin/ajax/getXaPhuong/" + str, true);
         xmlhttp.send();
     }
+
 </script>
 <!-- Custom Js -->
 <script src="admin/js/basic-form-elements.js "></script>
@@ -326,5 +334,22 @@
     $("#profile-img ").change(function () {
         readURL(this);
     });
+
 </script>
+
+@if(count($errors) > 0)
+<script>
+    var s = "";
+        @foreach($errors->all() as $err)
+            s += "{{ $err }}\n";
+        @endforeach
+        swal({
+            title: "Lỗi",
+            text: s,
+            timer: 10000,
+            icon: "error",
+        });
+</script>
+@endif
+
 @endsection

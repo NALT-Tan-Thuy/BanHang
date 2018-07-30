@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'tendangnhap', 'email', 'matkhau', 'gioitinh', 'hoten', 'img', 'ngaysinh', 'sodienthoai', 'tinh', 'huyen', 'diachi', 'nghenghiep', 'sothich', 'gioithieubanthan',
+        'tendangnhap', 'email', 'matkhau', 'gioitinh', 'hoten', 'img', 'ngaysinh', 'sodienthoai', 'id_tinh_thanhpho', 'id_quan_huyen', 'id_xa_phuong', 'nghenghiep', 'sothich', 'gioithieubanthan',
     ];
 
     /**
@@ -27,7 +27,8 @@ class User extends Authenticatable
         'matkhau', 'remember_token',
     ];
 
-    public function binhluan(){
+    public function binhluan()
+    {
         return $this->hasMany('App\BinhLuan', 'id_users', 'id');
     }
 }
