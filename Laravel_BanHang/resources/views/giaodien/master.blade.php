@@ -7,33 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="http://myphamfokin.com/thumbs/cart-mb.png">
     <title>@yield('title')</title>
-    <!-- Chữ cho "Thế giới mua sắm" -->
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
     <!-- Font hiển thị "Tên của shop trên Menu chính" -->
     <link href="https://fonts.googleapis.com/css?family=Pattaya" rel="stylesheet">
-    <!-- font khẩu hiệu " mua sắm thả ga" -->
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <!-- font cho thẻ a Menu chính -->
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright|Dancing+Script" rel="stylesheet">
-    <!-- font cho chữ trong thanh tìm kiếm hàng hóa tương ứng -->
-    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
-    <!-- font cho lời cảm ơn -->
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|VT323" rel="stylesheet">
     <!-- CSS bootstrap -->
-    <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- font awesome cho các nút footer -->
-    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- animation -->
-    <link rel="stylesheet" href="{{ asset('giaodien/css/animate.css')}}">
+    <link rel="stylesheet" href="giaodien/css/animate.css">
     <!-- Trở về đầu trang -->
-    <link rel="stylesheet" href="{{ asset('giaodien/css/backToTop.min.css') }}">
-
+    <link rel="stylesheet" href="giaodien/css/backToTop.min.css">
     <!-- chèn link css trang chủ -->
-    <link rel="stylesheet" href="{{ asset('giaodien/css/trangchu.css')}}">
-
+    <link rel="stylesheet" href="giaodien/css/trangchu.css">
     <!-- Chèn css cho nội dung show sản phẩm -->
     <!-- CSS Sản phẩm -->
-    <link rel="stylesheet" href="{{ asset('giaodien/css/sanpham.css')}}"> @yield('css')
+    <link rel="stylesheet" href="giaodien/css/sanpham.css"> @yield('css')
 </head>
 <!-- phần menu chính -->
 <nav id="annavbar" class="navbar navbar-inverse navbar-md navbar-fixed-top">
@@ -162,14 +152,13 @@
                         <span class="fa fa-calendar-plus-o"></span> Đăng ký</a>
                 </li>
                 <!-- <li>
-                    <a href="thongtin">
-                        <span class="glyphicon glyphicon-user"></span> Huỳnh Văn Thùy</a>
-                </li> 
-                <li>
-                    <a href="sanpham">
-                        <span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a>
-                </li>  -->
-
+                        <a href="thongtin">
+                            <span class="glyphicon glyphicon-user"></span> Huỳnh Văn Thùy</a>
+                    </li> 
+                    <li>
+                        <a href="sanpham">
+                            <span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a>
+                    </li>  -->
             </ul>
         </div>
     </div>
@@ -180,19 +169,15 @@
 @yield('noidung')
 
 
-<!-- Script trang chủ -->
-<script src="{{ asset('giaodien/js/trangchu.js') }}"></script>
 <!-- jQuery library -->
-<script src="{{ asset('giaodien/js/jquery-v3.3.1.js') }}"></script>
+<script src="giaodien/js/jquery-v3.3.1.js"></script>
 <!-- Latest compiled JavaScript -->
-<script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!-- Slide -->
-<script src="{{ asset('giaodien/js/slide/jR3DCarousel.min.js') }}"></script>
 <!-- Trở về đầu trang -->
-<script src="{{ asset('giaodien/js/backgotop/jquery-backToTop.js') }}"></script>
+<script src="giaodien/js/backgotop/jquery-backToTop.js"></script>
 
-<script src="{{ asset('giaodien/js/_jquery.js') }}"></script>
+<script src="giaodien/js/_jquery.js"></script>
 
 <script>
     $(document).ready(function (e) {
@@ -206,33 +191,6 @@
     });
 </script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        var slideImages = [{
-            src: 'giaodien/images/slidetop/slide1.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide2.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide3.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide4.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide5.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide6.jpg'
-        }]
-
-        jR3DCarousel = $('.jR3DCarouselGallery').jR3DCarousel({
-            width: 1140,
-            height: 418,
-            slides: slideImages
-        });
-
-        function slideShownCallback($slide) {
-            console.log("Slide shown: ", $slide.find('img').attr('src'))
-        }
-    })
-</script>
 <script>
     $('ul.nav li.dropdown').hover(function () {
         $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeIn(0);

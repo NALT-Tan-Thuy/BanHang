@@ -26,4 +26,8 @@ class TaiKhoanController extends Controller
     public function getSuaThongTin(){
         return view('giaodien/trangcon/suathongtin');
     }
+    public function getThu(){
+        return view('giaodien/master');
+    }
+    
 }

@@ -242,5 +242,7 @@
 
 <!-- Xong nội dung 5 chứa sản phẩm phù hợp -->
 @include('giaodien/quytrinh') @include('giaodien/loicamon')
+@include('giaodien/cuoitrang')
+
 <!-- Xong nội dung -->
 @endsection

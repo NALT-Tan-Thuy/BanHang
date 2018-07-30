@@ -1,4 +1,4 @@
-@extends('giaodien/main') @section('noidung') @section('title') Quên mật khẩu @endsection
+@extends('giaodien/master') @section('noidung') @section('title') Quên mật khẩu @endsection
 <!-- nội dung -->
 @section('css')
 
