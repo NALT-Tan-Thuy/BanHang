@@ -143,6 +143,18 @@
                     <a href="dathang">
                         <span class="fa fa-shopping-basket"></span> 10</a>
                 </li>
+
+                @if(Auth::check())
+
+                <li>
+                    <a href="thongtin">
+                        <span class="glyphicon glyphicon-user"></span> {{Auth::User()->tendangnhap}}</a>
+                </li>
+                <li>
+                    <a href="dangxuat">
+                        <span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a>
+                </li>
+                @else
                 <li>
                     <a href="dangnhap">
                         <span class="fa fa-expeditedssl"></span> Đăng nhập</a>
@@ -151,14 +163,8 @@
                     <a href="dangky">
                         <span class="fa fa-calendar-plus-o"></span> Đăng ký</a>
                 </li>
-                <!-- <li>
-                        <a href="thongtin">
-                            <span class="glyphicon glyphicon-user"></span> Huỳnh Văn Thùy</a>
-                    </li> 
-                    <li>
-                        <a href="sanpham">
-                            <span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a>
-                    </li>  -->
+                @endif
+
             </ul>
         </div>
     </div>

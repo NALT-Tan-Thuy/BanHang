@@ -275,3 +275,12 @@ iframe {
     font-size: 16px;
     padding-left: 23px;
 }
+
+form p{
+    text-align: center;
+    color: #cc3b3b;
+}
+#thongbaodangky{
+    text-align: center;
+    font-size: 1.3em;
+}

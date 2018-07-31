@@ -12,27 +12,42 @@
             <div class="col-md-5 col-xs-12 col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <form class="" style="background-color: white; ">
+                        @if(Session::has('taoxongtaikhoan'))
+                        <div id="thongbaodangky" class="alert alert-success">
+                            <p>{{Session::get('taoxongtaikhoan')}}</p>
+                            <p>Đăng nhập để sử dụng</p>
+                        </div>
+                        @endif
+                        <!--  -->
+                        @if(Session::has('loidangnhap'))
+                        <div id="thongbaodangky" class="alert alert-danger">
+                            <p>{{Session::get('loidangnhap')}}</p>
+                        </div>
+                        @endif
+                        <form method="POST" action="dangnhap" class="" style="background-color: white; ">
+                            @csrf
                             <span class="login100-form-title">Đăng nhập</span>
-
                             <div class="wrap-input100">
-                                <input class="input100" type="text" name="email" placeholder="Email">
+                                <input class="input100" type="text" name="name" placeholder="Nhập tài khoản hoặc email" required>
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <i class="fa fa-key" aria-hidden="true"></i>
                                 </span>
                             </div>
 
                             <div class="wrap-input100">
-                                <input class="input100" type="password" name="pass" placeholder="Password">
+                                <input class="input100" type="password" name="password" placeholder="Nhập vào mật khẩu của bạn" required>
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                 </span>
                             </div>
+                            @if($errors->has('password'))
+                            <p>{{$errors->first('password')}}</p>
+                            @endif
 
                             <div class="container-login100-form-btn">
-                                <button class="login100-form-btn">
+                                <button type="submit" class="login100-form-btn">
                                     ĐĂNG NHẬP
                                 </button>
                             </div>
