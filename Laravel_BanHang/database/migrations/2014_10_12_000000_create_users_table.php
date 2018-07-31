@@ -17,13 +17,13 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('tendangnhap');
             $table->string('email')->unique();
-            $table->string('matkhau');
+            $table->string('password');
             $table->string('phanquyen');
             $table->string('gioitinh', 10);
             $table->string('hoten');
             $table->text('img')->nullable();
-            $table->date('ngaysinh');
-            $table->string('sodienthoai');
+            $table->date('ngaysinh')->nulable();
+            $table->string('sodienthoai')->nulable();
             $table->integer('id_tinh_thanhpho')->unsigned();
             $table->foreign('id_tinh_thanhpho')->references('id')->on('tinh_thanhpho');
             $table->integer('id_quan_huyen')->unsigned();

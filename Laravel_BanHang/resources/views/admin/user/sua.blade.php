@@ -1,4 +1,4 @@
-@extends('admin.layout.index')
+@extends('admin.layout.index') 
 @section('linkcssTren')
 <!-- Colorpicker Css -->
 <link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
 <!-- noUISlider Css -->
 <link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
 @endsection
-
+ 
 @section('linkcssDuoi')
 <style>
     .sidebar {
@@ -38,7 +38,7 @@
     }
 </style>
 @endsection
-
+ 
 @section('content')
 <section class="content" id="content">
     <div class="container-fluid">
@@ -83,7 +83,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-6">
                                     <h2 class="card-inside-title">Ngày sinh</h2>
                                     <div class="input-group">
@@ -91,7 +91,7 @@
                                             <i class="material-icons">date_range</i>
                                         </span>
                                         <div class="form-line">
-                                            <input class="form-control" placeholder="" type="date" value="{{ $user->ngaysinh }}" name="NgaySinh" required name="NgaySinh">
+                                            <input class="form-control" placeholder="" type="date" value="{{ $user->ngaysinh }}" name="NgaySinh" name="NgaySinh">
                                         </div>
                                     </div>
                                 </div>
@@ -160,12 +160,16 @@
                                     <h2 class="card-inside-title ">Quận/huyện/thị xã</h2>
                                     <select class="form-control show-tick" name="QuanHuyen" onchange="hienThiXaPhuong(this.value)">
                                         <option value="">Chọn quận/huyện/thị xã</option>
-                                        @foreach ($quanhuyen as $quanhuyen) 
+                                        @foreach ($quanhuyen as $quanhuyen)
+                                        @if ($quanhuyen->id != 0)
                                         @if ($quanhuyen->id == $user->id_quan_huyen)
                                         <option value="{{ $quanhuyen->id }}" selected>{{ $quanhuyen->tendaydu }}</option>
                                         @else
-                                        <option value="{{ $quanhuyen->id }}">{{ $quanhuyen->tendaydu }}</option>
+                                            <option value="{{ $quanhuyen->id }}">{{ $quanhuyen->tendaydu }}</option>
+                                        
                                         @endif 
+                                        @endif
+                                        
                                         @endforeach
                                     </select>
                                 </div>
@@ -173,16 +177,19 @@
                                     <h2 class="card-inside-title ">Xã/phường/thị trấn</h2>
                                     <select class="form-control show-tick" name="XaPhuong">
                                         <option value="">Chọn xã/phường/thị trấn</option>
-                                        @foreach ($xaphuong as $xaphuong) 
+                                        @foreach ($xaphuong as $xaphuong)
+                                        @if ($xaphuong->id != 0)
                                         @if ($xaphuong->id == $user->id_xa_phuong)
                                         <option value="{{ $xaphuong->id }}" selected>{{ $xaphuong->tendaydu }}</option>
                                         @else
                                         <option value="{{ $xaphuong->id }}">{{ $xaphuong->tendaydu }}</option>
                                         @endif 
+                                        @endif
+                                       
                                         @endforeach
                                     </select>
                                 </div>
-                                
+
                                 <div class="col-md-12">
                                     <h2 class="card-inside-title">Sở thích</h2>
                                     <div class="form-group">
@@ -207,8 +214,13 @@
                                     <h2 class="card-inside-title">Chọn ảnh</h2>
                                     <div class="form-group">
                                         <input type="file" name="file" id="profile-img">
-                                        <img src="uploads/users/{{ $user->img }}" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;"
-                                        />
+                                       @if ($user->img == "")
+                                       <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;"
+                                       />
+                                       @else
+                                       <img src="uploads/users/{{ $user->img }}" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;"
+                                       />
+                                       @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3"></div>
@@ -227,11 +239,12 @@
                 </div>
             </div>
         </div>
-        {{--  <!-- #END# FORM -->  --}}
+        {{--
+        <!-- #END# FORM -->--}}
     </div>
 </section>
 @endsection
-
+ 
 @section('script')
 <script>
     function xoaText() {
@@ -336,7 +349,7 @@
             timer: 10000,
             icon: "error",
         });
+
 </script>
 @endif
-
 @endsection

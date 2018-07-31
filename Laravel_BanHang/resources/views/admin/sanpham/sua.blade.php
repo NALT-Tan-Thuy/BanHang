@@ -77,7 +77,7 @@
                                     <h2 class="card-inside-title">Tên sản phẩm</h2>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="material-icons">person</i>
+                                            <i class="material-icons">format_color_text</i>
                                         </span>
                                         <div class="form-line">
                                             <input class="form-control" placeholder="Nhập tên sản phẩm" type="text" value="{{ $sanpham->ten }}" name="TenSanPham" required>
@@ -85,8 +85,6 @@
                                     </div>
                                 </div>
                                 
-
-                               
                                 <div class="col-md-12">
                                     <div class="col-md-3"></div>
                                 <div class="col-md-2">
@@ -124,19 +122,18 @@
     <!-- Bootstrap Material Datetime Picker Plugin Js -->
     <script src="admin/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js "></script>
 
-    <script type="text/javascript">
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#profile-img-tag').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#profile-img").change(function() {
-            readURL(this);
-        });
+    @if(count($errors) > 0)
+    <script>
+        var s = "";
+            @foreach($errors->all() as $err)
+                s += "{{ $err }}\n";
+            @endforeach
+            swal({
+                title: "Lỗi",
+                text: s,
+                timer: 10000,
+                icon: "error",
+            });
     </script>
+    @endif
 @endsection

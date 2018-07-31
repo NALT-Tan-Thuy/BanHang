@@ -9,7 +9,7 @@ $factory->define(App\User::class, function (Faker $faker) {
     return [
         'tendangnhap' => $faker->unique()->userName,
         'email' => $faker->unique()->safeEmail,
-        'matkhau' => bcrypt('123'),
+        'password' => bcrypt('123'),
         'gioitinh' => $arr[array_rand($arr, 1)],
         'hoten' => $faker->name,
         'img' => rand(1, 5) . '.jpg',

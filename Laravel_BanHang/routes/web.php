@@ -43,9 +43,18 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('danhsach', 'SanPhamController@index');
         Route::get('sua/{id}', 'SanPhamController@getSua');
         Route::post('sua/{id}', 'SanPhamController@postSua');
-        // Route::get('them', 'SanPhamController@getThem');
-        // Route::post('them', 'SanPhamController@postThem');
-        // Route::get('xoa/{id}', 'SanPhamController@getXoa');
+        Route::get('them', 'SanPhamController@getThem');
+        Route::post('them', 'SanPhamController@postThem');
+        Route::get('xoa/{id}', 'SanPhamController@getXoa');
+    });
+
+    Route::group(['prefix' => 'chitietsanpham'], function () {
+        Route::get('danhsach', 'ChiTietSanPhamController@index');
+        Route::get('sua/{id}', 'ChiTietSanPhamController@getSua');
+        // Route::post('sua/{id}', 'ChiTietSanPhamController@postSua');
+        // Route::get('them', 'ChiTietSanPhamController@getThem');
+        // Route::post('them', 'ChiTietSanPhamController@postThem');
+        // Route::get('xoa/{id}', 'ChiTietSanPhamController@getXoa');
     });
 
     Route::group(['prefix' => 'ajax'], function () {

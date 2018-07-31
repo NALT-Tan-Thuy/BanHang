@@ -44,9 +44,18 @@ class UserController extends Controller
         $user->sodienthoai = $request->SoDienThoai;
         $user->nghenghiep = $request->NgheNghiep;
         $user->gioitinh = $request->GioiTinh;
-        $user->id_tinh_thanhpho = $request->TinhTP;
-        $user->id_quan_huyen = $request->QuanHuyen;
-        $user->id_xa_phuong = $request->XaPhuong;
+        if ($request->TinhTP == "") {
+            $user->id_tinh_thanhpho = 0;
+        } else {
+            $user->id_tinh_thanhpho = $request->TinhTP;
+        }
+
+        if ($request->QuanHuyen == "") {
+            $user->id_quan_huyen = 0;
+        } else {
+            $user->id_quan_huyen = $request->QuanHuyen;
+        }
+
         $user->gioithieubanthan = $request->GioiThieuBanThan;
         $user->sothich = $request->SoThich;
 
@@ -163,7 +172,10 @@ class UserController extends Controller
     public function getXoa($id)
     {
         $user = User::find($id);
-        unlink('uploads/users/' . $user->img);
+        if ($user->img != "") {
+            unlink('uploads/users/' . $user->img);
+        }
+
         $user->delete();
         return redirect('admin/user/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
     }

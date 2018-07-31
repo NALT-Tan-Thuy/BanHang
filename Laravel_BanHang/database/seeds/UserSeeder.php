@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             DB::table('users')->insert([
                 'tendangnhap' => $faker->unique()->userName,
                 'email' => $faker->unique()->safeEmail,
-                'matkhau' => bcrypt('123'),
+                'password' => bcrypt('123'),
                 'phanquyen' => $arrPhanQuyen[array_rand($arrPhanQuyen, 1)],
                 'gioitinh' => $arrGioiTinh[array_rand($arrGioiTinh, 1)],
                 'hoten' => $arrHoTen[rand(0, 3)] . $i,
