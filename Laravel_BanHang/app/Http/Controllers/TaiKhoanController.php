@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class TaiKhoanController extends Controller
 {
@@ -38,6 +39,7 @@ class TaiKhoanController extends Controller
 
                 'password_confirmation.required'=>'Bạn cần xác nhận lại mật khẩu',
                 'password_confirmation.same'=>'Mật khẩu chưa khớp'
+
             ]
         );
 
@@ -45,9 +47,13 @@ class TaiKhoanController extends Controller
         $user->hoten = $request->fullname;
         $user->tendangnhap = $request->name;
         $user->email = $request->email;
-        $user->matkhau = bcrypt($request->password);
+        $user->password = bcrypt($request->password);
         $user->gioitinh = $request->optradio;
         $user->phanquyen = "user";
+        $user->id_tinh_thanhpho = 0;
+        $user->id_quan_huyen = 0;
+        $user->id_xa_phuong = 0;
+
         $user->save();
         return redirect('dangnhap')->with('taoxongtaikhoan','Đã thêm thành công tài khoản "'.$request->name.'"');
 
@@ -58,6 +64,27 @@ class TaiKhoanController extends Controller
     public function getDangNhap(){
         return view('giaodien/trangcon/dangnhap');
     }
+    public function postDangNhap(Request $request){
+        // dd($request);   
+        $this->validate($request,
+        [
+            'password'=>'max:30|min:3'
+        ],[
+            'password.max'=>'Mật khẩu không được quá :max ký tự',
+            'password.min'=>'Mật khẩu nhiều hơn :min ký tự'
+        ]); 
+
+        $login = filter_var($request->name, FILTER_VALIDATE_EMAIL) ? 'email' : 'tendangnhap';
+        $payload[$login] = $request->name;
+        $payload['password'] = $request->password;
+
+    	if(Auth::attempt($payload)){
+            return redirect('trangchu');
+    	}else{
+            return redirect()->back()->with('loidangnhap','Đăng nhập không thành công, tài khoản chưa tồn tại!');
+    	}
+    }
+
     // trang quên mật khẩu
     public function getQuenMatKhau(){
         return view('giaodien/trangcon/quenmatkhau');
@@ -69,9 +96,6 @@ class TaiKhoanController extends Controller
     // trang sửa thông tin cá nhân
     public function getSuaThongTin(){
         return view('giaodien/trangcon/suathongtin');
-    }
-    public function getThu(){
-        return view('giaodien/master');
     }
     
 }

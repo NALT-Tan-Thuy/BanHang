@@ -39,7 +39,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect waves-block">
+                                <a href="admin/loaisanpham/them" class="waves-effect waves-block">
                                     <span>Thêm</span>
                                 </a>
                             </li>
@@ -51,12 +51,12 @@
                         </a>
                         <ul class="ml-menu" style="display: none;">
                             <li>
-                                <a href="javascript:void(0);" class=" waves-effect waves-block">
+                                <a href="admin/sanpham/danhsach" class=" waves-effect waves-block">
                                     <span>Danh sách</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect waves-block">
+                                <a href="admin/sanpham/them" class="waves-effect waves-block">
                                     <span>Thêm</span>
                                 </a>
                             </li>
@@ -227,7 +227,7 @@
                         <a href="admin/user/danhsach">Danh sách</a>
                     </li>
                     <li>
-                        <a href="#">Thêm</a>
+                        <a href="admin/user/them">Thêm</a>
                     </li>
                 </ul>
             </li>

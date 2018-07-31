@@ -46,7 +46,7 @@
                             <p style="font-size: 2em;">DANH SÁCH</p>
                         </div>
                         <div class="icon-and-text-button-demo">
-                            <button class="btn btn-primary btn-lg waves-effect" type="button" onclick="window.location.href = '#Thêm'">
+                            <button class="btn btn-primary btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/user/them'">
                                 <i class="material-icons">add_box</i>
                                 <span>THÊM</span>
                             </button>
@@ -141,10 +141,7 @@
             })
             .then((isConfirm) => {
                 if (isConfirm) {
-                    alert(
-                        'Thay câu alert này bằng câu dưới để đi đến route xóa. Sau khi xử lý xong trả về thẻ script delete cuối trang'
-                    );
-                    // window.location.href = "/" + id;
+                    window.location.href = "admin/user/xoa/" + id;
                 } else {
                     swal("Dữ liệu của bạn không thay đổi!");
                 }

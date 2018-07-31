@@ -33,12 +33,19 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('danhsach', 'UserController@index');
         Route::get('sua/{id}', 'UserController@getSua');
-
         Route::post('sua/{id}', 'UserController@postSua');
-        // Route::get('them', 'UserController@getThem');
-        // Route::post('them', 'UserController@postThem');
+        Route::get('them', 'UserController@getThem');
+        Route::post('them', 'UserController@postThem');
+        Route::get('xoa/{id}', 'UserController@getXoa');
+    });
 
-        // Route::get('xoa/{id}', 'UserController@getXoa');
+    Route::group(['prefix' => 'sanpham'], function () {
+        Route::get('danhsach', 'SanPhamController@index');
+        Route::get('sua/{id}', 'SanPhamController@getSua');
+        Route::post('sua/{id}', 'SanPhamController@postSua');
+        // Route::get('them', 'SanPhamController@getThem');
+        // Route::post('them', 'SanPhamController@postThem');
+        // Route::get('xoa/{id}', 'SanPhamController@getXoa');
     });
 
     Route::group(['prefix' => 'ajax'], function () {
@@ -76,6 +83,8 @@ Route::get('dangky', 'TaiKhoanController@getDangKy');
 Route::post('dangky', 'TaiKhoanController@postDangKyTaiKhoan');
 
 Route::get('dangnhap', 'TaiKhoanController@getDangNhap');
+Route::post('dangnhap', 'TaiKhoanController@postDangNhap');
+
 Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
 
 Route::get('thongtin', 'TaiKhoanController@getThongTin');

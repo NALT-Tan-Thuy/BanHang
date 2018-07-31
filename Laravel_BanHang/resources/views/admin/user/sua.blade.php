@@ -45,7 +45,7 @@
         <div class="block-header">
             <center>
                 <h1>
-                    THÀNH VIÊN
+                    USER
                 </h1>
             </center>
         </div>
@@ -83,32 +83,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                {{--
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Email</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">email</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập email" type="email" value="{{ $user->email }}" name="Email" required>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                                <!-- <div class="col-md-6">
-                                    <h2 class="card-inside-title">Mật khẩu</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_color_text</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập Mật khẩu" type="password" value="{{ $user->matkhau }}" name="MatKhau" disabled id="matkhau" required>
-                                        </div>
-                                        <span class="input-group-addon"><button type="button" class="btn btn-primary" onclick="checkDisable();" name="btnSuaMatKhau" value="">Sửa</button></span>
-
-                                    </div>
-                                </div> -->
+                                
                                 <div class="col-md-6">
                                     <h2 class="card-inside-title">Ngày sinh</h2>
                                     <div class="input-group">
@@ -131,7 +106,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <h2 class="card-inside-title">Giới tính</h2>
                                     <div class="demo-radio-button ">
                                         <input class="with-gap" id="radio_1" type="radio" value="Nam" name="GioiTinh" @if ( $user->gioitinh
@@ -142,7 +117,20 @@
                                         <label for="radio_2">Nữ</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
+                                    <h2 class="card-inside-title">Phân quyền</h2>
+                                    <select class="form-control show-tick" name="PhanQuyen">
+                                        <option value="">Chọn phân quyền</option>
+                                        @foreach ($phanquyen as $key=>$value)
+                                        @if ($value['phanquyen'] == $user->phanquyen)
+                                        <option value="{{ $value['phanquyen'] }}" selected>{{ $value['phanquyen'] }}</option>
+                                        @else
+                                        <option value="{{ $value['phanquyen'] }}">{{ $value['phanquyen'] }}</option>
+                                        @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-5">
                                     <h2 class="card-inside-title">Nghề nghiệp</h2>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -160,9 +148,9 @@
                                         <option value="">Chọn tỉnh/thành phố</option>
                                         @foreach ($tinhtp as $tinhtp) 
                                         @if ($tinhtp->id == $user->id_tinh_thanhpho)
-                                        <option value="{{ $tinhtp->id }}-{{ $tinhtp->tendaydu }}" selected>{{ $tinhtp->tendaydu }}</option>
+                                        <option value="{{ $tinhtp->id }}" selected>{{ $tinhtp->tendaydu }}</option>
                                         @else
-                                        <option value="{{ $tinhtp->id }}-{{ $tinhtp->tendaydu }}">{{ $tinhtp->tendaydu }}</option>
+                                        <option value="{{ $tinhtp->id }}">{{ $tinhtp->tendaydu }}</option>
                                         @endif 
                                         @endforeach
                                     </select>
@@ -174,9 +162,9 @@
                                         <option value="">Chọn quận/huyện/thị xã</option>
                                         @foreach ($quanhuyen as $quanhuyen) 
                                         @if ($quanhuyen->id == $user->id_quan_huyen)
-                                        <option value="{{ $quanhuyen->id }}-{{ $quanhuyen->tendaydu }}" selected>{{ $quanhuyen->tendaydu }}</option>
+                                        <option value="{{ $quanhuyen->id }}" selected>{{ $quanhuyen->tendaydu }}</option>
                                         @else
-                                        <option value="{{ $quanhuyen->id }}-{{ $quanhuyen->tendaydu }}">{{ $quanhuyen->tendaydu }}</option>
+                                        <option value="{{ $quanhuyen->id }}">{{ $quanhuyen->tendaydu }}</option>
                                         @endif 
                                         @endforeach
                                     </select>
@@ -187,9 +175,9 @@
                                         <option value="">Chọn xã/phường/thị trấn</option>
                                         @foreach ($xaphuong as $xaphuong) 
                                         @if ($xaphuong->id == $user->id_xa_phuong)
-                                        <option value="{{ $xaphuong->id }}-{{ $xaphuong->tendaydu }}" selected>{{ $xaphuong->tendaydu }}</option>
+                                        <option value="{{ $xaphuong->id }}" selected>{{ $xaphuong->tendaydu }}</option>
                                         @else
-                                        <option value="{{ $xaphuong->id }}-{{ $xaphuong->tendaydu }}">{{ $xaphuong->tendaydu }}</option>
+                                        <option value="{{ $xaphuong->id }}">{{ $xaphuong->tendaydu }}</option>
                                         @endif 
                                         @endforeach
                                     </select>
@@ -228,11 +216,11 @@
                                     <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU</button>
                                 </div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-danger btn-lg waves-effect" type="submit">HỦY</button>
+                                    <button class="btn btn-danger btn-lg waves-effect" onclick="window.location.href = 'admin/user/danhsach'">HỦY</button>
                                 </div>
-                                <div class="col-md-2">
+                                <!-- <div class="col-md-2">
                                     <button class="btn bg-brown btn-lg waves-effect" type="reset" onclick="xoaText();">XÓA TEXT</button>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
@@ -257,7 +245,7 @@
 
 <script>
     function hienThiQuanHuyen(str) {
-        str = str.split('-')[0];
+
         var xaphuong = document.getElementById("xaphuong");
         // console.log(xaphuong);
         xaphuong.innerHTML =
@@ -283,10 +271,9 @@
     }
 
 </script>
-
 <script>
     function hienThiXaPhuong(str) {
-        str = str.split('-')[0];
+        
         if (str == "") {
             document.getElementById("xaphuong").innerHTML =
                 "\n <h2 class=\"card-inside-title \">Xã/phường/thị trấn</h2>\n <div class=\"btn-group bootstrap-select form-control show-tick\"><button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" title=\"Chọn xã/phường/thị trấn\"><span class=\"filter-option pull-left\">Chọn xã/phường/thị trấn</span>&nbsp;<span class=\"bs-caret\"><span class=\"caret\"></span></span></button><div class=\"dropdown-menu open\"><ul class=\"dropdown-menu inner\" role=\"menu\"><li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"\" data-tokens=\"null\"><span class=\"text\">Chọn xã/phường/thị trấn</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li></ul></div><select class=\"form-control show-tick\" tabindex=\"-98\">\n <option>Chọn xã/phường/thị trấn</option>\n </select></div>\n ";

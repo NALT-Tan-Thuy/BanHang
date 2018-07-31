@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `xa_phuong` (
 --
 
 INSERT INTO `xa_phuong` (`id`, `ten`, `donvi`, `tenkhongdau`, `tendaydu`, `tenthuong`, `tenhanhchinh`, `code`, `id_quan_huyen`) VALUES
+(0, '', '', '', '', '', '', 0, 0),
 (30280, 'Mỹ Bình', 'phuong', 'my-binh', 'Phường Mỹ Bình', 'Mỹ Bình, Long Xuyên, An Giang', 'Phường Mỹ Bình, Thành phố Long Xuyên, Tỉnh An Giang', 30280, 883),
 (30283, 'Mỹ Long', 'phuong', 'my-long', 'Phường Mỹ Long', 'Mỹ Long, Long Xuyên, An Giang', 'Phường Mỹ Long, Thành phố Long Xuyên, Tỉnh An Giang', 30283, 883),
 (30285, 'Đông Xuyên', 'phuong', 'dong-xuyen', 'Phường Đông Xuyên', 'Đông Xuyên, Long Xuyên, An Giang', 'Phường Đông Xuyên, Thành phố Long Xuyên, Tỉnh An Giang', 30285, 883),

@@ -15,13 +15,13 @@ class CreateXaPhuongTable extends Migration
     {
         Schema::create('xa_phuong', function (Blueprint $table) {
             $table->integer('id')->unsigned()->primary();
-            $table->string('ten');
-            $table->string('donvi');
-            $table->string('tenkhongdau');
-            $table->string('tendaydu');
-            $table->string('tenthuong');
-            $table->string('tenhanhchinh');
-            $table->integer('code');
+            $table->string('ten')->nullable();
+            $table->string('donvi')->nullable();
+            $table->string('tenkhongdau')->nullable();
+            $table->string('tendaydu')->nullable();
+            $table->string('tenthuong')->nullable();
+            $table->string('tenhanhchinh')->nullable();
+            $table->integer('code')->nullable();
             $table->integer('id_quan_huyen')->unsigned();
             $table->foreign('id_quan_huyen')->references('id')->on('quan_huyen');
             $table->timestamps();

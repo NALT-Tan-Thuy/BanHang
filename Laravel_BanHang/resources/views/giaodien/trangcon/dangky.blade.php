@@ -41,7 +41,7 @@
 
                             <label for="">Email</label>
                             <div class="wrap-input100">
-                                <input class="input100" type="text" name="email" id="email" placeholder="Nhập vào Email">
+                                <input class="input100" type="text" name="email" id="email" placeholder="Nhập vào Email" required>
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
