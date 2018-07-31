@@ -12,6 +12,12 @@
             <div class="col-md-5 col-xs-12 col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
+                            @if(Session::has('taoxongtaikhoan'))
+                            <div id="thongbaodangky" class="alert alert-success">
+                                <p>{{Session::get('taoxongtaikhoan')}}</p>
+                                <p>Đăng nhập để sử dụng</p>
+                            </div>
+                            @endif
                         <form class="" style="background-color: white; ">
                             <span class="login100-form-title">Đăng nhập</span>
 

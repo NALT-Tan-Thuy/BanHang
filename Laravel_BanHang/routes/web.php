@@ -73,6 +73,8 @@ Route::get('dathang', 'GiaoDienController@getDatHang');
 
 // Quản lý tài khoản, đăng kým, đăng  nhập
 Route::get('dangky', 'TaiKhoanController@getDangKy');
+Route::post('dangky', 'TaiKhoanController@postDangKyTaiKhoan');
+
 Route::get('dangnhap', 'TaiKhoanController@getDangNhap');
 Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
 
