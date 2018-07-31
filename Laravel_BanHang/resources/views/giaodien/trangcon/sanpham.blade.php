@@ -6,7 +6,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('giaodien/css/sanphamkhac.css')}}">
-endsection
+@endsection
 
 <!-- Nội dung chính của trang-->
 @include('giaodien/tieudetren') @include('giaodien/tieudeduoi')

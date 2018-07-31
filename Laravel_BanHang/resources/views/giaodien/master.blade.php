@@ -151,7 +151,7 @@
                         <span class="glyphicon glyphicon-user"></span> {{Auth::User()->tendangnhap}}</a>
                 </li>
                 <li>
-                    <a href="sanpham">
+                    <a href="dangxuat">
                         <span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a>
                 </li>
                 @else

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use DB;
+use App\TinhThanhPho;
 
 class TaiKhoanController extends Controller
 {
@@ -59,8 +61,8 @@ class TaiKhoanController extends Controller
 
     }
 
-
-    // trang ky nhập
+    
+    // trang đăng nhập
     public function getDangNhap(){
         return view('giaodien/trangcon/dangnhap');
     }
@@ -85,13 +87,26 @@ class TaiKhoanController extends Controller
     	}
     }
 
+    // Đăng xuất
+    public function getDangXuat(){
+        Auth::logout();
+        return redirect()->back();
+    }
+
     // trang quên mật khẩu
     public function getQuenMatKhau(){
         return view('giaodien/trangcon/quenmatkhau');
     }
     // trang thông tin cá nhân
     public function getThongTin(){
-        return view('giaodien/trangcon/thongtin');
+        $id_user = Auth::User()->id; 
+        $user = DB::table('users')->where('id',$id_user)->first();
+        $tinhTP = DB::table('tinh_thanhpho')->where('id',$user->id_tinh_thanhpho)->first();
+        $quanHuyen = DB::table('quan_huyen')->where('id',$user->id_quan_huyen)->first();
+        $xaPhuong = DB::table('xa_phuong')->where('id',$user->id_xa_phuong)->first();
+        // dd($tinhTP);
+        return view('giaodien/trangcon/thongtin',compact('user','tinhTP','quanHuyen','xaPhuong'));
+
     }
     // trang sửa thông tin cá nhân
     public function getSuaThongTin(){

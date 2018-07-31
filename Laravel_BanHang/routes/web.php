@@ -84,6 +84,7 @@ Route::post('dangky', 'TaiKhoanController@postDangKyTaiKhoan');
 
 Route::get('dangnhap', 'TaiKhoanController@getDangNhap');
 Route::post('dangnhap', 'TaiKhoanController@postDangNhap');
+Route::get('dangxuat','TaiKhoanController@getDangXuat');
 
 Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
 
