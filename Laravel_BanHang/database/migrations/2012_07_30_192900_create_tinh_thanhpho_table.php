@@ -15,11 +15,11 @@ class CreateTinhThanhphoTable extends Migration
     {
         Schema::create('tinh_thanhpho', function (Blueprint $table) {
             $table->integer('id')->unsigned()->primary();
-            $table->string('ten');
-            $table->string('tenkhongdau');
-            $table->string('donvi');
-            $table->string('tendaydu');
-            $table->integer('code');
+            $table->string('ten')->nullable();
+            $table->string('tenkhongdau')->nullable();
+            $table->string('donvi')->nullable();
+            $table->string('tendaydu')->nullable();
+            $table->integer('code')->nullable();
             $table->timestamps();
         });
     }

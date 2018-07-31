@@ -34,6 +34,7 @@ class UserSeeder extends Seeder
                 'sothich' => $faker->text(100),
                 'gioithieubanthan' => $faker->text(100),
                 'remember_token' => str_random(10),
+                'created_at' => $faker->date('Y-m-d', 'now'),
             ]);
         }
         // factory(User::class, 10)->create();

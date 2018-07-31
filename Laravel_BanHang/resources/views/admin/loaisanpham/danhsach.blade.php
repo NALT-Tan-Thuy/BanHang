@@ -83,7 +83,7 @@
                                         <td>{{ $loaisp->id }}</td>
                                         <td>{{ $loaisp->ten }}</td>
                                         <td>
-                                            <a href="admin/loaisanpham/sua/{{ $loaisp -> id }}">
+                                            <a href="admin/loaisanpham/sua/{{ $loaisp->id }}">
                                                     <button type="button" class="btn btn-success waves-effect mr"><i class="material-icons">edit</i>
                                                     </button>
                                                 </a>

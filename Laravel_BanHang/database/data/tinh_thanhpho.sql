@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `tinh_thanhpho` (
 --
 
 INSERT INTO `tinh_thanhpho` (`id`, `ten`, `tenkhongdau`, `donvi`, `tendaydu`, `code`) VALUES
+(0, '', '', '', '', 0),
 (89, 'An Giang', 'an-giang', 'tinh', 'Tỉnh An Giang', 89),
 (62, 'Kon Tum', 'kon-tum', 'tinh', 'Tỉnh Kon Tum', 62),
 (67, 'Đắk Nông', 'dak-nong', 'tinh', 'Tỉnh Đắk Nông', 67),

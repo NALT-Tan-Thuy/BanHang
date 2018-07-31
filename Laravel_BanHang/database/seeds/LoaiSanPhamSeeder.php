@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\LoaiSanPham;
 
 class LoaiSanPhamSeeder extends Seeder
 {
@@ -12,6 +11,14 @@ class LoaiSanPhamSeeder extends Seeder
      */
     public function run()
     {
-        factory(LoaiSanPham::class, 8)->create();
+        $faker = Faker\Factory::create();
+        $limit = 6;
+        for ($i = 1; $i <= $limit; $i++) {
+            DB::table('loaisanpham')->insert([
+                'ten' => 'Loại sản phẩm' . $i,
+                'created_at' => $faker->date('Y-m-d', 'now'),
+            ]);
+        }
+        // factory(LoaiSanPham::class, 8)->create();
     }
 }

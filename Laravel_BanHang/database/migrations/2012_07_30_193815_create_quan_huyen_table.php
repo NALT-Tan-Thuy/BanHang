@@ -15,13 +15,13 @@ class CreateQuanHuyenTable extends Migration
     {
         Schema::create('quan_huyen', function (Blueprint $table) {
             $table->integer('id')->unsigned()->primary();
-            $table->string('ten');
-            $table->string('donvi');
-            $table->string('tenkhongdau');
-            $table->string('tendaydu');
-            $table->string('tenthuong');
-            $table->string('tenhanhchinh');
-            $table->integer('code');
+            $table->string('ten')->nullable();
+            $table->string('donvi')->nullable();
+            $table->string('tenkhongdau')->nullable();
+            $table->string('tendaydu')->nullable();
+            $table->string('tenthuong')->nullable();
+            $table->string('tenhanhchinh')->nullable();
+            $table->integer('code')->nullable();
             $table->integer('id_tinh_thanhpho')->unsigned();
             $table->foreign('id_tinh_thanhpho')->references('id')->on('tinh_thanhpho');
             $table->timestamps();

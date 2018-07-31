@@ -48,3 +48,5 @@ echo $arr[array_rand($arr, 1)]
 Cách đọc file json:
 $jsontinhtp = File::get("hanhchinhVietNam/tinh_tp.json");
 $tinhtp = json_decode($jsontinhtp);
+
+Cắt chuỗi: $user->tinh = explode('-', $request->TinhTP)[1];

@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('phanquyen');
             $table->string('gioitinh', 10);
             $table->string('hoten');
-            $table->text('img');
+            $table->text('img')->nullable();
             $table->date('ngaysinh');
             $table->string('sodienthoai');
             $table->integer('id_tinh_thanhpho')->unsigned();
@@ -30,9 +30,9 @@ class CreateUsersTable extends Migration
             $table->foreign('id_quan_huyen')->references('id')->on('quan_huyen');
             $table->integer('id_xa_phuong')->unsigned();
             $table->foreign('id_xa_phuong')->references('id')->on('xa_phuong');
-            $table->string('nghenghiep');
-            $table->text('sothich');
-            $table->text('gioithieubanthan');
+            $table->string('nghenghiep')->nullable();
+            $table->text('sothich')->nullable();
+            $table->text('gioithieubanthan')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

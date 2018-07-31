@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS `quan_huyen` (
 -- Dumping data for table `quan_huyen`
 --
 
-INSERT INTO `quan_huyen` (`id`, `ten`, `donvi`, `tenkhongdau`, `tendaydu`, `tenthuong`, `tenhanhchinh`, `code`, `id_tinh_thanhpho`) VALUES
+INSERT INTO `quan_huyen` (`id`, `ten`, `donvi`, `tenkhongdau`, `tendaydu`, `tenthuong`, `tenhanhchinh`, `code`, `id_tinh_thanhpho`) VALUES 
+(0, '', '', '', '', '', '', 0, 0),
 (883, 'Long Xuyên', 'thanh-pho', 'long-xuyen', 'Thành phố Long Xuyên', 'Long Xuyên, An Giang', 'Thành phố Long Xuyên, Tỉnh An Giang', 883, 89),
 (884, 'Châu Đốc', 'thanh-pho', 'chau-doc', 'Thành phố Châu Đốc', 'Châu Đốc, An Giang', 'Thành phố Châu Đốc, Tỉnh An Giang', 884, 89),
 (886, 'An Phú', 'huyen', 'an-phu', 'Huyện An Phú', 'An Phú, An Giang', 'Huyện An Phú, Tỉnh An Giang', 886, 89),
