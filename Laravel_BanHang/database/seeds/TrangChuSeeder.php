@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\TrangChu;
 
 class TrangChuSeeder extends Seeder
 {
@@ -12,6 +11,19 @@ class TrangChuSeeder extends Seeder
      */
     public function run()
     {
-        factory(TrangChu::class, 1)->create();
+        $faker = Faker\Factory::create();
+        DB::table('trangchu')->insert([
+            'tenshop' => "Tên Shop",
+            'tieudetrai' => 'Thế giới mua sắm',
+            'tieudeduoi' => 'Mua sắm thả ga, rinh qùa về nhà',
+            'email' => $faker->unique()->safeEmail,
+            'sodienthoai' => $faker->phoneNumber,
+            'diachi' => $faker->streetAddress,
+            'giomodongcua' => '7h - 22h hàng ngày',
+            'tieudecamon' => 'CẢM ƠN BẠN ĐÃ GHÉ THĂM CẢM ƠN BẠN ĐÃ GHÉ THĂM',
+            'noidungcamon' => $faker->text(200),
+            'created_at' => $faker->date('Y-m-d', 'now'),
+        ]);
+        // factory(TrangChu::class, 1)->create();
     }
 }

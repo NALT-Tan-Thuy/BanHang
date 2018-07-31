@@ -4,22 +4,6 @@ Route::get('/', function () {
     return view('admin.trangchu');
 });
 
-Route::get('demodanhsach', function () {
-    return view('admin.loaisanpham.danhsach');
-});
-
-Route::get('demoThem', function () {
-    return view('admin.loaisanpham.them');
-});
-
-Route::get('demoSua', function () {
-    return view('admin.loaisanpham.sua');
-});
-
-Route::get('demoXoaNhieu', function () {
-    return view('admin.loaisanpham.xoanhieu');
-});
-
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'loaisanpham'], function () {
         Route::get('danhsach', 'LoaiSanPhamController@index');
@@ -51,10 +35,28 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'chitietsanpham'], function () {
         Route::get('danhsach', 'ChiTietSanPhamController@index');
         Route::get('sua/{id}', 'ChiTietSanPhamController@getSua');
-        // Route::post('sua/{id}', 'ChiTietSanPhamController@postSua');
-        // Route::get('them', 'ChiTietSanPhamController@getThem');
-        // Route::post('them', 'ChiTietSanPhamController@postThem');
-        // Route::get('xoa/{id}', 'ChiTietSanPhamController@getXoa');
+        Route::post('sua/{id}', 'ChiTietSanPhamController@postSua');
+        Route::get('them', 'ChiTietSanPhamController@getThem');
+        Route::post('them', 'ChiTietSanPhamController@postThem');
+        Route::get('xoa/{id}', 'ChiTietSanPhamController@getXoa');
+    });
+
+    Route::group(['prefix' => 'slide'], function () {
+        Route::get('danhsach', 'SlideController@index');
+        Route::get('sua/{id}', 'SlideController@getSua');
+        Route::post('sua/{id}', 'SlideController@postSua');
+        Route::get('them', 'SlideController@getThem');
+        Route::post('them', 'SlideController@postThem');
+        Route::get('xoa/{id}', 'SlideController@getXoa');
+    });
+
+    Route::group(['prefix' => 'trangchu'], function () {
+        Route::get('danhsach', 'TrangChuController@index');
+        // Route::get('sua/{id}', 'TrangChuController@getSua');
+        // Route::post('sua/{id}', 'TrangChuController@postSua');
+        // Route::get('them', 'TrangChuController@getThem');
+        // Route::post('them', 'TrangChuController@postThem');
+        // Route::get('xoa/{id}', 'TrangChuController@getXoa');
     });
 
     Route::group(['prefix' => 'ajax'], function () {
@@ -93,7 +95,7 @@ Route::post('dangky', 'TaiKhoanController@postDangKyTaiKhoan');
 
 Route::get('dangnhap', 'TaiKhoanController@getDangNhap');
 Route::post('dangnhap', 'TaiKhoanController@postDangNhap');
-Route::get('dangxuat','TaiKhoanController@getDangXuat');
+Route::get('dangxuat', 'TaiKhoanController@getDangXuat');
 
 Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
 

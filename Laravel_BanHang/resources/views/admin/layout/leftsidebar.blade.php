@@ -126,12 +126,12 @@
                         </a>
                         <ul class="ml-menu" style="display: none;">
                             <li>
-                                <a href="javascript:void(0);" class=" waves-effect waves-block">
+                                <a href="admin/slide/danhsach" class=" waves-effect waves-block">
                                     <span>Danh sách</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect waves-block">
+                                <a href="admin/slide/them" class="waves-effect waves-block">
                                     <span>Thêm</span>
                                 </a>
                             </li>
