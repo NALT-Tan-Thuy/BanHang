@@ -133,6 +133,7 @@ Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau')->middlewa
 Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen')->middleware('TaiKhoanMiddleware');
 Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->middleware('TaiKhoanMiddleware');
 
+// 
 
 
 

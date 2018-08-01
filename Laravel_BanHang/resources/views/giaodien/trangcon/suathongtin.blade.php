@@ -160,7 +160,7 @@
                             </div>
                             <div class="form-group ">
                                 <label class="control-label ">Ngày sinh</label>
-                                <input type="date" class="form-control" name="ngaysinh" id="ngaysinh" data-date-format="DD MMMM YYYY" placeholder="Nhập ngày sinh" value="{{$user->ngaysinh}}">
+                                <input type="date" class="form-control" name="ngaysinh" id="ngaysinh"  placeholder="Nhập ngày sinh" value="{{$user->ngaysinh}}">
                             </div>
                             <div class="form-group">
                                 <label>Giới tính</label>

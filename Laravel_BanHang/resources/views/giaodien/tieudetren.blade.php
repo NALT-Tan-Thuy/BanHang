@@ -12,7 +12,7 @@
     <div id="nhomTimKiemHang" class="row">
         <div class="container">
             <div class="col-xs-12 col-md-3">
-                <p class="textLogo" id="thegioimuasam">Thế giới mua sắm</p>
+                <p class="textLogo" id="thegioimuasam"></p>
             </div>
             <div id="searchForm">
                 <form method="get" action="#" name="timkiem">
@@ -56,9 +56,9 @@
             <!-- Giỏ hàng -->
             <div class="col-xs-12 col-md-4" id="hieuunggiohang">
                 <div id="hieuungchogio" class="nhomGiohang">
-                    <span id="iconLienHe" class="glyphicon glyphicon-phone-alt"> 0977-583-016 </span>
+                    <span id="iconLienHe" class="glyphicon glyphicon-phone-alt"> </span>
                     <p></p>
-                    <span id="iconLienHe" class="glyphicon glyphicon-envelope"> tranquangtan@gmail.com</span>
+                    <span id="iconLienHe" class="glyphicon glyphicon-envelope"> </span>
 
                 </div>
                 <div id="gio">

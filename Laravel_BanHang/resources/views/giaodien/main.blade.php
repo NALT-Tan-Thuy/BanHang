@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id="hienThiTenShop" class="navbar-brand" href="trangchu">Fuca Shop</a>
+            <a id="hienThiTenShop" class="navbar-brand" href="trangchu">Hoàng tử</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -212,20 +212,26 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        var slideImages = [{
-            src: 'giaodien/images/slidetop/slide1.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide2.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide3.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide4.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide5.jpg'
-        }, {
-            src: 'giaodien/images/slidetop/slide6.jpg'
-        }]
-
+        var slideImages = [
+        {
+            src:'giaodien/images/slidetop/1'
+        }, 
+        {
+            src:'giaodien/images/slidetop/2'
+        }, 
+        {
+            src:'giaodien/images/slidetop/3'
+        }, 
+        {
+            src:'giaodien/images/slidetop/4'
+        }, 
+        {
+            src:'giaodien/images/slidetop/5'
+        }, 
+        {
+            src:'giaodien/images/slidetop/slide6'
+        }
+        ]
         jR3DCarousel = $('.jR3DCarouselGallery').jR3DCarousel({
             width: 1140,
             height: 418,

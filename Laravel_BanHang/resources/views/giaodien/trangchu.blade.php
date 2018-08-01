@@ -123,9 +123,9 @@ Trang Chủ
                     <a href="" title="THƯƠNG HIỆU KINH DOANH">THƯƠNG HIỆU KINH DOANH</a>
                 </h3>
                 <ul class="list-group">
-                    <li class="list-group-item">NIKE</li>
-                    <li class="list-group-item">RALPH LAUREN</li>
-                    <li class="list-group-item">COLUMBIA</li>
+                    <li class="list-group-item">thương hiệu</li>
+                    <li class="list-group-item">Thương hiệu</li>
+
                 </ul>
             </div>
         </div>
@@ -152,10 +152,10 @@ Trang Chủ
                     <a href="" title="ĐỊA CHỈ VÀ TRỢ GIÚP">THÔNG TIN TRỢ GIÚP</a>
 
                 </h3>
-                <p>Địa chỉ: 124 Bà Triệu, thành phố Huế</p>
-                <p>Điện thoại: 018368476656</p>
-                <p>Email: shopbanhang@gmail.com</p>
-                <p>Mở cửa: 7h -> 22h hằng ngày.</p>
+                <p>Địa chỉ: </p>
+                <p>Điện thoại: </p>
+                <p>Email: </p>
+                <p>Mở cửa: .</p>
 
             </div>
         </div>
