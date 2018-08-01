@@ -19,14 +19,6 @@ class LoaiSanPhamController extends Controller
     }
 
     function postSua(Request $request, $id){
-        // $this->validate($request,
-        // [
-        //     'Ten' => 'required'
-        // ],
-        // [
-        //     'Ten.required' => 'Bạn chưa nhập Tên loại sản phẩm'
-        // ]);
-
         $loaisanpham = LoaiSanPham::find($id);
         $loaisanpham->ten = $request->Ten;
         $loaisanpham->save();

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\LienHe;
 
 class LienHeSeeder extends Seeder
 {
@@ -12,6 +11,16 @@ class LienHeSeeder extends Seeder
      */
     public function run()
     {
-        factory(LienHe::class, 5)->create();
+        $faker = Faker\Factory::create();
+        $limit = 5;
+        for ($i = 1; $i <= $limit; $i++) {
+            DB::table('lienhe')->insert([
+                'sodienthoai' => $faker->phoneNumber,
+                'nguoiquanly' => $faker->name,
+                'tencoso' => 'Cơ sở ' . $i,
+                'created_at' => $faker->date('Y-m-d', 'now'),
+            ]);
+        }
+        // factory(LienHe::class, 5)->create();
     }
 }

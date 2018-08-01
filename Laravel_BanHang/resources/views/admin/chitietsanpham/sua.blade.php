@@ -1,4 +1,5 @@
-@extends('admin.layout.index') @section('linkcssTren')
+@extends('admin.layout.index') 
+@section('linkcssTren')
 <!-- Colorpicker Css -->
 <link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
 
@@ -15,7 +16,10 @@
 <link href="admin/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
 <!-- noUISlider Css -->
-<link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" /> @endsection @section('linkcssDuoi')
+<link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+@endsection
+ 
+@section('linkcssDuoi')
 <style>
     .sidebar {
         width: 220px;
@@ -33,7 +37,9 @@
         width: 220px;
     }
 </style>
-@endsection @section('content')
+@endsection
+ 
+@section('content')
 <section class="content" id="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -52,122 +58,100 @@
                     </div>
                     <div class="body">
                         <div class="row clearfix">
-                            <form action="">
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Nhập tên chi tiết sản phẩm</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_color_text</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập tên chi tiết sản phẩm" type="text" name="Ten" value="{{ $chitietsanpham->ten}}">
+                            <form action="admin/chitietsanpham/sua/{{ $chitietsanpham->id }}" method="POST" enctype="multipart/form-data">
+                                @csrf()
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Tên chi tiết sản phẩm</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                        <i class="material-icons">format_color_text</i>
+                                                    </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập tên chi tiết sản phẩm" type="text" name="Ten" value="{{ $chitietsanpham->ten}}" required>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Nhập tên chi tiết sản phẩm</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_color_text</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập tên chi tiết sản phẩm" type="text" name="Ten" value="{{ $chitietsanpham->ten}}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
+                                    <div class="col-md-6">
                                     <h2 class="card-inside-title">Sản phẩm</h2>
-                                    <select class="form-control show-tick" name="TinhTP">
+                                    <select class="form-control show-tick" name="id_SanPham" required>
                                         <option value="">Chọn sản phẩm</option>
-                                        @foreach ($sanpham as $sp) @if ($chitietsanpham->id == $sp->id_sanpham)
+                                        @foreach ($sanpham as $sp) 
+                                        @if ($chitietsanpham->id_sanpham == $sp->id)
                                         <option value="{{ $sp->id }}" selected>{{ $sp->ten }}</option>
                                         @else
-                                        <option value="{{ $sp->id }}">{{ $sp->ten }}</option>
-                                        @endif @endforeach
+                                        <option value="{{ $sp->id }}">{{$sp->ten }}</option>
+                                        @endif 
+                                        @endforeach
                                     </select>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <h2 class="card-inside-title">Nhập số</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_list_numbered</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập..." type="number">
+
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Tiêu đề thông tin chi tiết</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">format_color_text</i>
+                                            </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập tiêu đề thông tin chi tiết" type="text" name="TieuDeThongTin" value="{{ $chitietsanpham->tieudethongtin }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Nổi bật</h2>
+                                        <div class="demo-radio-button">
+                                            <input class="with-gap" id="radio_1" type="radio" value="1" name="NoiBat" @if ( $chitietsanpham->noibat
+                                            == "1") {{ "checked" }} @endif>
+                                            <label for="radio_1">Có</label>
+                                            <input class="with-gap" id="radio_2" type="radio" value="0" name="NoiBat" @if ( $chitietsanpham->noibat
+                                            == "0") {{ "checked" }} @endif>
+                                            <label for="radio_2">Không</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <h2 class="card-inside-title">Nhập số</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_list_numbered</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập..." type="number">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <h2 class="card-inside-title">Giá gốc</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                        <i class="material-icons">format_list_numbered</i>
+                                                    </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập giá" type="number" name="GiaGoc" value="{{ $chitietsanpham->giagoc }}" required>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <h2 class="card-inside-title">Nhập số</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_list_numbered</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập..." type="number">
+                                    <div class="col-md-4">
+                                        <h2 class="card-inside-title">Khuyến mãi (%)</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                        <i class="material-icons">format_list_numbered</i>
+                                                    </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập khuyến mãi" type="number" name="KhuyenMai" value="{{ $chitietsanpham->khuyenmai }}">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                {{--
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Nổi bật</h2>
-                                    <div class="demo-radio-button">
-                                        <input class="with-gap" id="radio_1" type="radio" value="0" name="NoiBat" @if ( $chitietsanpham->noibat == "0") {{ "checked" }} @endif>
-                                        <label for="radio_1">Không</label>
-                                        <input class="with-gap" id="radio_2" type="radio" value="1" name="NoiBat" @if ( $chitietsanpham->noibat == "1") {{ "checked" }} @endif>
-                                        <label for="radio_2">Có</label>
-                                    </div>
-                                </div> --}}
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Nhập text</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_color_text</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập..." type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Nhập số</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_list_numbered</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập..." type="number">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Chọn ngày</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">date_range</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Username" type="date">
+                                    <div class="col-md-4">
+                                        <h2 class="card-inside-title">Giá bán</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                        <i class="material-icons">format_list_numbered</i>
+                                                    </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="" type="number" disabled value="{{ round(($chitietsanpham->khuyenmai * $chitietsanpham->giagoc)/100 +  $chitietsanpham->giagoc) }}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
-                                    <h2 class="card-inside-title">Textarea</h2>
+                                    <h2 class="card-inside-title">Mô tả</h2>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <textarea rows="3" class="form-control no-resize auto-growth" placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;"></textarea>
+                                            <textarea rows="3" class="form-control no-resize auto-growth" placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;" value="{{ $chitietsanpham->mota }}" name="MoTa"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -176,20 +160,20 @@
                                     <h2 class="card-inside-title">Chọn ảnh</h2>
                                     <div class="form-group">
                                         <input type="file" name="file" id="profile-img">
-                                        <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
+                                       @if ($chitietsanpham->img == "")
+                                       <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
+                                       @else
+                                       <img src="uploads/sanpham/{{ $chitietsanpham->img }}" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
+                                       @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3"></div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU</button>
+                                    <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU LẠI</button>
                                 </div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-danger btn-lg waves-effect" type="submit">HỦY</button>
+                                    <button class="btn btn-danger btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/chitietsanpham/danhsach'">HỦY BỎ</button>
                                 </div>
-                                <div class="col-md-2">
-                                    <button class="btn bg-brown btn-lg waves-effect" type="reset">XÓA TEXT</button>
-                                </div>
-
                             </form>
                         </div>
                     </div>
@@ -200,7 +184,9 @@
     <!-- #END# FORM -->
     </div>
 </section>
-@endsection @section('script')
+@endsection
+ 
+@section('script')
 <!-- Custom Js -->
 <script src="admin/js/basic-form-elements.js "></script>
 
@@ -227,5 +213,22 @@
     $("#profile-img").change(function () {
         readURL(this);
     });
+
 </script>
+
+@if(count($errors) > 0)
+<script>
+    var s = "";
+        @foreach($errors->all() as $err)
+            s += "{{ $err }}\n";
+        @endforeach
+        swal({
+            title: "Lỗi",
+            text: s,
+            timer: 10000,
+            icon: "error",
+        });
+
+</script>
+@endif
 @endsection

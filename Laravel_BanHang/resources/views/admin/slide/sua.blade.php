@@ -46,7 +46,7 @@
         <div class="block-header">
             <center>
                     <h1>
-                        KÍCH CỠ MẪU
+                        ẢNH SLIDE TRANG CHỦ
                     </h1>
             </center>
         </div>
@@ -59,23 +59,27 @@
                     </div>
                     <div class="body">
                         <div class="row clearfix">
-                            <form action="admin/kichcomau/sua/{{ $kichcomau->id }}" method="POST" enctype="multipart/form-data">
+                            <form action="admin/slide/sua/{{ $slide->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf()
-                                <div class="col-md-3"></div>
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Tên kích cỡ</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_color_text</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập tên kích cỡ" type="text" value="{{ $kichcomau->ten }}" name="Ten" required>
-                                        </div>
+                                <div class="col-md-12">
+                                    <h2 class="card-inside-title">Chọn ảnh</h2>
+                                    <div class="form-group">
+                                        <input type="file" name="file" id="profile-img" required>
+                                       @if ($slide->img == "")
+                                       <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;"
+                                       />
+                                       @else
+                                       <img src="uploads/slide/{{ $slide->img }}" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;"
+                                       />
+                                       @endif
                                     </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
                                     <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU</button>
-                                    <a href="admin/kichcomau/danhsach">
-                                        <button class="btn btn-danger btn-lg waves-effect m-l-100" type="button">HỦY</button>
-                                    </a>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-danger btn-lg waves-effect" onclick="window.location.href = 'admin/slide/danhsach'">HỦY</button>
                                 </div>
                             </form>
                         </div>
@@ -116,20 +120,19 @@
             readURL(this);
         });
     </script>
-
-@if(count($errors) > 0)
-<script>
-    var s = "";
-        @foreach($errors->all() as $err)
-            s += "{{ $err }}\n";
-        @endforeach
-        swal({
-            title: "Lỗi",
-            text: s,
-            timer: 10000,
-            icon: "error",
-        });
-
-</script>
-@endif
+    @if(count($errors) > 0)
+    <script>
+        var s = "";
+            @foreach($errors->all() as $err)
+                s += "{{ $err }}\n";
+            @endforeach
+            swal({
+                title: "Lỗi",
+                text: s,
+                timer: 10000,
+                icon: "error",
+            });
+    
+    </script>
+    @endif
 @endsection

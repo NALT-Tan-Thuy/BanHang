@@ -43,7 +43,7 @@
             <div class="block-header">
                 <center>
                     <h1>
-                        KÍCH CỠ MẪU
+                        ẢNH SLIDE TRANG CHỦ
                     </h1>
                 </center>
             </div>
@@ -52,15 +52,12 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <div class="col-md-7">
+                            <div class="col-md-9">
                                 <p style="font-size: 2em;">DANH SÁCH</p>
                             </div>
                             <div class="icon-and-text-button-demo">
-                                <button class="btn btn-primary btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/kichcomau/them'"><i class="material-icons">add_box</i>
+                                <button class="btn btn-primary btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/slide/them'"><i class="material-icons">add_box</i>
                                         <span>THÊM</span>
-                                    </button>
-                                <button class="btn bg-brown btn-lg waves-effect" type="button" onclick="window.location.href = '#XoaNhieu'"><i class="material-icons">delete</i>
-                                        <span>XÓA NHIỀU</span>
                                     </button>
                             </div>
                         </div>
@@ -69,30 +66,38 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Tên kích cỡ</th>
+                                            <th>Mã slide</th>
+                                            <th>Hình ảnh</th>
                                             <th>Sửa - Xóa</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Tên kích cỡ</th>
+                                            <th>Mã slide</th>
+                                            <th>Hình ảnh</th>
                                             <th>Sửa - Xóa</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        @foreach ($kichcomau as $kcm)
+                                        @foreach ($slide as $sl)
                                         <tr>
-                                            <td>{{ $kcm->id }}</td>
-                                            <td>{{ $kcm->ten }}</td>
+                                            <td>{{ $sl->id }}</td>
                                             <td>
-                                                <a href="admin/kichcomau/sua/{{ $kcm->id }}">
-                                                    <button type="button" class="btn btn-success waves-effect mr"><i class="material-icons">edit</i>
+                                                <img src="uploads/slide/{{ $sl->img }}" alt="" width="100%" height=""">
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a href="admin/slide/sua/{{ $sl->id }}">
+                                                        <button type="button" class="btn btn-success waves-effect mr">
+                                                            <i class="material-icons">edit</i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <button type="button" class="btn bg-brown waves-effect m-t-10" onclick="Delete({{ $sl->id }});">
+                                                        <i class="material-icons">delete</i>
                                                     </button>
-                                                </a>
-                                                <button type="button" class="btn bg-brown waves-effect" onclick="Delete({{ $kcm->id }});"><i class="material-icons">delete</i>
-                                                </button>
+                                                </div>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -132,44 +137,44 @@
                 })
                 .then((isConfirm) => {
                     if (isConfirm) {
-                        window.location.href = "admin/kichcomau/xoa/" + id;
+                        window.location.href = "admin/slide/xoa/" + id;
                     } else {
                         swal("Dữ liệu của bạn không thay đổi!");
                     }
                 });
         }
     </script>
-     <!-- script trả về khi xóa thành công -->
-     @if (session('thongbaoxoa'))
-     <script>
-         swal({
-             title: "Xóa dữ liệu thành công!",
-             timer: 3000,
-             icon: "success",
-         })
-     </script>
-     @endif
-     
-     <!-- script trả về khi sửa thành công -->
-     @if (session('thongbaosua')))
-     <script>
-         swal({
-             title: "{{ session('thongbaosua') }}!",
-             timer: 3000,
-             icon: "success",
-             button: "OK",
-         })
-     </script>
-     @endif
-     <!-- script trả về khi sửa thành công -->
-     @if (session('thongbaothem')))
-     <script>
-         swal({
-             title: "{{ session('thongbaothem') }}!",
-             timer: 3000,
-             icon: "success",
-             button: "OK",
-         })
-     </script>
-     @endif
+<!-- script trả về khi xóa thành công -->
+@if (session('thongbaoxoa'))
+<script>
+    swal({
+        title: "Xóa dữ liệu thành công!",
+        timer: 3000,
+        icon: "success",
+    })
+</script>
+@endif
+
+<!-- script trả về khi sửa thành công -->
+@if (session('thongbaosua')))
+<script>
+    swal({
+        title: "{{ session('thongbaosua') }}!",
+        timer: 3000,
+        icon: "success",
+        button: "OK",
+    })
+</script>
+@endif
+<!-- script trả về khi sửa thành công -->
+@if (session('thongbaothem')))
+<script>
+    swal({
+        title: "{{ session('thongbaothem') }}!",
+        timer: 3000,
+        icon: "success",
+        button: "OK",
+    })
+</script>
+@endif
 @endsection
