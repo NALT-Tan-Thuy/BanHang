@@ -63,12 +63,6 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
-// Phần Route cho giao diện người dùng
-Route::get('trangchu', 'GiaoDienController@getTrangChu');
-Route::get('sanpham', 'GiaoDienController@getSanPham');
-Route::get('chitietsp', 'GiaoDienController@getChiTietsp');
-Route::get('dathang', 'GiaoDienController@getDatHang');
-
 Route::get('demojson', function () {
     $str = 1;
     $json = File::get("hanhchinhVietNam/xa_phuong.json");
@@ -87,7 +81,7 @@ Route::get('sanpham', 'GiaoDienController@getSanPham');
 Route::get('chitietsp', 'GiaoDienController@getChiTietsp');
 Route::get('dathang', 'GiaoDienController@getDatHang');
 
-// Quản lý tài khoản, đăng kým, đăng  nhập
+// Quản lý tài khoản, đăng ký, đăng  nhập
 Route::get('dangky', 'TaiKhoanController@getDangKy');
 Route::post('dangky', 'TaiKhoanController@postDangKyTaiKhoan');
 
@@ -99,3 +93,14 @@ Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
 
 Route::get('thongtin', 'TaiKhoanController@getThongTin');
 Route::get('suathongtin', 'TaiKhoanController@getSuaThongTin');
+Route::post('suathongtin', 'TaiKhoanController@postSuaThongTinTK');
+
+Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau');
+Route::get('chonquanhuyen/{id}', 'TaiKhoanController@getChonQuanHuyen');
+Route::get('chonxaphuong/{id}', 'TaiKhoanController@getChonXaPhuong');
+
+
+
+
+
+
