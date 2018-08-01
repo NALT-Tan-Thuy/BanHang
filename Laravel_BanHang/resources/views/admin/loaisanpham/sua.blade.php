@@ -107,4 +107,20 @@
         readURL(this);
     });
 </script>
+
+@if(count($errors) > 0)
+<script>
+    var s = "";
+        @foreach($errors->all() as $err)
+            s += "{{ $err }}\n";
+        @endforeach
+        swal({
+            title: "Lỗi",
+            text: s,
+            timer: 10000,
+            icon: "error",
+        });
+
+</script>
+@endif
 @endsection

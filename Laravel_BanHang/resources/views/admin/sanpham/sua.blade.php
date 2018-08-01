@@ -87,15 +87,15 @@
                                 
                                 <div class="col-md-12">
                                     <div class="col-md-3"></div>
-                                <div class="col-md-2">
-                                    <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU</button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button class="btn btn-danger btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/sanpham/danhsach'">HỦY</button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button class="btn bg-brown btn-lg waves-effect" type="reset">XÓA TEXT</button>
-                                </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-danger btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/sanpham/danhsach'">HỦY</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn bg-brown btn-lg waves-effect" type="reset">XÓA TEXT</button>
+                                    </div>
                                 </div>
 
                             </form>

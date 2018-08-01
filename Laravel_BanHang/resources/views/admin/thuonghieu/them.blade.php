@@ -46,7 +46,7 @@
         <div class="block-header">
             <center>
                     <h1>
-                        KÍCH CỠ MẪU
+                       THUONG HIỆU
                     </h1>
             </center>
         </div>
@@ -55,25 +55,27 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                            <p style="font-size: 1.8em; font-weight: bold;">CHỈNH SỬA</p>
+                        <h2>
+                            THÊM
+                        </h2>
                     </div>
                     <div class="body">
                         <div class="row clearfix">
-                            <form action="admin/kichcomau/sua/{{ $kichcomau->id }}" method="POST" enctype="multipart/form-data">
+                            <form action="admin/thuonghieu/them" method="POST" enctype="multipart/form-data">
                                 @csrf()
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6">
-                                    <h2 class="card-inside-title">Tên kích cỡ</h2>
+                                    <h2 class="card-inside-title">Tên thương hiệu</h2>
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">format_color_text</i>
                                         </span>
                                         <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập tên kích cỡ" type="text" value="{{ $kichcomau->ten }}" name="Ten" required>
+                                            <input class="form-control" placeholder="Nhập tên thương hiệu" type="text" value="" name="Ten" required>
                                         </div>
                                     </div>
                                     <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU</button>
-                                    <a href="admin/kichcomau/danhsach">
+                                    <a href="admin/thuonghieu/danhsach">
                                         <button class="btn btn-danger btn-lg waves-effect m-l-100" type="button">HỦY</button>
                                     </a>
                                 </div>
@@ -116,20 +118,18 @@
             readURL(this);
         });
     </script>
-
-@if(count($errors) > 0)
-<script>
-    var s = "";
-        @foreach($errors->all() as $err)
-            s += "{{ $err }}\n";
-        @endforeach
-        swal({
-            title: "Lỗi",
-            text: s,
-            timer: 10000,
-            icon: "error",
-        });
-
-</script>
-@endif
+    @if(count($errors) > 0)
+    <script>
+        var s = "";
+            @foreach($errors->all() as $err)
+                s += "{{ $err }}\n";
+            @endforeach
+            swal({
+                title: "Lỗi",
+                text: s,
+                timer: 10000,
+                icon: "error",
+            });
+    </script>
+    @endif
 @endsection

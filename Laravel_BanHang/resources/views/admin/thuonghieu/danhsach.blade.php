@@ -43,7 +43,7 @@
             <div class="block-header">
                 <center>
                     <h1>
-                        KÍCH CỠ MẪU
+                        THUONG HIỆU
                     </h1>
                 </center>
             </div>
@@ -56,7 +56,7 @@
                                 <p style="font-size: 2em;">DANH SÁCH</p>
                             </div>
                             <div class="icon-and-text-button-demo">
-                                <button class="btn btn-primary btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/kichcomau/them'"><i class="material-icons">add_box</i>
+                                <button class="btn btn-primary btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/thuonghieu/them'"><i class="material-icons">add_box</i>
                                         <span>THÊM</span>
                                     </button>
                                 <button class="btn bg-brown btn-lg waves-effect" type="button" onclick="window.location.href = '#XoaNhieu'"><i class="material-icons">delete</i>
@@ -70,28 +70,28 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Tên kích cỡ</th>
+                                            <th>Tên thương hiệu</th>
                                             <th>Sửa - Xóa</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Tên kích cỡ</th>
+                                            <th>Tên thương hiệu</th>
                                             <th>Sửa - Xóa</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        @foreach ($kichcomau as $kcm)
+                                        @foreach ($thuonghieu as $th)
                                         <tr>
-                                            <td>{{ $kcm->id }}</td>
-                                            <td>{{ $kcm->ten }}</td>
+                                            <td>{{ $th->id }}</td>
+                                            <td>{{ $th->ten }}</td>
                                             <td>
-                                                <a href="admin/kichcomau/sua/{{ $kcm->id }}">
+                                                <a href="admin/thuonghieu/sua/{{ $th->id }}">
                                                     <button type="button" class="btn btn-success waves-effect mr"><i class="material-icons">edit</i>
                                                     </button>
                                                 </a>
-                                                <button type="button" class="btn bg-brown waves-effect" onclick="Delete({{ $kcm->id }});"><i class="material-icons">delete</i>
+                                                <button type="button" class="btn bg-brown waves-effect" onclick="Delete({{ $th->id }});"><i class="material-icons">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -132,7 +132,7 @@
                 })
                 .then((isConfirm) => {
                     if (isConfirm) {
-                        window.location.href = "admin/kichcomau/xoa/" + id;
+                        window.location.href = "admin/thuonghieu/xoa/" + id;
                     } else {
                         swal("Dữ liệu của bạn không thay đổi!");
                     }

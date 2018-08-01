@@ -109,13 +109,8 @@
                         </a>
                         <ul class="ml-menu" style="display: none;">
                             <li>
-                                <a href="javascript:void(0);" class=" waves-effect waves-block">
+                                <a href="admin/trangchu/sua" class=" waves-effect waves-block">
                                     <span>Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="waves-effect waves-block">
-                                    <span>Thêm</span>
                                 </a>
                             </li>
                         </ul>
@@ -143,12 +138,12 @@
                         </a>
                         <ul class="ml-menu" style="display: none;">
                             <li>
-                                <a href="javascript:void(0);" class=" waves-effect waves-block">
+                                <a href="admin/thuonghieu/danhsach" class=" waves-effect waves-block">
                                     <span>Danh sách</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect waves-block">
+                                <a href="admin/thuonghieu/them" class="waves-effect waves-block">
                                     <span>Thêm</span>
                                 </a>
                             </li>
@@ -160,12 +155,12 @@
                         </a>
                         <ul class="ml-menu" style="display: none;">
                             <li>
-                                <a href="javascript:void(0);" class=" waves-effect waves-block">
+                                <a href="admin/lienhe/danhsach" class=" waves-effect waves-block">
                                     <span>Danh sách</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect waves-block">
+                                <a href="admin/lienhe/them" class="waves-effect waves-block">
                                     <span>Thêm</span>
                                 </a>
                             </li>
@@ -203,12 +198,12 @@
                         </a>
                         <ul class="ml-menu" style="display: none;">
                             <li>
-                                <a href="javascript:void(0);" class=" waves-effect waves-block">
+                                <a href="admin/kichcomau/danhsach" class=" waves-effect waves-block">
                                     <span>Danh sách</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect waves-block">
+                                <a href="admin/kichcomau/them" class="waves-effect waves-block">
                                     <span>Thêm</span>
                                 </a>
                             </li>

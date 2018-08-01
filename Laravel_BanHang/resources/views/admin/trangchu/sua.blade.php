@@ -1,43 +1,42 @@
-@extends('admin.layout.index')
-
+@extends('admin.layout.index') 
 @section('linkcssTren')
-    <!-- Colorpicker Css -->
-    <link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
-    
-    <!-- Dropzone Css -->
-    <link href="admin/plugins/dropzone/dropzone.css" rel="stylesheet">
-    
-    <!-- Bootstrap Spinner Css -->
-    <link href="admin/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
-    
-    <!-- Bootstrap Tagsinput Css -->
-    <link href="admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
-    
-    <!-- Bootstrap Select Css -->
-    <link href="admin/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-    
-    <!-- noUISlider Css -->
-    <link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+<!-- Colorpicker Css -->
+<link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+
+<!-- Dropzone Css -->
+<link href="admin/plugins/dropzone/dropzone.css" rel="stylesheet">
+
+<!-- Bootstrap Spinner Css -->
+<link href="admin/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
+
+<!-- Bootstrap Tagsinput Css -->
+<link href="admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+
+<!-- Bootstrap Select Css -->
+<link href="admin/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+<!-- noUISlider Css -->
+<link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
 @endsection
  
 @section('linkcssDuoi')
-    <style>
-        .sidebar {
-            width: 220px;
-        }
+<style>
+    .sidebar {
+        width: 220px;
+    }
 
-        section.content {
-            margin: 100px 15px 0 235px;
-        }
+    section.content {
+        margin: 100px 15px 0 235px;
+    }
 
-        .navbar-nav .dropdown-menu {
-            margin-top: 0px !important;
-        }
+    .navbar-nav .dropdown-menu {
+        margin-top: 0px !important;
+    }
 
-        .navbar-header {
-            width: 220px;
-        }
-    </style>
+    .navbar-header {
+        width: 220px;
+    }
+</style>
 @endsection
  
 @section('content')
@@ -45,111 +44,141 @@
     <div class="container-fluid">
         <div class="block-header">
             <center>
-                    <h1>
-                        TÊN BẢNG
-                    </h1>
+                <h1>
+                    CÀI ĐẶT TRANG CHỦ
+                </h1>
             </center>
         </div>
         <!-- FORM -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
-                            <p style="font-size: 1.8em; font-weight: bold;">CHỈNH SỬA</p>
-                    </div>
                     <div class="body">
                         <div class="row clearfix">
-                            <form action="">
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Nhập text</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                                    <i class="material-icons">person</i>
-                                                </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập..." type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Nhập text</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                                        <i class="material-icons">format_color_text</i>
-                                                    </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập..." type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Nhập số</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_list_numbered</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập..." type="number">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Chọn ngày</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                                    <i class="material-icons">date_range</i>
-                                                </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Username" type="date">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Giới tính</h2>
-                                    <div class="demo-radio-button">
-                                        <input name="group1" class="with-gap" id="radio_1" type="radio" checked>
-                                        <label for="radio_1">Nam</label>
-                                        <input name="group1" class="with-gap" id="radio_2" type="radio">
-                                        <label for="radio_2">Nữ</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Tiêu đề Select</h2>
-                                    <select class="form-control show-tick">
-                                            <option>Lựa chọn 1</option>
-                                            <option>Lựa chọn 2</option>
-                                            <option>Lựa chọn 3</option>
-                                        </select>
-                                </div>
-
+                            <form action="admin/trangchu/sua" method="POST" enctype="multipart/form-data">
+                                @csrf()
                                 <div class="col-md-12">
-                                    <h2 class="card-inside-title">Textarea</h2>
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Tên shop</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                    <i class="material-icons">format_color_text</i>
+                                                </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập tên shop" type="text" value="{{ $trangchu->tenshop }}" name="TenShop" required
+                                                    disabled="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">email</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                            <i class="material-icons">format_color_text</i>
+                                                        </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập email" type="email" value="{{ $trangchu->email }}" name="Email" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Tiêu đề trái</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                            <i class="material-icons">format_color_text</i>
+                                                        </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập tiêu đề trái" type="text" value="{{ $trangchu->tieudetrai }}" name="TieuDeTrai"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Tiêu đề phải</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                            <i class="material-icons">format_color_text</i>
+                                                        </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập tiêu đề  dưới" type="text" value="{{ $trangchu->tieudeduoi }}" name="TieuDeDuoi"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Số điện thoại</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                            <i class="material-icons">format_color_text</i>
+                                                        </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập số điện thoại" type="text" value="{{ $trangchu->sodienthoai }}" name="SoDienThoai"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Địa chỉ</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                            <i class="material-icons">format_color_text</i>
+                                                        </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập địa chỉ" type="text" value="{{ $trangchu->diachi }}" name="DiaChi" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Giờ mở cửa</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                            <i class="material-icons">format_color_text</i>
+                                                        </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập giờ mở cửa" type="text" value="{{ $trangchu->giomodongcua }}" name="GioMoCua"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Tiêu đề cảm ơn</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                            <i class="material-icons">format_color_text</i>
+                                                        </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập tiêu đề cảm ơn" type="text" value="{{ $trangchu->tieudecamon }}" name="TieuDeCamOn"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <h2 class="card-inside-title">Nội dung cảm ơn</h2>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <textarea rows="3" class="form-control no-resize auto-growth" placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;"></textarea>
+                                            <textarea rows="3" class="form-control no-resize auto-growth" placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;"
+                                                value="" name="NoiDungCamOn" required>{{ $trangchu->noidungcamon }}</textarea>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
-                                    <h2 class="card-inside-title">Chọn ảnh</h2>
-                                    <div class="form-group">
-                                        <input type="file" name="file" id="profile-img">
-                                        <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
-                                    </div>
-                                </div>
                                 <div class="col-md-3"></div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU</button>
+                                    <button id="luu" class="btn btn-primary btn-lg waves-effect an" type="submit">LƯU</button>
                                 </div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-danger btn-lg waves-effect" type="submit">HỦY</button>
+                                    <button id="chinhsua" class="btn bg-brown btn-lg waves-effect" type="button" onclick="HiddenButton();">CHỈNH SỬA</button>
                                 </div>
                                 <div class="col-md-2">
-                                    <button class="btn bg-brown btn-lg waves-effect" type="reset">XÓA TEXT</button>
+                                    <button id="huy" class="btn btn-danger btn-lg waves-effect an" type="button" onclick="window.location.href='admin/trangchu/sua'">HỦY</button>
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -158,24 +187,59 @@
         </div>
         <!-- #END# FORM -->
     </div>
+    <style>
+        .an {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .hien {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #chinhsua {
+            position: absolute;
+        }
+    </style>
+    <script>
+        var inp = document.getElementsByTagName('input');
+        for(var i = 0; i < inp.length; i++){
+            inp[i].setAttribute('disabled',"");
+        }
+        var textarea = document.getElementsByTagName('textarea');
+        textarea[0].setAttribute('disabled',"");
+        function HiddenButton(){
+            var luu = document.getElementById('luu');
+            var huy = document.getElementById('huy');
+            var chinhsua = document.getElementById('chinhsua');
+            luu.classList.add('hien');
+            huy.classList.add('hien');
+            chinhsua.classList.add('an');
+            for(var i = 0; i < inp.length; i++){
+                inp[i].removeAttribute('disabled');
+            }
+            textarea[0].removeAttribute('disabled');
+        }
+    </script>
 </section>
 @endsection
  
 @section('script')
-    <!-- Custom Js -->
-    <script src="admin/js/basic-form-elements.js "></script>
+<!-- Custom Js -->
+<script src="admin/js/basic-form-elements.js "></script>
 
-    <!-- Autosize Plugin Js -->
-    <script src="admin/plugins/autosize/autosize.js "></script>
+<!-- Autosize Plugin Js -->
+<script src="admin/plugins/autosize/autosize.js "></script>
 
-    <!-- Moment Plugin Js -->
-    <script src="admin/plugins/momentjs/moment.js "></script>
+<!-- Moment Plugin Js -->
+<script src="admin/plugins/momentjs/moment.js "></script>
 
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="admin/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js "></script>
+<!-- Bootstrap Material Datetime Picker Plugin Js -->
+<script src="admin/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js "></script>
 
-    <script type="text/javascript">
-        function readURL(input) {
+<script type="text/javascript">
+    function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
@@ -188,5 +252,17 @@
         $("#profile-img").change(function() {
             readURL(this);
         });
-    </script>
+
+</script>
+<!-- script trả về khi sửa thành công -->
+@if (session('thongbaosua')))
+<script>
+    swal({
+        title: "{{ session('thongbaosua') }}!",
+        timer: 3000,
+        icon: "success",
+        button: "OK",
+    })
+</script>
+@endif
 @endsection

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\ThuongHieu;
+
 class ThuongHieuSeeder extends Seeder
 {
     /**
@@ -11,6 +11,14 @@ class ThuongHieuSeeder extends Seeder
      */
     public function run()
     {
-        factory(ThuongHieu::class, 20)->create();
+        $faker = Faker\Factory::create();
+        $limit = 5;
+        for ($i = 1; $i <= $limit; $i++) {
+            DB::table('thuonghieu')->insert([
+                'ten' => $faker->company,
+                'created_at' => $faker->date('Y-m-d', 'now'),
+            ]);
+        }
+        // factory(ThuongHieu::class, 20)->create();
     }
 }

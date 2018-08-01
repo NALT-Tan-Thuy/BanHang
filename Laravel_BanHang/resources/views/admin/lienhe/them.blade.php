@@ -46,7 +46,7 @@
         <div class="block-header">
             <center>
                     <h1>
-                        KÍCH CỠ MẪU
+                        LIÊN HỆ
                     </h1>
             </center>
         </div>
@@ -55,27 +55,60 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                            <p style="font-size: 1.8em; font-weight: bold;">CHỈNH SỬA</p>
+                        <h2>
+                            THÊM
+                        </h2>
                     </div>
                     <div class="body">
                         <div class="row clearfix">
-                            <form action="admin/kichcomau/sua/{{ $kichcomau->id }}" method="POST" enctype="multipart/form-data">
+                            <form action="admin/lienhe/them" method="POST" enctype="multipart/form-data">
                                 @csrf()
-                                <div class="col-md-3"></div>
-                                <div class="col-md-6">
-                                    <h2 class="card-inside-title">Tên kích cỡ</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">format_color_text</i>
-                                        </span>
-                                        <div class="form-line">
-                                            <input class="form-control" placeholder="Nhập tên kích cỡ" type="text" value="{{ $kichcomau->ten }}" name="Ten" required>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Tên cơ sở</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                    <i class="material-icons">format_color_text</i>
+                                                </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập tên co sở" type="text" value="" name="TenCoSo" required>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Người quản lý</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                            <i class="material-icons">person</i>
+                                                        </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập tên người quản lý" type="text" value="" name="NguoiQuanLy"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <h2 class="card-inside-title">Số điện thoại</h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                            <i class="material-icons">phone</i>
+                                                        </span>
+                                            <div class="form-line">
+                                                <input class="form-control" placeholder="Nhập số điện thoại" type="text" value="" name="SoDienThoai"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4"></div>
+                                <div class="col-md-2">
                                     <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU</button>
-                                    <a href="admin/kichcomau/danhsach">
-                                        <button class="btn btn-danger btn-lg waves-effect m-l-100" type="button">HỦY</button>
-                                    </a>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-danger btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/lienhe/danhsach'">HỦY</button>
                                 </div>
                             </form>
                         </div>
@@ -116,10 +149,9 @@
             readURL(this);
         });
     </script>
-
-@if(count($errors) > 0)
-<script>
-    var s = "";
+    @if(count($errors) > 0)
+    <script>
+        var s = "";
         @foreach($errors->all() as $err)
             s += "{{ $err }}\n";
         @endforeach
@@ -129,7 +161,6 @@
             timer: 10000,
             icon: "error",
         });
-
-</script>
-@endif
+    </script>
+    @endif
 @endsection

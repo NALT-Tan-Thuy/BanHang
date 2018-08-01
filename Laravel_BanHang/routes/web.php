@@ -50,13 +50,36 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('xoa/{id}', 'SlideController@getXoa');
     });
 
+    Route::group(['prefix' => 'thuonghieu'], function () {
+        Route::get('danhsach', 'ThuongHieuController@index');
+        Route::get('sua/{id}', 'ThuongHieuController@getSua');
+        Route::post('sua/{id}', 'ThuongHieuController@postSua');
+        Route::get('them', 'ThuongHieuController@getThem');
+        Route::post('them', 'ThuongHieuController@postThem');
+        Route::get('xoa/{id}', 'ThuongHieuController@getXoa');
+    });
+
     Route::group(['prefix' => 'trangchu'], function () {
-        Route::get('danhsach', 'TrangChuController@index');
-        // Route::get('sua/{id}', 'TrangChuController@getSua');
-        // Route::post('sua/{id}', 'TrangChuController@postSua');
-        // Route::get('them', 'TrangChuController@getThem');
-        // Route::post('them', 'TrangChuController@postThem');
-        // Route::get('xoa/{id}', 'TrangChuController@getXoa');
+        Route::get('sua', 'TrangChuController@index');
+        Route::post('sua', 'TrangChuController@postSua');
+    });
+
+    Route::group(['prefix' => 'lienhe'], function () {
+        Route::get('danhsach', 'LienHeController@index');
+        Route::get('sua/{id}', 'LienHeController@getSua');
+        Route::post('sua/{id}', 'LienHeController@postSua');
+        Route::get('them', 'LienHeController@getThem');
+        Route::post('them', 'LienHeController@postThem');
+        Route::get('xoa/{id}', 'LienHeController@getXoa');
+    });
+
+    Route::group(['prefix' => 'kichcomau'], function () {
+        Route::get('danhsach', 'KichCoMauController@index');
+        Route::get('sua/{id}', 'KichCoMauController@getSua');
+        Route::post('sua/{id}', 'KichCoMauController@postSua');
+        Route::get('them', 'KichCoMauController@getThem');
+        Route::post('them', 'KichCoMauController@postThem');
+        Route::get('xoa/{id}', 'KichCoMauController@getXoa');
     });
 
     Route::group(['prefix' => 'ajax'], function () {
