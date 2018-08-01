@@ -197,13 +197,15 @@ class TaiKhoanController extends Controller
             if (!$check) {
                 return redirect()->back()->with('loianh', 'Chỉ hổ trợ định dạng: jpg, png, jpeg');
             }
-            $name = time() . $file->getClientOriginalName();
-            unlink('uploads/users/' . $user->img);
+            $name = time().$file->getClientOriginalName();
+            if($user->img != ""){
+                unlink('uploads/users/'.$user->img);
+            }           
             $file->move('uploads/users', $name);
             $user->img = $name;
         }
         $user->save();
-        return redirect()->back()->with('suatkthanhcong', 'Thông tin đã được thay đổi');
+        return redirect('thongtin')->with('suatkthanhcong', 'Đã cập nhật thành công thông tin của bạn');
     }
 
 }

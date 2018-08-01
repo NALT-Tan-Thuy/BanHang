@@ -1,3 +1,7 @@
+function nhanNhapMK() {
+    document.getElementById('ketquamk').hidden = true;
+    document.getElementById('ketquamksai').hidden = true;
+}
 function LuuMatKhau() {
     var mkcu = document.getElementById('mkcu').value;
     var mkmoi = document.getElementById('mkmoi').value;

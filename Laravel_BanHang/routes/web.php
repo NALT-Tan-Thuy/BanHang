@@ -119,19 +119,19 @@ Route::get('dathang', 'GiaoDienController@getDatHang');
 Route::get('dangky', 'TaiKhoanController@getDangKy');
 Route::post('dangky', 'TaiKhoanController@postDangKyTaiKhoan');
 
-Route::get('dangnhap', 'TaiKhoanController@getDangNhap');
+Route::get('dangnhap', 'TaiKhoanController@getDangNhap')->name('dangnhap');
 Route::post('dangnhap', 'TaiKhoanController@postDangNhap');
-Route::get('dangxuat', 'TaiKhoanController@getDangXuat');
+Route::get('dangxuat', 'TaiKhoanController@getDangXuat')->middleware('TaiKhoanMiddleware');
 
 Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
 
-Route::get('thongtin', 'TaiKhoanController@getThongTin');
-Route::get('suathongtin', 'TaiKhoanController@getSuaThongTin');
-Route::post('suathongtin', 'TaiKhoanController@postSuaThongTinTK');
+Route::get('thongtin', 'TaiKhoanController@getThongTin')->middleware('TaiKhoanMiddleware');
+Route::get('suathongtin', 'TaiKhoanController@getSuaThongTin')->middleware('TaiKhoanMiddleware');
+Route::post('suathongtin', 'TaiKhoanController@postSuaThongTinTK')->middleware('TaiKhoanMiddleware');
 
-Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau');
-Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen');
-Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong');
+Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau')->middleware('TaiKhoanMiddleware');
+Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen')->middleware('TaiKhoanMiddleware');
+Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->middleware('TaiKhoanMiddleware');
 
 
 
