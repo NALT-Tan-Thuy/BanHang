@@ -118,7 +118,7 @@
                             <h3>THAY ĐỔI THÔNG TIN</h3>
                         </center>
                     </div>
-                    <form action="suathongtin" method="POST">
+                    <form action="suathongtin" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6 ">
                             <div class="form-group ">
