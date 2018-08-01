@@ -148,7 +148,7 @@
 
                 <li>
                     <a href="thongtin">
-                        <span class="glyphicon glyphicon-user"></span> {{Auth::User()->tendangnhap}}</a>
+                        <span class="glyphicon glyphicon-user"></span> {{Auth::User()->hoten}}</a>
                 </li>
                 <li>
                     <a href="dangxuat">

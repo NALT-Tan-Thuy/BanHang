@@ -1,6 +1,9 @@
-@extends('giaodien/master') @section('noidung') @section('title') Trang cá nhân @endsection
+@extends('giaodien/master') 
+@section('noidung') 
+@section('title') Trang cá nhân @endsection
 <!-- nội dung -->
-@section('css') @endsection
+@section('css') 
+@endsection
 
 <!-- Kiểm soát đường dẫn -->
 <div class="container">
