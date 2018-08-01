@@ -51,35 +51,46 @@ function XoaNhapMK() {
     document.getElementById('nhaplaimk').value = "";
 }
 // Ajax cho nút huyện - xã
-function ChonQuanHuyen(id){
-    if(window.XMLHttpRequest){
-		var xhttp = new XMLHttpRequest();
-	}
-	else{
-		var xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById('luuquanhuyen').innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("GET", "chonquanhuyen/"+id, true);
-	xhttp.send();
+function ChonQuanHuyen(id) {
+    var tenTinh = document.getElementById('tinh');
+    var xa = document.getElementById('xa');
+    var huyen = document.getElementById('huyen');
+    if (tenTinh.value == "") {
+        huyen.value = "";
+        huyen.disabled = true;
+    }
+    xa.value = "";
+    xa.disabled = true;
+    if (window.XMLHttpRequest) {
+        var xhttp = new XMLHttpRequest();
+    }
+    else {
+        var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('luuquanhuyen').innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "chonquanhuyen/" + id, true);
+    xhttp.send();
 }
 // chọn xã phường
-function ChonXaPhuong(id){
+function ChonXaPhuong(id) {
+    var xa = document.getElementById('xa');
+    xa.disabled = false;
     document.getElementById('luuxaphuong');
-    if(window.XMLHttpRequest){
-		var xhttp = new XMLHttpRequest();
-	}
-	else{
-		var xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById('luuxaphuong').innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("GET", "chonxaphuong/"+id, true);
-	xhttp.send();
+    if (window.XMLHttpRequest) {
+        var xhttp = new XMLHttpRequest();
+    }
+    else {
+        var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('luuxaphuong').innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "chonxaphuong/" + id, true);
+    xhttp.send();
 }

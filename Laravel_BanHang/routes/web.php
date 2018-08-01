@@ -121,8 +121,8 @@ Route::get('suathongtin', 'TaiKhoanController@getSuaThongTin');
 Route::post('suathongtin', 'TaiKhoanController@postSuaThongTinTK');
 
 Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau');
-Route::get('chonquanhuyen/{id}', 'TaiKhoanController@getChonQuanHuyen');
-Route::get('chonxaphuong/{id}', 'TaiKhoanController@getChonXaPhuong');
+Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen');
+Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong');
 
 
 

@@ -73,7 +73,6 @@
                     <b>CHỈNH SỬA THÔNG TIN CÁ NHÂN</b>
                 </div>
                 <div class="panel-body">
-
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
                         <div id="ketquamk" class="alert alert-success" hidden></div>
@@ -109,6 +108,11 @@
                     </div>
                     <div class="col-md-3 "></div>
                     <div class="col-md-12">
+                        @if(Session::has('loianh'))
+                        <div class="alert alert-danger">{{Session::get('loianh')}}</div>
+                        @endif @if(Session::has('suatkthanhcong'))
+                        <div class="alert alert-success">{{Session::get('suatkthanhcong')}}</div>
+                        @endif
                         <hr style="width: 100%; color: black; height: 4px; background-color:#d9edf7;">
                         <center>
                             <h3>THAY ĐỔI THÔNG TIN</h3>
@@ -131,35 +135,34 @@
                             </div>
                             <div class="form-group">
                                 <label>Tỉnh - Thành Phố </label>
-                                <select name="tinh" id="tinh" onchange="ChonQuanHuyen(this.value);" class="form-control" id="tinh">
-                                    <option>{{$tinhTP->tendaydu}}</option>
+                                <select name="tinh" id="tinh" onchange="ChonQuanHuyen(this.value);" class="form-control">
+                                    <option value="{{$tinhTP->id}}">{{$tinhTP->tendaydu}}</option>
                                     @foreach($tinhTPAll as $tpAll)
-                                    <!-- <option onchange="">{{$tpAll->tendaydu}}</option> -->
-                                    <option onchange="">{{$tpAll->tendaydu}}</option>
+                                    <option value="{{$tpAll->id}}">{{$tpAll->tendaydu}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div id="luuquanhuyen" class="form-group">
                                 <label>Quận - Huyện </label>
-                                <select name="huyen" id="huyen" onchange="ChonXaPhuong(this.value);" class="form-control" id="huyen">
-                                    <option>{{$quanHuyen->tendaydu}}</option>
+                                <select name="huyen" id="huyen" onchange="ChonXaPhuong(this.value);" class="form-control">
+                                    <option value="{{$quanHuyen->id}}">{{$quanHuyen->tendaydu}}</option>
                                     @foreach($quanAll as $quan)
-                                    <option>{{$quan->tendaydu}}</option>
+                                    <option value="{{$quan->id}}">{{$quan->tendaydu}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div id="luuxaphuong" class="form-group">
                                 <label>Xã - Phường</label>
-                                <select name="xa" id="xa" class="form-control" id="xa">
-                                    <option>{{$xaPhuong->tendaydu}}</option>
+                                <select name="xa" id="xa" class="form-control">
+                                    <option value="{{$xaPhuong->id}}">{{$xaPhuong->tendaydu}}</option>
                                     @foreach($xaAll as $xa)
-                                    <option >{{$xa->tendaydu}}</option>
+                                    <option value="{{$xa->id}}">{{$xa->tendaydu}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group ">
                                 <label class="control-label ">Ngày sinh</label>
-                                <input type="date " class="form-control" name="ngaysinh" id="ngaysinh"" placeholder="Nhập ngày sinh" value="{{$user->ngaysinh}}">
+                                <input type="date" class="form-control" name="ngaysinh" id="ngaysinh" " placeholder="Nhập ngày sinh " value="{{$user->ngaysinh}}">
                             </div>
                             <div class="form-group">
                                 <label>Giới tính</label>
@@ -176,6 +179,10 @@
                             <div class="form-group ">
                                 <label class="control-label ">Số điện thoại</label>
                                 <input type="text " class="form-control" name="sdt" id="sdt" placeholder="Nhập số điện thoại" value="{{$user->sodienthoai}}">
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label ">Nghề nghiệp</label>
+                                <input type="text " class="form-control" name="nghenghiep" id="nghenghiep" placeholder="Nhập công việc hiện tại" value="{{$user->nghenghiep}}">
                             </div>
                             <div class="form-group ">
                                 <label class="control-label ">Sở thích</label>

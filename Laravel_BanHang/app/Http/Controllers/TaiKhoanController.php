@@ -134,34 +134,65 @@ class TaiKhoanController extends Controller
             echo "false";
     }
 // ajax lấy tên huyện
-    public function getChonQuanHuyen($tenTinh){
-        $idTinh = DB::table('tinh_thanhpho')->where('tendaydu',$tenTinh)->first();
-        $quan_huyen = DB::table('quan_huyen')->where([['id','<>',0],['id_tinh_thanhpho',$idTinh->id]])->get();
+    public function getChonQuanHuyen($idTinh){
+        $quan_huyen = DB::table('quan_huyen')->where([['id','<>',0],['id_tinh_thanhpho',$idTinh]])->get();
         $hienthi = '
                     <label>Quận - Huyện </label>
-                    <select onchange="ChonXaPhuong(this.value);" class="form-control">
+                    <select name="huyen" id="huyen" onchange="ChonXaPhuong(this.value);" class="form-control">
                     ';
         foreach ($quan_huyen as $quan) {
-            $hienthi = $hienthi.'<option>'.$quan->tendaydu.'</option>';
+            $hienthi = $hienthi.'<option value="'.$quan->id.'">'.$quan->tendaydu.'</option>';
         }
         echo $hienthi.'</select>';
     }
     // Ajax lấy tên xã
-    public function getChonXaPhuong($tenHuyen){
-        $idHuyen = DB::table('quan_huyen')->where('tendaydu',$tenHuyen)->first();
-        $xa_phuong = DB::table('xa_phuong')->where([['id','<>',0],['id_quan_huyen',$idHuyen->id]])->get();
+    public function getChonXaPhuong($idHuyen){
+        $xa_phuong = DB::table('xa_phuong')->where([['id','<>',0],['id_quan_huyen',$idHuyen]])->get();
         $hienthi = '
                     <label>Xã - Phường</label>
-                    <select class="form-control">
+                    <select name="xa" id="xa" class="form-control">
                     ';
         foreach ($xa_phuong as $xa) {
-            $hienthi = $hienthi.'<option>'.$xa->tendaydu.'</option>';
+            $hienthi = $hienthi.'<option value="'.$xa->id.'">'.$xa->tendaydu.'</option>';
         }
         echo $hienthi.'</select>';
     }
     //Sửa thông tin tài khoản 
     public function postSuaThongTinTK(Request $request){
-       dd($request);
+        $user = User::find(Auth::User()->id);
+        $user->hoten = $request->hoten;
+        $user->tendangnhap = $request->tendangnhap;
+        $user->email = $request->email;
+        $user->id_tinh_thanhpho = $request->tinh;
+        $user->id_quan_huyen = $request->huyen;
+        $user->id_xa_phuong = $request->xa;
+        $user->ngaysinh = $request->ngaysinh;
+        $user->gioitinh = $request->gt;
+        $user->sodienthoai = $request->sdt;
+        $user->nghenghiep = $request->nghenghiep;
+        $user->sothich = $request->sothich;
+        $user->gioithieubanthan = $request->exampleFormControlTextarea2;
+        if ($request->hasFile('file')) {
+            $file = $request->file('title');
+            $duoiAnh = $file->getClientOriginalExtension();
+            $arrImg = ['jpg', 'JPG', 'png', 'PNG', 'jpeg', 'JPEG'];
+            $check = false;
+            for ($i = 0; $i < count($arrImg); $i++) {
+                if ($duoiAnh == $arrImg[$i]) {
+                    $check = true;
+                    break;
+                }
+            }
+            if (!$check) {
+                return redirect()->back()->with('loianh', 'Chỉ hổ trợ định dạng: jpg, png, jpeg');
+            } 
+            $name = time().$file->getClientOriginalName();
+            unlink('uploads/users/'.$user->img);
+            $file->move('uploads/users',$name);
+            $user->img = $name;
+        }
+        $user->save();
+        return redirect()->back()->with('suatkthanhcong', 'Thông tin đã được thay đổi');
     }
     
 }

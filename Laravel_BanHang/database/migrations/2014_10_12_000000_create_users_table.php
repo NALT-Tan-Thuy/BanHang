@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('gioitinh', 10);
             $table->string('hoten');
             $table->text('img')->nullable();
-            $table->date('ngaysinh')->nulable();
-            $table->string('sodienthoai')->nulable();
+            $table->date('ngaysinh')->nullable();
+            $table->string('sodienthoai')->nullable();
             $table->integer('id_tinh_thanhpho')->unsigned();
             $table->foreign('id_tinh_thanhpho')->references('id')->on('tinh_thanhpho');
             $table->integer('id_quan_huyen')->unsigned();
