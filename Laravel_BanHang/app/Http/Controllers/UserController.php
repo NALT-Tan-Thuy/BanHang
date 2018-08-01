@@ -115,7 +115,7 @@ class UserController extends Controller
         $user = new User();
         $user->tendangnhap = $request->TenDangNhap;
         $user->hoten = $request->HoTen;
-        $user->matkhau = bcrypt($request->MatKhau);
+        $user->password = bcrypt($request->MatKhau);
         $user->email = $request->Email;
         $user->phanquyen = $request->PhanQuyen;
         $user->ngaysinh = $request->NgaySinh;

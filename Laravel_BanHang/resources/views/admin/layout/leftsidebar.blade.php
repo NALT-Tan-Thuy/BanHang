@@ -89,10 +89,10 @@
                         </a>
                 <ul class="ml-menu">
                     <li>
-                        <a href="#">Danh sách</a>
+                        <a href="admin/hoadon/danhsach">Danh sách</a>
                     </li>
                     <li>
-                        <a href="#">Thêm</a>
+                        <a href="admin/hoadon/them">Thêm</a>
                     </li>
                 </ul>
             </li>

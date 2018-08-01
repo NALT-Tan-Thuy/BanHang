@@ -82,6 +82,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('xoa/{id}', 'KichCoMauController@getXoa');
     });
 
+    Route::group(['prefix' => 'hoadon'], function () {
+        Route::get('danhsach', 'HoaDonController@index');
+        // Route::get('sua/{id}', 'HoaDonController@getSua');
+        // Route::post('sua/{id}', 'HoaDonController@postSua');
+        // Route::get('them', 'HoaDonController@getThem');
+        // Route::post('them', 'HoaDonController@postThem');
+        // Route::get('xoa/{id}', 'HoaDonController@getXoa');
+    });
+
     Route::group(['prefix' => 'ajax'], function () {
         Route::get('getQuanHuyen/{str}', 'ajaxController@getQuanHuyenUser');
         Route::get('getXaPhuong/{str}', 'ajaxController@getXaPhuongUser');
