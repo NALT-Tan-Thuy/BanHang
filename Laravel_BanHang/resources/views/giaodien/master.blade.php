@@ -34,116 +34,49 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id="hienThiTenShop" class="navbar-brand" href="trangchu">Hoàng Tử</a>
+            <a id="hienThiTenShop" class="navbar-brand" href="trangchu">{{$trangchushare->tenshop}}</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
+                @foreach($loaisanphamshare as $lsps)
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">Áo
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">{{$lsps->ten}}
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
+                        @foreach($sanphamshare as $sps) @if($sps->id_loaisanpham === $lsps->id)
                         <li>
-                            <a href="sanpham">Áo kiểu</a>
+                            <a href="sanpham">{{$sps->ten}}</a>
                         </li>
                         <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Áo thun</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Áo sơ mi</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Áo khoác</a>
-                        </li>
+                        @endif @endforeach
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">Quần
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="sanpham">Quần Kaki</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Quần Jean</a>
-                        </li>
-                        <li>
-                            <a href="sanpham">Quần Short</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Quần Jogger</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Đầm nữ</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">Giày
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="sanpham">Giày nam</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Giày nữ</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">Nón
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="sanpham">Nón Snapback</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Nón Bucket</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Nón Phớt</a>
-                        </li>
-                    </ul>
-                </li>
+                @endforeach
+
                 <!-- Nếu chỉ có loại hàng => bỏ khác -->
                 <!-- <li><a href="sanpham">Khác</a></li> -->
+                @if(count($loaispkhacshare) != 0)
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">Khác
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">Loại khác
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
+                        @foreach($loaispkhacshare as $lspks)
                         <li>
-                            <a href="sanpham">Không có sub_menu</a>
+                            <a href="sanpham">{{$lspks->ten}}</a>
                         </li>
                         <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Ba lô & túi xách</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="sanpham">Loại hàng</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </li>
+                @endif
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="dathang">
                         <span class="fa fa-shopping-basket"></span> 10</a>
                 </li>
-
                 @if(Auth::check())
 
                 <li>

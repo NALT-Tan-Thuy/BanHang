@@ -1,10 +1,6 @@
 @extends('giaodien/main') @section('noidung')
 <!-- Nội dung chính của trang-->
-@section('title')
-Trang Chủ
-@endsection
-
-@include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
+@section('title') Trang Chủ @endsection @include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
 <!-- phần đầu nội dung 1 -->
 <!-- Kiểm soát đường dẫn -->
 
@@ -123,8 +119,9 @@ Trang Chủ
                     <a href="" title="THƯƠNG HIỆU KINH DOANH">THƯƠNG HIỆU KINH DOANH</a>
                 </h3>
                 <ul class="list-group">
-                    <li class="list-group-item">thương hiệu</li>
-                    <li class="list-group-item">Thương hiệu</li>
+                    @foreach($thuonghieushare as $ths)
+                    <li class="list-group-item">{{$ths->ten}}</li>
+                    @endforeach
 
                 </ul>
             </div>
@@ -152,10 +149,10 @@ Trang Chủ
                     <a href="" title="ĐỊA CHỈ VÀ TRỢ GIÚP">THÔNG TIN TRỢ GIÚP</a>
 
                 </h3>
-                <p>Địa chỉ: </p>
-                <p>Điện thoại: </p>
-                <p>Email: </p>
-                <p>Mở cửa: .</p>
+                <p>Địa chỉ: {{$trangchushare->diachi}}</p>
+                <p>Điện thoại: {{$trangchushare->sodienthoai}}</p>
+                <p>Email: {{$trangchushare->email}}</p>
+                <p>Mở cửa: {{$trangchushare->giomodongcua}}.</p>
 
             </div>
         </div>
@@ -189,53 +186,50 @@ Trang Chủ
                         <!-- Kiểm soát trang -->
                         <h2>Sản phẩm mới</h2>
                         <div class="beta-products-Chi tiết">
-                            <p>Tìm thấy 123 sản phẩm</p>
+                            <p>Tìm thấy {{count($sanphammoi)}} sản phẩm</p>
                             <div class="clearfix"></div>
                         </div>
 
                         <div class="row">
+                            @foreach($sanphammoi as $spm)
                             <div class="col-sm-3">
                                 <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px;" src="https://fandy.vn/wp-content/uploads/2016/12/giay-nam-the-thao-cho-nam-dep.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <!-- <div class="clearfix"></div> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
+                                    @if($spm->khuyenmai > 0)
                                     <div class="ribbon-wrapper">
                                         <div class="ribbon sale">Sale</div>
                                     </div>
-
                                     <div class="single-item-header">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px;" src="https://s3-ap-southeast-1.amazonaws.com/misskick/wp-content/uploads/2017/12/05185930/cach-mac-quan-ao-dep-danh-cho-nang-co-huong.jpg"
-                                                alt="">
-
+                                            <img height="250px;" src="uploads/sanpham/{{$spm->img}}" alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
+                                        <p class="single-item-title">{{$spm->ten}}</p>
                                         <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
+                                            <span class="flash-del">{{number_format($spm->giagoc)}}đ</span>
+                                            <span class="flash-sale">{{number_format(($spm->giagoc)-(($spm->giagoc)*($spm->khuyenmai))/100)}}đ</span>
+                                        </p>
+                                    </div>
+                                    <div class="single-item-caption">
+                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
+                                    </div>
+                                    @else
+                                    <div class="ribbon-wrapper">
+                                    </div>
+                                    <div class="single-item-header">
+                                        <a href="chitiet_sp.html">
+                                            <img height="250px;" src="uploads/sanpham/{{$spm->img}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="single-item-body">
+                                        <p class="single-item-title">{{$spm->ten}}</p>
+                                        <p class="single-item-price">
+                                            <span class="flash-del">{{number_format($spm->giagoc)}}đ</span>
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
@@ -247,58 +241,12 @@ Trang Chủ
                                         </a>
                                         <!-- <div class="clearfix"></div> -->
                                     </div>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px;" src="http://thesogood.com/wp-content/uploads/2017/09/333.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <!-- <div class="clearfix"></div> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" ; src="http://thoitrangxitin.com/Upload/2017-11/0916301536QE38C834V330R41.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <!-- <div class="clearfix"></div> -->
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-
+                        <div style="text-align: center;" class="row">{{$sanphammoi->links()}}</div>
                     </div>
                     <!-- .beta-products-list -->
 
@@ -312,149 +260,24 @@ Trang Chủ
                                 </div>
                             </div>
                         </div>
-                        <div class="space50">&nbsp;</div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="space40">&nbsp;</div>
                         <div class="row">
+                            @foreach($sanphamkhuyenmai as $spkm)
                             <div class="col-sm-3">
                                 <div class="single-item">
                                     <div class="ribbon-wrapper">
                                         <div class="ribbon sale">Sale</div>
                                     </div>
-
-                                    <div class="single-item-header thumbnail">
+                                    <div class="single-item-header">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
+                                            <img height="250px;" src="uploads/sanpham/{{$spm->img}}" alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
+                                        <p class="single-item-title">{{$spkm->ten}}</p>
                                         <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
+                                            <span class="flash-del">{{number_format($spkm->giagoc)}}đ</span>
+                                            <span class="flash-sale">{{number_format(($spkm->giagoc)-(($spkm->giagoc)*($spkm->khuyenmai))/100)}}đ</span>
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
@@ -464,101 +287,13 @@ Trang Chủ
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
                                             <i class="fa fa-chevron-right"></i>
                                         </a>
-                                        <div class="clearfix"></div>
                                     </div>
+                                   
                                 </div>
                             </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
+                        <div style="text-align: center;" class="row">{{$sanphamkhuyenmai->links()}}</div>
                     </div>
                     <!-- .beta-products-list -->
 
@@ -748,8 +483,7 @@ Trang Chủ
 
 </div>
 <!-- Xong nội dung 5 chứa sản phẩm phù hợp -->
-@include('giaodien/quytrinh') @include('giaodien/loicamon')
-@include('giaodien/cuoitrang')
+@include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 
 <!-- Xong nội dung -->
 @endsection

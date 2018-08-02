@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class GiaoDienController extends Controller
 {
     public function getTrangChu(){
-        return view('giaodien/trangchu');
+        $sanphammoi = DB::table('chitietsanpham')->orderBy('id','desc')->paginate(4);
+        $sanphamkhuyenmai = DB::table('chitietsanpham')->where('khuyenmai','>',0)->paginate(8);
 
+        return view('giaodien/trangchu',compact('sanphammoi','sanphamkhuyenmai'));
     }
     // trang con sản phẩm
     public function getSanPham(){

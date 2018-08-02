@@ -2,9 +2,9 @@
 <div class="container">
     <div id="ghiChuCamOn" style="text-align: center" class="alert alert-success" role="alert">
         <h1 class="alert-heading">
-            <b></b>
+            <b>{{$trangchushare->tieudecamon}}</b>
         </h1>
-        <p></p>
+        <p>{{$trangchushare->noidungcamon}}</p>
     </div>
 </div>
 <!-- Xong nội dung 6 lời cảm ơn -->

@@ -12,7 +12,7 @@
     <div id="nhomTimKiemHang" class="row">
         <div class="container">
             <div class="col-xs-12 col-md-3">
-                <p class="textLogo" id="thegioimuasam"></p>
+                <p class="textLogo" id="thegioimuasam">{{$trangchushare->tieudetrai}}</p>
             </div>
             <div id="searchForm">
                 <form method="get" action="#" name="timkiem">
@@ -24,22 +24,11 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
+                                    @foreach($loaispallshare as $lspas)
                                     <li>
-                                        <a href="trangcon_spkhac.html">Quần áo</a>
+                                        <a href="trangcon_spkhac.html">{{$lspas->ten}}</a>
                                     </li>
-                                    <li>
-                                        <a href="trangcon_spkhac.html">Mũ và nón</a>
-                                    </li>
-                                    <li>
-                                        <a href="trangcon_spkhac.html">Giày dép</a>
-                                    </li>
-                                    <li>
-                                        <a href="trangcon_spkhac.html">Phụ kiện</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="trangcon_spkhac.html">Tất cả</a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <input type="hidden" name="search_param" value="all" id="search_param">
@@ -56,9 +45,9 @@
             <!-- Giỏ hàng -->
             <div class="col-xs-12 col-md-4" id="hieuunggiohang">
                 <div id="hieuungchogio" class="nhomGiohang">
-                    <span id="iconLienHe" class="glyphicon glyphicon-phone-alt"> </span>
+                    <span id="iconLienHe" class="glyphicon glyphicon-phone-alt"> {{$trangchushare->sodienthoai}}</span>
                     <p></p>
-                    <span id="iconLienHe" class="glyphicon glyphicon-envelope"> </span>
+                    <span id="iconLienHe" class="glyphicon glyphicon-envelope"> {{$trangchushare->email}}</span>
 
                 </div>
                 <div id="gio">
