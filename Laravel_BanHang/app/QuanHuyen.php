@@ -23,8 +23,8 @@ class QuanHuyen extends Model
         return $this->hasMany('App\User', 'id_quan_huyen', 'id');
     }
 
-    public function khachhang()
-    {
-        return $this->hasMany('App\KhachHang', 'id_quan_huyen', 'id');
-    }
+    // public function khachhang()
+    // {
+    //     return $this->hasMany('App\KhachHang', 'id_quan_huyen', 'id');
+    // }
 }

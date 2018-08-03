@@ -20,15 +20,12 @@ class DatabaseSeeder extends Seeder
         $this->call(LienHeSeeder::class);
         $this->call(ThuongHieuSeeder::class);
         $this->call(KichCoMauSeeder::class);
-        // $this->call(ThongTinChiTietSanPhamSeeder::class);
+        $this->call(KhachHangSeeder::class);
+        $this->call(HoaDonSeeder::class);
+        $this->call(ChiTietHoaDonSeeder::class);
+        $this->call(BinhLuanSeeder::class);
+        $this->call(ThongTinChiTietSanPhamSeeder::class);
         // $this->call(KichCoSeeder::class);
-        // $this->call(KhachHangSeeder::class);
-        // $this->call(BinhLuanSeeder::class);
-        // $this->call(SlideSeed::class);
-        // $this->call(LienHeSeeder::class);
-
-        // $this->call(HoaDonSeeder::class);
-        // $this->call(ChiTietHoaDonSeeder::class);
 
     }
 }

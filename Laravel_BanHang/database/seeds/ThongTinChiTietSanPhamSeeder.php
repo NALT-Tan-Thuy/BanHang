@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\ThongTinChiTietSanPham;
+use Illuminate\Database\Seeder;
 
 class ThongTinChiTietSanPhamSeeder extends Seeder
 {
@@ -12,6 +12,6 @@ class ThongTinChiTietSanPhamSeeder extends Seeder
      */
     public function run()
     {
-        factory(ThongTinChiTietSanPham::class, 200)->create();
+        factory(ThongTinChiTietSanPham::class, 50)->create();
     }
 }

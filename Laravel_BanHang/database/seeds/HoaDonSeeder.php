@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\HoaDon;
 
 class HoaDonSeeder extends Seeder
 {
@@ -12,6 +11,14 @@ class HoaDonSeeder extends Seeder
      */
     public function run()
     {
-        factory(HoaDon::class, 50)->create();
+        $faker = Faker\Factory::create();
+        $limit = 5;
+        for ($i = 1; $i <= $limit; $i++) {
+            DB::table('hoadon')->insert([
+                'id_khachhang' => $i,
+                'created_at' => $faker->date('Y-m-d', 'now'),
+            ]);
+        }
+        // factory(HoaDon::class, 50)->create();
     }
 }

@@ -97,7 +97,7 @@
 
                                     @foreach ($chitietsanpham as $ctsp)
                                     <tr>
-                                        <td>{{ $ctsp->id }}</td>
+                                        <td>{{ $ctsp->ten }}</td>
                                         <td>
                                             @if ($ctsp->noibat == 1)Có
                                             <button class="btn btn-danger" style="width: 50px; height: 50px;"></button>

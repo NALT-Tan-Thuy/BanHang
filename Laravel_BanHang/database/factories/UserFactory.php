@@ -144,6 +144,6 @@ $factory->define(App\ChiTietHoaDon::class, function (Faker $faker) {
         'id_hoadon' => App\HoaDon::pluck('id')->random(),
         'id_chitietsanpham' => App\ChiTietSanPham::pluck('id')->random(),
         'soluong' => rand(1, 10),
-        'kichthuoc' => substr($faker->text(10), 1, 1),
+        'kichco' => substr($faker->text(10), 1, 1),
     ];
 });

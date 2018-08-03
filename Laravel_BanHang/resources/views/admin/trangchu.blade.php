@@ -53,11 +53,13 @@
                     <div class="card">
                         <div class="header">
                             <div class="col-md-7">
-                                <p style="font-size: 2em;">DANH SÁCH</p>
+                                <p style="font-size: 2em;">Giao diện trang chủ</p>
                             </div>
                         </div>
                         <div class="body">
-                            
+                            <div class="col-md-7">
+                                <p>Nội dung</p>
+                            </div>
                         </div>
                     </div>
                 </div>
