@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="http://myphamfokin.com/thumbs/cart-mb.png">
     <title>@yield('title')</title>
     <!-- Chữ cho "Thế giới mua sắm" -->
+    <base href="{{asset('')}}">
     <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
     <!-- Font hiển thị "Tên của shop trên Menu chính" -->
     <link href="https://fonts.googleapis.com/css?family=Pattaya" rel="stylesheet">
@@ -52,13 +53,13 @@
             <ul class="nav navbar-nav">
                 @foreach($loaisanphamshare as $lsps)
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">{{$lsps->ten}}
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham/{{$lsps->id}}">{{$lsps->ten}}
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($sanphamshare as $sps) @if($sps->id_loaisanpham === $lsps->id)
                         <li>
-                            <a href="sanpham">{{$sps->ten}}</a>
+                            <a href="sanpham/{{$lsps->id}}/{{$sps->id}}">{{$sps->ten}}</a>
                         </li>
                         <li class="divider"></li>
                         @endif @endforeach
@@ -70,13 +71,13 @@
                 <!-- <li><a href="sanpham">Khác</a></li> -->
                 @if(count($loaispkhacshare) != 0)
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">Sản phẩm khác
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham/1">Sản phẩm khác
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($loaispkhacshare as $lspks)
                         <li>
-                            <a href="sanpham">{{$lspks->ten}}</a>
+                            <a href="sanpham/{{$lspks->id}}">{{$lspks->ten}}</a>
                         </li>
                         <li class="divider"></li>
                         @endforeach

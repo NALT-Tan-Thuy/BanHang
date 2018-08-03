@@ -7,23 +7,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="http://myphamfokin.com/thumbs/cart-mb.png">
     <title>@yield('title')</title>
+    <base href="{{asset('')}}">
+    <!-- Chữ cho "Thế giới mua sắm" -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
     <!-- Font hiển thị "Tên của shop trên Menu chính" -->
     <link href="https://fonts.googleapis.com/css?family=Pattaya" rel="stylesheet">
+    <!-- font khẩu hiệu " mua sắm thả ga" -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <!-- font cho thẻ a Menu chính -->
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright|Dancing+Script" rel="stylesheet">
+    <!-- font cho chữ trong thanh tìm kiếm hàng hóa tương ứng -->
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+    <!-- font cho lời cảm ơn -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|VT323" rel="stylesheet">
     <!-- CSS bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')}}">
     <!-- font awesome cho các nút footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
     <!-- animation -->
-    <link rel="stylesheet" href="giaodien/css/animate.css">
+    <link rel="stylesheet" href="{{ asset('giaodien/css/animate.css')}}">
     <!-- Trở về đầu trang -->
-    <link rel="stylesheet" href="giaodien/css/backToTop.min.css">
+    <link rel="stylesheet" href="{{ asset('giaodien/css/backToTop.min.css') }}">
+
     <!-- chèn link css trang chủ -->
-    <link rel="stylesheet" href="giaodien/css/trangchu.css">
+    <link rel="stylesheet" href="{{ asset('giaodien/css/trangchu.css')}}">
+
     <!-- Chèn css cho nội dung show sản phẩm -->
     <!-- CSS Sản phẩm -->
-    <link rel="stylesheet" href="giaodien/css/sanpham.css"> @yield('css')
+    <link rel="stylesheet" href="{{ asset('giaodien/css/sanpham.css')}}"> @yield('css')
 </head>
 <!-- phần menu chính -->
 <nav id="annavbar" class="navbar navbar-inverse navbar-md navbar-fixed-top">
@@ -40,13 +51,13 @@
             <ul class="nav navbar-nav">
                 @foreach($loaisanphamshare as $lsps)
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">{{$lsps->ten}}
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham/{{$lsps->id}}">{{$lsps->ten}}
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($sanphamshare as $sps) @if($sps->id_loaisanpham === $lsps->id)
                         <li>
-                            <a href="sanpham">{{$sps->ten}}</a>
+                            <a href="sanpham/{{$lsps->id}}/{{$sps->id}}">{{$sps->ten}}</a>
                         </li>
                         <li class="divider"></li>
                         @endif @endforeach
@@ -58,13 +69,13 @@
                 <!-- <li><a href="sanpham">Khác</a></li> -->
                 @if(count($loaispkhacshare) != 0)
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham">Loại khác
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="sanpham/1">Sản phẩm khác
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($loaispkhacshare as $lspks)
                         <li>
-                            <a href="sanpham">{{$lspks->ten}}</a>
+                            <a href="sanpham/{{$lspks->id}}">{{$lspks->ten}}</a>
                         </li>
                         <li class="divider"></li>
                         @endforeach

@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row" style="margin: 5% 0% 2% 0%;">
         <div id="bc1" class="btn-group btn-breadcrumb">
-            <a href="trangchu" class="btn btn-default">
+            <a href="trangchu.html" class="btn btn-default">
                 <i class="fa fa-home"></i>
             </a>
             <a href="sanpham/1" class="btn btn-default">
@@ -22,9 +22,6 @@
             </a>
             <a href="sanpham/{{$idloaisp->id}}" class="btn btn-default">
                 <div>{{$idloaisp->ten}}</div>
-            </a>
-            <a href="sanpham/{{$idloaisp->id}}/{{$idsp->id}}" class="btn btn-default">
-                <div>{{$idsp->ten}}</div>
             </a>
         </div>
     </div>
@@ -40,8 +37,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a id="danhmuctieude" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                <span> </span> {{$idsp->ten}}
+                            <a id="danhmuctieude" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Danh mục {{$idloaisp->ten}}
                             </a>
                         </h4>
                     </div>
@@ -69,28 +65,21 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                <span class="glyphicon glyphicon-th"> </span> Sản phẩm khác</a>
+                                <span class="glyphicon glyphicon-th"> </span> SẢN PHẨM KHÁC</a>
                         </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
                                 <tbody>
-                                    @foreach($tatcasanpham as $tcsp) @if($tcsp->id > count($tatcasanpham)-10)
+                                    @foreach($tatcaloaisp as $tclsp)
                                     <tr>
                                         <td>
-                                            <a href=""> {{$tcsp->ten}} </a>
-                                            <span class="label label-success">NEW</span>
+                                            <a class="fa fa-share-square-o" href="sanpham/{{$tclsp->id}}"> {{$tclsp->ten}} </a>
+                                            <!-- <span class="label label-success">NEW</span> -->
                                         </td>
                                     </tr>
-                                    @else
-                                    <tr>
-                                        <td>
-                                            <a href="">{{$tcsp->ten}}</a>
-                                            <!-- <span class="badge">10</span> -->
-                                        </td>
-                                    </tr>
-                                    @endif @endforeach
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

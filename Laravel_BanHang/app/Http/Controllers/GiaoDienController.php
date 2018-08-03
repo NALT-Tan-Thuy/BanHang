@@ -47,13 +47,13 @@ class GiaoDienController extends Controller
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="my-list">
                             <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
-                            <h3>Thể loại hàng</h3>
+                            <h3>'.$sp->ten.'</h3>
                             <span>Giá gốc: '.number_format($sp->giagoc).' đ</span>
                             <div class="offer">Giá khuyến mãi: '.number_format(($sp->giagoc)-(($sp->giagoc)*($sp->khuyenmai))/100).' đ</div>
                             <div class="detail">
                             <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
                             <a href="" class="btn btn-info">Mua ngay</a>
-                            <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
+                            <a href="chitietsp/'.$sp->id.'" class="btn btn-info">Chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -73,13 +73,13 @@ class GiaoDienController extends Controller
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="my-list">
                                 <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
-                                <h3>Thể loại hàng</h3>
+                                <h3>'.$sp->ten.'</h3>
                                 <span>Giá gốc: '.number_format($sp->giagoc).' đ</span>
                                 <div class="offer">Giá khuyến mãi: '.number_format(($sp->giagoc)-(($sp->giagoc)*($sp->khuyenmai))/100).' đ</div>
                                 <div class="detail">
                                 <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
                                 <a href="" class="btn btn-info">Mua ngay</a>
-                                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
+                                <a href="chitietsp/'.$sp->id.'" class="btn btn-info">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -102,9 +102,39 @@ class GiaoDienController extends Controller
     }
 
     // trang con sản phẩm
-    public function getSanPham(){
-        return view('giaodien/trangcon/sanpham');
+    public function getSanPhamTheoSanPham($idloai, $idspn){
+        $allsp = DB::table('loaisanpham')
+                        ->join('sanpham','loaisanpham.id','sanpham.id_loaisanpham')
+                        ->join('chitietsanpham','sanpham.id','chitietsanpham.id_sanpham')
+                        ->where('id_loaisanpham','<>',$idloai)->get();
+        $tatcasanpham = $allsp->take(15);
+        $idloaisp = DB::table('loaisanpham')->where('id',$idloai)->first();
+        $idsp = DB::table('sanpham')->where('id',$idspn)->first();
+        $tatcaloaisp = DB::table('loaisanpham')->where('id','<>',$idloai)->get();
+        $tensanpham = DB::table('sanpham')->where('id_loaisanpham',$idloaisp->id)->get(); 
+        $sanphamtheoloai = DB::table('chitietsanpham')->where('id_sanpham',$idspn)->get();
+        $tinhthanh = DB::table('tinh_thanhpho')->where('id','<>',0)->get()->random(20);
+        // $tensanpham->dd();
+        return view('giaodien/trangcon/sanpham',compact('idsp','idloaisp','tensanpham','sanphamtheoloai','tatcasanpham','tinhthanh','tatcaloaisp'));
     }
+    public function getSanPhamTheoLoai($idloai){
+        $tatcasanpham = DB::table('loaisanpham')
+                        ->join('sanpham','loaisanpham.id','sanpham.id_loaisanpham')
+                        ->join('chitietsanpham','sanpham.id','chitietsanpham.id_sanpham')
+                        ->where('id_loaisanpham','<>',$idloai)->get();
+        $idloaisp = DB::table('loaisanpham')->where('id',$idloai)->first();
+        $tatcaloaisp = DB::table('loaisanpham')->where('id','<>',$idloai)->get();
+        $tensanpham = DB::table('sanpham')->where('id_loaisanpham',$idloaisp->id)->get();        
+        $sanphamtheoloai = DB::table('loaisanpham')
+                        ->join('sanpham','loaisanpham.id','sanpham.id_loaisanpham')
+                        ->join('chitietsanpham','sanpham.id','chitietsanpham.id_sanpham')
+                        ->where('id_loaisanpham',$idloai)->get();
+        $tinhthanh = DB::table('tinh_thanhpho')->where('id','<>',0)->get()->random(20);
+
+        // $tensanpham->dd();
+        return view('giaodien/trangcon/sanphamtheoloai',compact('idloaisp','tensanpham','sanphamtheoloai','tatcasanpham','tinhthanh','tatcaloaisp'));
+    }
+    
     // trang con chi tiết sản phẩm
     public function getChiTietSP(){
         return view('giaodien/trangcon/chitietsp');

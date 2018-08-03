@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
             $loaispallshare = DB::table('loaisanpham')->get();
             $view->with(compact('trangchushare','slideshare','thuonghieushare','loaisanphamshare','sanphamshare','loaispkhacshare','loaispallshare'));
         });
+
     }
 
     /**
