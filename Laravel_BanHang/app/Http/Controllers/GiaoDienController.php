@@ -12,7 +12,11 @@ class GiaoDienController extends Controller
         $sanphammoi = DB::table('chitietsanpham')->orderBy('id','desc')->paginate(4, ['*'], 'np');
         $sanphamkhuyenmai = DB::table('chitietsanpham')->where('khuyenmai','>',0)->paginate(8, ['*'], 'pp');
         $sanphamngaunhien = DB::table('chitietsanpham')->get()->random(12);
-        return view('giaodien/trangchu',compact('sanphammoi','sanphamkhuyenmai','sanphamngaunhien'));
+        $sanphamnoibat = DB::table('chitietsanpham')->where('noibat',1)->get();
+        $actionspnb = $sanphamnoibat->random(3);
+        $item1 = $sanphamnoibat->random(3);
+        $item2 = $sanphamnoibat->random(3);
+        return view('giaodien/trangchu',compact('sanphammoi','sanphamkhuyenmai','sanphamngaunhien','sanphamnoibat','actionspnb','item1','item2'));
     }
     public function getSanPhamTuongUngHome($idloai){
         $sptu = DB::table('sanpham')->where('id_loaisanpham',$idloai)->get(); 

@@ -1,4 +1,5 @@
-@extends('giaodien/main') @section('noidung') @section('title') Đặt hàng @endsection @section('css')
+@extends('giaodien/master') 
+@section('noidung') @section('title') Đặt hàng @endsection @section('css')
 <link rel="stylesheet" href="{{ asset('giaodien/css/dathang.css')}}"> 
 <!-- Font chư đặt hàng -->
 <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
@@ -7,7 +8,6 @@
 @endsection
 
 <!-- Nội dung chính của trang-->
-@include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
 <!-- Kiểm soát đường dẫn -->
 <div class="container">
     <div class="row" style="margin: 5% 0% 2% 0%;">

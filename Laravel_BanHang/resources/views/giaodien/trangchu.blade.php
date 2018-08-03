@@ -1,5 +1,13 @@
 @extends('giaodien/main') @section('noidung')
 <!-- Nội dung chính của trang-->
+<style>
+    #timtatcasanpham {
+        font-size: 1.2em;
+        color: #000;
+        background-color: #1bffe7;
+        font-weight: bolder;
+    }
+</style>
 @section('title') Trang Chủ @endsection @include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
 <!-- phần đầu nội dung 1 -->
 <!-- Kiểm soát đường dẫn -->
@@ -28,67 +36,37 @@
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
                         <div class="row">
+                            @foreach($actionspnb as $act)
                             <div class="col-xs-4 left">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://i.pinimg.com/736x/6b/9e/0b/6b9e0bf7b58b3990851fbd5fb2655d53.jpg" alt="">
+                                    <img class="img-responsive" src="uploads/sanpham/{{$act->img}}" alt="">
                                 </div>
                             </div>
-                            <div class="col-xs-4 center">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item2.jpg"
-                                        alt="">
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="row">
+                                @foreach($item1 as $act)
+                                <div class="col-xs-4 left">
+                                    <div class="flex-item">
+                                        <img class="img-responsive" src="uploads/sanpham/{{$act->img}}" alt="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-4 right">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item3.jpg"
-                                        alt="">
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="row">
+                            @foreach($item2 as $act)
                             <div class="col-xs-4 left">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg"
-                                        alt="">
+                                    <img class="img-responsive" src="uploads/sanpham/{{$act->img}}" alt="">
                                 </div>
                             </div>
-                            <div class="col-xs-4 center">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="col-xs-4 right">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-xs-4 left">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="col-xs-4 center">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="col-xs-4 right">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg"
-                                        alt="">
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -247,27 +225,6 @@
                         </div>
                         <div style="text-align: center;" class="row">{{$sanphammoi->appends(Request::all())->links() }}</div>
                     </div>
-                    <!-- <script>
-                        $(document).on('click', '.pagination a', function (e) {
-                            e.preventDefault();
-                            // console.log($(this).attr('href').split('page='[0]));
-                            var page = $(this).attr('href').split('page=')[1];
-                            getProducts(page);
-                        });
-
-                        function getProducts(page) {
-                            // console.log("Lấy sản phẩm từ trang"+page);
-                            $.ajax({
-                                url: '/ajax/products?page='+page
-                            }).done(function (data) {
-                                console.log("data");
-                                $('nhankq').html(date);
-                                location.hash = page; 
-                            });
-                        }
-                    </script> -->
-                    <!-- .beta-products-list -->
-
                     <div class="space50">&nbsp;</div>
                     <hr>
                     <div class="beta-products-list">
@@ -352,11 +309,9 @@
                         <div id="nhansanphamtuongung" class="form-group">
                             <label class="filter-col" style="margin-right:0;" for="pref-orderby">Sản phẩm tương ứng:</label>
                             <select onchange="TimSPTuongUng(this.value);" id="pref-orderby" class="form-control">
-                                @foreach($sanphamshare as $sps) 
-                                @if($sps->id_loaisanpham == 1)
+                                @foreach($sanphamshare as $sps) @if($sps->id_loaisanpham == 1)
                                 <option value="{{$sps->id}}">{{$sps->ten}}</option>
-                                @endif
-                                @endforeach
+                                @endif @endforeach
                             </select>
                         </div>
                         <!-- form group [order by] -->
@@ -364,9 +319,9 @@
                 </div>
             </div>
         </div>
-        <button id="tatcasanpham" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
-            <span class="glyphicon glyphicon-hand-right"></span> TẠI ĐÂY CÓ MỌI THỨ BẠN CẦN
-        </button>
+        <button id="timtatcasanpham" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
+            <span class="glyphicon glyphicon-hand-right"></span> TÌM KIẾM MỌI THỨ TẠI ĐÂY
+            </buttonsty>
     </div>
 </div>
 <!-- Xong nội dung 4 tìm kiếm sản phẩm tương ứng -->
