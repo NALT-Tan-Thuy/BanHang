@@ -31,6 +31,8 @@
     <!-- chèn link css trang chủ -->
     <link rel="stylesheet" href="{{ asset('giaodien/css/trangchu.css')}}">
 
+    {{-- link responsive slide --}}
+    <link rel="stylesheet" href="{{ asset('giaodien/css/responsive.css') }}">
     <!-- Chèn css cho nội dung show sản phẩm -->
     <!-- CSS Sản phẩm -->
     <link rel="stylesheet" href="{{ asset('giaodien/css/sanpham.css')}}"> @yield('css')

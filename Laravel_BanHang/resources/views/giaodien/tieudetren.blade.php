@@ -1,6 +1,6 @@
 <header id="header">
     <!-- Phần Slide -->
-    <div class="container" style="margin-top: 4%;" id="Slide">
+    <div class="container" id="Slide">
         <div class="row">
             <div class="col-md-12">
                 <div class="jR3DCarouselGallery"></div>

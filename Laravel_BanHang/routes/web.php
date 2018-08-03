@@ -144,18 +144,5 @@ Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->mid
 //     $products = ChiTietSanPham::paginate(4);
 //     return View::make('trangchu')->with('products',$products)->render();
 // });
-Route::get('sanphamtuongunghome/{idsp}','GiaoDienController@getSanPhamTuongUngHome');
-Route::get('timsptuongunghome/{idsp}','GiaoDienController@getTimSPTuongUngHome');
-
-<<<<<<< HEAD
-Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau');
-Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen');
-Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong');
-=======
-
-
-
-
-
-
->>>>>>> 93b105d14880f1880f0c523159e9b5d0d066becd
+Route::get('sanphamtuongunghome/{idsp}', 'GiaoDienController@getSanPhamTuongUngHome');
+Route::get('timsptuongunghome/{idsp}', 'GiaoDienController@getTimSPTuongUngHome');

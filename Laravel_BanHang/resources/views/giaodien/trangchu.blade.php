@@ -1,13 +1,5 @@
 @extends('giaodien/main') @section('noidung')
 <!-- Nội dung chính của trang-->
-<style>
-    #timtatcasanpham {
-        font-size: 1.2em;
-        color: #000;
-        background-color: #1bffe7;
-        font-weight: bolder;
-    }
-</style>
 @section('title') Trang Chủ @endsection @include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
 <!-- phần đầu nội dung 1 -->
 <!-- Kiểm soát đường dẫn -->
@@ -28,7 +20,7 @@
 </div>
 
 <!-- Kiểm soát trang -->
-<section class="examples">
+<section class="examples"> 
     <div class="container">
         <div class="carousel-example" id="spNoiBat">
             <h2>Sản phẩm nổi bật</h2>
@@ -321,7 +313,7 @@
         </div>
         <button id="timtatcasanpham" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
             <span class="glyphicon glyphicon-hand-right"></span> TÌM KIẾM MỌI THỨ TẠI ĐÂY
-            </buttonsty>
+            </button>
     </div>
 </div>
 <!-- Xong nội dung 4 tìm kiếm sản phẩm tương ứng -->
@@ -349,13 +341,13 @@
     function AjaxSpTuongUng(id) {
         if (window.XMLHttpRequest) {
             var xhttp = new XMLHttpRequest();
-        }
-        else {
+        } else {
             var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('nhansanphamtim').innerHTML = '<p class="alert alert-success" style="text-align: center">Vui lòng chọn sản phẩm tương ứng</p>';
+                document.getElementById('nhansanphamtim').innerHTML =
+                    '<p class="alert alert-success" style="text-align: center">Vui lòng chọn sản phẩm tương ứng</p>';
                 document.getElementById('nhansanphamtuongung').innerHTML = this.responseText;
             }
         };
@@ -367,8 +359,7 @@
         console.log(id);
         if (window.XMLHttpRequest) {
             var xhttp = new XMLHttpRequest();
-        }
-        else {
+        } else {
             var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         xhttp.onreadystatechange = function () {

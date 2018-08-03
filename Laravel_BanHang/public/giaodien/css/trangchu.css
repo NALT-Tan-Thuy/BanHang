@@ -9,7 +9,15 @@
         display: block;
     }
 } */
-
+#Slide{
+    margin-top: 4%;
+}
+#timtatcasanpham {
+    font-size: 2em;
+    color: #000;
+    background-color: #1bffe7;
+    font-weight: bolder;
+}
 #annavbar {
     background-color: #e2ece580;
 }
