@@ -1,21 +1,18 @@
-@extends('giaodien/master') 
-@section('noidung') 
-@section('title') Trang cá nhân @endsection
+@extends('giaodien/master') @section('noidung') @section('title') Trang cá nhân @endsection
 <!-- nội dung -->
-@section('css') 
-@endsection
+@section('css') @endsection
 
 <!-- Kiểm soát đường dẫn -->
 <div class="container">
     <div class="row" style="margin: 5% 0% 2% 0%;">
         <div id="bc1" class="btn-group btn-breadcrumb">
-            <a href="#" class="btn btn-default">
+            <a href="trangchu" class="btn btn-default">
                 <i class="fa fa-home"></i>
             </a>
-            <a href="#" class="btn btn-default">
-                <div>Home</div>
+            <a href="trangchu" class="btn btn-default">
+                <div>Trang chủ</div>
             </a>
-            <a href="#" class="btn btn-default">
+            <a href="thongtin" class="btn btn-default">
                 <div>Trang cá nhân</div>
             </a>
         </div>
@@ -63,13 +60,16 @@
                     </p>
                     <p style="font-size: 14px;">
                         <i class="fa fa-address-book" aria-hidden="true"></i>
-                        </i> {{$xaPhuong->tendaydu}} - {{$quanHuyen->tendaydu}} - {{$tinhTP->tendaydu}} 
+                        </i> {{$xaPhuong->tendaydu}} - {{$quanHuyen->tendaydu}} - {{$tinhTP->tendaydu}}
                     </p>
                 </div>
 
             </div>
         </div>
         <div class="col-md-9 col-sm-9">
+            @if(Session::has('suatkthanhcong'))
+            <div style="text-align: center; font-size: 1.5em;" class="alert alert-success">{{Session::get('suatkthanhcong')}}</div>
+            @endif
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <b>THÔNG TIN CÁ NHÂN</b>

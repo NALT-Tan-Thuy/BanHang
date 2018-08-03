@@ -1,13 +1,16 @@
 @extends('giaodien/main') @section('noidung')
 <!-- Nội dung chính của trang-->
-@section('title')
-Trang Chủ
-@endsection
-
-@include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
+<style>
+    #timtatcasanpham {
+        font-size: 1.2em;
+        color: #000;
+        background-color: #1bffe7;
+        font-weight: bolder;
+    }
+</style>
+@section('title') Trang Chủ @endsection @include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
 <!-- phần đầu nội dung 1 -->
 <!-- Kiểm soát đường dẫn -->
-
 <div class="container">
     <div class="row">
         <div id="bc1" class="btn-group btn-breadcrumb">
@@ -33,67 +36,37 @@ Trang Chủ
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
                         <div class="row">
+                            @foreach($actionspnb as $act)
                             <div class="col-xs-4 left">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://i.pinimg.com/736x/6b/9e/0b/6b9e0bf7b58b3990851fbd5fb2655d53.jpg" alt="">
+                                    <img class="img-responsive" src="uploads/sanpham/{{$act->img}}" alt="">
                                 </div>
                             </div>
-                            <div class="col-xs-4 center">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item2.jpg"
-                                        alt="">
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="row">
+                                @foreach($item1 as $act)
+                                <div class="col-xs-4 left">
+                                    <div class="flex-item">
+                                        <img class="img-responsive" src="uploads/sanpham/{{$act->img}}" alt="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-4 right">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item3.jpg"
-                                        alt="">
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="row">
+                            @foreach($item2 as $act)
                             <div class="col-xs-4 left">
                                 <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg"
-                                        alt="">
+                                    <img class="img-responsive" src="uploads/sanpham/{{$act->img}}" alt="">
                                 </div>
                             </div>
-                            <div class="col-xs-4 center">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="col-xs-4 right">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-xs-4 left">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item4.jpg"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="col-xs-4 center">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item5.jpg"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="col-xs-4 right">
-                                <div class="flex-item">
-                                    <img class="img-responsive" src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/flexible_bootstrap_carousel/images/item6.jpg"
-                                        alt="">
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -123,9 +96,10 @@ Trang Chủ
                     <a href="" title="THƯƠNG HIỆU KINH DOANH">THƯƠNG HIỆU KINH DOANH</a>
                 </h3>
                 <ul class="list-group">
-                    <li class="list-group-item">NIKE</li>
-                    <li class="list-group-item">RALPH LAUREN</li>
-                    <li class="list-group-item">COLUMBIA</li>
+                    @foreach($thuonghieushare as $ths)
+                    <li class="list-group-item">{{$ths->ten}}</li>
+                    @endforeach
+
                 </ul>
             </div>
         </div>
@@ -152,10 +126,10 @@ Trang Chủ
                     <a href="" title="ĐỊA CHỈ VÀ TRỢ GIÚP">THÔNG TIN TRỢ GIÚP</a>
 
                 </h3>
-                <p>Địa chỉ: 124 Bà Triệu, thành phố Huế</p>
-                <p>Điện thoại: 018368476656</p>
-                <p>Email: shopbanhang@gmail.com</p>
-                <p>Mở cửa: 7h -> 22h hằng ngày.</p>
+                <p>Địa chỉ: {{$trangchushare->diachi}}</p>
+                <p>Điện thoại: {{$trangchushare->sodienthoai}}</p>
+                <p>Email: {{$trangchushare->email}}</p>
+                <p>Mở cửa: {{$trangchushare->giomodongcua}}.</p>
 
             </div>
         </div>
@@ -189,53 +163,50 @@ Trang Chủ
                         <!-- Kiểm soát trang -->
                         <h2>Sản phẩm mới</h2>
                         <div class="beta-products-Chi tiết">
-                            <p>Tìm thấy 123 sản phẩm</p>
+                            <p>Tìm thấy {{count($sanphammoi)}} sản phẩm</p>
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="row">
+                        <div class="row nhankq">
+                            @foreach($sanphammoi as $spm)
                             <div class="col-sm-3">
                                 <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px;" src="https://fandy.vn/wp-content/uploads/2016/12/giay-nam-the-thao-cho-nam-dep.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <!-- <div class="clearfix"></div> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
+                                    @if($spm->khuyenmai > 0)
                                     <div class="ribbon-wrapper">
                                         <div class="ribbon sale">Sale</div>
                                     </div>
-
                                     <div class="single-item-header">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px;" src="https://s3-ap-southeast-1.amazonaws.com/misskick/wp-content/uploads/2017/12/05185930/cach-mac-quan-ao-dep-danh-cho-nang-co-huong.jpg"
-                                                alt="">
-
+                                            <img height="250px;" src="uploads/sanpham/{{$spm->img}}" alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
+                                        <p class="single-item-title">{{$spm->ten}}</p>
                                         <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
+                                            <span class="flash-del">{{number_format($spm->giagoc)}}đ</span>
+                                            <span class="flash-sale">{{number_format(($spm->giagoc)-(($spm->giagoc)*($spm->khuyenmai))/100)}}đ</span>
+                                        </p>
+                                    </div>
+                                    <div class="single-item-caption">
+                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
+                                    </div>
+                                    @else
+                                    <div class="ribbon-wrapper">
+                                    </div>
+                                    <div class="single-item-header">
+                                        <a href="chitiet_sp.html">
+                                            <img height="250px;" src="uploads/sanpham/{{$spm->img}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="single-item-body">
+                                        <p class="single-item-title">{{$spm->ten}}</p>
+                                        <p class="single-item-price">
+                                            <span class="flash-del">{{number_format($spm->giagoc)}}đ</span>
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
@@ -247,61 +218,13 @@ Trang Chủ
                                         </a>
                                         <!-- <div class="clearfix"></div> -->
                                     </div>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px;" src="http://thesogood.com/wp-content/uploads/2017/09/333.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <!-- <div class="clearfix"></div> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" ; src="http://thoitrangxitin.com/Upload/2017-11/0916301536QE38C834V330R41.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span>$34.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <!-- <div class="clearfix"></div> -->
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-
+                        <div style="text-align: center;" class="row">{{$sanphammoi->appends(Request::all())->links() }}</div>
                     </div>
-                    <!-- .beta-products-list -->
-
                     <div class="space50">&nbsp;</div>
                     <hr>
                     <div class="beta-products-list">
@@ -312,149 +235,24 @@ Trang Chủ
                                 </div>
                             </div>
                         </div>
-                        <div class="space50">&nbsp;</div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="space40">&nbsp;</div>
                         <div class="row">
+                            @foreach($sanphamkhuyenmai as $spkm)
                             <div class="col-sm-3">
                                 <div class="single-item">
                                     <div class="ribbon-wrapper">
                                         <div class="ribbon sale">Sale</div>
                                     </div>
-
-                                    <div class="single-item-header thumbnail">
+                                    <div class="single-item-header">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
+                                            <img height="250px;" src="uploads/sanpham/{{$spkm->img}}" alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
+                                        <p class="single-item-title">{{$spkm->ten}}</p>
                                         <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
+                                            <span class="flash-del">{{number_format($spkm->giagoc)}}đ</span>
+                                            <span class="flash-sale">{{number_format(($spkm->giagoc)-(($spkm->giagoc)*($spkm->khuyenmai))/100)}}đ</span>
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
@@ -464,101 +262,13 @@ Trang Chủ
                                         <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
                                             <i class="fa fa-chevron-right"></i>
                                         </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
                                     </div>
 
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="ribbon-wrapper">
-                                        <div class="ribbon sale">Sale</div>
-                                    </div>
-
-                                    <div class="single-item-header thumbnail">
-                                        <a href="chitiet_sp.html">
-                                            <img height="250px" src="https://img.zanado.com/media/catalog/product/cache/all/thumbnail/700x817/7b8fef0172c2eb72dd8fd366c999954c/1/_/non_snapback_nam_nu_mister_rgm_238d.jpg"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">Sample Woman Top</p>
-                                        <p class="single-item-price">
-                                            <span class="flash-del">$34.55</span>
-                                            <span class="flash-sale">$33.55</span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </a>
-                                        <a class="beta-btn primary" href="chitiet_sp.html">Chi tiết
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
+                        <div style="text-align: center;" class="row">{{$sanphamkhuyenmai->appends(Request::all())->links() }}</div>
                     </div>
                     <!-- .beta-products-list -->
 
@@ -587,169 +297,91 @@ Trang Chủ
                     <form class="form-inline" role="form">
                         <div class="form-group">
                             <label class="filter-col" style="margin-right:0;" for="pref-perpage">Những mặt hàng kinh doanh:</label>
-                            <select id="pref-perpage" class="form-control">
-                                <option selected="selected" value="10">Phụ kiện thời trang cao cấp</option>
-                                <option value="15">Giày - mũ</option>
-                                <option value="15">Đai nịt cao cấp</option>
-                                <option value="15">Một số sản phẩm khác</option>
-                                <option value="15">Quần - áo</option>
-
+                            <select onchange="AjaxSpTuongUng(this.value);" id="pref-perpage" class="form-control">
+                                @foreach($loaisanphamshare as $lsps)
+                                <option value="{{$lsps->id}}">{{$lsps->ten}}</option>
+                                @endforeach @foreach($loaispkhacshare as $lspks)
+                                <option value="{{$lspks->id}}">{{$lspks->ten}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <!-- form group [rows] -->
-                        <div class="form-group">
+                        <div id="nhansanphamtuongung" class="form-group">
                             <label class="filter-col" style="margin-right:0;" for="pref-orderby">Sản phẩm tương ứng:</label>
-                            <select id="pref-orderby" class="form-control">
-                                <option>Vòng cổ ngọc bích</option>
-                                <option>Đồng hồ casio sang trọng</option>
-                                <option>Nhẫn trang sức thời thượng</option>
-
+                            <select onchange="TimSPTuongUng(this.value);" id="pref-orderby" class="form-control">
+                                @foreach($sanphamshare as $sps) @if($sps->id_loaisanpham == 1)
+                                <option value="{{$sps->id}}">{{$sps->ten}}</option>
+                                @endif @endforeach
                             </select>
                         </div>
                         <!-- form group [order by] -->
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-info">
-                                <span class="glyphicon glyphicon-share-alt"></span> Tìm kiếm sản phẩm
-                            </button>
-                        </div>
                     </form>
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
-            <span class="glyphicon glyphicon-hand-right"></span> TẠI ĐÂY CÓ MỌI THỨ BẠN CẦN
-        </button>
+        <button id="timtatcasanpham" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
+            <span class="glyphicon glyphicon-hand-right"></span> TÌM KIẾM MỌI THỨ TẠI ĐÂY
+            </buttonsty>
     </div>
 </div>
 <!-- Xong nội dung 4 tìm kiếm sản phẩm tương ứng -->
 <div class="space60">&nbsp;</div>
 <!-- Nội dung 5 chứa sảm phẩm tìm phù hợp -->
-<div class="container">
-
+<div id="nhansanphamtim" class="container">
+    @foreach($sanphamngaunhien as $spnn)
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="my-list">
-            <img src="http://www.giayxinh.com/Upload/CKFinder/images/GIAY-DAT/sneaker/TD1a.jpg" alt="dsadas" />
+            <img src="uploads/sanpham/{{$spnn->img}}" alt="dsadas" />
             <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
+            <span>Giá gốc: {{number_format($spnn->giagoc)}} đ</span>
+            <div class="offer">Giá khuyến mãi: {{number_format(($spnn->giagoc)-(($spnn->giagoc)*($spnn->khuyenmai))/100)}} đ</div>
             <div class="detail">
-                <img src="http://www.giayxinh.com/Upload/CKFinder/images/GIAY-DAT/sneaker/TD1a.jpg" alt="dsadas" />
+                <img src="uploads/sanpham/{{$spnn->img}}" alt="dsadas" />
                 <a href="" class="btn btn-info">Mua ngay</a>
                 <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
             </div>
         </div>
     </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
-                alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
-                    alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
-            />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
-                />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://img.baza.vn/upload/products-var-WiYUG9lr/57TGxclO.jpg?v=636112596682777476" alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://img.baza.vn/upload/products-var-WiYUG9lr/57TGxclO.jpg?v=636112596682777476" alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://www.giayxinh.com/Upload/CKFinder/images/GIAY-DAT/sneaker/TD1a.jpg" alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://www.giayxinh.com/Upload/CKFinder/images/GIAY-DAT/sneaker/TD1a.jpg" alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
-                alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
-                    alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
-            />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
-                />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://img.baza.vn/upload/products-var-WiYUG9lr/57TGxclO.jpg?v=636112596682777476" alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://img.baza.vn/upload/products-var-WiYUG9lr/57TGxclO.jpg?v=636112596682777476" alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
+    @endforeach
 </div>
+<script>
+    // Lấy sản phẩm tương ứng
+    function AjaxSpTuongUng(id) {
+        if (window.XMLHttpRequest) {
+            var xhttp = new XMLHttpRequest();
+        }
+        else {
+            var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('nhansanphamtim').innerHTML = '<p class="alert alert-success" style="text-align: center">Vui lòng chọn sản phẩm tương ứng</p>';
+                document.getElementById('nhansanphamtuongung').innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "sanphamtuongunghome/" + id, true);
+        xhttp.send();
+    }
+    // tìm các sản phẩm tương ứng show ra
+    function TimSPTuongUng(id) {
+        console.log(id);
+        if (window.XMLHttpRequest) {
+            var xhttp = new XMLHttpRequest();
+        }
+        else {
+            var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('nhansanphamtim').innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "timsptuongunghome/" + id, true);
+        xhttp.send();
+    }
+</script>
 <!-- Xong nội dung 5 chứa sản phẩm phù hợp -->
-@include('giaodien/quytrinh') @include('giaodien/loicamon')
-@include('giaodien/cuoitrang')
+@include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 
 <!-- Xong nội dung -->
 @endsection

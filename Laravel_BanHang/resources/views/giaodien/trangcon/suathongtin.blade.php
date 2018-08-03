@@ -85,7 +85,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Mật khẩu cũ</label>
-                                    <input id="mkcu" type="text" class="form-control" placeholder="Nhập mật khẩu cũ" required>
+                                    <input onkeydown="nhanNhapMK();" id="mkcu" type="text" class="form-control" placeholder="Nhập mật khẩu cũ" required>
                                 </div>
                                 <div class=" form-group">
                                     <label class="control-label ">Mật khẩu mới</label>
@@ -110,9 +110,7 @@
                     <div class="col-md-12">
                         @if(Session::has('loianh'))
                         <div class="alert alert-danger">{{Session::get('loianh')}}</div>
-                        @endif @if(Session::has('suatkthanhcong'))
-                        <div class="alert alert-success">{{Session::get('suatkthanhcong')}}</div>
-                        @endif
+                        @endif 
                         <hr style="width: 100%; color: black; height: 4px; background-color:#d9edf7;">
                         <center>
                             <h3>THAY ĐỔI THÔNG TIN</h3>
@@ -162,7 +160,7 @@
                             </div>
                             <div class="form-group ">
                                 <label class="control-label ">Ngày sinh</label>
-                                <input type="date" class="form-control" name="ngaysinh" id="ngaysinh" " placeholder="Nhập ngày sinh " value="{{$user->ngaysinh}}">
+                                <input type="date" class="form-control" name="ngaysinh" id="ngaysinh"  placeholder="Nhập ngày sinh" value="{{$user->ngaysinh}}">
                             </div>
                             <div class="form-group">
                                 <label>Giới tính</label>
@@ -201,6 +199,9 @@
                                 <img src="uploads/users/{{$user->img}}" id="profile-img-tag" width="500px" style="margin-bottom: 10%;" /> @else
                                 <img src="http://via.placeholder.com/280x500" id="profile-img-tag" width="500px" style="margin-bottom: 10%;" /> @endif
                                 <input type="file" name="file" id="profile-img">
+                                @if($errors->has('file'))
+                                <p>{{$errors->first('file')}}</p>
+                                @endif
                             </div>
                             <div style="text-align: center; margin-top: 10%;" class="form-group ">
                                 <button class="btn btn-success" type="submit">Lưu lại</button>

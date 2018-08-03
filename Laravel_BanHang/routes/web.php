@@ -125,16 +125,37 @@ Route::get('dathang', 'GiaoDienController@getDatHang');
 Route::get('dangky', 'TaiKhoanController@getDangKy');
 Route::post('dangky', 'TaiKhoanController@postDangKyTaiKhoan');
 
-Route::get('dangnhap', 'TaiKhoanController@getDangNhap');
+Route::get('dangnhap', 'TaiKhoanController@getDangNhap')->name('dangnhap');
 Route::post('dangnhap', 'TaiKhoanController@postDangNhap');
-Route::get('dangxuat', 'TaiKhoanController@getDangXuat');
+Route::get('dangxuat', 'TaiKhoanController@getDangXuat')->middleware('TaiKhoanMiddleware');
 
 Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
 
-Route::get('thongtin', 'TaiKhoanController@getThongTin');
-Route::get('suathongtin', 'TaiKhoanController@getSuaThongTin');
-Route::post('suathongtin', 'TaiKhoanController@postSuaThongTinTK');
+Route::get('thongtin', 'TaiKhoanController@getThongTin')->middleware('TaiKhoanMiddleware');
+Route::get('suathongtin', 'TaiKhoanController@getSuaThongTin')->middleware('TaiKhoanMiddleware');
+Route::post('suathongtin', 'TaiKhoanController@postSuaThongTinTK')->middleware('TaiKhoanMiddleware');
 
+Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau')->middleware('TaiKhoanMiddleware');
+Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen')->middleware('TaiKhoanMiddleware');
+Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->middleware('TaiKhoanMiddleware');
+
+// Thử ajax
+// Route::get('/ajax/products', function(){
+//     $products = ChiTietSanPham::paginate(4);
+//     return View::make('trangchu')->with('products',$products)->render();
+// });
+Route::get('sanphamtuongunghome/{idsp}','GiaoDienController@getSanPhamTuongUngHome');
+Route::get('timsptuongunghome/{idsp}','GiaoDienController@getTimSPTuongUngHome');
+
+<<<<<<< HEAD
 Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau');
 Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen');
 Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong');
+=======
+
+
+
+
+
+
+>>>>>>> 93b105d14880f1880f0c523159e9b5d0d066becd

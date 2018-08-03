@@ -1,4 +1,4 @@
-@extends('giaodien/main') 
+@extends('giaodien/master') 
 @section('noidung') 
 @section('title') 
     Trang sản phẩm
@@ -9,7 +9,6 @@
 @endsection
 
 <!-- Nội dung chính của trang-->
-@include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
 <!-- Kiểm soát đường dẫn -->
 <div class="container">
     <div class="row" style="margin: 5% 0% 2% 0%;">

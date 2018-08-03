@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var slideshow = document.getElementById('Slide');
     slideshow.classList.add('animated');
     slideshow.classList.add('zoomIn');
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var khauHieuDau = document.getElementById('khauHieuDau');
     var trangthai = true;
     //bắt sự kiện khi người dùng cuộn chuột
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.pageYOffset > 100) {
             if (trangthai == true && khauHieuDau != null) {
                 khauHieuDau.classList.add('animated');
@@ -30,3 +30,4 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     })
 }, false);
+

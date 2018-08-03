@@ -1,8 +1,8 @@
-@extends('giaodien/main') @section('noidung') @section('title') Chi tiết sản phẩm @endsection @section('css')
+@extends('giaodien/master') 
+ @section('noidung') @section('title') Chi tiết sản phẩm @endsection @section('css')
 <link rel="stylesheet" href="{{ asset('giaodien/css/chitietsp.css')}}"> @endsection
 
 <!-- Nội dung chính của trang-->
-@include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
 <!-- Kiểm soát đường dẫn -->
 <div class="container">
     <div class="row" style="margin: 5% 0% 2% 0%;">

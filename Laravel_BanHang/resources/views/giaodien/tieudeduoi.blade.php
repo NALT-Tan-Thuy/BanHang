@@ -1,3 +1,3 @@
 <div class="container">
-    <h1 id="khauHieuDau">Mua sắm thả ga, rinh qùa về nhà</h1>
+    <h1 id="khauHieuDau">{{$trangchushare->tieudeduoi}}</h1>
 </div>
