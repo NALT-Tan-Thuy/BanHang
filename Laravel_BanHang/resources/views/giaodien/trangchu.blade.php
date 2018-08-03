@@ -340,27 +340,27 @@
                     <form class="form-inline" role="form">
                         <div class="form-group">
                             <label class="filter-col" style="margin-right:0;" for="pref-perpage">Những mặt hàng kinh doanh:</label>
-                            <select id="pref-perpage" class="form-control">
-                                <option selected="selected" value="10">Phụ kiện thời trang cao cấp</option>
-                                <option value="15">Giày - mũ</option>
-                                <option value="15">Đai nịt cao cấp</option>
-                                <option value="15">Một số sản phẩm khác</option>
-                                <option value="15">Quần - áo</option>
-
+                            <select onchange="AjaxSpTuongUng(this.value);" id="pref-perpage" class="form-control">
+                                @foreach($loaisanphamshare as $lsps)
+                                <option>{{$lsps->ten}}</option>
+                                @endforeach @foreach($loaispkhacshare as $lspks)
+                                <option>{{$lspks->ten}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <!-- form group [rows] -->
-                        <div class="form-group">
+                        <div id="nhansanphamtuongung" class="form-group">
                             <label class="filter-col" style="margin-right:0;" for="pref-orderby">Sản phẩm tương ứng:</label>
                             <select id="pref-orderby" class="form-control">
-                                <option>Vòng cổ ngọc bích</option>
-                                <option>Đồng hồ casio sang trọng</option>
-                                <option>Nhẫn trang sức thời thượng</option>
-
+                                @foreach($sanphamshare as $sps) 
+                                @if($sps->id_loaisanpham == 1)
+                                <option>{{$sps->ten}}</option>
+                                @endif
+                                @endforeach
                             </select>
                         </div>
                         <!-- form group [order by] -->
-                        <div class="form-group">
+                        <div style="margin-left: 5%;" class="form-group">
                             <button type="submit" class="btn btn-info">
                                 <span class="glyphicon glyphicon-share-alt"></span> Tìm kiếm sản phẩm
                             </button>
@@ -378,128 +378,40 @@
 <div class="space60">&nbsp;</div>
 <!-- Nội dung 5 chứa sảm phẩm tìm phù hợp -->
 <div class="container">
-
+    @foreach($sanphamngaunhien as $spnn)
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="my-list">
-            <img src="http://www.giayxinh.com/Upload/CKFinder/images/GIAY-DAT/sneaker/TD1a.jpg" alt="dsadas" />
+            <img src="uploads/sanpham/{{$spnn->img}}" alt="dsadas" />
             <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
+            <span>Giá gốc: {{number_format($spnn->giagoc)}} đ</span>
+            <div class="offer">Giá khuyến mãi: {{number_format(($spnn->giagoc)-(($spnn->giagoc)*($spnn->khuyenmai))/100)}} đ</div>
             <div class="detail">
-                <img src="http://www.giayxinh.com/Upload/CKFinder/images/GIAY-DAT/sneaker/TD1a.jpg" alt="dsadas" />
+                <img src="uploads/sanpham/{{$spnn->img}}" alt="dsadas" />
                 <a href="" class="btn btn-info">Mua ngay</a>
                 <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
             </div>
         </div>
     </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
-                alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
-                    alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
-            />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
-                />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://img.baza.vn/upload/products-var-WiYUG9lr/57TGxclO.jpg?v=636112596682777476" alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://img.baza.vn/upload/products-var-WiYUG9lr/57TGxclO.jpg?v=636112596682777476" alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://www.giayxinh.com/Upload/CKFinder/images/GIAY-DAT/sneaker/TD1a.jpg" alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://www.giayxinh.com/Upload/CKFinder/images/GIAY-DAT/sneaker/TD1a.jpg" alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
-                alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="https://tuixachf1.com.vn/wp-content/uploads/2016/12/421882_CVLEG_8604_002_075_0000_Light-Sylvie-leather-shoulder-bag.jpg"
-                    alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
-            />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://3.bp.blogspot.com/-wxCg6yhEJBo/VVNMlxW93xI/AAAAAAAAAJA/yJdarUnbZBk/s1600/giay-vans-den.jpg" alt="dsadas"
-                />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-            <img src="http://img.baza.vn/upload/products-var-WiYUG9lr/57TGxclO.jpg?v=636112596682777476" alt="dsadas" />
-            <h3>Thể loại hàng</h3>
-            <span>Giá gốc: 100,000 đ</span>
-            <div class="offer">Giá khuyến mãi: 90,000 đ</div>
-            <div class="detail">
-                <img src="http://img.baza.vn/upload/products-var-WiYUG9lr/57TGxclO.jpg?v=636112596682777476" alt="dsadas" />
-                <a href="#" class="btn btn-info">Mua ngay</a>
-                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
-            </div>
-        </div>
-    </div>
-
+    @endforeach
 </div>
+<script>
+    // Lấy sản phẩm tương ứng
+    function AjaxSpTuongUng(id) {
+        if (window.XMLHttpRequest) {
+            var xhttp = new XMLHttpRequest();
+        }
+        else {
+            var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('nhansanphamtuongung').innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "sanphamtuongunghome/" + id, true);
+        xhttp.send();
+    }
+</script>
 <!-- Xong nội dung 5 chứa sản phẩm phù hợp -->
 @include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 

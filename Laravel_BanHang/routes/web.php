@@ -138,7 +138,7 @@ Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->mid
 //     $products = ChiTietSanPham::paginate(4);
 //     return View::make('trangchu')->with('products',$products)->render();
 // });
-Route::get('/ajax/products','GiaoDienController@getAjaxSP');
+Route::get('sanphamtuongunghome/{idsp}','GiaoDienController@getSanPhamTuongUngHome');
 
 
 
