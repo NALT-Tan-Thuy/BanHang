@@ -47,13 +47,13 @@ class GiaoDienController extends Controller
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="my-list">
                             <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
-                            <h3>Thể loại hàng</h3>
+                            <h3>'.$sp->ten.'</h3>
                             <span>Giá gốc: '.number_format($sp->giagoc).' đ</span>
                             <div class="offer">Giá khuyến mãi: '.number_format(($sp->giagoc)-(($sp->giagoc)*($sp->khuyenmai))/100).' đ</div>
                             <div class="detail">
                             <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
                             <a href="" class="btn btn-info">Mua ngay</a>
-                            <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
+                            <a href="chitietsp/'.$sp->id.'" class="btn btn-info">Chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -73,13 +73,13 @@ class GiaoDienController extends Controller
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="my-list">
                                 <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
-                                <h3>Thể loại hàng</h3>
+                                <h3>'.$sp->ten.'</h3>
                                 <span>Giá gốc: '.number_format($sp->giagoc).' đ</span>
                                 <div class="offer">Giá khuyến mãi: '.number_format(($sp->giagoc)-(($sp->giagoc)*($sp->khuyenmai))/100).' đ</div>
                                 <div class="detail">
                                 <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
                                 <a href="" class="btn btn-info">Mua ngay</a>
-                                <a href="chitiet_sp.html" class="btn btn-info">Chi tiết</a>
+                                <a href="chitietsp/'.$sp->id.'" class="btn btn-info">Chi tiết</a>
                                 </div>
                             </div>
                         </div>

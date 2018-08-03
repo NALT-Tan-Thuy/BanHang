@@ -141,23 +141,6 @@ Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->mid
 Route::get('sanphamtuongunghome/{idsp}','GiaoDienController@getSanPhamTuongUngHome');
 Route::get('timsptuongunghome/{idsp}','GiaoDienController@getTimSPTuongUngHome');
 
-<<<<<<< HEAD
 // xử lý trang sản phẩm
 Route::get('sanpham/{idloai}/{idsp}', 'GiaoDienController@getSanPhamTheoSanPham');
 Route::get('sanpham/{id}', 'GiaoDienController@getSanPhamTheoLoai');
-
-
-=======
-<<<<<<< HEAD
-Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau');
-Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen');
-Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong');
-=======
->>>>>>> 3e8866503ce5afcd2436f0744021ca51248826e8
-
-
-
-
-
-
->>>>>>> 93b105d14880f1880f0c523159e9b5d0d066becd

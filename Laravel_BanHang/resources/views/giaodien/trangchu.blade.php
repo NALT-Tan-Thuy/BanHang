@@ -176,7 +176,7 @@
                                         <div class="ribbon sale">Sale</div>
                                     </div>
                                     <div class="single-item-header">
-                                        <a href="chitietsp">
+                                        <a href="chitietsp/{{$spm->id}}">
                                             <img height="250px;" src="uploads/sanpham/{{$spm->img}}" alt="">
                                         </a>
                                     </div>
@@ -191,7 +191,7 @@
                                         <a class="add-to-cart pull-left" href="shopping_cart.html">
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
-                                        <a class="beta-btn primary" href="chitietsp">Chi tiết
+                                        <a class="beta-btn primary" href="chitietsp/{{$spm->id}}">Chi tiết
                                             <i class="fa fa-chevron-right"></i>
                                         </a>
                                     </div>
@@ -199,7 +199,7 @@
                                     <div class="ribbon-wrapper">
                                     </div>
                                     <div class="single-item-header">
-                                        <a href="chitietsp">
+                                        <a href="chitietsp/{{$spm->id}}">
                                             <img height="250px;" src="uploads/sanpham/{{$spm->img}}" alt="">
                                         </a>
                                     </div>
@@ -213,7 +213,7 @@
                                         <a class="add-to-cart pull-left" href="shopping_cart.html">
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
-                                        <a class="beta-btn primary" href="chitietsp">Chi tiết
+                                        <a class="beta-btn primary" href="chitietsp/{{$spm->id}}">Chi tiết
                                             <i class="fa fa-chevron-right"></i>
                                         </a>
                                         <!-- <div class="clearfix"></div> -->
@@ -244,7 +244,7 @@
                                         <div class="ribbon sale">Sale</div>
                                     </div>
                                     <div class="single-item-header">
-                                        <a href="chitietsp">
+                                        <a href="chitietsp/{{$spkm->id}}">
                                             <img height="250px;" src="uploads/sanpham/{{$spkm->img}}" alt="">
                                         </a>
                                     </div>
@@ -259,7 +259,7 @@
                                         <a class="add-to-cart pull-left" href="shopping_cart.html">
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
-                                        <a class="beta-btn primary" href="chitietsp">Chi tiết
+                                        <a class="beta-btn primary" href="chitietsp/{{$spkm->id}}">Chi tiết
                                             <i class="fa fa-chevron-right"></i>
                                         </a>
                                     </div>
@@ -332,13 +332,13 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="my-list">
             <img src="uploads/sanpham/{{$spnn->img}}" alt="dsadas" />
-            <h3>Thể loại hàng</h3>
+            <h3>{{$spnn->ten}}</h3>
             <span>Giá gốc: {{number_format($spnn->giagoc)}} đ</span>
             <div class="offer">Giá khuyến mãi: {{number_format(($spnn->giagoc)-(($spnn->giagoc)*($spnn->khuyenmai))/100)}} đ</div>
             <div class="detail">
                 <img src="uploads/sanpham/{{$spnn->img}}" alt="dsadas" />
                 <a href="" class="btn btn-info">Mua ngay</a>
-                <a href="chitietsp" class="btn btn-info">Chi tiết</a>
+                <a href="chitietsp/{{$spnn->id}}" class="btn btn-info">Chi tiết</a>
             </div>
         </div>
     </div>
