@@ -342,29 +342,24 @@
                             <label class="filter-col" style="margin-right:0;" for="pref-perpage">Những mặt hàng kinh doanh:</label>
                             <select onchange="AjaxSpTuongUng(this.value);" id="pref-perpage" class="form-control">
                                 @foreach($loaisanphamshare as $lsps)
-                                <option>{{$lsps->ten}}</option>
+                                <option value="{{$lsps->id}}">{{$lsps->ten}}</option>
                                 @endforeach @foreach($loaispkhacshare as $lspks)
-                                <option>{{$lspks->ten}}</option>
+                                <option value="{{$lspks->id}}">{{$lspks->ten}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <!-- form group [rows] -->
                         <div id="nhansanphamtuongung" class="form-group">
                             <label class="filter-col" style="margin-right:0;" for="pref-orderby">Sản phẩm tương ứng:</label>
-                            <select id="pref-orderby" class="form-control">
+                            <select onchange="TimSPTuongUng(this.value);" id="pref-orderby" class="form-control">
                                 @foreach($sanphamshare as $sps) 
                                 @if($sps->id_loaisanpham == 1)
-                                <option>{{$sps->ten}}</option>
+                                <option value="{{$sps->id}}">{{$sps->ten}}</option>
                                 @endif
                                 @endforeach
                             </select>
                         </div>
                         <!-- form group [order by] -->
-                        <div style="margin-left: 5%;" class="form-group">
-                            <button type="submit" class="btn btn-info">
-                                <span class="glyphicon glyphicon-share-alt"></span> Tìm kiếm sản phẩm
-                            </button>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -377,7 +372,7 @@
 <!-- Xong nội dung 4 tìm kiếm sản phẩm tương ứng -->
 <div class="space60">&nbsp;</div>
 <!-- Nội dung 5 chứa sảm phẩm tìm phù hợp -->
-<div class="container">
+<div id="nhansanphamtim" class="container">
     @foreach($sanphamngaunhien as $spnn)
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="my-list">
@@ -405,10 +400,28 @@
         }
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('nhansanphamtim').innerHTML = '<p class="alert alert-success" style="text-align: center">Vui lòng chọn sản phẩm tương ứng</p>';
                 document.getElementById('nhansanphamtuongung').innerHTML = this.responseText;
             }
         };
         xhttp.open("GET", "sanphamtuongunghome/" + id, true);
+        xhttp.send();
+    }
+    // tìm các sản phẩm tương ứng show ra
+    function TimSPTuongUng(id) {
+        console.log(id);
+        if (window.XMLHttpRequest) {
+            var xhttp = new XMLHttpRequest();
+        }
+        else {
+            var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('nhansanphamtim').innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "timsptuongunghome/" + id, true);
         xhttp.send();
     }
 </script>

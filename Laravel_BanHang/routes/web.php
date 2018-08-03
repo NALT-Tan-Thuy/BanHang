@@ -139,6 +139,9 @@ Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->mid
 //     return View::make('trangchu')->with('products',$products)->render();
 // });
 Route::get('sanphamtuongunghome/{idsp}','GiaoDienController@getSanPhamTuongUngHome');
+Route::get('timsptuongunghome/{idsp}','GiaoDienController@getTimSPTuongUngHome');
+
+
 
 
 
