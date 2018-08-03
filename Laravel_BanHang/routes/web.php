@@ -84,16 +84,22 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'hoadon'], function () {
         Route::get('danhsach', 'HoaDonController@index');
-        // Route::get('sua/{id}', 'HoaDonController@getSua');
-        // Route::post('sua/{id}', 'HoaDonController@postSua');
-        // Route::get('them', 'HoaDonController@getThem');
-        // Route::post('them', 'HoaDonController@postThem');
-        // Route::get('xoa/{id}', 'HoaDonController@getXoa');
+        Route::get('xoa/{id}', 'HoaDonController@getXoa');
+    });
+
+    Route::group(['prefix' => 'chitiethoadon'], function () {
+        Route::get('danhsach/{id}', 'ChiTietHoaDonController@index');
+        Route::get('xoa/{idct}/{idhoadon}', 'ChiTietHoaDonController@getXoa');
     });
 
     Route::group(['prefix' => 'ajax'], function () {
         Route::get('getQuanHuyen/{str}', 'ajaxController@getQuanHuyenUser');
         Route::get('getXaPhuong/{str}', 'ajaxController@getXaPhuongUser');
+        //Ajax thay đổi thanh toán chi tiết hóa đơn
+        Route::get('getThayDoiThanhToanChiTiet/{idct}/{trangthai}/{idhoadon}', 'ajaxController@getThayDoiThanhToanChiTiet');
+        //Ajax thay đổi thanh toán hóa đơn
+        Route::get('getThayDoiThanhToanHoaDon/{id}/{trangthai}', 'ajaxController@getThayDoiThanhToanHoaDon');
+
     });
 });
 
@@ -132,9 +138,3 @@ Route::post('suathongtin', 'TaiKhoanController@postSuaThongTinTK');
 Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau');
 Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen');
 Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong');
-
-
-
-
-
-

@@ -1,22 +1,26 @@
 @extends('admin.layout.index') 
 @section('linkcssTren')
 <!-- Colorpicker Css -->
-<link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+{{--
+<link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" /> --}}
 
 <!-- Dropzone Css -->
-<link href="admin/plugins/dropzone/dropzone.css" rel="stylesheet">
+{{--
+<link href="admin/plugins/dropzone/dropzone.css" rel="stylesheet"> --}}
+
+<!-- Multi Select Css -->
+<link href="admin/plugins/multi-select/css/multi-select.css" rel="stylesheet">
 
 <!-- Bootstrap Spinner Css -->
-<link href="admin/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
-
-<!-- Bootstrap Tagsinput Css -->
-<link href="admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+{{--
+<link href="admin/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet"> --}}
 
 <!-- Bootstrap Select Css -->
 <link href="admin/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
 <!-- noUISlider Css -->
-<link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+{{--
+<link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" /> --}}
 @endsection
  
 @section('linkcssDuoi')
@@ -68,13 +72,14 @@
                                                         <i class="material-icons">format_color_text</i>
                                                     </span>
                                             <div class="form-line">
-                                                <input class="form-control" placeholder="Nhập tên chi tiết sản phẩm" type="text" name="Ten" value="{{ $chitietsanpham->ten}}" required>
+                                                <input class="form-control" placeholder="Nhập tên chi tiết sản phẩm" type="text" name="Ten" value="{{ $chitietsanpham->ten}}"
+                                                    required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                    <h2 class="card-inside-title">Sản phẩm</h2>
-                                    <select class="form-control show-tick" name="id_SanPham" required>
+                                        <h2 class="card-inside-title">Sản phẩm</h2>
+                                        <select class="form-control show-tick" name="id_SanPham" required>
                                         <option value="">Chọn sản phẩm</option>
                                         @foreach ($sanpham as $sp) 
                                         @if ($chitietsanpham->id_sanpham == $sp->id)
@@ -111,6 +116,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="col-md-4">
                                         <h2 class="card-inside-title">Giá gốc</h2>
@@ -141,17 +147,44 @@
                                                         <i class="material-icons">format_list_numbered</i>
                                                     </span>
                                             <div class="form-line">
-                                                <input class="form-control" placeholder="" type="number" disabled value="{{ round(($chitietsanpham->khuyenmai * $chitietsanpham->giagoc)/100 +  $chitietsanpham->giagoc) }}">
+                                                <input class="form-control" placeholder="" type="number" disabled value="{{ round($chitietsanpham->giagoc - ($chitietsanpham->khuyenmai * $chitietsanpham->giagoc)/100) }}">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-12">
+                                    <h2 class="card-inside-title">Chọn kích cỡ</h2>
+                                    <select id="optgroup" class="ms" multiple="multiple" name="NameKichCo[]">
+                                        <optgroup label="Kích cỡ chữ">
+                                            @foreach ($kichcomau as $kcm)
+                                                @if (!intval($kcm->ten))
+                                                    @if ($kichco->where('ten', $kcm->ten)->count() > 0)
+                                                    <option value="{{ $kcm->ten }}"selected>{{ $kcm->ten }}</option>
+                                                    @else
+                                                    <option value="{{ $kcm->ten }}">{{ $kcm->ten }}</option>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="Kích cỡ số">
+                                            @foreach ($kichcomau as $kcm)
+                                                @if (intval($kcm->ten))
+                                                    @if ($kichco->where('ten', $kcm->ten)->count() > 0)
+                                                    <option value="{{ $kcm->ten }}"selected>{{ $kcm->ten }}</option>
+                                                    @else
+                                                    <option value="{{ $kcm->ten }}">{{ $kcm->ten }}</option>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                    </select>
+                                </div>
                                 <div class="col-md-12">
                                     <h2 class="card-inside-title">Mô tả</h2>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <textarea rows="3" class="form-control no-resize auto-growth" placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;" value="{{ $chitietsanpham->mota }}" name="MoTa"></textarea>
+                                            <textarea rows="3" class="form-control no-resize auto-growth" placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;"
+                                                value="{{ $chitietsanpham->mota }}" name="MoTa"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -159,12 +192,10 @@
                                 <div class="col-md-12">
                                     <h2 class="card-inside-title">Chọn ảnh</h2>
                                     <div class="form-group">
-                                        <input type="file" name="file" id="profile-img">
-                                       @if ($chitietsanpham->img == "")
-                                       <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
-                                       @else
-                                       <img src="uploads/sanpham/{{ $chitietsanpham->img }}" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
-                                       @endif
+                                        <input type="file" name="file" id="profile-img"> @if ($chitietsanpham->img == "")
+                                        <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />                                        @else
+                                        <img src="uploads/sanpham/{{ $chitietsanpham->img }}" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;"
+                                        /> @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3"></div>
@@ -182,13 +213,16 @@
         </div>
     </div>
     <!-- #END# FORM -->
-    </div>
 </section>
 @endsection
  
 @section('script')
+
 <!-- Custom Js -->
 <script src="admin/js/basic-form-elements.js "></script>
+
+<!-- Multi Select Plugin Js -->
+<script src="admin/plugins/multi-select/js/jquery.multi-select.js"></script>
 
 <!-- Autosize Plugin Js -->
 <script src="admin/plugins/autosize/autosize.js "></script>
@@ -198,6 +232,12 @@
 
 <!-- Bootstrap Material Datetime Picker Plugin Js -->
 <script src="admin/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js "></script>
+
+<script>
+    //Multi-select
+    $('#optgroup').multiSelect({ selectableOptgroup: true });
+
+</script>
 
 <script type="text/javascript">
     function readURL(input) {

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\KichCo;
+use Illuminate\Database\Seeder;
 
 class KichCoSeeder extends Seeder
 {
@@ -12,6 +12,6 @@ class KichCoSeeder extends Seeder
      */
     public function run()
     {
-        factory(KichCo::class, 500)->create();
+        factory(KichCo::class, 100)->create();
     }
 }

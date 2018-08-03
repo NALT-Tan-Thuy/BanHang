@@ -29,72 +29,33 @@
                 </a>
                 <ul class="ml-menu" style="display: none;">
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                        <a href="admin/loaisanpham/danhsach" class="waves-effect waves-block">
                             <span>Loại sản phẩm</span>
                         </a>
-                        <ul class="ml-menu" style="display: none;">
-                            <li class="">
-                                <a href="admin/loaisanpham/danhsach" class=" waves-effect waves-block">
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="admin/loaisanpham/them" class="waves-effect waves-block">
-                                    <span>Thêm</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                        <a href="admin/sanpham/danhsach" class="waves-effect waves-block">
                             <span>Sản phẩm</span>
                         </a>
-                        <ul class="ml-menu" style="display: none;">
-                            <li>
-                                <a href="admin/sanpham/danhsach" class=" waves-effect waves-block">
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="admin/sanpham/them" class="waves-effect waves-block">
-                                    <span>Thêm</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                        <a href="admin/chitietsanpham/danhsach" class="waves-effect waves-block">
                             <span>Chi tiết sản phẩm</span>
                         </a>
-                        <ul class="ml-menu" style="display: none;">
-                            <li>
-                                <a href="admin/chitietsanpham/danhsach" class=" waves-effect waves-block">
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="admin/chitietsanpham/them" class="waves-effect waves-block">
-                                    <span>Thêm</span>
-                                </a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li>
+                        <a href="admin/kichcomau/danhsach" class="waves-effect waves-block">
+                            <span>Kích cỡ mẫu</span>
+                        </a>
                     </li>
                 </ul>
             </li>
 
             <li>
-                <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">library_books</i>
-                            <span>Hóa đơn</span>
-                        </a>
-                <ul class="ml-menu">
-                    <li>
-                        <a href="admin/hoadon/danhsach">Danh sách</a>
-                    </li>
-                    <li>
-                        <a href="admin/hoadon/them">Thêm</a>
-                    </li>
-                </ul>
+                <a href="admin/hoadon/danhsach" class="waves-effect waves-block">
+                    <i class="material-icons">library_books</i>
+                    <span>Hóa đơn</span>
+                </a>
             </li>
 
             <li>
@@ -104,133 +65,46 @@
                 </a>
                 <ul class="ml-menu" style="display: none;">
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                        <a href="admin/trangchu/sua" class="waves-effect waves-block">
                             <span>Trang chủ</span>
                         </a>
-                        <ul class="ml-menu" style="display: none;">
-                            <li>
-                                <a href="admin/trangchu/sua" class=" waves-effect waves-block">
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                        <a href="admin/slide/danhsach" class="waves-effect waves-block">
                             <span>Slide</span>
                         </a>
-                        <ul class="ml-menu" style="display: none;">
-                            <li>
-                                <a href="admin/slide/danhsach" class=" waves-effect waves-block">
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="admin/slide/them" class="waves-effect waves-block">
-                                    <span>Thêm</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                        <a href="admin/thuonghieu/danhsach" class="waves-effect waves-block">
                             <span>Thương hiệu</span>
                         </a>
-                        <ul class="ml-menu" style="display: none;">
-                            <li>
-                                <a href="admin/thuonghieu/danhsach" class=" waves-effect waves-block">
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="admin/thuonghieu/them" class="waves-effect waves-block">
-                                    <span>Thêm</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                        <a href="admin/lienhe/danhsach" class="waves-effect waves-block">
                             <span>Liên hệ</span>
                         </a>
-                        <ul class="ml-menu" style="display: none;">
-                            <li>
-                                <a href="admin/lienhe/danhsach" class=" waves-effect waves-block">
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="admin/lienhe/them" class="waves-effect waves-block">
-                                    <span>Thêm</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </li>
-
+<!-- 
             <li>
-                <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                <a href="admin/kichcomau/danhsach" class="waves-effect waves-block">
                     <i class="material-icons"> filter_vintage</i>
-                    <span>Kích cỡ</span>
+                    <span>Kích cỡ mẫu</span>
                 </a>
-                <ul class="ml-menu" style="display: none;">
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                            <span>Kích cỡ</span>
-                        </a>
-                        <ul class="ml-menu" style="display: none;">
-                            <li>
-                                <a href="javascript:void(0);" class=" waves-effect waves-block">
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="waves-effect waves-block">
-                                    <span>Thêm</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                            <span>Kích cỡ mẫu</span>
-                        </a>
-                        <ul class="ml-menu" style="display: none;">
-                            <li>
-                                <a href="admin/kichcomau/danhsach" class=" waves-effect waves-block">
-                                    <span>Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="admin/kichcomau/them" class="waves-effect waves-block">
-                                    <span>Thêm</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
+            </li> -->
 
             <li>
-                <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">person</i>
-                            <span>User</span>
-                        </a>
-                <ul class="ml-menu">
-                    <li>
-                        <a href="admin/user/danhsach">Danh sách</a>
-                    </li>
-                    <li>
-                        <a href="admin/user/them">Thêm</a>
-                    </li>
-                </ul>
+                <a href="admin/user/danhsach" class="waves-effect waves-block">
+                    <i class="material-icons">person</i>
+                    <span>User</span>
+                </a>
             </li>
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">people</i>
-                            <span>Khách hàng</span>
-                        </a>
+                    <i class="material-icons">people</i>
+                    <span>Khách hàng</span>
+                </a>
                 <ul class="ml-menu">
                     <li>
                         <a href="#">Danh sách</a>

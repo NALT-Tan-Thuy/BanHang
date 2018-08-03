@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateChitiethoadonTable extends Migration
 {
@@ -16,7 +16,7 @@ class CreateChitiethoadonTable extends Migration
         Schema::create('chitiethoadon', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('soluong');
-            $table->string('kichthuoc');
+            $table->string('kichco');
             $table->integer('thanhtoanhoadonchitiet')->default(0);;
             $table->integer('id_hoadon')->unsigned();
             $table->foreign('id_hoadon')->references('id')->on('hoadon');

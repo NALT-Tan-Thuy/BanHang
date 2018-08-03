@@ -12,10 +12,11 @@ class LoaiSanPhamSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        $limit = 6;
-        for ($i = 1; $i <= $limit; $i++) {
+        $arrLoaiSanPham = ['Áo', 'Quần', 'Giày', 'Nón', 'Túi xách & Ba lô'];
+
+        for ($i = 0; $i < count($arrLoaiSanPham); $i++) {
             DB::table('loaisanpham')->insert([
-                'ten' => 'Loại sản phẩm' . $i,
+                'ten' => $arrLoaiSanPham[$i],
                 'created_at' => $faker->date('Y-m-d', 'now'),
             ]);
         }

@@ -18,8 +18,8 @@ class XaPhuong extends Model
         return $this->hasMany('App\User', 'id_xaphuong', 'id');
     }
 
-    public function khachhang()
-    {
-        return $this->hasMany('App\KhachHang', 'id_xaphuong', 'id');
-    }
+    // public function khachhang()
+    // {
+    //     return $this->hasMany('App\KhachHang', 'id_xaphuong', 'id');
+    // }
 }
