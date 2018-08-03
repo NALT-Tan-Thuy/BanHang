@@ -1,23 +1,149 @@
 @extends('giaodien/master') 
- @section('noidung') @section('title') Chi tiết sản phẩm @endsection @section('css')
-<link rel="stylesheet" href="{{ asset('giaodien/css/chitietsp.css')}}"> @endsection
+ @section('noidung') @section('title') Chi tiết sản phẩm @endsection 
+<style>
+    .btn3d {
+    position: relative;
+    top: -6px;
+    border: 0;
+    transition: all 40ms linear;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: white;
+    font-size: 2.5em;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Baloo Chettan', cursive;
+}
 
+.btn3d:hover {
+    border: 3px double;
+}
+
+.btn3d:active:focus,
+.btn3d:focus:hover,
+.btn3d:focus {
+    outline-style: none;
+    outline: medium none;
+}
+
+.btn3d:active,
+.btn3d.active {
+    top: 2px;
+}
+
+.btn3d.btn-primary {
+    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4D5BBE, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    background-color: #4274D7;
+}
+
+.btn3d.btn-primary:active,
+.btn3d.btn-primary.active {
+    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+    background-color: #4274D7;
+}
+
+.btn3d.btn-success {
+    box-shadow: 0 0 0 1px #31c300 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #5eb924, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    background-color: #78d739;
+}
+
+.btn3d.btn-success:active,
+.btn3d.btn-success.active {
+    box-shadow: 0 0 0 1px #30cd00 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+    background-color: #78d739;
+}
+
+/* số lượng */
+
+#soLuong {
+    font-size: 1.6em;
+
+}
+
+/* nút mua hàng */
+
+#muaHangChiTiet {
+    text-align: center;
+    margin-top: 30%;
+}
+
+#btnChonSize {
+
+    width: 100%
+}
+
+#giaBan {
+    color: rgb(255, 0, 0);
+}
+
+#giaGoc {
+    text-decoration: line-through;
+}
+
+#thongTinChitiet {
+    font-family: 'Playfair Display', serif;
+    font-family: 'Baloo Chettan', cursive;
+    font-family: 'Itim', cursive;
+    font-family: 'Arima Madurai', cursive;
+    font-family: 'Patrick Hand SC', cursive;
+    font-family: 'Cormorant Infant', serif;
+    font-family: 'Cormorant Upright', serif;
+    font-family: 'Pridi', serif;
+}
+
+#thongTinChitiet h3 {
+    color: rgb(8, 97, 109);
+}
+
+#tieuDeMoTa {
+    color: rgb(41, 150, 105);
+}
+
+#luotThich {
+    color: #001FFEE6;
+    font-size: 1.3em;
+}
+
+/* Phần bình luận */
+
+.noiDungBinhLuan img {
+    width: 64px;
+    height: 64px;
+}
+
+.noiDungBinhLuan a {
+    margin-right: 10px;
+}
+
+#ngayBinhLuan {
+    font-style: italic;
+}
+
+.tenbinhluan{
+    font-weight: bolder;
+    color: #0d1f84;
+}
+
+/* Xong phần bình luận */
+</style>
 <!-- Nội dung chính của trang-->
 <!-- Kiểm soát đường dẫn -->
 <div class="container">
     <div class="row" style="margin: 5% 0% 2% 0%;">
         <div id="bc1" class="btn-group btn-breadcrumb">
-            <a href="trangchu.html" class="btn btn-default">
+            <a href="trangchu" class="btn btn-default">
                 <i class="fa fa-home"></i>
             </a>
-            <a href="#" class="btn btn-default">
+            <a href="sanpham/1" class="btn btn-default">
                 <div>Danh mục sản phẩm</div>
             </a>
-            <a href="trangcon_Ao.html" class="btn btn-default">
-                <div>Sản phẩm tương ứng</div>
             </a>
-            <a href="trangcon_Ao.html" class="btn btn-default">
+            <a href="chitietsp/{{$chitietsp->id}}" class="btn btn-default">
                 <div>Chi tiết sản phẩm</div>
+            </a>
+            <a class="btn btn-default">
+                <div>{{$chitietsp->ten}}</div>
             </a>
         </div>
     </div>
@@ -59,8 +185,8 @@
                     <div class="col-sm-5">
                         <div class="single-item">
                             <div class="single-item-header">
-                                <a href="product.html">
-                                    <img src="https://fandy.vn/wp-content/uploads/2016/12/giay-nam-the-thao-cho-nam-dep.jpg" alt="">
+                                <a href="chitietsp/{{$chitietsp->id}}">
+                                    <img src="uploads/sanpham/{{$chitietsp->img}}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -68,20 +194,17 @@
                     <!-- Xong hình sản phẩm -->
                     <!-- thông tin chi tiết -->
                     <div id="thongTinChitiet" class="col-xs-12 col-md-7">
-                        <h3 class="product-title">Giày adidas trắng sọc thời trang năng động</h3>
+                        <h3 class="product-title">{{$chitietsp->ten}}</h3>
                         <div id="luotThich">
                             <span class="glyphicon glyphicon-thumbs-up"></span>
-                            <span> 123 lượt thích sản phẩm này.</span>
+                            <span>{{$chitietsp->luotthich}} lượt thích sản phẩm này.</span>
                         </div>
                         <p id="tieuDeMoTa">Mô tả</p>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo reiciendis esse fugiat corrupti molestias
-                            soluta facere iste nihil aliquam vel? Quisquam unde vel rem. Veritatis impedit autem minus sint
-                            voluptas!
-                        </span>
+                        <span>{{$chitietsp->mota}}</span>
                         <h2>GIÁ BÁN:
-                            <span id="giaBan">200.000 đồng</span>
+                            <span id="giaBan">{{number_format($chitietsp->giagoc-($chitietsp->giagoc*$chitietsp->khuyenmai)/100)}} đồng</span>
                         </h2>
-                        <p id="giaGoc">Giá gốc: 500.00 đồng</p>
+                        <p id="giaGoc">Giá gốc: {{number_format($chitietsp->giagoc)}} đồng</p>
 
                         <div style="text-align: center" class="col-xs-12 col-md-6">
                             <div class="space60">&nbsp;</div>
@@ -168,20 +291,12 @@
                 <!-- Nội dung thêm chi tiết -->
                 <div style="text-align: center" role="tabpanel" class="tab-pane fade" id="huongdanthanhtoan" aria-labelledby="huongdanthanhtoan-tab">
                     <h2>Những mẫu bạn có thể phối cùng cực xinh, cực chất</h2>
+                    @foreach($ttchitiet as $ttct)
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img src="http://www.nawo.com/wp-content/uploads/2015/02/Sports-Hit-Superstar-80s-Vintage-Deluxe-Shoes_1.jpg" alt="">
+                        <img src="uploads/sanpham/{{$ttct->img}}" alt="">
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img src="http://picture-cdn.wheretoget.it/x6t2hq-l-610x610-shoes-sneaker-adidas-sneakers+white-sweater-casual+winter-casual-winter+sweater-winter+outfits-sporty-sporty+chic-adidas+shoes-black+ripped+jeans-grey+sweater-adidas+superstars.jpg"
-                            alt="">
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img src="http://media.gocom.vn/Systems/2015/06/15/mixdovoigiaythethaotheophongcachthoithuong11.jpg" alt="">
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img src="http://shopquangkhanh.com/wp-content/uploads/2017/12/Ph%E1%BB%91i-%C4%91%E1%BB%93-ch%E1%BA%A5t-nh%C6%B0-sao-v%E1%BB%9Bi-gi%C3%A0y-adidas-1.jpg"
-                            alt="">
-                    </div>
+                    <div class="space10">&nbsp;</div>
+                    @endforeach
                 </div>
                 <!-- xong nội dung thêm chi tiết -->
                 <!-- Nội dung bình luận -->

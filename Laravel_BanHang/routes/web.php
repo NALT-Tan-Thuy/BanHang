@@ -117,7 +117,6 @@ Route::get('demojson', function () {
 });
 // Phần Route cho giao diện người dùng
 Route::get('trangchu', 'GiaoDienController@getTrangChu');
-Route::get('chitietsp', 'GiaoDienController@getChiTietsp');
 Route::get('dathang', 'GiaoDienController@getDatHang');
 
 // Quản lý tài khoản, đăng ký, đăng  nhập
@@ -144,3 +143,8 @@ Route::get('timsptuongunghome/{idsp}','GiaoDienController@getTimSPTuongUngHome')
 // xử lý trang sản phẩm
 Route::get('sanpham/{idloai}/{idsp}', 'GiaoDienController@getSanPhamTheoSanPham');
 Route::get('sanpham/{id}', 'GiaoDienController@getSanPhamTheoLoai');
+
+// Xử lý chi tiết sản phẩm 
+Route::get('chitietsp/{id}', 'GiaoDienController@getChiTietsp');
+
+

@@ -136,8 +136,16 @@ class GiaoDienController extends Controller
     }
     
     // trang con chi tiết sản phẩm
-    public function getChiTietSP(){
-        return view('giaodien/trangcon/chitietsp');
+    public function getChiTietSP($idsp){
+        $chitietsp = DB::table('chitietsanpham')->where('id',$idsp)->first();
+        $ttchitiet = DB::table('thongtinchitietsanpham')->where('id_chitietsanpham',$idsp)->get();
+        $binhluan = DB::table('binhluan')->where('id_chitietsanpham',$idsp)->get();
+        // echo $chitietsp->id;
+        if($chitietsp != null){
+            return view('giaodien/trangcon/chitietsp',compact('chitietsp','ttchitiet'));
+        }
+        else
+            return redirect()->back();
     }
     // trang con đặt hàng
     public function getDatHang(){
