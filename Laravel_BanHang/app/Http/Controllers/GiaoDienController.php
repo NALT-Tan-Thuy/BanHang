@@ -102,9 +102,39 @@ class GiaoDienController extends Controller
     }
 
     // trang con sản phẩm
-    public function getSanPham(){
-        return view('giaodien/trangcon/sanpham');
+    public function getSanPhamTheoSanPham($idloai, $idspn){
+        $allsp = DB::table('loaisanpham')
+                        ->join('sanpham','loaisanpham.id','sanpham.id_loaisanpham')
+                        ->join('chitietsanpham','sanpham.id','chitietsanpham.id_sanpham')
+                        ->where('id_loaisanpham','<>',$idloai)->get();
+        $tatcasanpham = $allsp->take(15);
+        $idloaisp = DB::table('loaisanpham')->where('id',$idloai)->first();
+        $idsp = DB::table('sanpham')->where('id',$idspn)->first();
+        $tatcaloaisp = DB::table('loaisanpham')->where('id','<>',$idloai)->get();
+        $tensanpham = DB::table('sanpham')->where('id_loaisanpham',$idloaisp->id)->get(); 
+        $sanphamtheoloai = DB::table('chitietsanpham')->where('id_sanpham',$idspn)->get();
+        $tinhthanh = DB::table('tinh_thanhpho')->where('id','<>',0)->get()->random(20);
+        // $tensanpham->dd();
+        return view('giaodien/trangcon/sanpham',compact('idsp','idloaisp','tensanpham','sanphamtheoloai','tatcasanpham','tinhthanh','tatcaloaisp'));
     }
+    public function getSanPhamTheoLoai($idloai){
+        $tatcasanpham = DB::table('loaisanpham')
+                        ->join('sanpham','loaisanpham.id','sanpham.id_loaisanpham')
+                        ->join('chitietsanpham','sanpham.id','chitietsanpham.id_sanpham')
+                        ->where('id_loaisanpham','<>',$idloai)->get();
+        $idloaisp = DB::table('loaisanpham')->where('id',$idloai)->first();
+        $tatcaloaisp = DB::table('loaisanpham')->where('id','<>',$idloai)->get();
+        $tensanpham = DB::table('sanpham')->where('id_loaisanpham',$idloaisp->id)->get();        
+        $sanphamtheoloai = DB::table('loaisanpham')
+                        ->join('sanpham','loaisanpham.id','sanpham.id_loaisanpham')
+                        ->join('chitietsanpham','sanpham.id','chitietsanpham.id_sanpham')
+                        ->where('id_loaisanpham',$idloai)->get();
+        $tinhthanh = DB::table('tinh_thanhpho')->where('id','<>',0)->get()->random(20);
+
+        // $tensanpham->dd();
+        return view('giaodien/trangcon/sanphamtheoloai',compact('idloaisp','tensanpham','sanphamtheoloai','tatcasanpham','tinhthanh','tatcaloaisp'));
+    }
+    
     // trang con chi tiết sản phẩm
     public function getChiTietSP(){
         return view('giaodien/trangcon/chitietsp');

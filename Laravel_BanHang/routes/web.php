@@ -111,7 +111,6 @@ Route::get('demojson', function () {
 });
 // Phần Route cho giao diện người dùng
 Route::get('trangchu', 'GiaoDienController@getTrangChu');
-Route::get('sanpham', 'GiaoDienController@getSanPham');
 Route::get('chitietsp', 'GiaoDienController@getChiTietsp');
 Route::get('dathang', 'GiaoDienController@getDatHang');
 
@@ -133,13 +132,13 @@ Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau')->middlewa
 Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen')->middleware('TaiKhoanMiddleware');
 Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->middleware('TaiKhoanMiddleware');
 
-// Thử ajax
-// Route::get('/ajax/products', function(){
-//     $products = ChiTietSanPham::paginate(4);
-//     return View::make('trangchu')->with('products',$products)->render();
-// });
 Route::get('sanphamtuongunghome/{idsp}','GiaoDienController@getSanPhamTuongUngHome');
 Route::get('timsptuongunghome/{idsp}','GiaoDienController@getTimSPTuongUngHome');
+
+// xử lý trang sản phẩm
+Route::get('sanpham/{idloai}/{idsp}', 'GiaoDienController@getSanPhamTheoSanPham');
+Route::get('sanpham/{id}', 'GiaoDienController@getSanPhamTheoLoai');
+
 
 
 
