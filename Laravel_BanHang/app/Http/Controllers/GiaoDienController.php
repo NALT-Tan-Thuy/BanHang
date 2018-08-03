@@ -140,9 +140,11 @@ class GiaoDienController extends Controller
         $chitietsp = DB::table('chitietsanpham')->where('id',$idsp)->first();
         $ttchitiet = DB::table('thongtinchitietsanpham')->where('id_chitietsanpham',$idsp)->get();
         $binhluan = DB::table('binhluan')->where('id_chitietsanpham',$idsp)->get();
-        // echo $chitietsp->id;
+        $tatcabinhluan = DB::table('binhluan')
+                        ->join('users','binhluan.id_users','users.id')->where('id_chitietsanpham',$idsp)->get();
+        // $tatcabinhluan->dd();
         if($chitietsp != null){
-            return view('giaodien/trangcon/chitietsp',compact('chitietsp','ttchitiet'));
+            return view('giaodien/trangcon/chitietsp',compact('chitietsp','ttchitiet','binhluan','tatcabinhluan'));
         }
         else
             return redirect()->back();

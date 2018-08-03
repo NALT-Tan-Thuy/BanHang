@@ -1,131 +1,130 @@
-@extends('giaodien/master') 
- @section('noidung') @section('title') Chi tiết sản phẩm @endsection 
+@extends('giaodien/master') @section('noidung') @section('title') Chi tiết sản phẩm @endsection
 <style>
     .btn3d {
-    position: relative;
-    top: -6px;
-    border: 0;
-    transition: all 40ms linear;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 2px;
-    margin-right: 2px;
-    color: white;
-    font-size: 2.5em;
-    font-family: 'Playfair Display', serif;
-    font-family: 'Baloo Chettan', cursive;
-}
+        position: relative;
+        top: -6px;
+        border: 0;
+        transition: all 40ms linear;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 2px;
+        margin-right: 2px;
+        color: white;
+        font-size: 2.5em;
+        font-family: 'Playfair Display', serif;
+        font-family: 'Baloo Chettan', cursive;
+    }
 
-.btn3d:hover {
-    border: 3px double;
-}
+    .btn3d:hover {
+        border: 3px double;
+    }
 
-.btn3d:active:focus,
-.btn3d:focus:hover,
-.btn3d:focus {
-    outline-style: none;
-    outline: medium none;
-}
+    .btn3d:active:focus,
+    .btn3d:focus:hover,
+    .btn3d:focus {
+        outline-style: none;
+        outline: medium none;
+    }
 
-.btn3d:active,
-.btn3d.active {
-    top: 2px;
-}
+    .btn3d:active,
+    .btn3d.active {
+        top: 2px;
+    }
 
-.btn3d.btn-primary {
-    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4D5BBE, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-    background-color: #4274D7;
-}
+    .btn3d.btn-primary {
+        box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4D5BBE, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+        background-color: #4274D7;
+    }
 
-.btn3d.btn-primary:active,
-.btn3d.btn-primary.active {
-    box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-    background-color: #4274D7;
-}
+    .btn3d.btn-primary:active,
+    .btn3d.btn-primary.active {
+        box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+        background-color: #4274D7;
+    }
 
-.btn3d.btn-success {
-    box-shadow: 0 0 0 1px #31c300 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #5eb924, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
-    background-color: #78d739;
-}
+    .btn3d.btn-success {
+        box-shadow: 0 0 0 1px #31c300 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #5eb924, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+        background-color: #78d739;
+    }
 
-.btn3d.btn-success:active,
-.btn3d.btn-success.active {
-    box-shadow: 0 0 0 1px #30cd00 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-    background-color: #78d739;
-}
+    .btn3d.btn-success:active,
+    .btn3d.btn-success.active {
+        box-shadow: 0 0 0 1px #30cd00 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+        background-color: #78d739;
+    }
 
-/* số lượng */
+    /* số lượng */
 
-#soLuong {
-    font-size: 1.6em;
+    #soLuong {
+        font-size: 1.6em;
 
-}
+    }
 
-/* nút mua hàng */
+    /* nút mua hàng */
 
-#muaHangChiTiet {
-    text-align: center;
-    margin-top: 30%;
-}
+    #muaHangChiTiet {
+        text-align: center;
+        margin-top: 30%;
+    }
 
-#btnChonSize {
+    #btnChonSize {
 
-    width: 100%
-}
+        width: 100%
+    }
 
-#giaBan {
-    color: rgb(255, 0, 0);
-}
+    #giaBan {
+        color: rgb(255, 0, 0);
+    }
 
-#giaGoc {
-    text-decoration: line-through;
-}
+    #giaGoc {
+        text-decoration: line-through;
+    }
 
-#thongTinChitiet {
-    font-family: 'Playfair Display', serif;
-    font-family: 'Baloo Chettan', cursive;
-    font-family: 'Itim', cursive;
-    font-family: 'Arima Madurai', cursive;
-    font-family: 'Patrick Hand SC', cursive;
-    font-family: 'Cormorant Infant', serif;
-    font-family: 'Cormorant Upright', serif;
-    font-family: 'Pridi', serif;
-}
+    #thongTinChitiet {
+        font-family: 'Playfair Display', serif;
+        font-family: 'Baloo Chettan', cursive;
+        font-family: 'Itim', cursive;
+        font-family: 'Arima Madurai', cursive;
+        font-family: 'Patrick Hand SC', cursive;
+        font-family: 'Cormorant Infant', serif;
+        font-family: 'Cormorant Upright', serif;
+        font-family: 'Pridi', serif;
+    }
 
-#thongTinChitiet h3 {
-    color: rgb(8, 97, 109);
-}
+    #thongTinChitiet h3 {
+        color: rgb(8, 97, 109);
+    }
 
-#tieuDeMoTa {
-    color: rgb(41, 150, 105);
-}
+    #tieuDeMoTa {
+        color: rgb(41, 150, 105);
+    }
 
-#luotThich {
-    color: #001FFEE6;
-    font-size: 1.3em;
-}
+    #luotThich {
+        color: #001FFEE6;
+        font-size: 1.3em;
+    }
 
-/* Phần bình luận */
+    /* Phần bình luận */
 
-.noiDungBinhLuan img {
-    width: 64px;
-    height: 64px;
-}
+    .noiDungBinhLuan img {
+        width: 64px;
+        height: 64px;
+    }
 
-.noiDungBinhLuan a {
-    margin-right: 10px;
-}
+    .noiDungBinhLuan a {
+        margin-right: 10px;
+    }
 
-#ngayBinhLuan {
-    font-style: italic;
-}
+    #ngayBinhLuan {
+        font-style: italic;
+    }
 
-.tenbinhluan{
-    font-weight: bolder;
-    color: #0d1f84;
-}
+    .tenbinhluan {
+        font-weight: bolder;
+        color: #0d1f84;
+    }
 
-/* Xong phần bình luận */
+    /* Xong phần bình luận */
 </style>
 <!-- Nội dung chính của trang-->
 <!-- Kiểm soát đường dẫn -->
@@ -291,12 +290,16 @@
                 <!-- Nội dung thêm chi tiết -->
                 <div style="text-align: center" role="tabpanel" class="tab-pane fade" id="huongdanthanhtoan" aria-labelledby="huongdanthanhtoan-tab">
                     <h2>Những mẫu bạn có thể phối cùng cực xinh, cực chất</h2>
+                    @if(count($ttchitiet) != 0)
                     @foreach($ttchitiet as $ttct)
+                    
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <img src="uploads/sanpham/{{$ttct->img}}" alt="">
                     </div>
                     <div class="space10">&nbsp;</div>
                     @endforeach
+                    @else
+                    @endif
                 </div>
                 <!-- xong nội dung thêm chi tiết -->
                 <!-- Nội dung bình luận -->
@@ -317,40 +320,26 @@
                             </form>
                         </div>
                         <!-- Xong text nhập bình luận -->
+                        @if($tatcabinhluan != null)
+                        @foreach($tatcabinhluan as $bl)
                         <!-- Comment -->
                         <div class="col-xs-12 col-md-12">
                             <div class="noiDungBinhLuan" class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="http://sohanews.sohacdn.com/thumb_w/660/2017/photo1486969199024-1486969199175-0-32-308-529-crop-1486969281069.jpg"
-                                        alt="">
+                                <a class="pull-left">
+                                    <img class="media-object" src="uploads/users/{{$bl->img}}" alt="">
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading tenbinhluan">Huỳnh Văn Thùy
-                                        <small id="ngayBinhLuan">August 25, 2014 at 9:30 PM</small>
+                                    <h4 class="media-heading tenbinhluan">{{$bl->tendangnhap}}
+                                        <small id="ngayBinhLuan">{{$bl->created_at}}</small>
                                     </h4>
                                 </div>
-                                <span>Thằng mô làm ra trang web ni ngon quá</span>
+                                <span>{{$bl->noidung}}</span>
                             </div>
                         </div>
                         <!-- Xong comment -->
                         <div class="space10">&nbsp;</div>
-                        <!-- Comment -->
-                        <div class="col-xs-12 col-md-12">
-
-                            <div class="noiDungBinhLuan" class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="http://dapxexuyenviet.com/files/tin/686/jpg/65-dieu-con-trai-mong-muon-o-con-gai.jpg" alt="">
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading tenbinhluan">Trần Quang Tân
-                                        <small id="ngayBinhLuan">August 25, 2014 at 9:30 PM</small>
-                                    </h4>
-                                </div>
-                                <span>Anh Tân làm đó, có vấn đề chi k?</span>
-                            </div>
-
-                        </div>
-                        <!-- Xong comment -->
+                        @endforeach
+                        @endif
 
                     </div>
                 </div>
@@ -362,9 +351,7 @@
 </div>
 </div>
 
-@include('giaodien/quytrinh') 
-@include('giaodien/loicamon')
-@include('giaodien/cuoitrang')
+@include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 
 
 <!-- Xong nội dung trang con -->
