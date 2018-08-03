@@ -3,7 +3,6 @@
 @section('title') Trang Chủ @endsection @include('giaodien/tieudetren') @include('giaodien/tieudeduoi')
 <!-- phần đầu nội dung 1 -->
 <!-- Kiểm soát đường dẫn -->
-
 <div class="container">
     <div class="row">
         <div id="bc1" class="btn-group btn-breadcrumb">
@@ -190,7 +189,7 @@
                             <div class="clearfix"></div>
                         </div>
 
-                        <div class="row">
+                        <div class="row nhankq">
                             @foreach($sanphammoi as $spm)
                             <div class="col-sm-3">
                                 <div class="single-item">
@@ -246,8 +245,27 @@
                             </div>
                             @endforeach
                         </div>
-                        <div style="text-align: center;" class="row">{{$sanphammoi->links()}}</div>
+                        <div style="text-align: center;" class="row">{{$sanphammoi->appends(Request::all())->links() }}</div>
                     </div>
+                    <!-- <script>
+                        $(document).on('click', '.pagination a', function (e) {
+                            e.preventDefault();
+                            // console.log($(this).attr('href').split('page='[0]));
+                            var page = $(this).attr('href').split('page=')[1];
+                            getProducts(page);
+                        });
+
+                        function getProducts(page) {
+                            // console.log("Lấy sản phẩm từ trang"+page);
+                            $.ajax({
+                                url: '/ajax/products?page='+page
+                            }).done(function (data) {
+                                console.log("data");
+                                $('nhankq').html(date);
+                                location.hash = page; 
+                            });
+                        }
+                    </script> -->
                     <!-- .beta-products-list -->
 
                     <div class="space50">&nbsp;</div>
@@ -270,7 +288,7 @@
                                     </div>
                                     <div class="single-item-header">
                                         <a href="chitiet_sp.html">
-                                            <img height="250px;" src="uploads/sanpham/{{$spm->img}}" alt="">
+                                            <img height="250px;" src="uploads/sanpham/{{$spkm->img}}" alt="">
                                         </a>
                                     </div>
                                     <div class="single-item-body">
@@ -288,12 +306,12 @@
                                             <i class="fa fa-chevron-right"></i>
                                         </a>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                             @endforeach
                         </div>
-                        <div style="text-align: center;" class="row">{{$sanphamkhuyenmai->links()}}</div>
+                        <div style="text-align: center;" class="row">{{$sanphamkhuyenmai->appends(Request::all())->links() }}</div>
                     </div>
                     <!-- .beta-products-list -->
 
@@ -351,7 +369,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
+        <button id="tatcasanpham" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
             <span class="glyphicon glyphicon-hand-right"></span> TẠI ĐÂY CÓ MỌI THỨ BẠN CẦN
         </button>
     </div>

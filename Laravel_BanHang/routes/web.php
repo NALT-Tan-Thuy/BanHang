@@ -133,7 +133,12 @@ Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau')->middlewa
 Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen')->middleware('TaiKhoanMiddleware');
 Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->middleware('TaiKhoanMiddleware');
 
-// 
+// Thử ajax
+// Route::get('/ajax/products', function(){
+//     $products = ChiTietSanPham::paginate(4);
+//     return View::make('trangchu')->with('products',$products)->render();
+// });
+Route::get('/ajax/products','GiaoDienController@getAjaxSP');
 
 
 
