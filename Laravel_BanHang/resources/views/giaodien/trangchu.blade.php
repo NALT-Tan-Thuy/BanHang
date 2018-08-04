@@ -20,7 +20,7 @@
 </div>
 
 <!-- Kiểm soát trang -->
-<section class="examples"> 
+<section class="examples">
     <div class="container">
         <div class="carousel-example" id="spNoiBat">
             <h2>Sản phẩm nổi bật</h2>
@@ -243,12 +243,12 @@
                                     <div class="single-item-body">
                                         <p class="single-item-title">{{$spkm->ten}}</p>
                                         <p class="single-item-price">
-                                            <span>{{number_format($spkm->giagoc)}}đ</span>
+                                            <span class="flash-del">{{number_format($spkm->giagoc)}}đ</span>
                                             <span class="flash-sale">{{number_format(($spkm->giagoc)-(($spkm->giagoc)*($spkm->khuyenmai))/100)}}đ</span>
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
+                                        <a class="add-to-cart pull-left" href="themgiohang/{{$spkm->id}}">
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitietsp/{{$spkm->id}}">Chi tiết
@@ -313,7 +313,7 @@
         </div>
         <button id="timtatcasanpham" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
             <span class="glyphicon glyphicon-hand-right"></span> TÌM KIẾM MỌI THỨ TẠI ĐÂY
-            </button>
+        </button>
     </div>
 </div>
 <!-- Xong nội dung 4 tìm kiếm sản phẩm tương ứng -->
@@ -329,7 +329,7 @@
             <div class="offer">Giá khuyến mãi: {{number_format(($spnn->giagoc)-(($spnn->giagoc)*($spnn->khuyenmai))/100)}} đ</div>
             <div class="detail">
                 <img src="uploads/sanpham/{{$spnn->img}}" alt="dsadas" />
-                <a href="" class="btn btn-info">Mua ngay</a>
+                <a href="themgiohang/{{$spnn->id}}" class="btn btn-info">Mua ngay</a>
                 <a href="chitietsp/{{$spnn->id}}" class="btn btn-info">Chi tiết</a>
             </div>
         </div>

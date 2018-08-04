@@ -159,3 +159,6 @@ Route::get('chitietsp/{id}', 'GiaoDienController@getChiTietsp');
 Route::get('themgiohang/{id}', 'GiaoDienController@getThemGioHang');
 Route::get('xoagiohang/{id}', 'GiaoDienController@getXoaTatCaGioHang');
 Route::get('xoamotgiohang/{id}', 'GiaoDienController@getMotGioHang');
+Route::get('themgiohangsl', 'GiaoDienController@getThemGioHangCoSoLuong');
+
+

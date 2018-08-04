@@ -54,7 +54,7 @@ class GiaoDienController extends Controller
                             <div class="offer">Giá khuyến mãi: '.number_format(($sp->giagoc)-(($sp->giagoc)*($sp->khuyenmai))/100).' đ</div>
                             <div class="detail">
                             <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
-                            <a href="" class="btn btn-info">Mua ngay</a>
+                            <a href="themgiohang/'.$sp->id.'" class="btn btn-info">Mua ngay</a>
                             <a href="chitietsp/'.$sp->id.'" class="btn btn-info">Chi tiết</a>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ class GiaoDienController extends Controller
                                 <div class="offer">Giá khuyến mãi: '.number_format(($sp->giagoc)-(($sp->giagoc)*($sp->khuyenmai))/100).' đ</div>
                                 <div class="detail">
                                 <img src="uploads/sanpham/'.$sp->img.'" alt="dsadas" />
-                                <a href="" class="btn btn-info">Mua ngay</a>
+                                <a href="themgiohang/'.$sp->id.'" class="btn btn-info">Mua ngay</a>
                                 <a href="chitietsp/'.$sp->id.'" class="btn btn-info">Chi tiết</a>
                                 </div>
                             </div>
@@ -178,7 +178,6 @@ class GiaoDienController extends Controller
         else{
             Session::forget('cart');
         }
-        // trả về trang ban đầu
         return redirect()->back();  
     }
     public function getMotGioHang($id){
@@ -190,7 +189,18 @@ class GiaoDienController extends Controller
         } else {
             Session::forget('cart');
         }
-        // trả về trang ban đầu
+        // trả về trang trước
         return redirect()->back(); 
     }
+    // thêm giỏ hàng có số lượng
+    public function getThemGioHangCoSoLuong(Request $req){
+        $product = ChiTietSanPham::find($req->idSP);
+        $oldCart = Session('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        echo "đc";
+        $cart->ThemCoSoLuong($product, $req->idSP, $req->soluong);
+        $req->session()->put('cart',$cart);
+        return redirect()->back();  
+    }
+    
 }

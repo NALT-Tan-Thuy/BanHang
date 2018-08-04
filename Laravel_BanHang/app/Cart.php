@@ -36,6 +36,27 @@ class Cart
 		$this->totalQty++; 
 		$this->totalPrice += $item->giaban; 
 	}
+	// thêm hàng có số lượng
+	public function ThemCoSoLuong($item, $id, $soluong){ 
+		$giohang = ['soluong'=>$soluong, 'giabanhang' => $item->giaban, 'giagoc' => $item->giagoc, 'giakhuyenmai' => $item->khuyenmai, 'item' => $item]; 
+		if($this->items){ 
+			if(array_key_exists($id, $this->items)){ 
+				$giohang = $this->items[$id]; 
+			} 
+		} 
+		$giohang['soluong'] = $soluong; 
+		if($item->khuyenmai != 0){
+			$tinhgia = $item->giagoc - ($item->giagoc*$item->khuyenmai)/100;
+			$item->giaban = $tinhgia;
+		} 
+		else{ 
+			$item->giaban = $item->giagoc; 			 
+		} 
+		$giohang['giabanhang'] = $item->giaban * $soluong; 
+		$this->items[$id] = $giohang; 
+		$this->totalQty += $soluong; 
+		$this->totalPrice += $giohang['giabanhang']; 
+	}
 	//xóa 1
 	public function reduceByOne($id){
 		$this->items[$id]['soluong']--;
