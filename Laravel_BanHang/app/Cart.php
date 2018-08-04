@@ -17,7 +17,6 @@ class Cart
 	}
 
 	public function add($item, $id){ 
-		
 		$giohang = ['soluong'=>0, 'giabanhang' => $item->giaban, 'giagoc' => $item->giagoc, 'giakhuyenmai' => $item->khuyenmai, 'item' => $item]; 
 		if($this->items){ 
 			if(array_key_exists($id, $this->items)){ 

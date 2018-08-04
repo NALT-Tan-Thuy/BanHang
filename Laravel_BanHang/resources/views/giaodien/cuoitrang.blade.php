@@ -4,74 +4,24 @@
             <div class="footer" id="footer">
                 <div class="container">
                     <div class="row">
+                        @foreach($loaisanphamshare as $lsps)
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                            <h3> Danh mục áo quần </h3>
+                            <h3> Danh mục {{$lsps->ten}} </h3>
                             <ul>
+                                    <?php $i =0;?> 
+                                @foreach($sanphamshare as $sps)
+                                @if($sps->id_loaisanpham == $lsps->id)
+                                <?php if($i == 4) break;?> 
+                                <?php $i++;?> 
                                 <li>
-                                    <a href="#"> Sản phẩm 1 </a>
+                                    <a href="#"> {{$sps->ten}} </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 2 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Sản phẩm 3</a>
-                                </li>
-                                <li>
-                                    <a href="#"> Sản phẩm 4 </a>
-                                </li>
+                                @endif
+                                @endforeach
                             </ul>
                         </div>
-                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                            <h3> Danh mục sản phẩm khác </h3>
-                            <ul>
-                                <li>
-                                    <a href="#"> Sản phẩm 1 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Sản phẩm 2 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Sản phẩm 3 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Sản phẩm 4 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                            <h3> Danh mục giày dép </h3>
-                            <ul>
-                                <li>
-                                    <a href="#"> Sản phẩm 1 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Sản phẩm 2 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Sản phẩm 3 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Sản phẩm 4 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                            <h3> Danh mục phụ kiện </h3>
-                            <ul>
-                                <li>
-                                    <a href="#"> Phụ kiện 1 </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Phụ kiện 2</a>
-                                </li>
-                                <li>
-                                    <a href="#"> Phụ kiện 3</a>
-                                </li>
-                                <li>
-                                    <a href="#"> Phụ kiện 4</a>
-                                </li>
-                            </ul>
-                        </div>
+                        @endforeach
                         <div style="text-align: center;" class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
                             <h3> Liên hệ với chúng tôi </h3>
                             <ul>
