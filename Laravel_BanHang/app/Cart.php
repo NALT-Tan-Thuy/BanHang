@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+use App\Cart;
+use Session;
 
 class Cart
 {
@@ -38,14 +40,32 @@ class Cart
 	}
 	// thêm hàng có số lượng
 	public function ThemCoSoLuong($item, $id, $soluong){
-		$sl += $soluong; 
-		$giohang = ['soluong'=>$soluong, 'giabanhang' => $item->giaban, 'giagoc' => $item->giagoc, 'giakhuyenmai' => $item->khuyenmai, 'item' => $item]; 
+		$giohang = ['soluong'=>0, 'giabanhang' => $item->giaban, 'giagoc' => $item->giagoc, 'giakhuyenmai' => $item->khuyenmai, 'item' => $item]; 
 		if($this->items){ 
 			if(array_key_exists($id, $this->items)){ 
 				$giohang = $this->items[$id]; 
 			} 
 		} 
-		$giohang['soluong'] = $soluong; 
+		$sanphammua = Session::get('cart');
+		$dem = 0;
+		if($sanphammua != null){
+			foreach($sanphammua->items as $idsp =>$value){
+				if($idsp == $id){
+					$dem++;
+					break;
+				}
+			}
+			if($dem != 0){
+				$giohang['soluong'] = $sanphammua->items[$id]['soluong'] + $soluong;
+				$dem = 0;
+			}
+			else{
+				$giohang['soluong'] = $soluong;
+			}
+		}
+		else{
+			$giohang['soluong'] = $soluong;
+		}
 		if($item->khuyenmai != 0){
 			$tinhgia = $item->giagoc - ($item->giagoc*$item->khuyenmai)/100;
 			$item->giaban = $tinhgia;
