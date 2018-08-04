@@ -147,4 +147,10 @@ Route::get('sanpham/{id}', 'GiaoDienController@getSanPhamTheoLoai');
 // Xử lý chi tiết sản phẩm 
 Route::get('chitietsp/{id}', 'GiaoDienController@getChiTietsp');
 
+// Xử lý giỏ hàng
+Route::get('themgiohang/{id}','GiaoDienController@getThemGioHang');
+Route::get('xoagiohang/{id}','GiaoDienController@getXoaTatCaGioHang');
+Route::get('xoamotgiohang/{id}','GiaoDienController@getMotGioHang');
+
+
 

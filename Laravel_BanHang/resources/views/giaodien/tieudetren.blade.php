@@ -36,7 +36,7 @@
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <span class="glyphicon glyphicon-search"></span>
-                            </button>
+                                </button>
                             </span>
                         </div>
                     </div>
@@ -52,87 +52,43 @@
                 </div>
                 <div id="gio">
                     <span id="gioHang" class="glyphicon glyphicon-shopping-cart beta-select">
-                        <span id="count">10</span>
+                        <span id="count">@if(Session::has('cart')){{Session('cart')->totalQty}} @else 0 @endif
+                        </span>
                     </span>
                     <div class="beta-dropdown cart-body">
+
+                        @if(Session::has('cart')) @foreach($product_cart as $product)
                         <div class="cart-item">
                             <!-- Nút sửa -->
-                            <a class="cart-item-edit" href="">
+                            <!-- <a class="cart-item-edit" href="xoamotgiohang/{{$product['item']['id']}}">
                                 <i class="fa fa-edit" style="font-size:20px"></i>
-                            </a>
+                            </a> -->
                             <!-- Xong nút sửa -->
                             <!-- Nút xóa giỏ hàng -->
-                            <a class="cart-item-delete" href="">
+                            <a class="cart-item-delete" href="xoagiohang/{{$product['item']['id']}}">
                                 <i class="fa fa-trash-o" style="font-size:20px"></i>
                             </a>
                             <!-- Xong nút xóa -->
                             <div class="media">
                                 <a class="pull-left" href="trangcon_spkhac.html">
-                                    <img src="http://placehold.it/50x50" alt="">
+                                    <img style="width: 50px; height: 50px;" src="uploads/sanpham/{{ $product['item']['img'] }}" alt="">
                                 </a>
                                 <div class="media-body">
-                                    <span class="cart-item-title">Sample Woman Top</span>
+                                    <span class="cart-item-title">{{ $product['item']['ten'] }}</span>
 
-                                    <span class="cart-item-amount">1*
-                                        <span>$49.50</span>
+                                    <span class="cart-item-amount">
+                                        <span>@if($product['item']['khuyenmai'] > 0)
+                                            {{number_format($product['item']['giagoc']-($product['item']['giagoc']*$product['item']['khuyenmai'])/100)}} ({{$product['soluong']}})  
+                                            @else 
+                                            {{number_format($product['item']['giagoc'])}} ({{$product['soluong']}}) @endif </span></span>
                                     </span>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="cart-item">
-                            <!-- Nút sửa -->
-                            <a class="cart-item-edit" href="">
-                                <i class="fa fa-edit" style="font-size:20px"></i>
-                            </a>
-                            <!-- Xong nút sửa -->
-                            <!-- Nút xóa giỏ hàng -->
-                            <a class="cart-item-delete" href="">
-                                <i class="fa fa-trash-o" style="font-size:20px"></i>
-                            </a>
-                            <!-- Xong nút xóa -->
-                            <div class="media">
-                                <a class="pull-left" href="trangcon_spkhac.html">
-                                    <img src="http://placehold.it/50x50" alt="">
-                                </a>
-                                <div class="media-body">
-                                    <span class="cart-item-title">Sample Woman Top</span>
-
-                                    <span class="cart-item-amount">1*
-                                        <span>$49.50</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cart-item">
-                            <!-- Nút sửa -->
-                            <a class="cart-item-edit" href="">
-                                <i class="fa fa-edit" style="font-size:20px"></i>
-                            </a>
-                            <!-- Xong nút sửa -->
-                            <!-- Nút xóa giỏ hàng -->
-                            <a class="cart-item-delete" href="">
-                                <i class="fa fa-trash-o" style="font-size:20px"></i>
-                            </a>
-                            <!-- Xong nút xóa -->
-                            <div class="media">
-                                <a class="pull-left" href="trangcon_spkhac.html">
-                                    <img src="http://placehold.it/50x50" alt="">
-                                </a>
-                                <div class="media-body">
-                                    <span class="cart-item-title">Sample Woman Top</span>
-
-                                    <span class="cart-item-amount">1*
-                                        <span>$49.50</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
                         <div class="cart-caption">
                             <div class="cart-total text-right">Tổng tiền:
-                                <span class="cart-total-value">$34.55</span>
+                                <span class="cart-total-value">{{ number_format(Session('cart')->totalPrice)}} vnđ</span>
                             </div>
                             <div class="clearfix"></div>
 
@@ -143,6 +99,7 @@
                                 </a>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

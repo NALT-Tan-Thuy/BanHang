@@ -86,7 +86,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="dathang">
-                        <span class="fa fa-shopping-basket"></span> 10</a>
+                        <span class="fa fa-shopping-basket"></span> @if(Session::has('cart')){{Session('cart')->totalQty}} @else 0 @endif</a>
                 </li>
                 @if(Auth::check())
 
