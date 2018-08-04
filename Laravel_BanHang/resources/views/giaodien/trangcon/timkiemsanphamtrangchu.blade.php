@@ -11,6 +11,7 @@
 
 
 
+
 <style>
     #danhmuctieude {
         text-transform: uppercase;
@@ -26,7 +27,9 @@
     <div class="row" style="margin: 5% 0% 2% 0%;">
         <div id="bc1" class="btn-group btn-breadcrumb">
             <a href="trangchu" class="btn btn-default">
-                <span><i class="fa fa-home"></i></span>Trang chủ
+                <span>
+                    <i class="fa fa-home"></i>
+                </span>Trang chủ
             </a>
             <a href="javascript:void(0);" class="btn btn-default">
                 Tìm kiếm
@@ -65,84 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                    <span class="glyphicon glyphicon-user"> </span>Thành viên</a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:void(0);">Đổi mật khẩu</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:void(0);">Thông báo</a>
-                                                <span class="label label-info">10</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="javascript:void(0);">Thông tin cá nhân</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-log-out text-danger"></span>
-                                                <a href="javascript:void(0);" class="text-danger"> Thoát ra</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0);">
-                                    <span class="glyphicon glyphicon-file"> </span>Thống kê</a>
-                            </h4>
-                        </div>
-                        <div id="collapseFour" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-usd"></span>
-                                                <a href="javascript:void(0);">Đơn hàng</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-user"></span>
-                                                <a href="javascript:void(0);">Khách hàng</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-tasks"></span>
-                                                <a href="javascript:void(0);">Sản phẩm</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                                                <a href="javascript:void(0);">Lượt truy cập</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div> -->
+
                 <div class="space60">&nbsp;</div>
                 <div class="space60">&nbsp;</div>
                 <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
@@ -189,7 +115,6 @@
                                     <tr>
                                         <td>
                                             <a class="fa fa-tag" href="javascript:void(0);" style="margin-left: 10%; color: #076474;"> {{$tcsp->ten}} </a>
-                                            <!-- <span class="label label-success">NEW</span> -->
                                         </td>
                                     </tr>
                                     @endforeach
@@ -207,23 +132,22 @@
                 <div class="well">
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <select name="" id="input" class="form-control">
-                                    <option value=""> Lọc theo giá </option>
-                                    <option value=""> 100 - 200 </option>
-                                    <option value=""> 300 - 500</option>
-                                    <option value=""> >500</option>
-                                </select>
+                            <option value=""> Lọc theo giá </option>
+                            <option value=""> 100 - 200 </option>
+                            <option value=""> 300 - 500</option>
+                            <option value=""> >500</option>
+                        </select>
                     </div>
 
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <select name="" id="input" class="form-control">
-                                    <option value="">Theo cở</option>
-                                    <option value=""> L </option>
-                                    <option value=""> M </option>
-                                    <option value=""> S </option>
-                                </select>
+                            <option value="">Theo cở</option>
+                            <option value=""> L </option>
+                            <option value=""> M </option>
+                            <option value=""> S </option>
+                        </select>
                     </div>
                     <div class="space60">&nbsp;</div>
-
                     <div class="row">
                         <?php $i =0;?> @foreach($chitietsanpham as $ctsp)
                         <?php $i++;?>
@@ -236,17 +160,26 @@
                                 </div>
                                 <div class="single-item-body">
                                     <p class="single-item-title">{{$ctsp->ten}}</p>
-                                    <p class="single-item-price">
-                                        <span>{{ number_format(round($ctsp->giagoc - $ctsp->giagoc * $ctsp->khuyenmai / 100, -3), '0', '', '.') }} đ</span>
+                                    <p class="single-item-price" style=" font-size: 16px;">
+                                        @if ($ctsp->khuyenmai == 0)
+                                        <span class="flash-sale" style="color:black">{{ number_format(round($ctsp->giagoc, -3), '0', '', '.') }}đ</span>
+                                           @else
+                                        <span class="flash-del">{{ number_format(round($ctsp->giagoc, -3), '0', '', '.') }}đ</span>
+                                        <div class="ribbon-wrapper">
+                                                <div class="ribbon sale">Giảm giá</div>
+                                           </div>
+                                        <span class="flash-sale">{{ number_format(round($ctsp->giagoc - $ctsp->giagoc * $ctsp->khuyenmai / 100, -3),
+                                            '0', '', '.') }}đ</span> @endif
                                     </p>
                                 </div>
+
                                 <div class="single-item-caption">
                                     <a class="add-to-cart pull-left" href="javascript:void(0)">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
                                     <a class="beta-btn primary" href="javascript:void(0)">Chi tiết
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
