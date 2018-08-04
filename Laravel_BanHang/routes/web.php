@@ -138,9 +138,18 @@ Route::get('suamatkhau/{matkhau}', 'TaiKhoanController@getSuaMatKhau')->middlewa
 Route::get('chonquanhuyen/{tenTinh}', 'TaiKhoanController@getChonQuanHuyen')->middleware('TaiKhoanMiddleware');
 Route::get('chonxaphuong/{tenHuyen}', 'TaiKhoanController@getChonXaPhuong')->middleware('TaiKhoanMiddleware');
 
-Route::get('sanphamtuongunghome/{idsp}','GiaoDienController@getSanPhamTuongUngHome');
-Route::get('timsptuongunghome/{idsp}','GiaoDienController@getTimSPTuongUngHome');
+Route::get('sanphamtuongunghome/{idsp}', 'GiaoDienController@getSanPhamTuongUngHome');
+Route::get('timsptuongunghome/{idsp}', 'GiaoDienController@getTimSPTuongUngHome');
 
 // xử lý trang sản phẩm
 Route::get('sanpham/{idloai}/{idsp}', 'GiaoDienController@getSanPhamTheoSanPham');
 Route::get('sanpham/{id}', 'GiaoDienController@getSanPhamTheoLoai');
+
+Route::group(['prefix' => 'trangchu'], function () {
+    Route::post('timkiem', 'TimKiemController@getTimKiem');
+});
+
+Route::get('/demo', function () {
+    $id = App\ChiTietSanPham::select('id')->orderBy('id', 'ASC')->get()->last();
+    echo $id->id;
+});

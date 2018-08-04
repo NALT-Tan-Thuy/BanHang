@@ -111,13 +111,13 @@ class ChiTietSanPhamController extends Controller
 
     public function getThem()
     {
+        $kichcomau = KichCoMau::all();
         $sanpham = SanPham::all();
-        return view('admin.chitietsanpham.them', ['sanpham' => $sanpham]);
+        return view('admin.chitietsanpham.them', ['sanpham' => $sanpham, 'kichcomau' => $kichcomau]);
     }
 
     public function postThem(Request $request)
     {
-
         $this->validate($request,
             [
                 'GiaGoc' => 'numeric',
@@ -160,13 +160,26 @@ class ChiTietSanPhamController extends Controller
         }
 
         $chitietsanpham->save();
+
+        $id = ChiTietSanPham::select('id')->orderBy('id', 'ASC')->get()->last();
+        foreach ($request->NameKichCo as $key => $value) {
+            $kichco = new KichCo();
+            $kichco->ten = $value;
+            $kichco->id_chitietsanpham = $id->id;
+            $kichco->save();
+        }
+
         return redirect('admin/chitietsanpham/danhsach')->with('thongbaothem', "Bạn đã thêm dữ liệu thành công");
     }
 
     public function getXoa($id)
     {
+        $kichco = KichCo::where('id_chitietsanpham', '=', $id)->get();
+        foreach ($kichco as $kc) {
+            $kc->delete();
+        }
         $chitietsanpham = chitietsanpham::find($id);
-        if ($chitietsanpham->img != "") {
+        if (file_exists('uploads/sanpham/' . $chitietsanpham->img)) {
             unlink('uploads/sanpham/' . $chitietsanpham->img);
         }
         $chitietsanpham->delete();

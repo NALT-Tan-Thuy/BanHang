@@ -1,26 +1,18 @@
 @extends('admin.layout.index') 
 @section('linkcssTren')
-<!-- Colorpicker Css -->
-{{--
-<link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" /> --}}
 
-<!-- Dropzone Css -->
-{{--
-<link href="admin/plugins/dropzone/dropzone.css" rel="stylesheet"> --}}
 
 <!-- Multi Select Css -->
 <link href="admin/plugins/multi-select/css/multi-select.css" rel="stylesheet">
 
 <!-- Bootstrap Spinner Css -->
-{{--
-<link href="admin/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet"> --}}
+
 
 <!-- Bootstrap Select Css -->
 <link href="admin/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
 <!-- noUISlider Css -->
-{{--
-<link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" /> --}}
+
 @endsection
  
 @section('linkcssDuoi')
@@ -164,7 +156,7 @@
                                                     <option value="{{ $kcm->ten }}">{{ $kcm->ten }}</option>
                                                     @endif
                                                 @endif
-                                            @endforeach
+                                            @endforeach 
                                         </optgroup>
                                         <optgroup label="Kích cỡ số">
                                             @foreach ($kichcomau as $kcm)

@@ -50,3 +50,8 @@ $jsontinhtp = File::get("hanhchinhVietNam/tinh_tp.json");
 $tinhtp = json_decode($jsontinhtp);
 
 Cắt chuỗi: $user->tinh = explode('-', $request->TinhTP)[1];
+
+Trước khi unlink ảnh => kiểm tra ảnh có tồn tại hay không
+ if (file_exists('uploads/sanpham/' . $chitietsanpham->img)) {
+    unlink('uploads/sanpham/' . $chitietsanpham->img);
+}

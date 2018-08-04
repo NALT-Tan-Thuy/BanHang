@@ -8,36 +8,39 @@
         max-width: 100%;
         height: 100px !important;
     }
-
-    #Slide{
+    #Slide {
         margin-top: 20%;
     }
-    #spNoiBat{
+    #spNoiBat {
         padding: 0 0 20px 0;
     }
-    #spNoiBat h2{
+    #spNoiBat h2 {
         font-size: 24px;
     }
-    #thegioimuasam{
+    #thegioimuasam {
         font-size: 2em;
     }
-    #searchbox{
+    #searchbox {
         padding-top: 1em;
     }
-    #gioHang{
+    #gioHang {
         font-size: 4em;
     }
-    #header{
+    #header {
         min-height: 0;
     }
-    #khauHieuDau{
+    #khauHieuDau {
         margin-top: 23px;
         font-size: 28px;
     }
-    .beta-products-list h2{
+    .beta-products-list h2 {
         font-size: 24px;
     }
-    #timtatcasanpham{
+    #timtatcasanpham {
         font-size: 1.4em !important;
+    }
+    .shop-tracking-status .image-order-status .icon {
+        height: 29px;
+        width: 26px;
     }
 }

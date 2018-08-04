@@ -1,43 +1,45 @@
-@extends('admin.layout.index')
-
+@extends('admin.layout.index') 
 @section('linkcssTren')
-    <!-- Colorpicker Css -->
-    <link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
-    
-    <!-- Dropzone Css -->
-    <link href="admin/plugins/dropzone/dropzone.css" rel="stylesheet">
-    
-    <!-- Bootstrap Spinner Css -->
-    <link href="admin/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
-    
-    <!-- Bootstrap Tagsinput Css -->
-    <link href="admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
-    
-    <!-- Bootstrap Select Css -->
-    <link href="admin/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-    
-    <!-- noUISlider Css -->
-    <link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+<!-- Colorpicker Css -->
+<link href="admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+
+<!-- Dropzone Css -->
+<link href="admin/plugins/dropzone/dropzone.css" rel="stylesheet">
+
+<!-- Bootstrap Spinner Css -->
+<link href="admin/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
+
+<!-- Multi Select Css -->
+<link href="admin/plugins/multi-select/css/multi-select.css" rel="stylesheet">
+
+<!-- Bootstrap Tagsinput Css -->
+<link href="admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+
+<!-- Bootstrap Select Css -->
+<link href="admin/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+<!-- noUISlider Css -->
+<link href="admin/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
 @endsection
  
 @section('linkcssDuoi')
-    <style>
-        .sidebar {
-            width: 220px;
-        }
+<style>
+    .sidebar {
+        width: 220px;
+    }
 
-        section.content {
-            margin: 100px 15px 0 235px;
-        }
+    section.content {
+        margin: 100px 15px 0 235px;
+    }
 
-        .navbar-nav .dropdown-menu {
-            margin-top: 0px !important;
-        }
+    .navbar-nav .dropdown-menu {
+        margin-top: 0px !important;
+    }
 
-        .navbar-header {
-            width: 220px;
-        }
-    </style>
+    .navbar-header {
+        width: 220px;
+    }
+</style>
 @endsection
  
 @section('content')
@@ -45,9 +47,9 @@
     <div class="container-fluid">
         <div class="block-header">
             <center>
-                    <h1>
-                        TIÊU ĐỀ 1
-                    </h1>
+                <h1>
+                    TIÊU ĐỀ 1
+                </h1>
             </center>
         </div>
         <!-- FORM -->
@@ -76,8 +78,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                    <h2 class="card-inside-title">Sản phẩm</h2>
-                                    <select class="form-control show-tick" name="id_SanPham" required>
+                                        <h2 class="card-inside-title">Sản phẩm</h2>
+                                        <select class="form-control show-tick" name="id_SanPham" required>
                                         <option value="">Chọn sản phẩm</option>
                                         @foreach ($sanpham as $sp) 
                                         <option value="{{ $sp->id }}">{{$sp->ten }}</option>
@@ -143,12 +145,31 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-12">
+                                    <h2 class="card-inside-title">Chọn kích cỡ</h2>
+                                    <select id="optgroup" class="ms" multiple="multiple" name="NameKichCo[]" required>
+                                        <optgroup label="Kích cỡ chữ">
+                                            @foreach ($kichcomau as $kcm)
+                                                @if (!intval($kcm->ten))
+                                                    <option value="{{ $kcm->ten }}">{{ $kcm->ten }}</option>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="Kích cỡ số">
+                                            @foreach ($kichcomau as $kcm)
+                                                @if (intval($kcm->ten))
+                                                    <option value="{{ $kcm->ten }}">{{ $kcm->ten }}</option>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                    </select>
+                                </div>
                                 <div class="col-md-12">
                                     <h2 class="card-inside-title">Mô tả</h2>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <textarea rows="3" class="form-control no-resize auto-growth" placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;" value="" name="MoTa"></textarea>
+                                            <textarea rows="3" class="form-control no-resize auto-growth" placeholder="Điền nội dung ENTER để xuống dòng" style="overflow: hidden; overflow-wrap: break-word; height: 32px;"
+                                                value="" name="MoTa"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +178,7 @@
                                     <h2 class="card-inside-title">Chọn ảnh</h2>
                                     <div class="form-group">
                                         <input type="file" name="file" id="profile-img" required>
-                                       <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
+                                        <img src="" id="profile-img-tag" width="500px" style="display: block; margin-left: auto; margin-right: auto;" />
                                     </div>
                                 </div>
                                 <div class="col-md-3"></div>
@@ -179,20 +200,24 @@
 @endsection
  
 @section('script')
-    <!-- Custom Js -->
-    <script src="admin/js/basic-form-elements.js "></script>
+<!-- Custom Js -->
+<script src="admin/js/basic-form-elements.js "></script>
 
-    <!-- Autosize Plugin Js -->
-    <script src="admin/plugins/autosize/autosize.js "></script>
+<!-- Autosize Plugin Js -->
+<script src="admin/plugins/autosize/autosize.js "></script>
 
-    <!-- Moment Plugin Js -->
-    <script src="admin/plugins/momentjs/moment.js "></script>
+<!-- Multi Select Plugin Js -->
+<script src="admin/plugins/multi-select/js/jquery.multi-select.js"></script>
 
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="admin/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js "></script>
 
-    <script type="text/javascript">
-        function readURL(input) {
+<!-- Moment Plugin Js -->
+<script src="admin/plugins/momentjs/moment.js "></script>
+
+<!-- Bootstrap Material Datetime Picker Plugin Js -->
+<script src="admin/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js "></script>
+
+<script type="text/javascript">
+    function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
@@ -205,8 +230,13 @@
         $("#profile-img").change(function() {
             readURL(this);
         });
-    </script>
 
+</script>
+<script>
+    //Multi-select
+    $('#optgroup').multiSelect({ selectableOptgroup: true });
+
+</script>
 @if(count($errors) > 0)
 <script>
     var s = "";
@@ -219,6 +249,7 @@
             timer: 10000,
             icon: "error",
         });
+
 </script>
 @endif
 @endsection

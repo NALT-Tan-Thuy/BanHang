@@ -15,7 +15,8 @@
                 <p class="textLogo" id="thegioimuasam">{{$trangchushare->tieudetrai}}</p>
             </div>
             <div id="searchForm">
-                <form method="get" action="#" name="timkiem">
+                <form method="POST" action="trangchu/timkiem" name="timkiem" enctype="multipart/form-data">
+                    @csrf()
                     <div id="searchbox" class="col-xs-12 col-md-5">
                         <div class="input-group">
                             <div class="input-group-btn search-panel">
@@ -26,7 +27,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     @foreach($loaispallshare as $lspas)
                                     <li>
-                                        <a href="trangcon_spkhac.html">{{$lspas->ten}}</a>
+                                        <a href="{{$lspas->id}}">{{$lspas->ten}}</a>
                                     </li>
                                     @endforeach
                                 </ul>
@@ -34,7 +35,7 @@
                             <input type="hidden" name="search_param" value="all" id="search_param">
                             <input type="text" class="form-control" name="keyword" placeholder="Nhập vào sản phẩm bạn muốn tìm kiếm">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
+                                <button class="btn btn-default" type="submit">
                                     <span class="glyphicon glyphicon-search"></span>
                             </button>
                             </span>
