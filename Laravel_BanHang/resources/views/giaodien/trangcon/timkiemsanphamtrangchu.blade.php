@@ -7,11 +7,6 @@
 <link rel="stylesheet" href="{{ asset('giaodien/css/sanphamkhac.css')}}">
 @endsection
 
-
-
-
-
-
 <style>
     #danhmuctieude {
         text-transform: uppercase;
@@ -123,72 +118,81 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="col-sm-9 col-md-9">
             <div class="well">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <h4>Tìm thấy {{ $chitietsanpham->count() }} sản phẩm</h4>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <select name="" id="loctheogia" class="form-control">
+                        <option value="0-0"> Lọc theo giá </option>
+                        <option value="0-100000"> Dưới 100.000 </option>
+                        <option value="100000-200000"> 100.000 - 200.000 </option>
+                        <option value="300000-500000"> 300.000 - 500.000</option>
+                        <option value="500000-2147483547"> Trên 500.000</option>
+                    </select>
+                </div>
 
-                <div class="well">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <select name="" id="input" class="form-control">
-                            <option value=""> Lọc theo giá </option>
-                            <option value=""> 100 - 200 </option>
-                            <option value=""> 300 - 500</option>
-                            <option value=""> >500</option>
-                        </select>
-                    </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <select name="" id="loctheoten" class="form-control">
+                        <option value="0-0">Sắp xếp</option>
+                        <option value="ASC"> Tên từ A - Z </option>
+                        <option value="DESC"> Tên từ Z - A </option>
+                    </select>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <input type="hidden" id="tukhoa" value="{{ $tukhoa }}">
+                    <input type="hidden" id="idsanpham" value="{{ $idsanpham }}">
+                    <button type="button" class="btn btn-primary" onclick="locSP();">Tìm kiếm</button>
+                </div>
 
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <select name="" id="input" class="form-control">
-                            <option value="">Theo cở</option>
-                            <option value=""> L </option>
-                            <option value=""> M </option>
-                            <option value=""> S </option>
-                        </select>
-                    </div>
-                    <div class="space60">&nbsp;</div>
-                    <div class="row">
-                        <?php $i =0;?> @foreach($chitietsanpham as $ctsp)
-                        <?php $i++;?>
-                        <div class="col-sm-3">
-                            <div class="single-item">
-                                <div class="single-item-header">
-                                    <a href="javascript:void(0)">
-                                        <img height="200px;" src="uploads/sanpham/{{$ctsp->img}}" alt="">
-                                    </a>
-                                </div>
-                                <div class="single-item-body">
-                                    <p class="single-item-title">{{$ctsp->ten}}</p>
-                                    <p class="single-item-price" style=" font-size: 16px;">
-                                        @if ($ctsp->khuyenmai == 0)
-                                        <span class="flash-sale" style="color:black">{{ number_format(round($ctsp->giagoc, -3), '0', '', '.') }}đ</span>
-                                           @else
-                                        <span class="flash-del">{{ number_format(round($ctsp->giagoc, -3), '0', '', '.') }}đ</span>
-                                        <div class="ribbon-wrapper">
-                                                <div class="ribbon sale">Giảm giá</div>
-                                           </div>
-                                        <span class="flash-sale">{{ number_format(round($ctsp->giagoc - $ctsp->giagoc * $ctsp->khuyenmai / 100, -3),
-                                            '0', '', '.') }}đ</span> @endif
-                                    </p>
-                                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin:0">
+                    <hr style="margin-bottom: 10px;;">
+                </div>
+                <div class="space60">&nbsp;</div>
 
-                                <div class="single-item-caption">
-                                    <a class="add-to-cart pull-left" href="javascript:void(0)">
+                <div class="row" id="ajaxSanPham">
+                    <?php $i =0;?> @foreach($chitietsanpham as $ctsp)
+                    <?php $i++;?>
+                    <div class="col-sm-3">
+                        <div class="single-item">
+                            <div class="single-item-header">
+                                <a href="javascript:void(0)">
+                                    <img height="200px;" src="uploads/sanpham/{{$ctsp->img}}" alt="">
+                                </a>
+                            </div>
+                            <div class="single-item-body">
+                                <p class="single-item-title">{{$ctsp->ten}}</p>
+                                <p class="single-item-price" style="font-size: 16px;">
+                                    @if ($ctsp->khuyenmai == 0)
+                                    <span class="flash-sale" style="color:black">{{ number_format(round($ctsp->giagoc, -3), '0', '', '.') }}đ</span>                                    @else
+                                    <span class="flash-del">{{ number_format(round($ctsp->giagoc, -3), '0', '', '.') }}đ</span>
+                                    <span class="flash-sale">{{ number_format(round($ctsp->giagoc - $ctsp->giagoc * $ctsp->khuyenmai / 100, -3),
+                                            '0', '', '.') }}đ</span>
+                                    <div class="ribbon-wrapper">
+                                        <div class="ribbon sale">Giảm giá</div>
+                                    </div>
+                                    @endif
+                                </p>
+                            </div>
+
+                            <div class="single-item-caption">
+                                <a class="add-to-cart pull-left" href="javascript:void(0)">
                                         <i class="fa fa-shopping-cart"></i>
                                     </a>
-                                    <a class="beta-btn primary" href="javascript:void(0)">Chi tiết
+                                <a class="beta-btn primary" href="javascript:void(0)">Chi tiết
                                         <i class="fa fa-chevron-right"></i>
                                     </a>
-                                    <div class="clearfix"></div>
-                                </div>
+                                <div class="clearfix"></div>
                             </div>
                         </div>
-                        <?php if($i % 4 == 0){
+                    </div>
+                    <?php if($i % 4 == 0){
                             echo '<div class="space60">&nbsp;</div>';
                         }
                         ?> @endforeach
-                    </div>
                 </div>
             </div>
         </div>
@@ -207,4 +211,33 @@
     @include('giaodien/cuoitrang')
 
     <!-- Xong nội dung -->
+    <script>
+        function locSP(){
+            var arr = [
+                document.getElementById('idsanpham').defaultValue, 
+                document.getElementById('tukhoa').defaultValue, 
+                document.getElementById('loctheogia').value, 
+                document.getElementById('loctheoten').value
+                ];
+            if ((document.getElementById('loctheogia').value == "0-0") && (document.getElementById('loctheoten').value == "0-0")) {
+                return;
+            } else {
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ajaxSanPham").innerHTML = this.responseText;
+                    }
+                };
+                
+                xmlhttp.open("GET","trangchu/ajaxSanPhamTimKiem/" + arr, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
 @endsection
