@@ -14,7 +14,7 @@
                                 <?php if($i == 4) break;?> 
                                 <?php $i++;?> 
                                 <li>
-                                    <a href="javascript:void(0)"> {{$sps->ten}} </a>
+                                    <a href="sanpham/{{$lsps->id}}/{{$sps->id}}"> {{$sps->ten}} </a>
                                 </li>
                                 <li>
                                 @endif

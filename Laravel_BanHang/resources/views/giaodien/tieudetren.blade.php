@@ -95,7 +95,7 @@
 
                             <div class="center">
                                 <div class="space10">&nbsp;</div>
-                                <a href="dathang.html" class="btn btn-default">Đặt hàng
+                                <a href="dathang" class="btn btn-default">Đặt hàng
                                     <i class="fa fa-hand-o-left"></i>
                                 </a>
                             </div>

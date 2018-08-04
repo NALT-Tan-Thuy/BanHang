@@ -189,7 +189,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                     <!-- Xong hình sản phẩm -->
                     <!-- thông tin chi tiết -->
                     <form method="GET" action="themgiohangsl">
@@ -268,10 +268,12 @@
                     @if(count($ttchitiet) != 0) @foreach($ttchitiet as $ttct)
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        @if($ttct->img =! null)
                         <img src="uploads/sanpham/{{$ttct->img}}" alt="">
+                        @endif
                     </div>
                     <div class="space10">&nbsp;</div>
-                    @endforeach @else @endif
+                    @endforeach @endif
                 </div>
                 <!-- xong nội dung thêm chi tiết -->
                 <!-- Nội dung bình luận -->
@@ -285,10 +287,17 @@
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </h4>
                             <form role="form">
+                                @if(Auth::check())
                                 <div class="form-group">
                                     <textarea class="form-control" rows="3"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Gửi</button>
+                                <button onclick="GoiBinhLuan();" type="submit" class="btn btn-primary">Gửi</button>
+                                @else
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3" disabled>Vui lòng đăng nhập tài khoản để được thực hiện tính năng này!</textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" disabled>Gửi</button>
+                                @endif
                             </form>
                         </div>
                         <!-- Xong text nhập bình luận -->
@@ -297,7 +306,8 @@
                         <div class="col-xs-12 col-md-12">
                             <div class="noiDungBinhLuan" class="media">
                                 <a class="pull-left">
-                                    <img class="media-object" src="uploads/users/{{$bl->img}}" alt="">
+                                    @if($bl->img =! null)
+                                    <img class="media-object" src="uploads/sanpham/{{$bl->img}}" alt=""> @endif
                                 </a>
                                 <div class="media-body">
                                     <h4 class="media-heading tenbinhluan">{{$bl->tendangnhap}}
@@ -346,8 +356,10 @@
         else
             dem = 0;
     }
-</script>
-@include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
+    function GoiBinhLuan(idsp) {
+        console.log(idsp);
+    }
+</script> @include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 
 
 <!-- Xong nội dung trang con -->
