@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row" style="margin: 5% 0% 2% 0%;">
         <div id="bc1" class="btn-group btn-breadcrumb">
-            <a href="trangchu.html" class="btn btn-default">
+            <a href="trangchu" class="btn btn-default">
                 <i class="fa fa-home"></i>
             </a>
             <a href="sanpham/1" class="btn btn-default">
@@ -182,12 +182,13 @@
 
                             @foreach($tinhthanh as $t_tp)
                             <div class="checkbox checkbox-success">
-                                <input id="idcheck2{{$t_tp->id}}" type="checkbox">
+                                <input type="checkbox">
                                 <label for="checkbox1">
                                     {{$t_tp->tendaydu}}
                                 </label>
                             </div>
                             @endforeach
+
                         </div>
                     </div>
                 </div>
@@ -210,7 +211,7 @@
                                     <?php if($dem >=24) break;?>
                                     <tr>
                                         <td>
-                                            <a class="fa fa-tag" href="" style="margin-left: 10%; color: #076474;"> {{$tcsp->ten}} </a>
+                                            <a class="fa fa-tag" href="sanpham/1" style="margin-left: 10%; color: #076474;"> {{$tcsp->ten}} </a>
                                             <!-- <span class="label label-success">NEW</span> -->
                                         </td>
                                     </tr>
@@ -254,21 +255,21 @@
                     <div class="col-sm-3">
                         <div class="single-item">
                             <div class="single-item-header">
-                                <a href="product.html">
+                                <a href="chitietsp/{{$sptl->id}}">
                                     <img height="200px;" src="uploads/sanpham/{{$sptl->img}}" alt="">
                                 </a>
                             </div>
                             <div class="single-item-body">
                                 <p class="single-item-title">{{$sptl->ten}}</p>
                                 <p class="single-item-price">
-                                    <span>$34.55</span>
+                                    <span>{{number_format($sptl->giagoc)}} đ</span>
                                 </p>
                             </div>
                             <div class="single-item-caption">
                                 <a class="add-to-cart pull-left" href="shopping_cart.html">
                                     <i class="fa fa-shopping-cart"></i>
                                 </a>
-                                <a class="beta-btn primary" href="product.html">Chi tiết
+                                <a class="beta-btn primary" href="chitietsp/{{$sptl->id}}">Chi tiết
                                     <i class="fa fa-chevron-right"></i>
                                 </a>
                                 <div class="clearfix"></div>
@@ -283,14 +284,14 @@
                                 <div class="ribbon sale">Giảm giá</div>
                             </div>
                             <div class="single-item-header">
-                                <a href="product.html">
+                                <a href="chitietsp/{{$sptl->id}}">
                                     <img height="200px;" src="uploads/sanpham/{{$sptl->img}}" alt="">
                                 </a>
                             </div>
                             <div class="single-item-body">
                                 <p class="single-item-title">{{$sptl->ten}}</p>
                                 <p class="single-item-price">
-                                    <span class="flash-sale">$33.55</span>
+                                    <span class="flash-sale">{{number_format($sptl->giagoc-($sptl->giagoc*$sptl->khuyenmai)/100)}} đ</span>
                                 </p>
                             </div>
                             <div class="single-item-caption">

@@ -180,7 +180,7 @@
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
+                                        <a class="add-to-cart pull-left" href="themgiohang/{{$spm->id}}">
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitietsp/{{$spm->id}}">Chi tiết
@@ -198,11 +198,11 @@
                                     <div class="single-item-body">
                                         <p class="single-item-title">{{$spm->ten}}</p>
                                         <p class="single-item-price">
-                                            <span class="flash-del">{{number_format($spm->giagoc)}}đ</span>
+                                            <span>{{number_format($spm->giagoc)}}đ</span>
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html">
+                                        <a class="add-to-cart pull-left" href="themgiohang/{{$spm->id}}">
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                         <a class="beta-btn primary" href="chitietsp/{{$spm->id}}">Chi tiết
@@ -243,7 +243,7 @@
                                     <div class="single-item-body">
                                         <p class="single-item-title">{{$spkm->ten}}</p>
                                         <p class="single-item-price">
-                                            <span class="flash-del">{{number_format($spkm->giagoc)}}đ</span>
+                                            <span>{{number_format($spkm->giagoc)}}đ</span>
                                             <span class="flash-sale">{{number_format(($spkm->giagoc)-(($spkm->giagoc)*($spkm->khuyenmai))/100)}}đ</span>
                                         </p>
                                     </div>

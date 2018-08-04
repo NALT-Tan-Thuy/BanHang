@@ -117,7 +117,6 @@ Route::get('demojson', function () {
 });
 // Phần Route cho giao diện người dùng
 Route::get('trangchu', 'GiaoDienController@getTrangChu');
-Route::get('chitietsp', 'GiaoDienController@getChiTietsp');
 Route::get('dathang', 'GiaoDienController@getDatHang');
 
 // Quản lý tài khoản, đăng ký, đăng  nhập
@@ -153,3 +152,10 @@ Route::get('/demo', function () {
     $id = App\ChiTietSanPham::select('id')->orderBy('id', 'ASC')->get()->last();
     echo $id->id;
 });
+// Xử lý chi tiết sản phẩm
+Route::get('chitietsp/{id}', 'GiaoDienController@getChiTietsp');
+
+// Xử lý giỏ hàng
+Route::get('themgiohang/{id}', 'GiaoDienController@getThemGioHang');
+Route::get('xoagiohang/{id}', 'GiaoDienController@getXoaTatCaGioHang');
+Route::get('xoamotgiohang/{id}', 'GiaoDienController@getMotGioHang');

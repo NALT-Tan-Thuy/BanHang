@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\ChiTietSanPham;
+use App\Cart;
+use Session;
 
 class GiaoDienController extends Controller
 {
@@ -136,8 +138,18 @@ class GiaoDienController extends Controller
     }
     
     // trang con chi tiết sản phẩm
-    public function getChiTietSP(){
-        return view('giaodien/trangcon/chitietsp');
+    public function getChiTietSP($idsp){
+        $chitietsp = DB::table('chitietsanpham')->where('id',$idsp)->first();
+        $ttchitiet = DB::table('thongtinchitietsanpham')->where('id_chitietsanpham',$idsp)->get();
+        $binhluan = DB::table('binhluan')->where('id_chitietsanpham',$idsp)->get();
+        $tatcabinhluan = DB::table('binhluan')
+                        ->join('users','binhluan.id_users','users.id')->where('id_chitietsanpham',$idsp)->get();
+        // $tatcabinhluan->dd();
+        if($chitietsp != null){
+            return view('giaodien/trangcon/chitietsp',compact('chitietsp','ttchitiet','binhluan','tatcabinhluan'));
+        }
+        else
+            return redirect()->back();
     }
     // trang con đặt hàng
     public function getDatHang(){
@@ -147,5 +159,38 @@ class GiaoDienController extends Controller
     public function getAjaxSP(){
         $products  = DB::table('chitietsanpham')->orderBy('id','desc')->paginate(4); 
         return View::make('giaodien/trangchu')->with('products',$products)->render();
+    }
+    public function getThemGioHang(Request $req, $id){
+        $product = ChiTietSanPham::find($id);
+        $oldCart = Session('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $id);
+        $req->session()->put('cart',$cart);
+        return redirect()->back();  
+    }   
+    public function getXoaTatCaGioHang($id){
+        $oldCart = Session::has('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        if(count($cart->items)>0){
+            Session::put('cart',$cart);
+        }
+        else{
+            Session::forget('cart');
+        }
+        // trả về trang ban đầu
+        return redirect()->back();  
+    }
+    public function getMotGioHang($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->reduceByOne($id);
+        if (count($cart->items) > 0) {
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
+        // trả về trang ban đầu
+        return redirect()->back(); 
     }
 }
