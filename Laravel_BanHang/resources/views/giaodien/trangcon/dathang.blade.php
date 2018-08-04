@@ -33,28 +33,31 @@
 <!--    Nội dung trang con   -->
 
 <!-- Phần đặt hàng -->
+@if(Session::has('dathangthanhcong'))
+<div style="font-size: 1.8em; font-weight: bolder; text-align: center;" class="alert alert-danger" class="alert alert-info">{{Session::get('dathangthanhcong')}}</div>
+@endif
 <div class="container">
     <div id="contentDatHang">
-
-        <form action="#" method="post" class="beta-form-checkout">
+        <form action="thanhtoandathang" method="POST" class="beta-form-checkout">
+            @csrf
             <div class="row">
                 <div class="col-sm-6 thongTinHang">
-                    <h4>Đặt hàng</h4>
+                    <h4 style="text-align: center"><b>Đặt hàng</b></h4>
                     <div class="space20">&nbsp;</div>
 
                     <div class="form-group row">
                         <!-- Default input -->
                         <label class="col-sm-3 col-form-label">Họ và tên*</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Nhập họ và tên">
+                            <input name="tenkhachhang" id="tenkhachhang" type="text" class="form-control" placeholder="Nhập họ và tên" required="required">
                         </div>
                     </div>
 
                     <div class="form-block">
                         <label>Giới tính </label>
-                        <input id="gender" type="radio" class="input-radio" name="gender" value="nam" checked="checked" style="width: 10%">
+                        <input id="gender" type="radio" class="input-radio" name="gender" value="Nam" checked="checked" style="width: 10%">
                         <span style="margin-right: 10%">Nam</span>
-                        <input id="gender" type="radio" class="input-radio" name="gender" value="nữ" style="width: 10%">
+                        <input id="gender" type="radio" class="input-radio" name="gender" value="Nữ" style="width: 10%">
                         <span>Nữ</span>
 
                     </div>
@@ -63,7 +66,7 @@
                         <!-- Default input -->
                         <label class="col-sm-3 col-form-label">Email*</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Nhập vào email">
+                            <input type="email" class="form-control" name="inputEmail3" id="inputEmail3" placeholder="Nhập vào email" required="required">
                         </div>
                     </div>
 
@@ -71,13 +74,13 @@
                         <!-- Default input -->
                         <label class="col-sm-3 col-form-label">Số điện thoại*</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Nhập vào số điện thoại">
+                            <input name="sdt" id="sdt" type="text" class="form-control" placeholder="Nhập vào số điện thoại" required="required">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Tỉnh - Thành Phố </label>
-                        <select name="tinh" id="tinh" onchange="ChonQuanHuyen(this.value);" class="form-control">
+                        <label>Tỉnh - Thành Phố *</label>
+                        <select name="tinh" id="tinh" onchange="ChonQuanHuyen(this.value);" class="form-control" required="required">
                             <option value="0">Lựa chọn Tỉnh - Thành Phố</option>
                             @foreach($tinh_thanhpho as $tp)
                             <option value="{{$tp->id}}">{{$tp->tendaydu}}</option>
@@ -85,27 +88,27 @@
                         </select>
                     </div>
                     <div id="luuquanhuyen" class="form-group">
-                        <label>Quận - Huyện </label>
-                        <select name="huyen" id="huyen" onchange="ChonXaPhuong(this.value);" class="form-control">
+                        <label>Quận - Huyện* </label>
+                        <select name="huyen" id="huyen" onchange="ChonXaPhuong(this.value);" class="form-control" required="required">
                         </select>
                     </div>
                     <div id="luuxaphuong" class="form-group">
-                        <label>Xã - Phường</label>
+                        <label>Xã - Phường*</label>
                         <select name="xa" id="xa" class="form-control">
-                        </select>
+                        </select required="required">
                     </div>
 
                     <div class="form-group row">
                         <!-- Default input -->
                         <label class="col-sm-3 col-form-label">Địa chỉ*</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" placeholder="Nhập vào chính sát địa chỉ nhà">
+                            <input name="diachi" id="diachi" type="text" class="form-control" placeholder="Nhập vào chính sát địa chỉ nhà" required="required">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea2">Ghi chú</label>
-                        <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
+                        <textarea name="ghichu" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
                     </div>
 
                     <div class="your-order-head">
@@ -119,7 +122,7 @@
                                     checked="checked" data-order_button_text="">
                                 <label for="payment_method_bacs">Thanh toán khi nhận hàng </label>
                                 <div class="payment_box payment_method_bacs" style="display: block;">
-                                    Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
+                                    Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng. Vui lòng nhập địa chỉ chính sát.
                                 </div>
                             </li>
 
@@ -148,8 +151,8 @@
                             <span class="fa fa-truck"></span>
                         </button>
                         @else
-                        <button type="button" class="beta-btn primary" disabled>BẠN CHƯA CHỌN HÀNG
-                            <span class="glyphicon glyphicon-check"></span>
+                        <button type="" class="beta-btn primary" disabled>TIẾP TỤC MUA SẮM
+                            <span href="trangchu" class="fa fa-cart-plus"></span>
                         </button>
                         @endif
                     </div>
@@ -175,43 +178,34 @@
 
                 <div id="dathangform" class="col-sm-6">
                     <div class="your-order">
-                        <div class="your-order-head">
-                            <h5>Đơn hàng của bạn</h5>
+                        <div style="text-align: center" class="your-order-head">
+                            <h5><b>Đơn hàng của bạn</b></h5>
                         </div>
+                        @if(Session::has('cart'))
                         <div class="your-order-body">
                             <div class="your-order-item">
                                 <div>
                                     <!--  one item	 -->
+                                    @foreach($product_cart as $product)
                                     <div id="sanphamdatmua" class="media">
+                                        <input type="hidden" name="masp" value="{{ $product['item']['id'] }}">
                                         <div class="col-xs-12 col-md-3">
-                                            <img src="http://makeitlast.se/wp-content/uploads/2015/05/208336716_1fcd5810-ca05-47e1-b137-752da3da58ec.jpg" alt="" class="pull-left">
+                                            <img src="uploads/sanpham/{{ $product['item']['img'] }}" alt="" class="pull-left">
                                         </div>
                                         <div class="media-body">
-                                            <p class="font-large">Giày Adidas Supperstar</p>
+                                            <p class="font-large">{{ $product['item']['ten'] }}</p>
                                             <p class="color-gray your-order-info">Giá:
-                                                <span id="giasptren">200.000 đồng</span>
+                                                <span id="giasptren">@if($product['item']['khuyenmai'] > 0) {{number_format($product['item']['giagoc']-($product['item']['giagoc']*$product['item']['khuyenmai'])/100)}}
+                                                    @else {{number_format($product['item']['giagoc'])}}
+                                                    @endif
+                                                </span>
                                             </p>
-                                            <span class="color-gray your-order-info">Số lượng: 2</span>
-                                            <span id="size" class="color-gray your-order-info">Size: 41</span>
+                                            <span class="color-gray your-order-info">Số lượng: {{$product['soluong']}}</span>
+                                            <a href="xoagiohang/{{$product['item']['id']}}" id="size" class="fa fa-trash-o"></a>
                                         </div>
                                     </div>
                                     <!-- end one item -->
-                                    <!--  one item	 -->
-                                    <div id="sanphamdatmua" class="media">
-                                        <div class="col-xs-12 col-md-3">
-                                            <img src="https://giayxuatkhauhn.com/wp-content/uploads/2017/09/Gi%C3%A0y-Sneakers-PUMA-Suede-da-l%E1%BB%99n-VNXK-11.jpg"
-                                                alt="" class="pull-left">
-                                        </div>
-                                        <div class="media-body">
-                                            <p class="font-large">Giày nam Sneakers Puma da lộn</p>
-                                            <p class="color-gray your-order-info">Giá:
-                                                <span id="giasptren">200.000 đồng</span>
-                                            </p>
-                                            <span class="color-gray your-order-info">Số lượng: 1</span>
-                                            <span id="size" class="color-gray your-order-info">Size: 41</span>
-                                        </div>
-                                    </div>
-                                    <!-- end one item -->
+                                    @endforeach
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -220,12 +214,16 @@
                                     <p class="your-order-f18">Tổng tiền:</p>
                                 </div>
                                 <div class="pull-right">
-                                    <h5 class="color-black">400.000 đồng</h5>
+                                    <h5 class="color-black">{{ number_format(Session('cart')->totalPrice)}} vnđ</h5>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-
+                        @else 
+                        <div class="alert alert-info">
+                            <b>GIỎ HÀNG CHƯA CÓ SẢN PHẨM NÀO!</b>
+                        </div>
+                        @endif
                     </div>
                     <!-- .your-order -->
                 </div>

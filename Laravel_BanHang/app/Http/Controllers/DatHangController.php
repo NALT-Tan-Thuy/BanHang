@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\KhachHang;
+use App\HoaDon;
+use App\ChiTietHoaDon;
+use Session;
+use DB;
+use App\Cart;
+
 
 class DatHangController extends Controller
 {
 
-    
+
     // ajax lấy tên huyện
     public function getChonQuanHuyen($idTinh)
     {
@@ -33,5 +40,40 @@ class DatHangController extends Controller
             $hienthi = $hienthi . '<option value="' . $xa->id . '">' . $xa->tendaydu . '</option>';
         }
         echo $hienthi . '</select>';
+    }
+    public function postThanhToanDatHang(Request $req){
+        $tentinh = DB::table('tinh_thanhpho')->where('id',$req->tinh)->first();
+        $tenhuyen = DB::table('quan_huyen')->where('id',$req->huyen)->first();
+        $tenxa = DB::table('xa_phuong')->where('id',$req->xa)->first();
+        $khachhang = new KhachHang;
+        $khachhang->hoten = $req->tenkhachhang;
+        $khachhang->gioitinh = $req->gender;
+        $khachhang->email = $req->inputEmail3;
+        $khachhang->sodienthoai = $req->sdt;
+        $khachhang->tinh = $tentinh->tendaydu;
+        $khachhang->huyen = $tenhuyen->tendaydu;
+        $khachhang->xa = $tenxa->tendaydu;
+        $khachhang->diachi = $req->diachi;
+        $khachhang->ghichu = $req->ghichu;
+        $khachhang->loaithanhtoan = $req->payment_method;
+        $khachhang->save();
+        
+        $hoadon = new HoaDon;
+        $hoadon->thanhtoanhoadon = 0;
+        $hoadon->id_khachhang = $khachhang->id;
+        $hoadon->save();
+
+        $sanphammua = Session::get('cart');
+        foreach($sanphammua->items as $id => $value){
+            $chitiethoadon = new ChiTietHoaDon();
+            $chitiethoadon->thanhtoanhoadonchitiet = 0;
+            $chitiethoadon->id_hoadon = $hoadon->id;
+            $chitiethoadon->id_chitietsanpham = $id;
+            $chitiethoadon->soluong = $value['soluong'];
+            $chitiethoadon->kichco = "L";
+            $chitiethoadon->save();
+        }
+        Session::forget('cart');
+        return redirect()->back()->with('dathangthanhcong','ĐÃ NHẬN ĐƠN HÀNG BẠN YÊU CẦU, CHÚNG TÔI SẼ LIÊN HỆ LẠI BẠN SỚM NHẤT, CẢM ƠN!!!');
     }
 }
