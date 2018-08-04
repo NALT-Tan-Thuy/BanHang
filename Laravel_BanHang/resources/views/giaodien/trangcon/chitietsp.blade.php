@@ -189,97 +189,72 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div>  
                     <!-- Xong hình sản phẩm -->
                     <!-- thông tin chi tiết -->
-                    <div id="thongTinChitiet" class="col-xs-12 col-md-7">
-                        <h3 class="product-title">{{$chitietsp->ten}}</h3>
-                        <div id="luotThich">
-                            <span class="glyphicon glyphicon-thumbs-up"></span>
-                            <span>{{$chitietsp->luotthich}} lượt thích sản phẩm này.</span>
-                        </div>
-                        <p id="tieuDeMoTa">Mô tả</p>
-                        <span>{{$chitietsp->mota}}</span>
-                        <h2>GIÁ BÁN:
-                            <span id="giaBan">{{number_format($chitietsp->giagoc-($chitietsp->giagoc*$chitietsp->khuyenmai)/100)}} đồng</span>
-                        </h2>
-                        <p id="giaGoc">Giá gốc: {{number_format($chitietsp->giagoc)}} đồng</p>
+                    <form method="GET" action="themgiohangsl">
+                        @csrf
+                        <div id="thongTinChitiet" class="col-xs-12 col-md-7">
+                            <h3 class="product-title">{{$chitietsp->ten}}</h3>
+                            <input type="hidden" name="idSP" value="{{$chitietsp->id}}">
+                            <div id="luotThich">
+                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                                <span>{{$chitietsp->luotthich}} lượt thích sản phẩm này.</span>
+                            </div>
+                            <p id="tieuDeMoTa">Mô tả</p>
+                            <span>{{$chitietsp->mota}}</span>
+                            <h2>GIÁ BÁN:
+                                <span id="giaBan">{{number_format($chitietsp->giagoc-($chitietsp->giagoc*$chitietsp->khuyenmai)/100)}} đồng</span>
+                            </h2>
+                            <p id="giaGoc">Giá gốc: {{number_format($chitietsp->giagoc)}} đồng</p>
 
-                        <div style="text-align: center" class="col-xs-12 col-md-6">
-                            <div class="space60">&nbsp;</div>
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button id="giamSL" onclick="tinhsoluonggiam();" type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus"
-                                        data-field="">
-                                        <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                </span>
-                                <input onKeyPress="return isNumberKey(event);" type="text" id="quantity" name="quantity" class="form-control input-number"
-                                    value="1" min="1" max="100">
-                                <span class="input-group-btn">
-                                    <button id="tangSL" onclick="tinhsoluongtang();" type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus"
-                                        data-field="">
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                </span>
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default">
-                                        Nhập số lượng
-                                    </button>
-                                </span>
+                            <div style="text-align: center" class="col-xs-12 col-md-6">
+                                <div class="space60">&nbsp;</div>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button id="giamSL" onclick="tinhsoluonggiam();" type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus"
+                                            data-field="">
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                                    <input name="soluong" onKeyPress="return isNumberKey(event);" type="text" id="quantity" class="form-control input-number"
+                                        value="1" min="1" max="100">
+                                    <span class="input-group-btn">
+                                        <button id="tangSL" onclick="tinhsoluongtang();" type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus"
+                                            data-field="">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default">
+                                            Nhập số lượng
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="space60">&nbsp;</div>
+                                <button id="btnChonSize" type="button" class="btn btn-default">
+                                    Chọn size cho sản phẩm
+                                </button>
+
+                                <select name="" id="inpu" class="form-control">
+                                    <option value="">L</option>
+                                    <option value="">M</option>
+                                    <option value="">S</option>
+                                    <option value="">XL</option>
+                                </select>
                             </div>
                             <div class="space60">&nbsp;</div>
-                            <button id="btnChonSize" type="button" class="btn btn-default">
-                                Chọn size cho sản phẩm
-                            </button>
-
-                            <select name="" id="inpu" class="form-control" required="required">
-                                <option value="">L</option>
-                                <option value="">M</option>
-                                <option value="">S</option>
-                                <option value="">XL</option>
-                            </select>
-
-                            <script>
-                                function isNumberKey(evt) {
-                                    var charCode = (evt.which) ? evt.which : event.keyCode
-                                    if (charCode > 31 && (charCode < 48 || charCode > 57))
-                                        return false;
-                                    return true;
-                                }
-                                // click số lượng tăng
-                                function tinhsoluongtang() {
-                                    var dem = document.getElementById('quantity').value;
-                                    a = parseInt(dem);
-                                    a += 1;
-                                    document.getElementById('quantity').value = a;
-                                }
-                                // click số lượng giảm
-                                function tinhsoluonggiam() {
-
-                                    var dem = document.getElementById('quantity').value;
-                                    a = parseInt(dem);
-                                    if (a != 0) {
-                                        a -= 1;
-                                        document.getElementById('quantity').value = a;
-                                    }
-                                    else
-                                        dem = 0;
-                                }
-                            </script>
+                            <div class="space60">&nbsp;</div>
+                            <div id="muaHangChiTiet">
+                                <button type="submit" class="btn btn-success btn-lg btn3d">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>Mua hàng
+                                </button>
+                                <button type="button" class="btn btn-primary btn-lg btn3d">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                                </button>
+                            </div>
                         </div>
-                        <div class="space60">&nbsp;</div>
-                        <div class="space60">&nbsp;</div>
-                        <div id="muaHangChiTiet">
-                            <button type="button" class="btn btn-success btn-lg btn3d">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>Mua hàng
-                            </button>
-                            <button type="button" class="btn btn-primary btn-lg btn3d">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                            </button>
-                        </div>
-
-                    </div>
+                    </form>
                     <!-- Xong thông tin chi tiết -->
                 </div>
                 <!-- Xong xử lý chi tiết sản phẩm -->
@@ -290,16 +265,13 @@
                 <!-- Nội dung thêm chi tiết -->
                 <div style="text-align: center" role="tabpanel" class="tab-pane fade" id="huongdanthanhtoan" aria-labelledby="huongdanthanhtoan-tab">
                     <h2>Những mẫu bạn có thể phối cùng cực xinh, cực chất</h2>
-                    @if(count($ttchitiet) != 0)
-                    @foreach($ttchitiet as $ttct)
-                    
+                    @if(count($ttchitiet) != 0) @foreach($ttchitiet as $ttct)
+
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <img src="uploads/sanpham/{{$ttct->img}}" alt="">
                     </div>
                     <div class="space10">&nbsp;</div>
-                    @endforeach
-                    @else
-                    @endif
+                    @endforeach @else @endif
                 </div>
                 <!-- xong nội dung thêm chi tiết -->
                 <!-- Nội dung bình luận -->
@@ -320,8 +292,7 @@
                             </form>
                         </div>
                         <!-- Xong text nhập bình luận -->
-                        @if($tatcabinhluan != null)
-                        @foreach($tatcabinhluan as $bl)
+                        @if($tatcabinhluan != null) @foreach($tatcabinhluan as $bl)
                         <!-- Comment -->
                         <div class="col-xs-12 col-md-12">
                             <div class="noiDungBinhLuan" class="media">
@@ -338,8 +309,7 @@
                         </div>
                         <!-- Xong comment -->
                         <div class="space10">&nbsp;</div>
-                        @endforeach
-                        @endif
+                        @endforeach @endif
 
                     </div>
                 </div>
@@ -350,7 +320,33 @@
     </div>
 </div>
 </div>
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+    // click số lượng tăng
+    function tinhsoluongtang() {
+        var dem = document.getElementById('quantity').value;
+        a = parseInt(dem);
+        a += 1;
+        document.getElementById('quantity').value = a;
+    }
+    // click số lượng giảm
+    function tinhsoluonggiam() {
 
+        var dem = document.getElementById('quantity').value;
+        a = parseInt(dem);
+        if (a != 0) {
+            a -= 1;
+            document.getElementById('quantity').value = a;
+        }
+        else
+            dem = 0;
+    }
+</script>
 @include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 
 
