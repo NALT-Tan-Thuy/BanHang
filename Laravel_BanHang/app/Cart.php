@@ -37,7 +37,8 @@ class Cart
 		$this->totalPrice += $item->giaban; 
 	}
 	// thêm hàng có số lượng
-	public function ThemCoSoLuong($item, $id, $soluong){ 
+	public function ThemCoSoLuong($item, $id, $soluong){
+		$sl += $soluong; 
 		$giohang = ['soluong'=>$soluong, 'giabanhang' => $item->giaban, 'giagoc' => $item->giagoc, 'giakhuyenmai' => $item->khuyenmai, 'item' => $item]; 
 		if($this->items){ 
 			if(array_key_exists($id, $this->items)){ 
@@ -52,7 +53,7 @@ class Cart
 		else{ 
 			$item->giaban = $item->giagoc; 			 
 		} 
-		$giohang['giabanhang'] = $item->giaban * $soluong; 
+		$giohang['giabanhang'] = $item->giaban * $giohang['soluong']; 
 		$this->items[$id] = $giohang; 
 		$this->totalQty += $soluong; 
 		$this->totalPrice += $giohang['giabanhang']; 

@@ -1,11 +1,9 @@
-@extends('giaodien/master') 
-@section('noidung') @section('title') Đặt hàng @endsection @section('css')
-<link rel="stylesheet" href="{{ asset('giaodien/css/dathang.css')}}"> 
+@extends('giaodien/master') @section('noidung') @section('title') Đặt hàng @endsection @section('css')
+<link rel="stylesheet" href="{{ asset('giaodien/css/dathang.css')}}">
 <!-- Font chư đặt hàng -->
 <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 <!-- Chữ mua hàng ngay -->
-<link href="https://fonts.googleapis.com/css?family=Bangers|Mitr" rel="stylesheet"> 
-@endsection
+<link href="https://fonts.googleapis.com/css?family=Bangers|Mitr" rel="stylesheet"> @endsection
 
 <!-- Nội dung chính của trang-->
 <!-- Kiểm soát đường dẫn -->
@@ -78,24 +76,22 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Tỉnh - thành phố </label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <label>Tỉnh - Thành Phố </label>
+                        <select name="tinh" id="tinh" onchange="ChonQuanHuyen(this.value);" class="form-control">
+                            <option value="0">Lựa chọn Tỉnh - Thành Phố</option>
+                            @foreach($tinh_thanhpho as $tp)
+                            <option value="{{$tp->id}}">{{$tp->tendaydu}}</option>
+                            @endforeach
                         </select>
                     </div>
-
-                    <div class="form-group">
-                        <label>Quận - huyện tương ứng </label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                    <div id="luuquanhuyen" class="form-group">
+                        <label>Quận - Huyện </label>
+                        <select name="huyen" id="huyen" onchange="ChonXaPhuong(this.value);" class="form-control">
+                        </select>
+                    </div>
+                    <div id="luuxaphuong" class="form-group">
+                        <label>Xã - Phường</label>
+                        <select name="xa" id="xa" class="form-control">
                         </select>
                     </div>
 
@@ -146,32 +142,36 @@
 
                         </ul>
                     </div>
-                    <script>
-                        function ChuyenTagThanhToan() {
-                            var check = document.getElementById('payment_method_cheque');
-                            var hienthiATM = document.getElementsByClassName('payment_box payment_method_cheque');
-                            var hienthiThanhToan = document.getElementsByClassName('payment_box payment_method_bacs');
-                            if (check.checked == true) {
-                                hienthiATM[0].style.display = "block";
-                                hienthiThanhToan[0].style.display = "none";
-                            }
-                            else {
-                                hienthiATM[0].style.display = "none";
-                                hienthiThanhToan[0].style.display = "block";
-                            }
-                        }
-
-                    </script>
-
                     <div id="btnDatHang" class="text-center">
+                        @if(Session::has('cart'))
                         <button type="submit" class="beta-btn primary">ĐẶT HÀNG
+                            <span class="fa fa-truck"></span>
+                        </button>
+                        @else
+                        <button type="button" class="beta-btn primary" disabled>BẠN CHƯA CHỌN HÀNG
                             <span class="glyphicon glyphicon-check"></span>
                         </button>
+                        @endif
                     </div>
 
                 </div>
 
+                <script>
+                    function ChuyenTagThanhToan() {
+                        var check = document.getElementById('payment_method_cheque');
+                        var hienthiATM = document.getElementsByClassName('payment_box payment_method_cheque');
+                        var hienthiThanhToan = document.getElementsByClassName('payment_box payment_method_bacs');
+                        if (check.checked == true) {
+                            hienthiATM[0].style.display = "block";
+                            hienthiThanhToan[0].style.display = "none";
+                        }
+                        else {
+                            hienthiATM[0].style.display = "none";
+                            hienthiThanhToan[0].style.display = "block";
+                        }
+                    }
 
+                </script>
 
                 <div id="dathangform" class="col-sm-6">
                     <div class="your-order">
@@ -239,10 +239,57 @@
 <!-- Xong nội dung trang con -->
 <!-- /////////////////////// -->
 
+<script>
+
+    // Ajax cho nút huyện - xã
+    function ChonQuanHuyen(id) {
+        var tenTinh = document.getElementById('tinh');
+        var xa = document.getElementById('xa');
+        var huyen = document.getElementById('huyen');
+        if (tenTinh.value == "") {
+            huyen.value = "";
+            huyen.disabled = true;
+        }
+        xa.value = "";
+        xa.disabled = true;
+        if (window.XMLHttpRequest) {
+            var xhttp = new XMLHttpRequest();
+        }
+        else {
+            var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('luuquanhuyen').innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "chonquanhuyen/" + id, true);
+        xhttp.send();
+    }
+    // chọn xã phường
+    function ChonXaPhuong(id) {
+        var xa = document.getElementById('xa');
+        xa.disabled = false;
+        document.getElementById('luuxaphuong');
+        if (window.XMLHttpRequest) {
+            var xhttp = new XMLHttpRequest();
+        }
+        else {
+            var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('luuxaphuong').innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "chonxaphuong/" + id, true);
+        xhttp.send();
+    }
+
+</script>
 
 <!-- Xong nội dung 5 chứa sản phẩm phù hợp -->
-@include('giaodien/quytrinh') @include('giaodien/loicamon')
-@include('giaodien/cuoitrang')
+@include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 
 <!-- Xong nội dung -->
 @endsection

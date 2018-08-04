@@ -14,76 +14,11 @@
                                 <?php if($i == 4) break;?> 
                                 <?php $i++;?> 
                                 <li>
-<<<<<<< HEAD
-                                    <a href="javascript:void(0)"> Sản phẩm 1 </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 2 </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 3</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 4 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                            <h3> Danh mục sản phẩm khác </h3>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 1 </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 2 </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 3 </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 4 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                            <h3> Danh mục giày dép </h3>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 1 </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 2 </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 3 </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Sản phẩm 4 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                            <h3> Danh mục phụ kiện </h3>
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0)"> Phụ kiện 1 </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Phụ kiện 2</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Phụ kiện 3</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"> Phụ kiện 4</a>
-                                </li>
-=======
                                     <a href="#"> {{$sps->ten}} </a>
                                 </li>
                                 <li>
                                 @endif
                                 @endforeach
->>>>>>> 4ba446ec38c121f6ab91f9c1d25f85108fda2405
                             </ul>
                         </div>
                         @endforeach

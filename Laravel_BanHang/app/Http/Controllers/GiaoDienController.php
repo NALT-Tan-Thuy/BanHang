@@ -153,7 +153,8 @@ class GiaoDienController extends Controller
     }
     // trang con đặt hàng
     public function getDatHang(){
-        return view('giaodien/trangcon/dathang');
+        $tinh_thanhpho = DB::table('tinh_thanhpho')->where('id', '<>', 0)->get();
+        return view('giaodien/trangcon/dathang',compact('tinh_thanhpho'));
     }
     
     public function getAjaxSP(){

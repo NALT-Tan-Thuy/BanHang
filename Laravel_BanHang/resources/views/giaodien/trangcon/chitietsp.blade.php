@@ -236,40 +236,12 @@
                                     Chọn size cho sản phẩm
                                 </button>
 
-                                <select name="" id="inpu" class="form-control" required="required">
+                                <select name="" id="inpu" class="form-control">
                                     <option value="">L</option>
                                     <option value="">M</option>
                                     <option value="">S</option>
                                     <option value="">XL</option>
                                 </select>
-
-                                <script>
-                                    function isNumberKey(evt) {
-                                        var charCode = (evt.which) ? evt.which : event.keyCode
-                                        if (charCode > 31 && (charCode < 48 || charCode > 57))
-                                            return false;
-                                        return true;
-                                    }
-                                    // click số lượng tăng
-                                    function tinhsoluongtang() {
-                                        var dem = document.getElementById('quantity').value;
-                                        a = parseInt(dem);
-                                        a += 1;
-                                        document.getElementById('quantity').value = a;
-                                    }
-                                    // click số lượng giảm
-                                    function tinhsoluonggiam() {
-
-                                        var dem = document.getElementById('quantity').value;
-                                        a = parseInt(dem);
-                                        if (a != 0) {
-                                            a -= 1;
-                                            document.getElementById('quantity').value = a;
-                                        }
-                                        else
-                                            dem = 0;
-                                    }
-                                </script>
                             </div>
                             <div class="space60">&nbsp;</div>
                             <div class="space60">&nbsp;</div>
@@ -348,7 +320,33 @@
     </div>
 </div>
 </div>
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+    // click số lượng tăng
+    function tinhsoluongtang() {
+        var dem = document.getElementById('quantity').value;
+        a = parseInt(dem);
+        a += 1;
+        document.getElementById('quantity').value = a;
+    }
+    // click số lượng giảm
+    function tinhsoluonggiam() {
 
+        var dem = document.getElementById('quantity').value;
+        a = parseInt(dem);
+        if (a != 0) {
+            a -= 1;
+            document.getElementById('quantity').value = a;
+        }
+        else
+            dem = 0;
+    }
+</script>
 @include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 
 
