@@ -8,16 +8,16 @@
                             <h3> Danh mục áo quần </h3>
                             <ul>
                                 <li>
-                                    <a href="#"> Sản phẩm 1 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 1 </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 2 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 2 </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 3</a>
+                                    <a href="javascript:void(0)"> Sản phẩm 3</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 4 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 4 </a>
                                 </li>
                             </ul>
                         </div>
@@ -25,16 +25,16 @@
                             <h3> Danh mục sản phẩm khác </h3>
                             <ul>
                                 <li>
-                                    <a href="#"> Sản phẩm 1 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 1 </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 2 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 2 </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 3 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 3 </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 4 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 4 </a>
                                 </li>
                             </ul>
                         </div>
@@ -42,16 +42,16 @@
                             <h3> Danh mục giày dép </h3>
                             <ul>
                                 <li>
-                                    <a href="#"> Sản phẩm 1 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 1 </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 2 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 2 </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 3 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 3 </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Sản phẩm 4 </a>
+                                    <a href="javascript:void(0)"> Sản phẩm 4 </a>
                                 </li>
                             </ul>
                         </div>
@@ -59,16 +59,16 @@
                             <h3> Danh mục phụ kiện </h3>
                             <ul>
                                 <li>
-                                    <a href="#"> Phụ kiện 1 </a>
+                                    <a href="javascript:void(0)"> Phụ kiện 1 </a>
                                 </li>
                                 <li>
-                                    <a href="#"> Phụ kiện 2</a>
+                                    <a href="javascript:void(0)"> Phụ kiện 2</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Phụ kiện 3</a>
+                                    <a href="javascript:void(0)"> Phụ kiện 3</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Phụ kiện 4</a>
+                                    <a href="javascript:void(0)"> Phụ kiện 4</a>
                                 </li>
                             </ul>
                         </div>
@@ -86,27 +86,27 @@
                             </ul>
                             <ul class="social">
                                 <li>
-                                    <a href="#">
+                                    <a href="javascript:void(0)">
                                         <i class=" fa fa-facebook">   </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="javascript:void(0)">
                                         <i class="fa fa-twitter">   </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="javascript:void(0)">
                                         <i class="fa fa-google-plus">   </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="javascript:void(0)">
                                         <i class="fa fa-pinterest">   </i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="javascript:void(0)">
                                         <i class="fa fa-youtube">   </i>
                                     </a>
                                 </li>
