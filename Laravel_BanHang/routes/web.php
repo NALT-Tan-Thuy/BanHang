@@ -103,18 +103,6 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
-Route::get('demojson', function () {
-    $str = 1;
-    $json = File::get("hanhchinhVietNam/xa_phuong.json");
-    $xaphuong = json_decode($json);
-    $s = "<h2 class=\"card-inside-title\">Quận/huyện/thị xã</h2><select class=\"form-control show-tick\"> <option>Chọn quận/huyện/thị xã</option>";
-    foreach ($xaphuong as $xp) {
-        if ($xp->parent_code == $str) {
-            $s = $s . "<option>" . $xp->name_with_type . "</option>";
-        }
-    }
-
-});
 // Phần Route cho giao diện người dùng
 Route::get('trangchu', 'GiaoDienController@getTrangChu');
 Route::get('dathang', 'GiaoDienController@getDatHang');
@@ -146,13 +134,10 @@ Route::get('sanpham/{id}', 'GiaoDienController@getSanPhamTheoLoai');
 
 Route::group(['prefix' => 'trangchu'], function () {
     Route::post('timkiem', 'TimKiemController@getTimKiem');
-    Route::get('ajaxSanPhamTimKiem/{arr}', 'TimKiemController@getajaxSanPhamTimKiem');
+    Route::get('ajaxLocSanPhamTimKiem/{arr}', 'TimKiemController@getajaxSanPhamTimKiem');
+    Route::get('ajaxLocSanPhamTheoLoai/{arr}', 'TimKiemController@getajaxLocSanPhamTheoLoai');
 });
 
-Route::get('/demo', function () {
-    $id = App\ChiTietSanPham::select('id')->orderBy('id', 'ASC')->get()->last();
-    echo $id->id;
-});
 // Xử lý chi tiết sản phẩm
 Route::get('chitietsp/{id}', 'GiaoDienController@getChiTietsp');
 
@@ -161,5 +146,3 @@ Route::get('themgiohang/{id}', 'GiaoDienController@getThemGioHang');
 Route::get('xoagiohang/{id}', 'GiaoDienController@getXoaTatCaGioHang');
 Route::get('xoamotgiohang/{id}', 'GiaoDienController@getMotGioHang');
 Route::get('themgiohangsl', 'GiaoDienController@getThemGioHangCoSoLuong');
-
-
