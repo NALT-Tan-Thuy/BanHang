@@ -4,10 +4,17 @@
             <div class="footer" id="footer">
                 <div class="container">
                     <div class="row">
+                        @foreach($loaisanphamshare as $lsps)
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                            <h3> Danh mục áo quần </h3>
+                            <h3> Danh mục {{$lsps->ten}} </h3>
                             <ul>
+                                    <?php $i =0;?> 
+                                @foreach($sanphamshare as $sps)
+                                @if($sps->id_loaisanpham == $lsps->id)
+                                <?php if($i == 4) break;?> 
+                                <?php $i++;?> 
                                 <li>
+<<<<<<< HEAD
                                     <a href="javascript:void(0)"> Sản phẩm 1 </a>
                                 </li>
                                 <li>
@@ -70,8 +77,16 @@
                                 <li>
                                     <a href="javascript:void(0)"> Phụ kiện 4</a>
                                 </li>
+=======
+                                    <a href="#"> {{$sps->ten}} </a>
+                                </li>
+                                <li>
+                                @endif
+                                @endforeach
+>>>>>>> 4ba446ec38c121f6ab91f9c1d25f85108fda2405
                             </ul>
                         </div>
+                        @endforeach
                         <div style="text-align: center;" class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
                             <h3> Liên hệ với chúng tôi </h3>
                             <ul>
