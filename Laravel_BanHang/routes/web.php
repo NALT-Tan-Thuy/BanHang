@@ -146,6 +146,7 @@ Route::get('sanpham/{id}', 'GiaoDienController@getSanPhamTheoLoai');
 
 Route::group(['prefix' => 'trangchu'], function () {
     Route::post('timkiem', 'TimKiemController@getTimKiem');
+    Route::get('ajaxSanPhamTimKiem/{arr}', 'TimKiemController@getajaxSanPhamTimKiem');
 });
 
 Route::get('/demo', function () {
