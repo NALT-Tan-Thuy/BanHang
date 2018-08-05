@@ -49,7 +49,12 @@ class SanPhamController extends Controller
     public function getXoa($id)
     {
         $sanpham = SanPham::find($id);
-        $sanpham->delete();
-        return redirect('admin/sanpham/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
+        try {
+            $sanpham->delete();
+            return redirect('admin/sanpham/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
+        } catch (\Exception $e) {
+            return redirect('admin/loaisanpham/danhsach')->with('thongbaoxoakhongthanhcong', "Bạn phải xóa tất cả chi tiết sản phẩm của \"" . $sanpham->ten . "\" trước");
+        }
+
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ChiTietHoaDon;
 use App\HoaDon;
+use App\KhachHang;
 use Illuminate\Support\Facades\DB;
 
 class HoaDonController extends Controller
@@ -18,12 +19,20 @@ class HoaDonController extends Controller
 
     public function getXoa($id)
     {
-        $chitiethoadon = ChiTietHoaDon::where('id_hoadon', '=', $id)->get();
-        foreach ($chitiethoadon as $cthd) {
-            $cthd->delete();
+        try {
+
+            $chitiethoadon = ChiTietHoaDon::where('id_hoadon', '=', $id)->get();
+            foreach ($chitiethoadon as $cthd) {
+                $cthd->delete();
+            }
+            $hoadon = HoaDon::find($id);
+            $hoadon->delete();
+            $khachhang = KhachHang::where('id', $hoadon->id_khachhang);
+            $khachhang->delete();
+            return redirect('admin/hoadon/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
+        } catch (\Exception $e) {
+            // return redirect('admin/hoadon/danhsach')->with('thongbaoxoakhongthanhcong', "Xóa không thành công");
+            echo "e";
         }
-        $hoadon = HoaDon::find($id);
-        $hoadon->delete();
-        return redirect('admin/hoadon/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
     }
 }

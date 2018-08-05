@@ -20,17 +20,13 @@
     <link href="admin/plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="admin/plugins/animate-css/animate.css" rel="stylesheet" />
-
-    @yield('linkcssTren')
+    <link href="admin/plugins/animate-css/animate.css" rel="stylesheet" /> @yield('linkcssTren')
 
     <!-- Custom Css -->
     <link href="admin/css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="admin/css/themes/all-themes.css" rel="stylesheet" />
-
-    @yield('linkcssDuoi')
+    <link href="admin/css/themes/all-themes.css" rel="stylesheet" /> @yield('linkcssDuoi')
 
 </head>
 
@@ -56,11 +52,10 @@
 
     @include('admin.layout.topbar')
 
-    
+
 
     <section>
-        @include('admin.layout.leftsidebar')
-        @include('admin.layout.rightsidebar')
+        @include('admin.layout.leftsidebar') @include('admin.layout.rightsidebar')
     </section>
 
     @yield('content')
@@ -89,9 +84,54 @@
     <!-- Thông báo Js -->
     <script src="admin/js/sweetalert.min.js"></script>
 
+    <!-- script trả về khi xóa thành công -->
+    @if (session('thongbaoxoa'))
+    <script>
+        swal({
+            title: "Xóa dữ liệu thành công!",
+            timer: 3000,
+            showConfirmButton: false,
+            icon: "success",
+        })
+    </script>
+    @endif
+
+    <!-- script trả về khi sửa thành công -->
+    @if (session('thongbaosua')))
+    <script>
+        swal({
+            title: "{{ session('thongbaosua') }}!",
+            timer: 3000,
+            showConfirmButton: false,
+            icon: "success",
+        })
+    </script>
+    @endif
+    <!-- script trả về khi sửa thành công -->
+    @if (session('thongbaothem')))
+    <script>
+        swal({
+            title: "{{ session('thongbaothem') }}!",
+            timer: 3000,
+            showConfirmButton: false,
+            icon: "success",
+        })
+    </script>
+    @endif 
+     <!-- script trả về khi xóa không thành công -->
+    @if (session('thongbaoxoakhongthanhcong')))
+    <script>
+        swal({
+            title: "{{ session('thongbaoxoakhongthanhcong')}}".replace(/(&quot\;)/g, "\""),
+            timer: 3000,
+            showConfirmButton: false,
+            icon: "warning",
+        })
+    </script>
+    @endif
 
     @yield('script')
-    
+
 </body>
 
 </html>

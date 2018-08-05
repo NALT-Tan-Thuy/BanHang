@@ -1,10 +1,6 @@
-@extends('admin.layout.index') 
-@section('linkcssTren')
+@extends('admin.layout.index') @section('linkcssTren')
 <!-- JQuery DataTable Css -->
-<link href="admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-@endsection
- 
-@section('linkcssDuoi')
+<link href="admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet"> @endsection @section('linkcssDuoi')
 <style>
     .sidebar {
         width: 220px;
@@ -30,9 +26,7 @@
         min-height: 60px;
     }
 </style>
-@endsection
- 
-@section('content')
+@endsection @section('content')
 <!-- Content -->
 <section class="content" id="content">
     <div class="container-fluid">
@@ -67,7 +61,8 @@
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
-                                        <th>Tên chi tiết</th>
+                                        <th>ID</th>
+                                        <th>Tên</th>
                                         <th>Nổi bật</th>
                                         <th>Giá gốc</th>
                                         <th>Khuyến mãi</th>
@@ -81,7 +76,8 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Tên chi tiết</th>
+                                        <th>ID</th>
+                                        <th>Tên</th>
                                         <th>Nổi bật</th>
                                         <th>Giá gốc</th>
                                         <th>Khuyến mãi</th>
@@ -97,11 +93,12 @@
 
                                     @foreach ($chitietsanpham as $ctsp)
                                     <tr>
+                                        <td>{{ $ctsp->id }}</td>
                                         <td>{{ $ctsp->ten }}</td>
                                         <td>
                                             @if ($ctsp->noibat == 1)Có
                                             <button class="btn btn-danger" style="width: 50px; height: 50px;"></button>
-                                            @else 
+                                            @else
                                             <button class="btn btn-default" style="width: 50px; height: 50px;"></button>
                                             @endif
                                         </td>
@@ -140,9 +137,7 @@
     </div>
 </section>
 <!-- End Content -->
-@endsection
- 
-@section('script')
+@endsection @section('script')
 <!-- Jquery DataTable Plugin Js -->
 <script src="admin/plugins/jquery-datatable/jquery.dataTables.js"></script>
 <script src="admin/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
@@ -171,39 +166,5 @@
                 }
             });
     }
-
 </script>
-<!-- script trả về khi xóa thành công -->
-@if (session('thongbaoxoa'))
-<script>
-    swal({
-        title: "Xóa dữ liệu thành công!",
-        timer: 3000,
-        icon: "success",
-    })
-</script>
-@endif
-
-<!-- script trả về khi sửa thành công -->
-@if (session('thongbaosua')))
-<script>
-    swal({
-        title: "{{ session('thongbaosua') }}!",
-        timer: 3000,
-        icon: "success",
-        button: "OK",
-    })
-</script>
-@endif
-<!-- script trả về khi sửa thành công -->
-@if (session('thongbaothem')))
-<script>
-    swal({
-        title: "{{ session('thongbaothem') }}!",
-        timer: 3000,
-        icon: "success",
-        button: "OK",
-    })
-</script>
-@endif
 @endsection

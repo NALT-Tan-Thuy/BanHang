@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\BinhLuan;
 use App\ChiTietSanPham;
 use App\KichCo;
 use App\KichCoMau;
 use App\SanPham;
+use App\ThongTinChiTietSanPham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -178,9 +180,19 @@ class ChiTietSanPhamController extends Controller
         foreach ($kichco as $kc) {
             $kc->delete();
         }
+
+        $binhluan = BinhLuan::where('id_chitietsanpham', '=', $id)->get();
+        foreach ($binhluan as $bl) {
+            $bl->delete();
+        }
+
+        $thongtinchitietsp = ThongTinChiTietSanPham::where('id_chitietsanpham', '=', $id)->get();
+        foreach ($thongtinchitietsp as $ttct) {
+            $ttct->delete();
+        }
         $chitietsanpham = chitietsanpham::find($id);
         if (file_exists('uploads/sanpham/' . $chitietsanpham->img)) {
-            unlink('uploads/sanpham/' . $chitietsanpham->img);
+            // unlink('uploads/sanpham/' . $chitietsanpham->img);
         }
         $chitietsanpham->delete();
         return redirect('admin/chitietsanpham/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');

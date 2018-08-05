@@ -61,7 +61,6 @@ class ThuongHieuController extends Controller
     public function getXoa($id)
     {
         $thuonghieu = ThuongHieu::find($id);
-
         $thuonghieu->delete();
         return redirect('admin/thuonghieu/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
     }

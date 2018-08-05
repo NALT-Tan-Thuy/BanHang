@@ -82,11 +82,15 @@ class SlideController extends Controller
 
     public function getXoa($id)
     {
-        $slide = Slide::find($id);
-        if ($slide->img != "") {
-            unlink('uploads/slide/' . $slide->img);
+        try {
+            $slide = Slide::find($id);
+            if (file_exists('uploads/slide/' . $slide->img)) {
+                unlink('uploads/slide/' . $slide->img);
+            }
+            $slide->delete();
+            return redirect('admin/slide/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
+        } catch (\Exception $ex) {
+            return redirect('admin/slide/danhsach')->with('thongbaoxoakhongthanhcong', "Xóa không thành công");
         }
-        $slide->delete();
-        return redirect('admin/slide/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
     }
 }

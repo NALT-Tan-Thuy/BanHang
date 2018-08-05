@@ -55,3 +55,14 @@ Trước khi unlink ảnh => kiểm tra ảnh có tồn tại hay không
  if (file_exists('uploads/sanpham/' . $chitietsanpham->img)) {
     unlink('uploads/sanpham/' . $chitietsanpham->img);
 }
+
+try{
+    // try code
+} 
+catch(\Exception $e){
+    // catch code
+}
+
+
+Thay thế nháy kép trong js:
+replace(/(&quot\;)/g,"\"")

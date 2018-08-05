@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BinhLuan;
 use App\QuanHuyen;
 use App\TinhThanhPho;
 use App\User;
@@ -172,11 +173,20 @@ class UserController extends Controller
     public function getXoa($id)
     {
         $user = User::find($id);
-        if ($user->img != "") {
-            unlink('uploads/users/' . $user->img);
+        try {
+            $binhluan = BinhLuan::where('id_users', '=', $id)->get();
+            foreach ($binhluan as $bl) {
+                $bl->delete();
+            }
+            if (file_exists('uploads/users/' . $user->img)) {
+                unlink('uploads/users/' . $user->img);
+            }
+
+            $user->delete();
+            return redirect('admin/user/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
+        } catch (\Exception $e) {
+            return redirect('admin/user/danhsach')->with('thongbaoxoakhongthanhcong', "Bạn phải xóa tất cả các bình luận của \"" . $user->tendangnhap . "\" trước");
         }
 
-        $user->delete();
-        return redirect('admin/user/danhsach')->with('thongbaoxoa', 'Xóa dữ liệu thành công!');
     }
 }

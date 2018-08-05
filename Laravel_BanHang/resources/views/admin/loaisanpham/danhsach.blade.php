@@ -133,43 +133,5 @@
                     }
                 });
         }
-
 </script>
-<!-- script trả về khi xóa thành công -->
-@if (session('thongbaoxoa'))
-<script>
-    swal({
-        title: "Xóa dữ liệu thành công!",
-        timer: 3000,
-        showConfirmButton: false,
-        icon: "success",
-    })
-
-</script>
-@endif
-
-<!-- script trả về khi sửa thành công -->
-@if (session('thongbaosua')))
-<script>
-    swal({
-        title: "{{ session('thongbaosua') }}!",
-        timer: 3000,
-        showConfirmButton: false,
-        icon: "success",
-    })
-
-</script>
-@endif
-<!-- script trả về khi sửa thành công -->
-@if (session('thongbaothem')))
-<script>
-    swal({
-        title: "{{ session('thongbaothem') }}!",
-        timer: 3000,
-        showConfirmButton: false,
-        icon: "success",
-    })
-
-</script>
-@endif
 @endsection
