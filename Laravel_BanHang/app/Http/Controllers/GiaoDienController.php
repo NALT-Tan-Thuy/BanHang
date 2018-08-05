@@ -148,7 +148,7 @@ class GiaoDienController extends Controller
         $ttchitiet = DB::table('thongtinchitietsanpham')->where('id_chitietsanpham', $idsp)->get();
         $binhluan = DB::table('binhluan')->where('id_chitietsanpham', $idsp)->get();
         $tatcabinhluan = DB::table('binhluan')
-            ->join('users', 'binhluan.id_users', 'users.id')->where('id_chitietsanpham', $idsp)->get();
+            ->join('users', 'binhluan.id_users', 'users.id')->where('id_chitietsanpham', $idsp)->orderby('binhluan.created_at', 'DESC')->get();
         // $tatcabinhluan->dd();
         if ($chitietsp != null) {
             return view('giaodien/trangcon/chitietsp', compact('chitietsp', 'ttchitiet', 'binhluan', 'tatcabinhluan'));
@@ -224,8 +224,8 @@ class GiaoDienController extends Controller
         $noidungbl = DB::table('binhluan')->where('id_chitietsanpham',$id)->get();
         $userbinhluan = DB::table('users')
                     ->join('binhluan','users.id','binhluan.id_users')
-                    ->where('id_chitietsanpham',$id)->get();
-        // $userbinhluan->dd();
+                    ->where('id_chitietsanpham',$id)
+                    ->orderby('binhluan.created_at', 'DESC')->get();
         
         foreach($userbinhluan as $usbl){
             $nhanbinhluan = '
@@ -245,9 +245,8 @@ class GiaoDienController extends Controller
                 <!-- Xong comment -->
                 <div class="space10">&nbsp;</div>
                 ';
-                echo $nhanbinhluan;
+             echo $nhanbinhluan;
         }
-
     }
 
 }
