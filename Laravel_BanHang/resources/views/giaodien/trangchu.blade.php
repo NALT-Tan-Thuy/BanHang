@@ -356,7 +356,6 @@
     }
     // tìm các sản phẩm tương ứng show ra
     function TimSPTuongUng(id) {
-        console.log(id);
         if (window.XMLHttpRequest) {
             var xhttp = new XMLHttpRequest();
         } else {

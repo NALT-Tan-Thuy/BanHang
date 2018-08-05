@@ -42,6 +42,13 @@ class DatHangController extends Controller
         echo $hienthi . '</select>';
     }
     public function postThanhToanDatHang(Request $req){
+        $this->validate($req,
+            [
+                'xa' => 'required'
+            ],[
+                'xa.required'=>'Bạn cần cần lựa chọn xã - phường đang sinh sống'
+            ]
+        );
         $tentinh = DB::table('tinh_thanhpho')->where('id',$req->tinh)->first();
         $tenhuyen = DB::table('quan_huyen')->where('id',$req->huyen)->first();
         $tenxa = DB::table('xa_phuong')->where('id',$req->xa)->first();

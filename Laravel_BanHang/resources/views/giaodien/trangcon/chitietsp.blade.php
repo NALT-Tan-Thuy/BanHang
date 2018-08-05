@@ -247,7 +247,7 @@
                             <div class="space60">&nbsp;</div>
                             <div id="muaHangChiTiet">
                                 <button type="submit" class="btn btn-success btn-lg btn3d">
-                                    <span class="glyphicon glyphicon-shopping-cart"></span>Mua hàng
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>Thêm hàng
                                 </button>
                                 <button type="button" class="btn btn-primary btn-lg btn3d">
                                     <span class="glyphicon glyphicon-thumbs-up"></span>
@@ -268,9 +268,7 @@
                     @if(count($ttchitiet) != 0) @foreach($ttchitiet as $ttct)
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        @if($ttct->img =! null)
                         <img src="uploads/sanpham/{{$ttct->img}}" alt="">
-                        @endif
                     </div>
                     <div class="space10">&nbsp;</div>
                     @endforeach @endif
@@ -289,9 +287,9 @@
                             <form role="form">
                                 @if(Auth::check())
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea id="noidungbl" class="form-control" rows="3"></textarea>
                                 </div>
-                                <button onclick="GoiBinhLuan();" type="submit" class="btn btn-primary">Gửi</button>
+                                <button onclick="GoiBinhLuan( {{$chitietsp->id}} );" type="button" class="btn btn-primary">Gửi</button>
                                 @else
                                 <div class="form-group">
                                     <textarea class="form-control" rows="3" disabled>Vui lòng đăng nhập tài khoản để được thực hiện tính năng này!</textarea>
@@ -301,25 +299,26 @@
                             </form>
                         </div>
                         <!-- Xong text nhập bình luận -->
-                        @if($tatcabinhluan != null) @foreach($tatcabinhluan as $bl)
-                        <!-- Comment -->
-                        <div class="col-xs-12 col-md-12">
-                            <div class="noiDungBinhLuan" class="media">
-                                <a class="pull-left">
-                                    @if($bl->img =! null)
-                                    <img class="media-object" src="uploads/sanpham/{{$bl->img}}" alt=""> @endif
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading tenbinhluan">{{$bl->tendangnhap}}
-                                        <small id="ngayBinhLuan">{{$bl->created_at}}</small>
-                                    </h4>
+                        <div id="travebinhluan">
+                            @if($tatcabinhluan != null) @foreach($tatcabinhluan as $bl)
+                            <!-- Comment -->
+                            <div class="col-xs-12 col-md-12">
+                                <div class="noiDungBinhLuan" class="media">
+                                    <a class="pull-left">
+                                        <img class="media-object" src="uploads/users/{{$bl->img}}" alt=""> 
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading tenbinhluan">{{$bl->tendangnhap}}
+                                            <small id="ngayBinhLuan">{{$bl->created_at}}</small>
+                                        </h4>
+                                    </div>
+                                    <span>{{$bl->noidung}}</span>
                                 </div>
-                                <span>{{$bl->noidung}}</span>
                             </div>
+                            <!-- Xong comment -->
+                            <div class="space10">&nbsp;</div>
+                            @endforeach @endif
                         </div>
-                        <!-- Xong comment -->
-                        <div class="space10">&nbsp;</div>
-                        @endforeach @endif
 
                     </div>
                 </div>
@@ -357,7 +356,27 @@
             dem = 0;
     }
     function GoiBinhLuan(idsp) {
-        console.log(idsp);
+        @if(Auth::check())
+        var binhluan = document.getElementById('noidungbl');
+        if (binhluan.value == "" || binhluan.value == 'Bạn chưa đặt bình luận.') {
+            binhluan.value = "Bạn chưa đặt bình luận.";
+        }
+        else {
+            if (window.XMLHttpRequest) {
+                var xhttp = new XMLHttpRequest();
+            } else {
+                var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('travebinhluan').innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "thembinhluansanpham/" + idsp + '/' + binhluan.value + '/' + {{ Auth:: user()-> id}}, true);
+            xhttp.send();
+            binhluan.value= "";
+        }
+        @endif
     }
 </script> @include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 

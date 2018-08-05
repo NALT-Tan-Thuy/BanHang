@@ -7,6 +7,8 @@ use App\ChiTietSanPham;
 use DB;
 use Illuminate\Http\Request;
 use Session;
+use App\BinhLuan;
+use Auth;
 
 class GiaoDienController extends Controller
 {
@@ -211,6 +213,41 @@ class GiaoDienController extends Controller
         $cart->ThemCoSoLuong($product, $req->idSP, $req->soluong);
         $req->session()->put('cart', $cart);
         return redirect()->back();
+    }
+    public function getThemBinhLuan($id, $noidung, $idnguoidung){
+        $binhluan = new BinhLuan;
+        $binhluan->noidung = $noidung;
+        $binhluan->id_chitietsanpham = $id;
+        $binhluan->id_users = $idnguoidung;
+        $binhluan->save();
+
+        $noidungbl = DB::table('binhluan')->where('id_chitietsanpham',$id)->get();
+        $userbinhluan = DB::table('users')
+                    ->join('binhluan','users.id','binhluan.id_users')
+                    ->where('id_chitietsanpham',$id)->get();
+        // $userbinhluan->dd();
+        
+        foreach($userbinhluan as $usbl){
+            $nhanbinhluan = '
+                <div class="col-xs-12 col-md-12">
+                <div class="noiDungBinhLuan" class="media">
+                    <a class="pull-left">
+                        <img class="media-object" src="uploads/users/'.$usbl->img.'" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading tenbinhluan">'.$usbl->hoten.'
+                            <small id="ngayBinhLuan"></small>
+                        </h4>
+                    </div>
+                    <span>'.$usbl->noidung.'</span>
+                </div>
+                </div>
+                <!-- Xong comment -->
+                <div class="space10">&nbsp;</div>
+                ';
+                echo $nhanbinhluan;
+        }
+
     }
 
 }

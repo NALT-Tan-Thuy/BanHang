@@ -42,7 +42,9 @@
             @csrf
             <div class="row">
                 <div class="col-sm-6 thongTinHang">
-                    <h4 style="text-align: center"><b>Đặt hàng</b></h4>
+                    <h4 style="text-align: center">
+                        <b>Đặt hàng</b>
+                    </h4>
                     <div class="space20">&nbsp;</div>
 
                     <div class="form-group row">
@@ -94,8 +96,11 @@
                     </div>
                     <div id="luuxaphuong" class="form-group">
                         <label>Xã - Phường*</label>
-                        <select name="xa" id="xa" class="form-control">
-                        </select required="required">
+                        <select name="xa" id="xa" class="form-control" required="required">
+                        </select>
+                        @if($errors->has('xa'))
+                        <p style="color: red;">{{$errors->first('xa')}}</p>
+                        @endif
                     </div>
 
                     <div class="form-group row">
@@ -122,7 +127,8 @@
                                     checked="checked" data-order_button_text="">
                                 <label for="payment_method_bacs">Thanh toán khi nhận hàng </label>
                                 <div class="payment_box payment_method_bacs" style="display: block;">
-                                    Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng. Vui lòng nhập địa chỉ chính sát.
+                                    Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng. Vui lòng nhập địa chỉ
+                                    chính sát.
                                 </div>
                             </li>
 
@@ -179,7 +185,9 @@
                 <div id="dathangform" class="col-sm-6">
                     <div class="your-order">
                         <div style="text-align: center" class="your-order-head">
-                            <h5><b>Đơn hàng của bạn</b></h5>
+                            <h5>
+                                <b>Đơn hàng của bạn</b>
+                            </h5>
                         </div>
                         @if(Session::has('cart'))
                         <div class="your-order-body">
@@ -196,8 +204,7 @@
                                             <p class="font-large">{{ $product['item']['ten'] }}</p>
                                             <p class="color-gray your-order-info">Giá:
                                                 <span id="giasptren">@if($product['item']['khuyenmai'] > 0) {{number_format($product['item']['giagoc']-($product['item']['giagoc']*$product['item']['khuyenmai'])/100)}}
-                                                    @else {{number_format($product['item']['giagoc'])}}
-                                                    @endif
+                                                    @else {{number_format($product['item']['giagoc'])}} @endif
                                                 </span>
                                             </p>
                                             <span class="color-gray your-order-info">Số lượng: {{$product['soluong']}}</span>
@@ -219,7 +226,7 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                        @else 
+                        @else
                         <div class="alert alert-info">
                             <b>GIỎ HÀNG CHƯA CÓ SẢN PHẨM NÀO!</b>
                         </div>

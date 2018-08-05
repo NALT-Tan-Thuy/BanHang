@@ -149,3 +149,5 @@ Route::get('themgiohangsl', 'GiaoDienController@getThemGioHangCoSoLuong');
 
 // Xử lý đặt hàng
 Route::post('thanhtoandathang', 'DatHangController@postThanhToanDatHang');
+// trang chi tiết sản phẩm
+Route::get('thembinhluansanpham/{id}/{noidung}/{idnguoidung}','GiaoDienController@getThemBinhLuan');
