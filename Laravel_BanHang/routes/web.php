@@ -1,10 +1,14 @@
 <?php
 
 Route::get('/', function () {
-    return view('admin.trangchu');
+    return redirect('trangchu');
 });
 
 Route::group(['prefix' => 'admin'], function () {
+    Route::get('trangchu', function () {
+        return view('admin.trangchu');
+    });
+
     Route::group(['prefix' => 'loaisanpham'], function () {
         Route::get('danhsach', 'LoaiSanPhamController@index');
         Route::get('them', 'LoaiSanPhamController@getThem');
@@ -150,4 +154,4 @@ Route::get('themgiohangsl', 'GiaoDienController@getThemGioHangCoSoLuong');
 // Xử lý đặt hàng
 Route::post('thanhtoandathang', 'DatHangController@postThanhToanDatHang');
 // trang chi tiết sản phẩm
-Route::get('thembinhluansanpham/{id}/{noidung}/{idnguoidung}','GiaoDienController@getThemBinhLuan');
+Route::get('thembinhluansanpham/{id}/{noidung}/{idnguoidung}', 'GiaoDienController@getThemBinhLuan');

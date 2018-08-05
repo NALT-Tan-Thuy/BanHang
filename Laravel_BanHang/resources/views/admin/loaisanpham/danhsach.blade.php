@@ -55,7 +55,7 @@
                             <button class="btn btn-primary btn-lg waves-effect" type="button" onclick="window.location.href = 'admin/loaisanpham/them'"><i class="material-icons">add_box</i>
                                         <span>THÊM</span>
                                     </button>
-                            <button class="btn bg-brown btn-lg waves-effect" type="button" onclick="window.location.href = '#XoaNhieu'"><i class="material-icons">delete</i>
+                            <button class="btn bg-brown btn-lg waves-effect" type="button" onclick="window.location.href = '#XoaNhieu'" disabled><i class="material-icons">delete</i>
                                         <span>XÓA NHIỀU</span>
                                     </button>
                         </div>

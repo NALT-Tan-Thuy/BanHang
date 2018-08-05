@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\BinhLuan;
 use App\Cart;
 use App\ChiTietSanPham;
 use DB;
 use Illuminate\Http\Request;
 use Session;
-use App\BinhLuan;
-use Auth;
 
 class GiaoDienController extends Controller
 {
@@ -212,40 +211,41 @@ class GiaoDienController extends Controller
         echo "đc";
         $cart->ThemCoSoLuong($product, $req->idSP, $req->soluong);
         $req->session()->put('cart', $cart);
-        return redirect()->back();
+        return redirect('dathang');
     }
-    public function getThemBinhLuan($id, $noidung, $idnguoidung){
+    public function getThemBinhLuan($id, $noidung, $idnguoidung)
+    {
         $binhluan = new BinhLuan;
         $binhluan->noidung = $noidung;
         $binhluan->id_chitietsanpham = $id;
         $binhluan->id_users = $idnguoidung;
         $binhluan->save();
 
-        $noidungbl = DB::table('binhluan')->where('id_chitietsanpham',$id)->get();
+        $noidungbl = DB::table('binhluan')->where('id_chitietsanpham', $id)->get();
         $userbinhluan = DB::table('users')
-                    ->join('binhluan','users.id','binhluan.id_users')
-                    ->where('id_chitietsanpham',$id)
-                    ->orderby('binhluan.created_at', 'DESC')->get();
-        
-        foreach($userbinhluan as $usbl){
+            ->join('binhluan', 'users.id', 'binhluan.id_users')
+            ->where('id_chitietsanpham', $id)
+            ->orderby('binhluan.created_at', 'DESC')->get();
+
+        foreach ($userbinhluan as $usbl) {
             $nhanbinhluan = '
                 <div class="col-xs-12 col-md-12">
                 <div class="noiDungBinhLuan" class="media">
                     <a class="pull-left">
-                        <img class="media-object" src="uploads/users/'.$usbl->img.'" alt="">
+                        <img class="media-object" src="uploads/users/' . $usbl->img . '" alt="">
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading tenbinhluan">'.$usbl->hoten.'
+                        <h4 class="media-heading tenbinhluan">' . $usbl->hoten . '
                             <small id="ngayBinhLuan"></small>
                         </h4>
                     </div>
-                    <span>'.$usbl->noidung.'</span>
+                    <span>' . $usbl->noidung . '</span>
                 </div>
                 </div>
                 <!-- Xong comment -->
                 <div class="space10">&nbsp;</div>
                 ';
-             echo $nhanbinhluan;
+            echo $nhanbinhluan;
         }
     }
 

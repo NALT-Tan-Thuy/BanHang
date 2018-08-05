@@ -1,7 +1,7 @@
 <!-- #Left Sidebar -->
 <aside id="leftsidebar" class="sidebar">
     <!-- User Info -->
-    <div class="user-info">
+    <!-- <div class="user-info">
         <div class="image">
             <img src="admin/images/user.png" width="48" height="48" alt="User" />
         </div>
@@ -9,14 +9,14 @@
             <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tên người dùng</div>
             <div class="email">email@gmail.com</div>
         </div>
-    </div>
+    </div> -->
     <!-- #User Info -->
     <!-- Menu -->
     <div class="menu">
         <ul class="list">
-            <li class="header">DANH MỤC QUẢN LÝ</li>
+            <li class="header"><center>DANH MỤC QUẢN LÝ</center></li>
             <li class="">
-                <a href="/">
+                <a href="admin/trangchu">
                     <i class="material-icons">home</i>
                     <span>Trang chủ</span>
                 </a>
@@ -107,10 +107,10 @@
                 </a>
                 <ul class="ml-menu">
                     <li>
-                        <a href="#">Danh sách</a>
+                        <a href="javascript:void(0);">Danh sách</a>
                     </li>
                     <li>
-                        <a href="#">Thêm</a>
+                        <a href="javascript:void(0);">Thêm</a>
                     </li>
                 </ul>
             </li>

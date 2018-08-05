@@ -152,7 +152,7 @@
         var slideImages = [
         @foreach($slideshare as $sls)
         {
-            src: 'giaodien/images/slidetop/{{$sls->img}}'
+            src: 'uploads/slide/{{$sls->img}}'
         },
         @endforeach
         ]

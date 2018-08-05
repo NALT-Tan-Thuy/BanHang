@@ -13,13 +13,10 @@
             <a href="trangchu.html" class="btn btn-default">
                 <i class="fa fa-home"></i>
             </a>
-            <a href="#" class="btn btn-default">
+            <a href="javascript:void(0)" class="btn btn-default">
                 <div>Danh mục sản phẩm</div>
             </a>
-            <a href="trangcon_Ao.html" class="btn btn-default">
-                <div>Sản phẩm tương ứng</div>
-            </a>
-            <a href="trangcon_Ao.html" class="btn btn-default">
+            <a href="javascript:void(0)" class="btn btn-default">
                 <div>Đặt hàng</div>
             </a>
         </div>

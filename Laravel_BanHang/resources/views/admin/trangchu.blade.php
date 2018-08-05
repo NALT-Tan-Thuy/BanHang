@@ -13,7 +13,7 @@
         }
         
         section.content {
-            margin: 100px 0px 0 220px
+            margin: 74px 0px 0 220px
         }
         
         .navbar-nav .dropdown-menu {
@@ -40,26 +40,24 @@
 <!-- Content -->
 <section class="content" id="content">
         <div class="container-fluid">
-            <div class="block-header">
+            <!-- <div class="block-header">
                 <center>
                     <h1>
                         Trang chủ
                     </h1>
                 </center>
-            </div>
+            </div> -->
 
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
+                        <!-- <div class="header">
                             <div class="col-md-7">
                                 <p style="font-size: 2em;">Giao diện trang chủ</p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="body">
-                            <div class="col-md-7">
-                                <p>Nội dung</p>
-                            </div>
+                                <img src="uploads/admin/admin.jpg" alt="" width="100%" height="525px">
                         </div>
                     </div>
                 </div>

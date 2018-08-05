@@ -183,7 +183,8 @@ class TimKiemController extends Controller
             }
         }
         $s = $s . "<!-- " . $chitietsanpham->count() . " -->";
-        echo $s;
+        // echo $s;
+
     }
 
     public function getajaxLocSanPhamTheoLoai($arr)

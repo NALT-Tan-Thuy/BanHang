@@ -20,7 +20,7 @@
             <a href="sanpham/1" class="btn btn-default">
                 <div>Danh mục sản phẩm</div>
             </a>
-            <a href="sanpham/{{$idloaisp->id}}" class="btn btn-default">
+            <a href="sanpham/{{ $idloaisp->id }}" class="btn btn-default">
                 <div>{{$idloaisp->ten}}</div>
             </a>
         </div>
@@ -48,7 +48,7 @@
                                     @foreach($tensanpham as $tsp)
                                     <tr>
                                         <td>
-                                            <a>
+                                            <a href="sanpham/{{ $idloaisp->id }}/{{ $tsp->id }}">
                                                 <span class="glyphicon glyphicon-pencil text-primary"></span>
                                                 {{$tsp->ten}}
                                             </a>
@@ -211,7 +211,7 @@
                                     <?php if($dem >=24) break;?>
                                     <tr>
                                         <td>
-                                            <a class="fa fa-tag" href="javascript:void(0)" style="margin-left: 10%; color: #076474;"> {{$tcsp->ten}} </a>
+                                            <a class="fa fa-tag" href="chitietsp/{{$tcsp->id}}" style="margin-left: 10%; color: #076474;"> {{$tcsp->ten}} </a>
                                             <!-- <span class="label label-success">NEW</span> -->
                                         </td>
                                     </tr>

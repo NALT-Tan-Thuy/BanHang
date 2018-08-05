@@ -37,34 +37,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-3">
             <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a id="danhmuctieude" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                <span> </span> {{$idsp->ten}}
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tbody>
-                                    @foreach($tensanpham as $tsp)
-                                    <tr>
-                                        <td>
-                                            <a>
-                                                <span class="glyphicon glyphicon-pencil text-primary"></span>
-                                                {{$tsp->ten}}
-                                            </a>
-                                            <!-- <span class="badge">10</span> -->
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -79,14 +52,14 @@
                                     @foreach($tatcasanpham as $tcsp) @if($tcsp->id > count($tatcasanpham)-10)
                                     <tr>
                                         <td>
-                                            <a href=""> {{$tcsp->ten}} </a>
+                                            <a href="chitietsp/{{ $tcsp->id}}"> {{ $tcsp->ten}} </a>
                                             <span class="label label-success">NEW</span>
                                         </td>
                                     </tr>
                                     @else
                                     <tr>
                                         <td>
-                                            <a href="">{{$tcsp->ten}}</a>
+                                            <a href="chitietsp/{{ $tcsp->id}}">{{$tcsp->ten}}</a>
                                             <!-- <span class="badge">10</span> -->
                                         </td>
                                     </tr>
@@ -221,7 +194,7 @@
                                     <?php if($dem >=24) break;?>
                                     <tr>
                                         <td>
-                                            <a class="fa fa-tag" href="chitietsp/1" style="margin-left: 10%; color: #076474;"> {{$tcsp->ten}} </a>
+                                            <a class="fa fa-tag" href="chitietsp/{{ $tcsp->id }}" style="margin-left: 10%; color: #076474;"> {{$tcsp->ten}} </a>
                                             <!-- <span class="label label-success">NEW</span> -->
                                         </td>
                                     </tr>
@@ -276,7 +249,7 @@
                                 </p>
                             </div>
                             <div class="single-item-caption">
-                                <a class="add-to-cart pull-left" href="shopping_cart.html">
+                                <a class="add-to-cart pull-left" href="themgiohang/{{ $sptl->id }}">
                                     <i class="fa fa-shopping-cart"></i>
                                 </a>
                                 <a class="beta-btn primary" href="chitietsp/{{$sptl->id}}">Chi tiết
@@ -305,7 +278,7 @@
                                 </p>
                             </div>
                             <div class="single-item-caption">
-                                <a class="add-to-cart pull-left" href="shopping_cart.html">
+                                <a class="add-to-cart pull-left" href="themgiohang/{{ $sptl->id }}">
                                     <i class="fa fa-shopping-cart"></i>
                                 </a>
                                 <a class="beta-btn primary" href="chitietsp/{{$sptl->id}}">Chi tiết

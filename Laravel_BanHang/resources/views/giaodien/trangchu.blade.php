@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div id="bc1" class="btn-group btn-breadcrumb">
-            <a href="#" class="btn btn-default">
+            <a href="javascript:void(0)" class="btn btn-default">
                 <i class="fa fa-home"></i>
             </a>
             <!-- <a href="#" class="btn btn-default">
@@ -85,7 +85,7 @@
                     <i class="glyphicon glyphicon-globe"></i>
                 </div>
                 <h3>
-                    <a href="" title="THƯƠNG HIỆU KINH DOANH">THƯƠNG HIỆU KINH DOANH</a>
+                    <a href="javascript:void(0)" title="THƯƠNG HIỆU KINH DOANH">THƯƠNG HIỆU KINH DOANH</a>
                 </h3>
                 <ul class="list-group">
                     @foreach($thuonghieushare as $ths)
@@ -101,7 +101,7 @@
                     <i class="fa fa-mobile"></i>
                 </div>
                 <h3>
-                    <a href="" title="LIÊN HỆ CHÚNG TÔI">LIÊN HỆ CHÚNG TÔI</a>
+                    <a href="javascript:void(0)" title="LIÊN HỆ CHÚNG TÔI">LIÊN HỆ CHÚNG TÔI</a>
                 </h3>
                 <p>Cơ sở 1: 019287378687 (gặp Ân)</p>
                 <p>Cơ sở 2: 019287378687 (gặp Hoàng)</p>
@@ -115,7 +115,7 @@
                     <i class="glyphicon glyphicon-exclamation-sign"></i>
                 </div>
                 <h3>
-                    <a href="" title="ĐỊA CHỈ VÀ TRỢ GIÚP">THÔNG TIN TRỢ GIÚP</a>
+                    <a href="javascript:void(0)" title="ĐỊA CHỈ VÀ TRỢ GIÚP">THÔNG TIN TRỢ GIÚP</a>
 
                 </h3>
                 <p>Địa chỉ: {{$trangchushare->diachi}}</p>
