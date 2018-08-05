@@ -228,7 +228,10 @@
                                     <button class="btn btn-primary btn-lg waves-effect" type="submit">LƯU</button>
                                 </div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-danger btn-lg waves-effect" onclick="window.location.href = 'admin/user/danhsach'">HỦY</button>
+                                    <a href="admin/user/danhsach">
+                                        <button class="btn btn-danger btn-lg waves-effect" type="button">HỦY</button>
+                                    </a>
+                                    
                                 </div>
                                 <!-- <div class="col-md-2">
                                     <button class="btn bg-brown btn-lg waves-effect" type="reset" onclick="xoaText();">XÓA TEXT</button>
