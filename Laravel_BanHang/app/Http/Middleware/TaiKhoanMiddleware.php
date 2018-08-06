@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Auth;
+use Closure;
 
 class TaiKhoanMiddleware
 {
@@ -16,10 +16,15 @@ class TaiKhoanMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check()){
-            return $next($request);
-        }
-        else{
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->quyen == 'admin') {
+                return $next($request);
+            } else {
+                return redirect('/');
+            }
+
+        } else {
             return redirect()->route('dangnhap');
         }
     }

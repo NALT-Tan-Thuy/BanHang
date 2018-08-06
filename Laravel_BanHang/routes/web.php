@@ -4,7 +4,7 @@ Route::get('/', function () {
     return redirect('trangchu');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'TaiKhoanMiddleware'], function () {
     Route::get('trangchu', function () {
         return view('admin.trangchu');
     });
@@ -117,13 +117,11 @@ Route::post('dangky', 'TaiKhoanController@postDangKyTaiKhoan');
 
 Route::get('dangnhap', 'TaiKhoanController@getDangNhap')->name('dangnhap');
 Route::post('dangnhap', 'TaiKhoanController@postDangNhap');
-Route::get('dangxuat', 'TaiKhoanController@getDangXuat')->middleware('TaiKhoanMiddleware');
+Route::get('dangxuat', 'TaiKhoanController@getDangXuat');
 
 Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
 Route::get('xacnhanmatkhau', 'TaiKhoanController@getXacNhanMatKhau');
 Route::post('xulyxacnhanmatkhau', 'TaiKhoanController@postXacNhanMatKhau');
-
-
 
 Route::get('thongtin', 'TaiKhoanController@getThongTin')->middleware('TaiKhoanMiddleware');
 Route::get('suathongtin', 'TaiKhoanController@getSuaThongTin')->middleware('TaiKhoanMiddleware');
@@ -155,7 +153,6 @@ Route::get('xoagiohang/{id}', 'GiaoDienController@getXoaTatCaGioHang');
 Route::get('xoamotgiohang/{id}', 'GiaoDienController@getMotGioHang');
 Route::get('themgiohangsl', 'GiaoDienController@getThemGioHangCoSoLuong');
 Route::get('xoatoanbogiohang', 'GiaoDienController@getXoahetGioHang');
-
 
 // Xử lý đặt hàng
 Route::post('thanhtoandathang', 'DatHangController@postThanhToanDatHang');
