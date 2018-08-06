@@ -1,3 +1,20 @@
+<div id="kiemtraxoagiohang" class="modal in" style="display: none; margin-top: 10%;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <center><h2>Xóa toàn bộ giỏ hàng?</h2></center>
+                    <div class="row">
+                        <div class="col-12-xs text-center">
+                            <a class="btn btn-success btn-md" style="color: white" href="xoatoanbogiohang">Xác nhận</a>
+                            <button onclick="HuyXoaGioHang();" class="btn btn-danger btn-md">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 <header id="header">
     <!-- Phần Slide -->
     <div class="container" id="Slide">
@@ -78,18 +95,23 @@
                                     <span class="cart-item-title">{{ $product['item']['ten'] }}</span>
 
                                     <span class="cart-item-amount">
-                                        <span>@if($product['item']['khuyenmai'] > 0)
-                                            {{number_format($product['item']['giagoc']-($product['item']['giagoc']*$product['item']['khuyenmai'])/100)}} ({{$product['soluong']}})  
-                                            @else 
-                                            {{number_format($product['item']['giagoc'])}} ({{$product['soluong']}}) @endif </span></span>
+                                        <span>@if($product['item']['khuyenmai'] > 0) {{number_format($product['item']['giagoc']-($product['item']['giagoc']*$product['item']['khuyenmai'])/100)}}
+                                            ({{$product['soluong']}}) @else {{number_format($product['item']['giagoc'])}}
+                                            ({{$product['soluong']}}) @endif </span>
+                                    </span>
                                     </span>
                                 </div>
                             </div>
                         </div>
                         @endforeach
                         <div class="cart-caption">
-                            <div class="cart-total text-right">Tổng tiền:
-                                <span class="cart-total-value">{{ number_format(Session('cart')->totalPrice)}} vnđ</span>
+                            <div style="padding: 2% 0 0 2%; font-size: 1.4em;" class="cart-total text-right">
+                                <a style="float: right;" onclick="ChonXoaGioHang();">
+                                    <span class="fa fa-bitbucket"></span>
+                                </a>
+                                <span style="float: left;" class="cart-total-value">
+                                    <b>Tổng tiền: {{ number_format(Session('cart')->totalPrice)}} vnđ</b>
+                                </span>
                             </div>
                             <div class="clearfix"></div>
 
@@ -109,3 +131,12 @@
     </div>
     <!-- Xong nút tìm kiếm -->
 </header>
+<script>
+function ChonXoaGioHang() {
+    document.getElementById('kiemtraxoagiohang').style.display = 'inline'; 
+}
+
+function HuyXoaGioHang() {
+    document.getElementById('kiemtraxoagiohang').style.display = 'none';     
+}
+</script>

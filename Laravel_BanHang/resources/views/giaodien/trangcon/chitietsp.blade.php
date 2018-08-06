@@ -370,21 +370,11 @@
                 var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             xhttp.onreadystatechange = function () {
-                if (this.readyState == 1) {
-                    console.log('thiết lập kết nối máy chủ');
-                }
-                if (this.readyState == 2) {
-                    console.log('Yêu cầu đã được nhận');
-                }
-                if (this.readyState == 3) {
-                    console.log('yêu cầu xử lý');
-                }
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById('travebinhluan').innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "thembinhluansanpham/" + idsp + '/' + binhluan.value + '/' + {{ Auth:: user()-> id}
-    }, true);
+            xhttp.open("GET", "thembinhluansanpham/" + idsp + '/' + binhluan.value + '/' + {{ Auth:: user()-> id}}, true);
     xhttp.send();
     binhluan.value = "";
         }

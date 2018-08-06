@@ -19,6 +19,9 @@
     </div>
 </div>
 
+</div>
+<!-- /.modal -->
+
 <!-- Kiểm soát trang -->
 <section class="examples">
     <div class="container">

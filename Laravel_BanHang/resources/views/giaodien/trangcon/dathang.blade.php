@@ -214,6 +214,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="your-order-item">
+
                                 <div class="pull-left">
                                     <p class="your-order-f18">Tổng tiền:</p>
                                 </div>

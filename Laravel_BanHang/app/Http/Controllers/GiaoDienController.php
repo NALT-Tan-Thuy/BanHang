@@ -213,6 +213,13 @@ class GiaoDienController extends Controller
         $req->session()->put('cart', $cart);
         return redirect('sanpham/1')->with('tbthemhangthanhcong','Thêm hàng thành công, bạn có thể lựa chọn những sản phẩm khác.');
     }
+    public function getXoahetGioHang(){
+        Session::forget('cart');
+        return redirect()->back();
+    }
+    
+
+    // xử lý bình luận
     public function getThemBinhLuan($id, $noidung, $idnguoidung)
     {
         $binhluan = new BinhLuan;
@@ -248,8 +255,6 @@ class GiaoDienController extends Controller
             echo $nhanbinhluan;
         }
     }
-    public function getXacNhanMatKhau(){
-        return view('giaodien/trangcon/xacnhanmatkhau');
-    }
+    
 
 }
