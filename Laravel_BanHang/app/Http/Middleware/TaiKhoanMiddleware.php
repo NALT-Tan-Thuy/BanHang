@@ -17,13 +17,11 @@ class TaiKhoanMiddleware
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
-            $user = Auth::user();
-            if ($user->quyen == 'admin') {
+            if (Auth::user()->phanquyen == 'admin') {
                 return $next($request);
             } else {
                 return redirect('/');
             }
-
         } else {
             return redirect()->route('dangnhap');
         }

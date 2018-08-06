@@ -4,7 +4,7 @@
         <div class="navbar-header">
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="#">FUCA SHOP</a>
+            <a class="navbar-brand" href="#">{{ $trangchushare->tenshop }}</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -203,7 +203,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="javascript:void(0);"><i class="material-icons">person</i>Trang cá nhân</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">input</i>Đăng xuất</a></li>
+                        <li><a href="dangxuat"><i class="material-icons">input</i>Đăng xuất</a></li>
                     </ul>
                 </li>
                 <!-- #END# Profile -->

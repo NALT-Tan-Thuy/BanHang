@@ -84,10 +84,10 @@ class TaiKhoanController extends Controller
         $payload['password'] = $request->password;
 
         if (Auth::attempt($payload)) {
-            if(Auth::User()->phanquyen == "admin"){
+            if (Auth::User()->phanquyen == "admin") {
                 return redirect('xacnhanmatkhau');
             }
-            return redirect('trangchu');
+            return redirect('/');
         } else {
             return redirect()->back()->with('loidangnhap', 'Đăng nhập không thành công, tài khoản chưa tồn tại!');
         }
@@ -96,6 +96,10 @@ class TaiKhoanController extends Controller
     // Đăng xuất
     public function getDangXuat()
     {
+        if (Auth::user()->phanquyen == 'admin') {
+            Auth::logout();
+            return redirect('dangnhap');
+        }
         Auth::logout();
         return redirect()->back();
     }
@@ -200,24 +204,27 @@ class TaiKhoanController extends Controller
             if (!$check) {
                 return redirect()->back()->with('loianh', 'Chỉ hổ trợ định dạng: jpg, png, jpeg');
             }
-            $name = time().$file->getClientOriginalName();
-            if($user->img != ""){
-                unlink('uploads/users/'.$user->img);
-            }           
+            $name = time() . $file->getClientOriginalName();
+            if ($user->img != "") {
+                unlink('uploads/users/' . $user->img);
+            }
             $file->move('uploads/users', $name);
             $user->img = $name;
         }
         $user->save();
         return redirect('thongtin')->with('suatkthanhcong', 'Đã cập nhật thành công thông tin của bạn');
     }
-    public function getXacNhanMatKhau(){
+
+    public function getXacNhanMatKhau()
+    {
         return view('giaodien/trangcon/xacnhanadmin');
     }
-    public function postXacNhanMatKhau(Request $req){
-        if (Hash::check($req->matkhau, Auth::user()->password)){
-            return view('admin/trangchu');
-        }
-        return redirect('xacnhanmatkhau')->with('xacnhanmksai','Mật khẩu truy cập Admin không chính xác!');
-    }
 
+    public function postXacNhanMatKhau(Request $req)
+    {
+        if (Hash::check($req->matkhau, Auth::user()->password)) {
+            return redirect('admin/trangchu');
+        }
+        return redirect('xacnhanmatkhau')->with('xacnhanmksai', 'Mật khẩu truy cập Admin không chính xác!');
+    }
 }

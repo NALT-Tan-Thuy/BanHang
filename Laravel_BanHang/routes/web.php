@@ -120,7 +120,7 @@ Route::post('dangnhap', 'TaiKhoanController@postDangNhap');
 Route::get('dangxuat', 'TaiKhoanController@getDangXuat');
 
 Route::get('quenmatkhau', 'TaiKhoanController@getQuenMatKhau');
-Route::get('xacnhanmatkhau', 'TaiKhoanController@getXacNhanMatKhau');
+Route::get('xacnhanmatkhau', 'TaiKhoanController@getXacNhanMatKhau')->middleware('TaiKhoanMiddleware');
 Route::post('xulyxacnhanmatkhau', 'TaiKhoanController@postXacNhanMatKhau');
 
 Route::get('thongtin', 'TaiKhoanController@getThongTin')->middleware('TaiKhoanMiddleware');

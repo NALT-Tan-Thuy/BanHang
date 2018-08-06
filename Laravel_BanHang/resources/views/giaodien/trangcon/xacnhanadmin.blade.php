@@ -1,4 +1,4 @@
-@extends('giaodien/master') @section('noidung') @section('title') Quên mật khẩu @endsection
+@extends('giaodien/master') @section('noidung') @section('title') Xác nhận admin @endsection
 <!-- nội dung -->
 @section('css')
 <link rel="stylesheet" type="text/css" href="giaodien/css/util.css">
@@ -15,11 +15,11 @@
                     <div class="panel-body" style="min-height: 75vh;">
                         <form method="POST" action="xulyxacnhanmatkhau" class="" style="background-color: white; ">
                             @csrf
-                            <span class="login100-form-title">Quên mật khẩu</span>
+                            <span class="login100-form-title">Xác nhận mật khẩu admin</span>
 
                             <label for="">Xác nhận mật khẩu admin</label>
                             <div class="wrap-input100">
-                                <input class="input100" type="text" name="matkhau" id="matkhau" placeholder="Nhập vào mật khẩu cấp 2">
+                                <input class="input100" type="password" name="matkhau" id="matkhau" placeholder="Nhập vào mật khẩu cấp 2">
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
                                     <i class="fa fa-hand-o-right" aria-hidden="true"></i>

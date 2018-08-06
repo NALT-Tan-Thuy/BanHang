@@ -146,13 +146,4 @@
                 });
         }
     </script>
-    <!-- script trả về khi xóa thành công -->
-    <!-- <script>
-            swal({
-                title: "Xóa dữ liệu thành công!",
-                timer: 3000,
-                showConfirmButton: false,
-                icon: "success",
-            })
-        </script> -->
 @endsection

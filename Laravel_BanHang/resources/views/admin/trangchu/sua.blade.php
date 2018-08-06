@@ -254,15 +254,4 @@
         });
 
 </script>
-<!-- script trả về khi sửa thành công -->
-@if (session('thongbaosua')))
-<script>
-    swal({
-        title: "{{ session('thongbaosua') }}!",
-        timer: 3000,
-        icon: "success",
-        button: "OK",
-    })
-</script>
-@endif
 @endsection
