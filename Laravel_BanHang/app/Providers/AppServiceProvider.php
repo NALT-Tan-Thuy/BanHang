@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         view()->composer('*', function ($view) {
             $trangchushare = DB::table('trangchu')->first();
-            $slideshare = DB::table('slide')->take(6)->get();
+            $slideshare = DB::table('slide')->get();
             $thuonghieushare = DB::table('thuonghieu')->take(4)->get();
             $loaisanphamshare = DB::table('loaisanpham')->take(4)->get();
             $sanphamshare = DB::table('sanpham')->get();

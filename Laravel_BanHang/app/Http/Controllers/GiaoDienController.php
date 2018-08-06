@@ -211,7 +211,7 @@ class GiaoDienController extends Controller
         echo "đc";
         $cart->ThemCoSoLuong($product, $req->idSP, $req->soluong);
         $req->session()->put('cart', $cart);
-        return redirect('dathang');
+        return redirect('sanpham/1')->with('tbthemhangthanhcong','Thêm hàng thành công, bạn có thể lựa chọn những sản phẩm khác.');
     }
     public function getThemBinhLuan($id, $noidung, $idnguoidung)
     {
@@ -247,6 +247,9 @@ class GiaoDienController extends Controller
                 ';
             echo $nhanbinhluan;
         }
+    }
+    public function getXacNhanMatKhau(){
+        return view('giaodien/trangcon/xacnhanmatkhau');
     }
 
 }

@@ -227,6 +227,9 @@
         </div>
         <!-- hiển thị sản phẩm -->
         <div class="col-sm-9 col-md-9">
+            @if(Session::has('tbthemhangthanhcong'))
+            <div class="alert alert-success"><center>{{Session::get('tbthemhangthanhcong')}}</center></div>
+            @endif
             <div class="well">
 <!-- 
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

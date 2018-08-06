@@ -150,6 +150,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var slideImages = [
+        @if(count($slideshare) > 0)
         @foreach($slideshare as $sls)
         {
             src: 'uploads/slide/{{$sls->img}}'
@@ -161,6 +162,7 @@
             height: 418,
             slides: slideImages
         });
+        @endif
 
         function slideShownCallback($slide) {
             console.log("Slide shown: ", $slide.find('img').attr('src'))

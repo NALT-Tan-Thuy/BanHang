@@ -264,14 +264,16 @@
                         </div> -->
                 <!-- Nội dung thêm chi tiết -->
                 <div style="text-align: center" role="tabpanel" class="tab-pane fade" id="huongdanthanhtoan" aria-labelledby="huongdanthanhtoan-tab">
-                    <h2>Những mẫu bạn có thể phối cùng cực xinh, cực chất</h2>
                     @if(count($ttchitiet) != 0) @foreach($ttchitiet as $ttct)
-
+                    <h2>Những mẫu bạn có thể phối cùng cực xinh, cực chất</h2>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <img src="uploads/sanpham/{{$ttct->img}}" alt="">
                     </div>
                     <div class="space10">&nbsp;</div>
-                    @endforeach @endif
+                    @endforeach 
+                    @else
+                    <div class="alert-warning"><center>Hiện shop chưa cập nhật những mẫu phối cho sản phẩm này.</center></div>
+                    @endif
                 </div>
                 <!-- xong nội dung thêm chi tiết -->
                 <!-- Nội dung bình luận -->
@@ -305,7 +307,7 @@
                             <div class="col-xs-12 col-md-12">
                                 <div class="noiDungBinhLuan" class="media">
                                     <a class="pull-left">
-                                        <img class="media-object" src="uploads/users/{{$bl->img}}" alt=""> 
+                                        <img class="media-object" src="uploads/users/{{$bl->img}}" alt="">
                                     </a>
                                     <div class="media-body">
                                         <h4 class="media-heading tenbinhluan">{{$bl->tendangnhap}}
@@ -356,7 +358,7 @@
             dem = 0;
     }
     function GoiBinhLuan(idsp) {
-        @if(Auth::check())
+        @if (Auth:: check())
         var binhluan = document.getElementById('noidungbl');
         if (binhluan.value == "" || binhluan.value == 'Bạn chưa đặt bình luận.') {
             binhluan.value = "Bạn chưa đặt bình luận.";
@@ -368,15 +370,25 @@
                 var xhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             xhttp.onreadystatechange = function () {
+                if (this.readyState == 1) {
+                    console.log('thiết lập kết nối máy chủ');
+                }
+                if (this.readyState == 2) {
+                    console.log('Yêu cầu đã được nhận');
+                }
+                if (this.readyState == 3) {
+                    console.log('yêu cầu xử lý');
+                }
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById('travebinhluan').innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "thembinhluansanpham/" + idsp + '/' + binhluan.value + '/' + {{ Auth:: user()-> id}}, true);
-            xhttp.send();
-            binhluan.value= "";
+            xhttp.open("GET", "thembinhluansanpham/" + idsp + '/' + binhluan.value + '/' + {{ Auth:: user()-> id}
+    }, true);
+    xhttp.send();
+    binhluan.value = "";
         }
-        @endif
+    @endif
     }
 </script> @include('giaodien/quytrinh') @include('giaodien/loicamon') @include('giaodien/cuoitrang')
 

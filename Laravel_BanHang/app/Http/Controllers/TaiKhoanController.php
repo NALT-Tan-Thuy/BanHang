@@ -84,6 +84,9 @@ class TaiKhoanController extends Controller
         $payload['password'] = $request->password;
 
         if (Auth::attempt($payload)) {
+            if(Auth::User()->phanquyen == "admin"){
+                return redirect('xacnhanmatkhau');
+            }
             return redirect('trangchu');
         } else {
             return redirect()->back()->with('loidangnhap', 'Đăng nhập không thành công, tài khoản chưa tồn tại!');
@@ -206,6 +209,15 @@ class TaiKhoanController extends Controller
         }
         $user->save();
         return redirect('thongtin')->with('suatkthanhcong', 'Đã cập nhật thành công thông tin của bạn');
+    }
+    public function getXacNhanMatKhau(){
+        return view('giaodien/trangcon/xacnhanadmin');
+    }
+    public function postXacNhanMatKhau(Request $req){
+        if (Hash::check($req->matkhau, Auth::user()->password)){
+            return view('admin/trangchu');
+        }
+        return redirect('xacnhanmatkhau')->with('xacnhanmksai','Mật khẩu truy cập Admin không chính xác!');
     }
 
 }

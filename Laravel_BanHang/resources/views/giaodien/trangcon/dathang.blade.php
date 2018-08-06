@@ -104,7 +104,7 @@
                         <!-- Default input -->
                         <label class="col-sm-3 col-form-label">Địa chỉ*</label>
                         <div class="col-sm-12">
-                            <input name="diachi" id="diachi" type="text" class="form-control" placeholder="Nhập vào chính sát địa chỉ nhà" required="required">
+                            <input name="diachi" id="diachi" type="text" class="form-control" placeholder="Nhập vào chính xác địa chỉ nhà" required="required">
                         </div>
                     </div>
 
