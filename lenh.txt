@@ -66,3 +66,9 @@ catch(\Exception $e){
 
 Thay thế nháy kép trong js:
 replace(/(&quot\;)/g,"\"")
+
+
+Notification:
+Error: Class 'Pusher' not found
+=>config/app.php thêm ở khóa aliases
+'Pusher' => Pusher\Pusher::class,
