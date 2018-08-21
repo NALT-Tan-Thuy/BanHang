@@ -1,3 +1,4 @@
+var countslide = 0;
 app.controller('trangchuController', function ($scope, $http) {
 
     $http({
@@ -9,10 +10,8 @@ app.controller('trangchuController', function ($scope, $http) {
         $scope.loaisanphamkhac = response.data['loaisanphamkhac'];
         $scope.sanpham = response.data['sanpham'];
         $scope.slide = response.data['slide'];
-        a = 1;
-        // console.log(response.data['loaisanpham']);
-
-
+        $scope.loaisanphamall = response.data['loaisanphamall'];
+        console.log(response.data['trangchu']);
     }, function (error) {
         console.log(error, 'không có dữ liệu');
     });
@@ -29,9 +28,27 @@ app.controller('trangchuController', function ($scope, $http) {
         });
     });
 
+    $scope.$on('ngRepeatDanhMucFinished', function (ngRepeatFinishedEvent) {
+        $('.search-panel .dropdown-menu').find('a').click(function (e) {
+            e.preventDefault();
+            var param = $(this).attr("href").replace("#", "");
+            var concept = $(this).text();
+            $('.search-panel span#search_concept').text(concept);
+            $('.input-group #search_param').val(param);
+        });
+        console.log(2);
+    });
+
+    $scope.$on("$viewContentLoaded", function () {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js";
+        document.body.appendChild(script);
+    });
+
     if ($scope.slide !== undefined) {
         var slideImages = [];
-        for(var i = 0; i < $scope.slide.length; i++){
+        for (var i = 0; i < $scope.slide.length; i++) {
             var b = {};
             b.src = 'uploads/slide/' + $scope.slide[i].img;
             slideImages.push(b);

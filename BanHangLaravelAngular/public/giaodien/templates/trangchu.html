@@ -9,10 +9,11 @@
     </div>
     <!-- xong phần Slide-->
     <!-- Nút tìm kiếm -->
+    <!-- <div id="nhomTimKiemHang" class="row" ng-controller="trangchuController"> -->
     <div id="nhomTimKiemHang" class="row">
         <div class="container">
             <div class="col-xs-12 col-md-3">
-                <p class="textLogo" id="thegioimuasam">Thế giới mua sắm</p>
+                <p class="textLogo" id="thegioimuasam">{{ trangchu[0].tieudetrai }}</p>
             </div>
             <div id="searchForm">
                 <form method="get" action="#" name="timkiem">
@@ -24,22 +25,14 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="trangcon_spkhac.html">Quần áo</a>
+                                    <li ng-repeat="loaispall in loaisanphamall" on-finish-render="ngRepeatDanhMucFinished">
+                                        <a href="trangcon_spkhac.html">{{ loaispall.ten }}</a>
                                     </li>
-                                    <li>
-                                        <a href="trangcon_spkhac.html">Mũ và nón</a>
-                                    </li>
-                                    <li>
-                                        <a href="trangcon_spkhac.html">Giày dép</a>
-                                    </li>
-                                    <li>
-                                        <a href="trangcon_spkhac.html">Phụ kiện</a>
-                                    </li>
+                                    <!--
                                     <li class="divider"></li>
                                     <li>
                                         <a href="trangcon_spkhac.html">Tất cả</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                             <input type="hidden" name="search_param" value="all" id="search_param">
@@ -56,9 +49,9 @@
             <!-- Giỏ hàng -->
             <div class="col-xs-12 col-md-4" id="hieuunggiohang">
                 <div id="hieuungchogio" class="nhomGiohang">
-                    <span id="iconLienHe" class="glyphicon glyphicon-phone-alt"> 0977-583-016 </span>
+                    <span id="iconLienHe" class="glyphicon glyphicon-phone-alt"> {{ trangchu[0].sodienthoai }}</span>
                     <p></p>
-                    <span id="iconLienHe" class="glyphicon glyphicon-envelope"> tranquangtan@gmail.com</span>
+                    <span id="iconLienHe" class="glyphicon glyphicon-envelope"> {{ trangchu[0].email }}</span>
 
                 </div>
                 <div id="gio">
@@ -165,7 +158,7 @@
 
 <!-- Nội dung chính của trang-->
 <div class="container">
-    <h1 id="khauHieuDau">Mua sắm thả ga, rinh qùa về nhà</h1>
+    <h1 id="khauHieuDau">{{ trangchu[0].tieudeduoi }}</h1>
 </div>
 <!-- phần đầu nội dung 1 -->
 <section class="examples">
@@ -891,35 +884,34 @@
 
 </div>
 <!-- Xong nội dung 5 chứa sản phẩm phù hợp -->
-
 <!-- Script trang chủ -->
 <!-- <script src="{{ asset('giaodien/js/trangchu.js') }}"></script> -->
 <script type="text/javascript">
     // document.addEventListener("DOMContentLoaded", function () {
     // console.log(screen.width);
     var slideshow = document.getElementById('Slide');
-        slideshow.classList.add('animated');
-        slideshow.classList.add('zoomIn');
-        slideshow.style.animationDelay = "0.1s";
-        slideshow.style.animationDuration = "3s";
+    slideshow.classList.add('animated');
+    slideshow.classList.add('zoomIn');
+    slideshow.style.animationDelay = "0.1s";
+    slideshow.style.animationDuration = "3s";
 
-        var hieuunggiohang = document.getElementById('hieuunggiohang');
-        hieuunggiohang.classList.add('dichuyengiohang');
+    var hieuunggiohang = document.getElementById('hieuunggiohang');
+    hieuunggiohang.classList.add('dichuyengiohang');
 
-        var searchForm = document.getElementById('searchForm');
-        searchForm.classList.add('dichuyen');
+    var searchForm = document.getElementById('searchForm');
+    searchForm.classList.add('dichuyen');
 
-        var thegioimuasam = document.getElementById('thegioimuasam');
-        thegioimuasam.classList.add('animated');
-        thegioimuasam.classList.add('slideInLeft');
-        thegioimuasam.style.animationDelay = "0.1s";
-        thegioimuasam.style.animationDuration = "3s";
+    var thegioimuasam = document.getElementById('thegioimuasam');
+    thegioimuasam.classList.add('animated');
+    thegioimuasam.classList.add('slideInLeft');
+    thegioimuasam.style.animationDelay = "0.1s";
+    thegioimuasam.style.animationDuration = "3s";
 
-        var khauHieuDau = document.getElementById('khauHieuDau');
+    var khauHieuDau = document.getElementById('khauHieuDau');
     if (screen.height <= 575.98) {
 
     } else {
-        
+
         var trangthai = true;
         //bắt sự kiện khi người dùng cuộn chuột
         window.addEventListener('scroll', function () {
@@ -932,5 +924,11 @@
             }
         })
     }
-// }, false);
+    // }, false);
+
+    //  var script = document.createElement('script');
+    // script.type = 'text/javascript';
+    // script.src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js";
+    // document.body.appendChild(script);
+    
 </script>

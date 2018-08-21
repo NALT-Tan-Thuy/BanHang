@@ -35,24 +35,25 @@
     <!-- Chèn css cho nội dung show sản phẩm -->
     <!-- CSS Sản phẩm -->
     <link rel="stylesheet" href="{{ asset('giaodien/css/sanpham.css')}}">
-	<script>
-		var csrfToken = "{{ csrf_token() }}";
-	</script>
+    <script>
+        var csrfToken = "{{ csrf_token() }}";
+
+    </script>
 </head>
 
-<body>
-    
+<body ng-controller="trangchuController">
+
     <div ng-include="'giaodien/templates/include/navbar.html'"></div>
 
-    <div ng-controller="trangchuController">
-		<div ng-view></div>
+    <div>
+        <div ng-view></div>
     </div>
-    
+
     <div ng-include="'giaodien/templates/include/loicamon.html'"></div>
     <!-- Xong nội dung -->
 
     <div ng-include="'giaodien/templates/include/footer.html'"></div>
-
+    
     <!-- jQuery library -->
     <script src="{{ asset('giaodien/js/jquery-v3.3.1.js') }}"></script>
     <!-- Latest compiled JavaScript -->
@@ -65,22 +66,10 @@
 
     <script src="{{ asset('giaodien/js/_jquery.js') }}"></script>
 
-    <script>
-        $(document).ready(function (e) {
-            $('.search-panel .dropdown-menu').find('a').click(function (e) {
-                e.preventDefault();
-                var param = $(this).attr("href").replace("#", "");
-                var concept = $(this).text();
-                $('.search-panel span#search_concept').text(concept);
-                $('.input-group #search_param').val(param);
-            });
-        });
-
-    </script>
-
     <!-- Angularjs -->
     <script src="{{ asset('bower_components/angular/angular.min.js') }}"></script>
     <script src="{{ asset('bower_components/angular-route/angular-route.min.js') }}"></script>
+    <!-- <script src="{{ asset('bower_components/angular-ui-carousel/dist/ui-carousel.min.js') }}"></script> -->
     <script src="{{ asset('js/app/app.js') }}"></script>
     <script src="{{ asset('js/controller/trangchuController.js') }}"></script>
 </body>
